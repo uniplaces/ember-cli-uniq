@@ -1,0 +1,14 @@
+.uni-textarea {
+  margin-bottom: 46px;
+
+  textarea {
+    @include textarea();
+    width: 100%;
+  }
+
+  &-counter {
+    @include body();
+    max-width: 410px;
+    text-align: right;
+  }
+}
