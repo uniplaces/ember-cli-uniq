@@ -6,9 +6,5 @@ module.exports = {
 
   included: function(/* app */) {
     this._super.included.apply(this, arguments);
-  },
-
-  afterInstall: function() {
-    return this.addBowerPackageToProject('uniq');
   }
 };
