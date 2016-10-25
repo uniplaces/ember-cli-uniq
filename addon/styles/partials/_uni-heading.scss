@@ -1,0 +1,17 @@
+.uni-heading {
+  &__title {
+    @include heading();
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__message {
+    width: 100%;
+    margin-bottom: 68px;
+    line-height: 19px;
+
+    p {
+      max-width: 490px;
+    }
+  }
+}

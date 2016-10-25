@@ -1,0 +1,7 @@
+.uni-progress-bar {
+    @include progress-bar();
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    z-index: 3;
+}

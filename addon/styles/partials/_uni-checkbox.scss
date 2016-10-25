@@ -1,0 +1,23 @@
+.uni-checkbox__wrapper {
+  @include flex();
+  @include align-items-center();
+  width: 100%;
+}
+
+.uni-checkbox {
+  @include checkbox();
+  will-change: border;
+
+  &--checked {
+    @include flex();
+    @include align-items-center();
+    @include justify-content-center();
+  }
+
+  &--checked svg {
+      display: block;
+      fill: color("background");
+      width: 14px;
+      height: 11px;
+  }
+}

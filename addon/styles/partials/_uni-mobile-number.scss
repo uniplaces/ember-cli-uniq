@@ -1,0 +1,15 @@
+.uni-mobile-number {
+  @include mobile-number();
+  margin-bottom: 46px;
+
+  .uni-mobile-number__country-code--active .uni-mobile-number__country-code__dropdown {
+    display: block;
+    z-index: 1;
+  }
+
+  svg {
+    width: 20px;
+    height: 13px;
+    margin-right: 10px;
+  }
+}
