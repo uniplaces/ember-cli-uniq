@@ -1,0 +1,10 @@
+.uni-radio-button {
+  @include radio-button();
+  cursor: pointer;
+}
+
+.uni-radio-button__wrapper {
+  @include flex();
+  @include align-items-center();
+  width: 100%;
+}

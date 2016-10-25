@@ -1,0 +1,51 @@
+.uni-info-box {
+  @include info-box();
+  width: 320px;
+  height: auto;
+  margin-top: 46px;
+  vertical-align: middle;
+
+  svg {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 14px;
+  }
+
+  @include breakpoint(small) {
+    display: block !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__wrapper {
+    @include breakpoint(small) {
+      display: none;
+    }
+  }
+
+  &__mobile-button {
+    display: none;
+    @include align-items-center();
+    @include justify-content-center();
+    width: 50px;
+    height: 45px;
+    border: 1px solid color('borders');
+    border-radius: 10px;
+    background-color:color('background');
+    box-shadow: 0 2px 4px 0 rgba(152, 152, 152, 0.2);
+    transition: box-shadow .1s linear;
+
+    svg {
+      margin: 0;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+
+    @include breakpoint(small) {
+      @include flex();
+    }
+  }
+}

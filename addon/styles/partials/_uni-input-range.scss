@@ -1,0 +1,26 @@
+.uni-input-range {
+  @include flex();
+
+  input {
+    @include input();
+    border: 2px solid color('borders');
+    border-right: 0;
+    pointer-events: none;
+  }
+
+  &-button {
+    @include input-button();
+    background-color: color('background');
+    outline: none;
+    will-change: background-color;
+
+    &--disabled {
+      color: rgba(136, 136, 136, .24) !important;
+
+      &:hover {
+        cursor: not-allowed;
+        background-color: initial;
+      }
+    }
+  }
+}
