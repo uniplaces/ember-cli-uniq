@@ -9,9 +9,15 @@
   will-change: border;
 
   &--checked {
-    background-image: url("images/icons/check-checkbox.svg");
-    background-size: 14px 11px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    @include flex();
+    @include align-items-center();
+    @include justify-content-center();
+  }
+
+  &--checked svg {
+      display: block;
+      fill: color("background");
+      width: 14px;
+      height: 11px;
   }
 }
