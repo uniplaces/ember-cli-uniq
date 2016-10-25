@@ -3,13 +3,13 @@
   {{action (toggle 'isOpen' this)}}>
 
   {{#if selected}}
-    {{inline-svg (i "assets/images/flags/${language}" language=selected.language)}} {{selected.countryCode}}
+    {{inline-svg (i "flags/${language}" language=selected.language)}} {{selected.countryCode}}
   {{/if}}
 
   <div class="uni-mobile-number__country-code__dropdown">
     {{#each options as |option|}}
       <div class="uni-mobile-number__country-code__dropdown__item" {{action "changeSelected" option}}>
-        {{inline-svg (i "assets/images/flags/${language}" language=option.language)}}
+        {{inline-svg (i "flags/${language}" language=option.language)}}
         {{option.countryCode}}
       </div>
     {{/each}}
