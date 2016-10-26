@@ -1,5 +1,37 @@
-<h1>Textarea</h1>
+{{uni-title title='Anchor'}}
+{{uni-anchor label='This is an anchor'}}
+<p class="code-snippet">
+  \{{uni-anchor label='This is an anchor'}}
+</p>
 
+{{uni-title title='Buttons'}}
+{{uni-button isPrimary=true label="Primary"}}
+{{uni-button label="Secondary"}}
+{{uni-button isDisabled=true label="Disabled"}}
+
+<p class="code-snippet">
+  \{{uni-button isPrimary=true label="Primary"}}<br>
+  \{{uni-button label="Secondary"}}<br>
+  \{{uni-button isDisabled=true label="Disabled"}}
+</p>
+
+{{uni-title title='Checkbox'}}
+{{uni-checkbox label="Selected" isSelected=false}}
+{{uni-checkbox label="Not selected" isSelected=false}}
+<p class="code-snippet">
+  \{{uni-checkbox label="Selected" isSelected=true}}<br>
+  \{{uni-checkbox label="Not selected" isSelected=false}}
+</p>
+
+{{uni-title title='Dropdown'}}
+{{#uni-dropdown
+  selected="Filipe"
+  options=(array 'Logout') as |option|}}
+  {{option}}
+{{/uni-dropdown}}
+
+{{uni-title title='Textarea'}}
 {{uni-textarea}}
-
-{{outlet}}
+<p class="code-snippet">
+  \{{uni-textarea}}
+</p>
