@@ -9,8 +9,8 @@ export default Ember.Component.extend({
 
   rows: '3',
   value: '',
-  limitChars: 300,
+  maxLength: 300,
   count: computed('value', function () {
-    return this.get('limitChars') - this.get('value').length;
+    return this.get('maxLength') - this.get('value').length;
   })
 });
