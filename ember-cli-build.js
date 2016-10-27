@@ -9,8 +9,7 @@ module.exports = function(defaults) {
     },
     svg: {
       paths: [
-        'public/assets/images/flags/',
-        'public/assets/images/icons/'
+        'public/assets/images/'
       ]
     }
   });
