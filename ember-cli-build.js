@@ -6,6 +6,12 @@ module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     sassOptions: {
       extension: 'scss'
+    },
+    svg: {
+      paths: [
+        'public/assets/images/flags/',
+        'public/assets/images/icons/'
+      ]
     }
   });
 
