@@ -1,37 +1,43 @@
-{{uni-title title='Anchor'}}
-{{uni-anchor label='This is an anchor'}}
+{{uni-title title="Anchors"}}
+{{uni-anchor label="This is an anchor"}}
 <p class="code-snippet">
-  \{{uni-anchor label='This is an anchor'}}
+  \{{uni-anchor label="This is an anchor"}}
 </p>
 
 {{uni-title title='Buttons'}}
 {{uni-button isPrimary=true label="Primary"}}
-{{uni-button label="Secondary"}}
+{{uni-button isSecondary=true label="Secondary"}}
 {{uni-button isDisabled=true label="Disabled"}}
 
 <p class="code-snippet">
-  \{{uni-button isPrimary=true label="Primary"}}<br>
-  \{{uni-button label="Secondary"}}<br>
+  \{{uni-button isPrimary=true label="Primary"}}<br><br>
+  \{{uni-button isSecondary=true label="Secondary"}}<br><br>
   \{{uni-button isDisabled=true label="Disabled"}}
 </p>
 
-{{uni-title title='Checkbox'}}
-{{uni-checkbox label="Selected" isSelected=false}}
+{{uni-title title="Checkboxes"}}
+{{uni-checkbox label="Selected" isSelected=true}}
 {{uni-checkbox label="Not selected" isSelected=false}}
 <p class="code-snippet">
-  \{{uni-checkbox label="Selected" isSelected=true}}<br>
+  \{{uni-checkbox label="Selected" isSelected=true}}<br><br>
   \{{uni-checkbox label="Not selected" isSelected=false}}
 </p>
 
-{{uni-title title='Dropdown'}}
+{{uni-title title="Dropdown"}}
 {{#uni-dropdown
   selected="Filipe"
-  options=(array 'Logout') as |option|}}
+  options=(array "Profile" "Preferences" "Logout") as |option|}}
   {{option}}
 {{/uni-dropdown}}
 
 {{uni-title title='Textarea'}}
-{{uni-textarea}}
+{{uni-textarea placeholder="This is a placeholder"}}
+{{#uni-textarea placeholder="You can also count characters" as |count|}}
+  {{count}} characters
+{{/uni-textarea}}
 <p class="code-snippet">
-  \{{uni-textarea}}
+  \{{uni-textarea}}<br><br>
+  \{{#uni-textarea placeholder="You can also count characters" as |count|}}<br>
+  <span class="tab">\{{count}} characters</span><br>
+  \{{/uni-textarea}}
 </p>
