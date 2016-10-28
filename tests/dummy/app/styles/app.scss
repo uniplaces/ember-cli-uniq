@@ -15,27 +15,3 @@ body {
 .tab {
   padding-left: 10px;
 }
-
-.uni-input-price {
-  input {
-    outline: none;
-    border: none;
-    font-size: 20px;
-    width: 52px;
-    margin-right: 8px;
-    text-align: right;
-    color: #788392;
-  }
-
-  &__currency {
-    margin-right: 8px;
-  }
-
-  border: 2px solid #d1d5da;
-  padding: 16px 18px;
-  font-size: 20px;
-  color: #575757;
-  max-width: 236px;
-  width: 100%;
-  border-radius: 4px;
-}
