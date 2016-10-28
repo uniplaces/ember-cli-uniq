@@ -1,0 +1,8 @@
+{{#if isRightSideCurrency}}
+  <input type="text" maxlength={{maxLength}} placeholder={{placeholder}} value={{value}}>
+  <span>{{currency}} / {{per}}</span>
+{{else}}
+  <span class="uni-input-price__currency">{{currency}}</span>
+  <input type="text" maxlength={{maxLength}} placeholder={{placeholder}} value={{value}}>
+  <span> / {{per}}</span>
+{{/if}}
