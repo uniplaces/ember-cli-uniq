@@ -1,7 +1,26 @@
+{{uni-title title="Title"}}
+<p class="code-snippet">
+  \{{uni title title="Title"}}
+  <br><br>
+</p>
+
+{{uni-title title="Title" subtitle="Lorem ipsum dolor sit amet"}}
+<p class="code-snippet">
+  \{{uni title title="Title" subtitle="Lorem ipsum dolor sit amet"}}
+  <br><br>
+</p>
+
+{{uni-subtitle subtitle="Subtitle"}}
+<p class="code-snipped">
+  \{{uni-subtitle subtitle="Subtitle"}}
+  <br><br>
+</p>
+
 {{uni-title title="Anchors"}}
 {{uni-anchor label="This is an anchor"}}
 <p class="code-snippet">
   \{{uni-anchor label="This is an anchor"}}
+  <br><br>
 </p>
 
 {{uni-title title='Buttons'}}
@@ -10,9 +29,10 @@
 {{uni-button isDisabled=true label="Disabled"}}
 
 <p class="code-snippet">
-  \{{uni-button isPrimary=true label="Primary"}}<br><br>
-  \{{uni-button isSecondary=true label="Secondary"}}<br><br>
-  \{{uni-button isDisabled=true label="Disabled"}}
+  \{{uni-button isPrimary=true label="Primary" customAction=(action "someAction")}}<br><br>
+  \{{uni-button isSecondary=true label="Secondary" customAction=(action "someAction")}}<br><br>
+  \{{uni-button isDisabled=true label="Disabled" customAction=(action "someAction")}}
+  <br><br>
 </p>
 
 {{uni-title title="Checkboxes"}}
@@ -21,6 +41,7 @@
 <p class="code-snippet">
   \{{uni-checkbox label="Selected" isSelected=true}}<br><br>
   \{{uni-checkbox label="Not selected" isSelected=false}}
+  <br><br>
 </p>
 
 {{uni-title title="Dropdown"}}
@@ -29,6 +50,7 @@
   options=(array "Profile" "Preferences" "Logout") as |option|}}
   {{option}}
 {{/uni-dropdown}}
+<br><br>
 
 {{uni-title title='Textarea'}}
 {{uni-textarea placeholder="This is a placeholder"}}
@@ -40,4 +62,5 @@
   \{{#uni-textarea placeholder="You can also count characters" as |count|}}<br>
   <span class="tab">\{{count}} characters</span><br>
   \{{/uni-textarea}}
+  <br><br>
 </p>

@@ -2,12 +2,11 @@
   &__title {
     @include heading();
     width: 100%;
-    margin-bottom: 16px;
   }
 
+  &__subtitle,
   &__message {
     width: 100%;
-    margin-bottom: 68px;
     line-height: 19px;
 
     p {
