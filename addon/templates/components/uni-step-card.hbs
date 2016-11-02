@@ -1,7 +1,7 @@
 <div class="uni-step-card__step">{{step}}</div>
 
-<div class="uni-step-card__title">{{title}}</div>
-<div class="uni-step-card__hint">{{hint}}</div>
+<div class="uni-step-card__title">{{{title}}}</div>
+<div class="uni-step-card__hint">{{{hint}}}</div>
 
 {{#if (and (not isComplete) (not isDisabled))}}
   {{uni-button label="Continue" isPrimary=true}}

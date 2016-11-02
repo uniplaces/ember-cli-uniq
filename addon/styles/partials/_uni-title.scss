@@ -1,5 +1,10 @@
 .uni-title {
   @include title();
   width: 100%;
-  margin: 46px 0 20px 0;
+
+  .uni-title__subtitle {
+    @include subtitle();
+    width: 100%;
+    margin-top: 8px;
+  }
 }
