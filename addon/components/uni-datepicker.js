@@ -8,5 +8,5 @@ export default Ember.Component.extend({
   center: moment(),
   selected: moment(),
   minDate: moment(),
-  maxDate: moment().add('years', 2)
+  maxDate: moment().add(2, 'years')
 });
