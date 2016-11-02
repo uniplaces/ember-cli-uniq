@@ -1,0 +1,24 @@
+.ember-power-calendar {
+  max-width: 360px;
+}
+
+.ember-power-calendar-week {
+  height: 52px;
+}
+
+.ember-power-calendar-day {
+  max-width: 50px;
+  max-height: 50px;
+
+  &--focused {
+    box-shadow: none !important;
+  }
+}
+
+.ember-power-calendar-nav {
+  margin-bottom: 15px;
+}
+
+.ember-power-calendar-nav-control {
+  cursor: pointer;
+}
