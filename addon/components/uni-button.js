@@ -12,9 +12,5 @@ export default Ember.Component.extend({
 
   isPrimary: false,
   isDisabled: false,
-  isSecondary: false,
-
-  click() {
-    this.get('customAction')();
-  }
+  isSecondary: false
 });

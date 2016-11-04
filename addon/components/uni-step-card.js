@@ -10,5 +10,6 @@ export default Ember.Component.extend({
   step: 'First Step',
   isComplete: false,
   isDisabled: false,
-  percentage: 0
+  percentage: 0,
+  onContinue: Ember.K
 });
