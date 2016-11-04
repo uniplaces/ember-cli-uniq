@@ -4,7 +4,7 @@
 <div class="uni-step-card__hint">{{{hint}}}</div>
 
 {{#if (and (not isComplete) (not isDisabled))}}
-  {{uni-button label="Continue" isPrimary=true}}
+  {{uni-button label="Continue" isPrimary=true click=onContinue}}
 
   {{#if (gt percentage 0)}}
     {{uni-progress-bar percentage=percentage}}
