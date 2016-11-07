@@ -17,7 +17,7 @@ export default Ember.Component.extend({
   isDecrementDisabled: computed('value', function() {
     return this.get('value') <= this.get('min');
   }),
-  isIncrementDisabled: computed.gte('value', function() {
+  isIncrementDisabled: computed('value', function() {
     return this.get('value') >= this.get('max');
   }),
 
