@@ -1,0 +1,29 @@
+.uni-autocomplete {
+    position: relative;
+    @include flex();
+    @include flex-wrap();
+    @include column(6);
+
+    input {
+        @include column(12);
+    }
+}
+
+.options {
+    @include column(12);
+    height: 210px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+}
+
+.option {
+    padding: 15px 15px;
+    border: 0 solid color('borders', 'light');
+    border-width: 0 1px 1px 1px;
+
+    &:hover {
+        background-color: color('primary', 'translucent');
+    }
+}
