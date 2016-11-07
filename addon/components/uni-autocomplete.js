@@ -4,6 +4,7 @@ import layout from '../templates/components/uni-autocomplete';
 const {run, computed, isBlank, Component, K} = Ember;
 
 export default Component.extend({
+  classNames: ['uni-autocomplete'],
   layout,
   options: [],
   value: '',
