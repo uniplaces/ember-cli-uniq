@@ -3,7 +3,7 @@ import layout from '../templates/components/uni-autocomplete';
 
 const {run, computed, isBlank, Component, K} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   options: [],
   value: '',
@@ -54,7 +54,6 @@ export default Ember.Component.extend({
       this.get('onSelected')(option);
     }
   },
-
 
   _changeValue(newValue) {
     this.set('value', newValue);
