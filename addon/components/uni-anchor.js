@@ -6,6 +6,6 @@ export default Ember.Component.extend({
   layout,
 
   tagName: 'a',
-  attributeBindings: ['href'],
+  attributeBindings: ['href', 'target'],
   href: '#'
 });
