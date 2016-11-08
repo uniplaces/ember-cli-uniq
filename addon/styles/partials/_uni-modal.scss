@@ -1,27 +1,40 @@
 .uni-modal {
-    @include modal();
-    top: 0;
-    left: 0;
+  padding: 10px;
+  border-radius: 5px;
 
-    &--closed {
-        display: none;
-    }
-    &__wrapper {
-        position: relative;
-    }
-    &__close-button {
-        width: 25px;
-        height: 25px;
-        background-color: transparent;
-        border: 0;
-        padding: 0;
-        outline: none;
-    }
-    &__close-button svg {
-        width: 25px;
-        height: 25px;
-        top: 20px;
-        right: 20px;
-        fill: color('primary');
-    }
+  &__wrapper {
+    position: relative;
+  }
+
+  &__header {
+    @include flex();
+    @include space-between();
+  }
+
+  &__close-button svg {
+    width: 20px;
+    height: 20px;
+    fill: color('primary');
+  }
+
+  .content {
+    margin: 30px 0;
+    max-width: columns(8);
+  }
+
+  .controls {
+    @include flex();
+    @include align-items-center();
+  }
+
+  .separator {
+    height: 2px;
+    margin-top: 10px;
+    background-color: color('borders', 'primary');
+    opacity: 0.5;
+  }
+
+  .controls > * {
+    margin-right: 20px;
+  }
 }

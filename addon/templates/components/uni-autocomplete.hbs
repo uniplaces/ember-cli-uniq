@@ -1,10 +1,17 @@
 {{input
   value=value
   placeholder=placeholder
+  focus-in=(action (toggle "showOptions" this))
   class="uni-input uni-input--bordered"}}
 
-<ul class="options">
-  {{#each optionsFiltered as |option|}}
-    <li class="option" {{action "onSelected" option}}>{{yield option}}</li>
-  {{/each}}
-</ul>
+{{#if optionsFiltered}}
+  {{#if showOptions}}
+    <ul class="options">
+      {{#each optionsFiltered as |option|}}
+        <li class="option" {{action "onSelected" option}}>{{yield option}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+{{else}}
+  {{component noResultsComponent value=value}}
+{{/if}}

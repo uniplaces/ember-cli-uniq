@@ -10,20 +10,20 @@
 
 .options {
   @include column(12);
-  height: 210px;
+  max-height: 210px;
   list-style-type: none;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-}
 
-.option {
-  padding: 15px 15px;
-  border: 0 solid color('borders', 'light');
-  border-width: 0 1px 1px 1px;
+  li {
+    padding: 15px 15px;
+    border: 0 solid color('borders', 'light');
+    border-width: 0 1px 1px 1px;
 
-  &:hover {
-    background-color: color('primary', 'translucent');
+    &:hover {
+      background-color: color('primary', 'translucent');
+    }
   }
 }

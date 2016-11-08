@@ -1,21 +1,23 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-autocomplete';
+import ClickOutside from '../mixins/click-outside';
 
-const {run, computed, isBlank, Component, K} = Ember;
+const {run, computed, isBlank, isPresent, Component, K} = Ember;
 
-export default Component.extend({
+export default Component.extend(ClickOutside, {
   classNames: ['uni-autocomplete'],
   layout,
   options: [],
   value: '',
-  initialValue: '',
   placeholder: '',
   onSelected: K,
+  noResultsComponent: 'uni-autocomplete-no-results',
+  showOptions: false,
 
   // @Required The function must return an array of strings
   searchTextValues: null,
 
-  valueLowerCase: Ember.computed('value', function() {
+  valueLowerCase: computed('value', function() {
     return this.get('value').toLowerCase();
   }),
 
@@ -32,7 +34,7 @@ export default Component.extend({
         return {option, matchedValues};
       });
 
-      return options.filter(({matchedValues}) => Ember.isPresent(matchedValues));
+      return options.filter(({matchedValues}) => isPresent(matchedValues));
     },
 
     set(_, value) {
@@ -40,24 +42,20 @@ export default Component.extend({
     }
   }),
 
-  didInsertElement() {
-    this._super(...arguments);
-
-    run.scheduleOnce('afterRender', this, () => {
-      this._changeValue(this.get('initialValue'));
-    });
-  },
-
   actions: {
     onSelected(option) {
       this._changeValue(option.matchedValues.get('firstObject').capitalize());
 
       this.get('onSelected')(option);
+      this.set('showOptions', false);
     }
   },
 
-  _changeValue(newValue) {
-    this.set('value', newValue);
-    this.set('optionsFiltered', []);
+  onOutsideClick() {
+    this.set('showOptions');
+  },
+
+  _changeValue(value) {
+    this.set('value', value);
   },
 });

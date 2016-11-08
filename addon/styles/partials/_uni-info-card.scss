@@ -1,0 +1,30 @@
+.uni-info-card {
+  @include modal();
+  top: 0;
+  left: 0;
+
+  &--closed {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__close-button {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    outline: none;
+  }
+
+  &__close-button svg {
+    width: 25px;
+    height: 25px;
+    top: 20px;
+    right: 20px;
+    fill: color('primary');
+  }
+}
