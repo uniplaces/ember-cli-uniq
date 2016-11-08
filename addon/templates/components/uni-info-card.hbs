@@ -1,0 +1,13 @@
+{{#if isOpen}}
+  <div class="uni-modal">
+    <div class="uni-modal__wrapper">
+      <button class="uni-modal__close-button" {{action (toggle "isOpen" this)}}>
+        {{inline-svg "icons/close-modal.svg"}}
+      </button>
+
+      <div class="uni-modal__wrapper__image"></div>
+      <div class="uni-modal__wrapper__title">{{{title}}}</div>
+      <div class="uni-modal__wrapper__message">{{{message}}}</div>
+    </div>
+  </div>
+{{/if}}
