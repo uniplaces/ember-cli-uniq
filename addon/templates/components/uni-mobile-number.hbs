@@ -3,7 +3,7 @@
   {{action (toggle 'isOpen' this)}}>
 
   {{#if selected}}
-    {{inline-svg (i "flags/${language}" language=selected.language)}} {{selected.countryCode}}
+    {{inline-svg (i "flags/${language}" language=selected.language)}} {{selected.country_code}}
   {{/if}}
 
   <div class="uni-mobile-number__country-code__dropdown">
@@ -16,4 +16,4 @@
   </div>
 </div>
 
-{{input placeholder="Mobile number"}}
+{{input value=selected.number placeholder=placeholder}}

@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-uniq",
-  "version": "0.0.15",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.16",
+  "description": "Ember add-on with a variety of components with uniplaces-uniq styles and default behaviours.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -15,7 +15,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Uniplaces",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
