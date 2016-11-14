@@ -11,6 +11,10 @@ export default Ember.Component.extend({
   value: '',
   maxLength: 300,
   count: computed('value', function () {
-    return this.get('maxLength') - this.get('value').length;
+    if (this.get('value')) {
+      return this.get('maxLength') - this.get('value').length;
+    }
+
+    return this.get('maxLength');
   })
 });
