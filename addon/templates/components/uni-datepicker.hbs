@@ -2,7 +2,7 @@
   selected=selected
   center=center
   onCenterChange=(action (mut center) value="moment")
-  onSelect=(action (mut selected) value="moment") as |calendar|}}
+  onSelect=(action onSelect value="moment") as |calendar|}}
 
   {{calendar.nav}}
   {{calendar.days minDate=minDate maxDate=maxDate}}

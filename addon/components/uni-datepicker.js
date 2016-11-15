@@ -8,5 +8,6 @@ export default Ember.Component.extend({
   center: moment(),
   selected: moment(),
   minDate: moment(),
-  maxDate: moment().add(2, 'years')
+  maxDate: moment().add(1, 'years'),
+  onSelect: Ember.K,
 });
