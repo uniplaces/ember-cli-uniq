@@ -9,5 +9,6 @@ export default Ember.Component.extend({
   offset: 1,
   maxLength: 4,
   placeholder: "0",
-  isRightCurrency: true
+  isRightSideCurrency: true,
+  type: "text",
 });
