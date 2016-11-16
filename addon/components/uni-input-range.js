@@ -13,8 +13,9 @@ export default Ember.Component.extend({
   max: MAX_SAFE_INTEGER,
   min: 0,
   placeholder: "placeholder",
+  onChange: Ember.K,
 
-  isDecrementDisabled: computed('value', function() {
+  isDecrementDisabled: computed('value', function () {
     return this.get('value') <= this.get('min');
   }),
   isIncrementDisabled: computed('value', function() {
@@ -23,19 +24,11 @@ export default Ember.Component.extend({
 
   actions: {
     decrement() {
-      if (this.get('isDecrementDisabled')) {
-        return;
-      }
-
-      this.decrementProperty('value', this.get('offset'));
+      this.get('onChange')(this.get('value') - this.get('offset'));
     },
 
     increment() {
-      if (this.get('isIncrementDisabled')) {
-        return;
-      }
-
-      this.incrementProperty('value', this.get('offset'));
+      this.get('onChange')(this.get('value') + this.get('offset'));
     }
   }
 });
