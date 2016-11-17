@@ -10,7 +10,7 @@
     {{#each options as |option|}}
       <div class="uni-mobile-number__country-code__dropdown__item" {{action "changeSelected" option}}>
         {{inline-svg (i "flags/${language}" language=option.language)}}
-        {{option.countryCode}}
+        {{option.country_code}}
       </div>
     {{/each}}
   </div>
