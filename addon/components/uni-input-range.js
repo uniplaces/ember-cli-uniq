@@ -1,18 +1,18 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-input-range';
 
-const { computed } = Ember;
-const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER;
+const { Component, computed, K } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['uni-input-range'],
   layout,
 
   value: 0,
   offset: 1,
-  max: MAX_SAFE_INTEGER,
+  max: Number.MAX_SAFE_INTEGER,
   min: 0,
   placeholder: "placeholder",
+  onChange: K,
 
   isDecrementDisabled: computed('value', function() {
     return this.get('value') <= this.get('min');
@@ -23,19 +23,11 @@ export default Ember.Component.extend({
 
   actions: {
     decrement() {
-      if (this.get('isDecrementDisabled')) {
-        return;
-      }
-
-      this.decrementProperty('value', this.get('offset'));
+      this.get('onChange')(Math.max(this.get('value') - this.get('offset'), this.get('min')));
     },
 
     increment() {
-      if (this.get('isIncrementDisabled')) {
-        return;
-      }
-
-      this.incrementProperty('value', this.get('offset'));
+      this.get('onChange')(Math.min(this.get('value') + this.get('offset'), this.get('max')));
     }
   }
 });
