@@ -2,13 +2,13 @@ import Ember from 'ember';
 import layout from '../templates/components/uni-mobile-number';
 
 const options = [
-  {language: 'de', countryCode: '+40'},
-  {language: 'fr', countryCode: '+33'},
-  {language: 'es', countryCode: '+35'},
-  {language: 'it', countryCode: '+39'},
-  {language: 'uk', countryCode: '+44'},
-  {language: 'pt', countryCode: '+351'},
-  {language: 'be', countryCode: '+32'}
+  {language: 'de', country_code: '+40'},
+  {language: 'fr', country_code: '+33'},
+  {language: 'es', country_code: '+35'},
+  {language: 'it', country_code: '+39'},
+  {language: 'uk', country_code: '+44'},
+  {language: 'pt', country_code: '+351'},
+  {language: 'be', country_code: '+32'}
 ];
 
 export default Ember.Component.extend({
