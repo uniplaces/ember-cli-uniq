@@ -1,11 +1,7 @@
 <header id="uni-header" class="uni-header {{if isTransparent 'uni-header--transparent'}}">
     <div class="uni-header__wrapper">
         <div class="uni-header__logo">
-            {{#unless isTransparent}}
-                {{inline-svg "uniplaces_logo.svg"}}
-            {{else}}
-                {{inline-svg "uniplaces_logo_white.svg"}}
-            {{/unless}}
+            {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
         </div>
 
         {{#if step}}

@@ -3,13 +3,9 @@
 
     <ul class="uni-header__nav__dropdown__list">
         {{#each options as |option|}}
-            <li class="uni-header__nav__dropdown__list__item">
-                {{#if option.route}}
-                    <a href="{{option.route}}">{{option.label}}</a>
-                {{else}}
-                    <div {{action "switch" option.value}}>{{option.label}}</div>
-                {{/if}}
-            </li>
+            {{yield option componentName}}
+        {{else}}
+            {{component noOptionsDropdown}}
         {{/each}}
     </ul>
 </div>

@@ -1,0 +1,7 @@
+<li class="uni-header__nav__dropdown__list__item">
+    {{#if option.route}}
+        <a href="{{option.route}}">{{option.label}}</a>
+    {{else}}
+        <div {{action "switch" option.value}}>{{option.label}}</div>
+    {{/if}}
+</li>
