@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-header-dropdown';
 
-const { Component, k } = Ember;
+const { Component } = Ember;
 
 export default Component.extend({
   isOpen: false,
@@ -9,9 +9,6 @@ export default Component.extend({
   layout,
 
   actions: {
-    toggle() {
-      this.toggleProperty('isOpen');
-    },
-    switch(){}
+    switch() {}
   }
 });

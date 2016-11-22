@@ -1,5 +1,5 @@
 {{#if withExit}}
-    <button class="uni-header__nav__button" {{action "triggerExit"}}>Exit</button>
+    <button class="uni-header__nav__button" {{action "triggerExit"}}>{{exitLabel}}</button>
 {{else}}
     {{#if loggedIn}}
         {{uni-header-button button=headerButtons.[0]}}

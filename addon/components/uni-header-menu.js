@@ -4,12 +4,13 @@ import headerButtons from '../enums/header-buttons';
 import headerOptions from '../enums/header-menu';
 import languages from '../enums/languages';
 
-const { Component, k } = Ember;
+const { Component } = Ember;
 
 export default Component.extend({
   headerButtons: headerButtons.values(),
   headerOptions: headerOptions.values(),
   languageOptions: languages.values(),
+  exitLabel: 'Exit',
   tagName: '',
   layout,
 
