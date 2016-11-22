@@ -1,0 +1,15 @@
+<div class="uni-header__nav__dropdown {{if isOpen 'uni-header__nav__dropdown--active'}}">
+    <button class="uni-header__nav__button uni-header__nav__button--dropdown" {{action "toggle"}}>{{capitalize selected}}</button>
+
+    <ul class="uni-header__nav__dropdown__list">
+        {{#each options as |option|}}
+            <li class="uni-header__nav__dropdown__list__item">
+                {{#if option.route}}
+                    <a href="{{option.route}}">{{option.label}}</a>
+                {{else}}
+                    <div {{action "switch" option.value}}>{{option.label}}</div>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>

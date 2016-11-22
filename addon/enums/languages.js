@@ -2,39 +2,39 @@ import Type from './types';
 
 export default Type.create({
   GERMAN: {
-    value: 'Deutsch',
-    locale: 'de'
+    label: 'Deutsch',
+    value: 'de'
   },
   ENGLISH: {
-    value:'English',
-    locale: 'en'
+    label:'English',
+    value: 'en'
   },
   SPANISH: {
-    value: 'Español',
-    locale: 'es'
+    label: 'Español',
+    value: 'es'
   },
   FRENCH: {
-    value: 'Français',
-    locale: 'fr'
+    label: 'Français',
+    value: 'fr'
   },
   ITALIAN: {
-    value: 'Italiano',
-    locale: 'it'
+    label: 'Italiano',
+    value: 'it'
   },
   DUTCH: {
-    value: 'Nederlands',
-    locale: 'nl'
+    label: 'Nederlands',
+    value: 'nl'
   },
   POLISH: {
-    value: 'Polski',
-    locale: 'pl'
+    label: 'Polski',
+    value: 'pl'
   },
   PORTUGUESE: {
-    value: 'Português',
-    locale: 'pt'
+    label: 'Português',
+    value: 'pt'
   },
   CHINESE: {
-    value: '中文',
-    locale: 'zh'
+    label: '中文',
+    value: 'zh'
   }
 });

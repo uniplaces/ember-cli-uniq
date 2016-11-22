@@ -1,6 +1,15 @@
 .uni-header {
     @include header();
 
+    svg {
+        width: 100%;
+        height: auto;
+    }
+
+    .uni-header__nav__dropdown {
+        z-index: 1;
+    }
+
     a {
         position: relative;
         display: block;
