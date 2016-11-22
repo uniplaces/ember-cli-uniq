@@ -1,6 +1,6 @@
 # Ember-cli-uniq
 
-This README outlines the details of collaborating on this Ember addon.
+A Demo of the components: https://vast-shelf-62262.herokuapp.com/ 
 
 ## Installation
 
