@@ -1,0 +1,43 @@
+<header id="uni-header" class="uni-header">
+    <div class="uni-header__wrapper">
+        <div class="uni-header__logo"></div>
+
+        {{#if step}}
+            {{uni-header-breadcrumbs step=step description=description}}
+        {{/if}}
+
+        <nav class="uni-header__nav">
+            {{#if widthExit}}
+                <button class="uni-header__nav__button">Exit</button>
+            {{else}}
+                {{#each headerButtons as |option|}}
+                    <button class="uni-header__nav__button {{if option.bordered 'uni-header__nav__button--bordered'}}">{{option.label}}</button>
+                {{/each}}
+
+                {{#if loggedIn}}
+                <div class="uni-header__nav__dropdown">
+                    <button class="uni-header__nav__button uni-header__nav__button--dropdown">{{selected}}</button>
+
+                    <ul class="uni-header__nav__dropdown__list">
+                        {{#each headerOptions as |option|}}
+                        <li class="uni-header__nav__dropdown__list__item">
+                            <a href="{{option.route}}">{{option.label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{else}}
+                <div class="uni-header__nav__dropdown">
+                    <button class="uni-header__nav__button uni-header__nav__button--dropdown">EN</button>
+
+                    <ul class="uni-header__nav__dropdown__list">
+                        {{#each languages as |option| }}
+                            <li class="uni-header__nav__dropdown__list__item" data-locale="{{option.locale}}">{{option.value}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+            {{/if}}
+        </nav>
+    </div>
+</header>

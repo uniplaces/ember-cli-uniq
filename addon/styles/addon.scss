@@ -5,7 +5,7 @@
         "partials/uni-button",
         "partials/uni-checkbox",
         "partials/uni-dropdown",
-        "partials/uni-heading",
+        //"partials/uni-heading",
         "partials/uni-info-box",
         "partials/uni-input-container",
         "partials/uni-input-range",
@@ -20,7 +20,8 @@
         "partials/uni-subtitle",
         "partials/uni-datepicker",
         "partials/uni-modal",
-        "partials/uni-autocomplete";
+        "partials/uni-autocomplete",
+        "partials/uni-header";
 
 [data-ember-action]:not(:disabled) {
   cursor: pointer;
