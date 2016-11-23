@@ -1,0 +1,19 @@
+{{#if withExit}}
+    <button class="uni-header__nav__button" {{action "triggerExit"}}>{{exitLabel}}</button>
+{{else}}
+    {{#if loggedIn}}
+        {{uni-header-button button=headerButtons.firstObject}}
+
+        {{#uni-header-dropdown options=headerOptions selected="Filipe" as |option componentName|}}
+            {{component componentName option=option}}
+        {{/uni-header-dropdown}}
+    {{else}}
+        {{#each headerButtons as |option|}}
+            {{uni-header-button button=option}}
+        {{/each}}
+    {{/if}}
+
+    {{#uni-header-dropdown options=languageOptions selected=(capitalize languageOptions.0.value) as |option componentName|}}
+        {{component componentName option=option}}
+    {{/uni-header-dropdown}}
+{{/if}}
