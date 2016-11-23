@@ -1,13 +1,10 @@
 @import "bower_components/uniq/src/styles/_main";
 
-@warn "Address uni-heading on a more recent version of uniq";
-
 @import "partials/uni-textarea",
         "partials/uni-anchor",
         "partials/uni-button",
         "partials/uni-checkbox",
         "partials/uni-dropdown",
-        //"partials/uni-heading",
         "partials/uni-info-box",
         "partials/uni-input-container",
         "partials/uni-input-range",
@@ -23,7 +20,8 @@
         "partials/uni-datepicker",
         "partials/uni-modal",
         "partials/uni-autocomplete",
-        "partials/uni-header";
+        "partials/uni-header",
+        "partials/uni-subheader";
 
 [data-ember-action]:not(:disabled) {
   cursor: pointer;

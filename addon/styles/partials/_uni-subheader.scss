@@ -1,0 +1,8 @@
+.uni-subheader {
+    @include subheader();
+
+    &__caption {
+        @include body();
+        color: color('feedback', 'text');
+    }
+}
