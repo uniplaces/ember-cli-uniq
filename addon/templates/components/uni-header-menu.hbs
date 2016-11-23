@@ -2,14 +2,14 @@
     <button class="uni-header__nav__button" {{action "triggerExit"}}>{{exitLabel}}</button>
 {{else}}
     {{#if loggedIn}}
-        {{uni-header-button button=headerButtons.[0]}}
+        {{uni-header-button button=headerButtons.firstObject}}
 
         {{#uni-header-dropdown options=headerOptions selected="Filipe" as |option componentName|}}
             {{component componentName option=option}}
         {{/uni-header-dropdown}}
     {{else}}
         {{#each headerButtons as |option|}}
-            {{uni-header-button button=option action="click"}}
+            {{uni-header-button button=option}}
         {{/each}}
     {{/if}}
 

@@ -4,7 +4,6 @@ import headerButtons from '../enums/header-buttons';
 import languages from '../enums/languages';
 
 const { Component } = Ember;
-
 const headerOptions = [
   {
     label: 'Account',
@@ -21,12 +20,12 @@ const headerOptions = [
 ];
 
 export default Component.extend({
+  tagName: '',
+  layout,
   headerButtons: headerButtons.values(),
   headerOptions: headerOptions,
   languageOptions: languages.values(),
   exitLabel: 'Exit',
-  tagName: '',
-  layout,
 
   triggerExit() {},
 
