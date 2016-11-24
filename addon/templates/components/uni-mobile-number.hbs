@@ -1,19 +1,3 @@
-<div
-  class="uni-mobile-number__country-code {{if isOpen 'uni-mobile-number__country-code--active'}}"
-  {{action (toggle 'isOpen' this)}}>
-
-  {{#if selected}}
-    {{inline-svg (i "flags/${language}" language=selected.language)}} {{selected.country_code}}
-  {{/if}}
-
-  <div class="uni-mobile-number__country-code__dropdown">
-    {{#each options as |option|}}
-      <div class="uni-mobile-number__country-code__dropdown__item" {{action "changeSelected" option}}>
-        {{inline-svg (i "flags/${language}" language=option.language)}}
-        {{option.country_code}}
-      </div>
-    {{/each}}
-  </div>
-</div>
+{{uni-select options=options}}
 
 {{input value=selected.number placeholder=placeholder}}

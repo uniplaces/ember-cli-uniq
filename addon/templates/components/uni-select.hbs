@@ -1,0 +1,9 @@
+<div class="uni-select-wrapper">
+  <select class="uni-select">
+    {{#each options as |option|}}
+      <option class="uni-select__option">
+        {{option.language}} ({{option.country_code}})
+      </option>
+    {{/each}}
+  </select>
+</div>
