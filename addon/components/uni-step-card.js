@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-step-card';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   tagName: 'article',
   classNames: ['uni-step-card'],
   classNameBindings: ['isComplete:uni-step-card--passed', 'isDisabled:uni-step-card--disabled'],
@@ -11,5 +13,5 @@ export default Ember.Component.extend({
   isComplete: false,
   isDisabled: false,
   percentage: 0,
-  onContinue: Ember.K
+  onContinue() {}
 });

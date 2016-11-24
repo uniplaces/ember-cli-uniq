@@ -1,13 +1,13 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-radio-button';
 
-const {K, computed} = Ember;
+const { Component, computed } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   groupValue: null,
-  hasChanged: K,
+  hasChanged() {},
   name: null,
   label: null,
 

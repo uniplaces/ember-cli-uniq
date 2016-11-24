@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-dropdown-placeholder-simple';
+const { Component } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout
 });

@@ -1,14 +1,16 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-input-price';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   classNames: ['uni-input-price'],
   layout,
 
   value: 0,
   offset: 1,
   maxLength: 4,
-  placeholder: "0",
+  placeholder: '0',
   isRightSideCurrency: true,
-  type: "text",
+  type: 'text'
 });

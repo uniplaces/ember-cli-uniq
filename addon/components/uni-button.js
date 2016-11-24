@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-button';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   tagName: 'button',
   classNameBindings: [
     'isPrimary:uni-button--primary',
@@ -13,7 +15,7 @@ export default Ember.Component.extend({
   isPrimary: false,
   isDisabled: false,
   isSecondary: false,
-  action: Ember.K,
+  action() {},
 
   click() {
     this.get('action')();
