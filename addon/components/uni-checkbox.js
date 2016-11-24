@@ -1,11 +1,13 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-checkbox';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   layout,
 
   isSelected: false,
-  onChange: Ember.K,
+  onChange() {},
 
   click() {
     this.get('onChange')(!this.get('isSelected'));

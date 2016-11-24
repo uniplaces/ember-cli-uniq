@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-info-card';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   classNames: ['uni-info-card'],
   layout,
 

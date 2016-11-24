@@ -7,7 +7,7 @@ const { Component } = Ember;
 const headerOptions = [
   {
     label: 'Account',
-    route: '/account' 
+    route: '/account'
   },
   {
     label: 'Billing',
@@ -23,15 +23,15 @@ export default Component.extend({
   tagName: '',
   layout,
   headerButtons: headerButtons.values(),
-  headerOptions: headerOptions,
+  headerOptions,
   languageOptions: languages.values(),
   exitLabel: 'Exit',
 
   triggerExit() {},
 
   actions: {
-      triggerExit() {
-        this.get('triggerExit')();
-      }
+    triggerExit() {
+      this.get('triggerExit')();
+    }
   }
 });

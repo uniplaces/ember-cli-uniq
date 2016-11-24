@@ -6,7 +6,7 @@ export default Type.create({
     value: 'de'
   },
   ENGLISH: {
-    label:'English',
+    label: 'English',
     value: 'en'
   },
   SPANISH: {

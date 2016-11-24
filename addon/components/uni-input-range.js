@@ -11,7 +11,7 @@ export default Component.extend({
   offset: 1,
   max: Number.MAX_SAFE_INTEGER,
   min: 0,
-  placeholder: "placeholder",
+  placeholder: 'placeholder',
   onChange: K,
 
   isDecrementDisabled: computed('value', function() {

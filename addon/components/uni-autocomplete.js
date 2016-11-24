@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/uni-autocomplete';
 import ClickOutside from '../mixins/click-outside';
 
-const {run, computed, isBlank, isPresent, Component, K} = Ember;
+const { computed, isBlank, isPresent, Component, K } = Ember;
 
 export default Component.extend(ClickOutside, {
   classNames: ['uni-autocomplete'],
@@ -27,14 +27,14 @@ export default Component.extend(ClickOutside, {
         return [];
       }
 
-      let options = this.get('options').map(option => {
-        const options = this.get('searchTextValues')(option).map(x => x.toLowerCase());
-        const matchedValues = options.filter(el => el.startsWith(this.get('valueLowerCase')));
+      let options = this.get('options').map((option) => {
+        let options = this.get('searchTextValues')(option).map((x) => x.toLowerCase());
+        let matchedValues = options.filter((el) => el.startsWith(this.get('valueLowerCase')));
 
-        return {option, matchedValues};
+        return { option, matchedValues };
       });
 
-      return options.filter(({matchedValues}) => isPresent(matchedValues));
+      return options.filter(({ matchedValues }) => isPresent(matchedValues));
     },
 
     set(_, value) {
@@ -57,5 +57,5 @@ export default Component.extend(ClickOutside, {
 
   _changeValue(value) {
     this.set('value', value);
-  },
+  }
 });

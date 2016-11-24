@@ -4,9 +4,11 @@ import { module, test } from 'qunit';
 
 module('Unit | Mixin | click outside');
 
+const { Object: EmberObject } = Ember;
+
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let ClickOutsideObject = Ember.Object.extend(ClickOutsideMixin);
+  let ClickOutsideObject = EmberObject.extend(ClickOutsideMixin);
   let subject = ClickOutsideObject.create();
   assert.ok(subject);
 });

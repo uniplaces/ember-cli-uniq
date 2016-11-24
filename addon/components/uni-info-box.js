@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-info-box';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   classNames: ['uni-info-box'],
   layout
 });
