@@ -3,26 +3,26 @@ import layout from '../templates/components/uni-mobile-number';
 
 const { Component } = Ember;
 const options = [
-  { language: 'Germany', country_code: '+40' },
-  { language: 'France', country_code: '+33' },
-  { language: 'Spain', country_code: '+35' },
-  { language: 'Italy', country_code: '+39' },
-  { language: 'United Kingdom', country_code: '+44' },
-  { language: 'Portugal', country_code: '+351' },
-  { language: 'Belgium', country_code: '+32' }
+  { key: 'DE', value: 'Germany (+40)' },
+  { key: 'FR', value: 'France (+33)' },
+  { key: 'PT', value: 'Portugal (+351)' }
 ];
 
 export default Component.extend({
   classNames: ['uni-mobile-number'],
   layout,
+  number: null,
+  language: null,
 
   isOpen: false,
   options,
-  onChange() {},
+  onChangeSelect() {},
 
   actions: {
-    changeSelected(option) {
-      this.get('onChange')(option);
+    onChangeSelect(option) {
+      this.get('onChangeSelect')(option);
+
+      this.set('language', option);
     }
   }
 });

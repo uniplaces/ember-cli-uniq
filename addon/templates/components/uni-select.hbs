@@ -1,8 +1,8 @@
 <div class="uni-select-wrapper">
-  <select class="uni-select">
+  <select class="uni-select" onchange={{action "changeSelected"}}>
     {{#each options as |option|}}
-      <option class="uni-select__option">
-        {{option.language}} ({{option.country_code}})
+      <option value={{option.key}} class="uni-select__option">
+        {{option.value}}
       </option>
     {{/each}}
   </select>
