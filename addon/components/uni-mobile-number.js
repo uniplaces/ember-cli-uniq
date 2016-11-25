@@ -1,12 +1,15 @@
 import Ember from 'ember';
+import { getAllCountriesNames, getCountryName, getCountryCallingCode } from 'ember-cli-countries';
 import layout from '../templates/components/uni-mobile-number';
 
 const { Component } = Ember;
-const options = [
-  { key: 'DE', value: 'Germany (+40)' },
-  { key: 'FR', value: 'France (+33)' },
-  { key: 'PT', value: 'Portugal (+351)' }
-];
+const options = getOptions();
+
+function getOptions() {
+  return getAllCountriesNames().keys(this).map((key) => {
+    return { key, value: `${getCountryName(key)} (${getCountryCallingCode(key)})` };
+  });
+}
 
 export default Component.extend({
   classNames: ['uni-mobile-number'],
