@@ -24,7 +24,7 @@
 
 {{uni-header step="First Step" description="Describe your property" withExit=true}}
 <p class="code-snippet">
-  \{{uni-header step="First Step" description="Describe your property" loggedIn=true}}
+  \{{uni-header step="First Step" description="Describe your property" withExit=true}}
   <br><br>
 </p>
 
@@ -70,9 +70,11 @@
 </p>
 
 {{uni-title title='Buttons'}}
-{{uni-button isPrimary=true label="Primary"}}
-{{uni-button isSecondary=true label="Secondary"}}
-{{uni-button isDisabled=true label="Disabled"}}
+<div class="flex-wrapper">
+  {{uni-button isPrimary=true label="Primary"}}
+  {{uni-button isSecondary=true label="Secondary"}}
+  {{uni-button isDisabled=true label="Disabled"}}
+</div>
 
 <p class="code-snippet">
   \{{uni-button isPrimary=true label="Primary" customAction=(action "someAction")}}<br><br>
@@ -82,8 +84,10 @@
 </p>
 
 {{uni-title title="Checkboxes"}}
-{{uni-checkbox label="Selected" isSelected=true}}
-{{uni-checkbox label="Not selected" isSelected=false}}
+<div class="flex-wrapper">
+  {{uni-checkbox label="Selected" isSelected=true}}
+  {{uni-checkbox label="Not selected" isSelected=false}}
+</div>
 <p class="code-snippet">
   \{{uni-checkbox label="Selected" isSelected=true}}<br><br>
   \{{uni-checkbox label="Not selected" isSelected=false}}
@@ -100,14 +104,17 @@
 
 {{uni-title title="Inputs"}}
 {{uni-title title="uni-input-range"}}
-{{uni-input-range placeholder="0" value="10" target="items" }}
+{{uni-input-range placeholder="0" value="10" target="items"}}
+<p class="code-snippet">
+  \{{uni-input-range placeholder="0" value="10" target="items"}}
+</p>
 {{uni-title title="uni-input-price"}}
 {{uni-input-price placeholder="00" currency="€" isRightSideCurrency=true per="month"}}
-{{uni-input-price placeholder="00" currency="£" isRightSideCurrency=true per="day"}}
 <p class="code-snippet">
   \{{uni-input-price placeholder="00" currency="€" isRightSideCurrency=true per="month"}}
-  \{{uni-input-price placeholder="00" currency="£" isRightSideCurrency=true per="day"}}
 </p>
+{{uni-title title="uni-mobile-number"}}
+{{uni-mobile-number }}
 
 {{uni-title title='Textarea'}}
 {{uni-textarea placeholder="This is a placeholder"}}
@@ -128,3 +135,6 @@
 <p class="code-snippet">
   \{{uni-datepicker}}
 </p>
+
+{{uni-title title="Select"}}
+{{uni-select}}

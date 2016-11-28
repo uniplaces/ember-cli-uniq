@@ -2,14 +2,10 @@
   @include mobile-number();
   margin-bottom: 46px;
 
-  .uni-mobile-number__country-code--active .uni-mobile-number__country-code__dropdown {
-    display: block;
-    z-index: 1;
-  }
-
-  svg {
-    width: 20px;
-    height: 13px;
-    margin-right: 10px;
+  .uni-select {
+    max-width: 275px;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }

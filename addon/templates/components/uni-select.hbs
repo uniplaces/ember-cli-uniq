@@ -1,0 +1,9 @@
+<div class="uni-select-wrapper">
+  <select class="uni-select" onchange={{action "changeSelected"}}>
+    {{#each options as |option|}}
+      <option value={{option.key}} class="uni-select__option">
+        {{option.value}}
+      </option>
+    {{/each}}
+  </select>
+</div>

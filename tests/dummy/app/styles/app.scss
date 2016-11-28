@@ -1,10 +1,10 @@
 html,
 body {
-    width: 100%;
-    min-height: 100%;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    margin: 10px 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 10px 0;
 }
 
 .code-snippet {
@@ -14,6 +14,21 @@ body {
 
 .tab {
   padding-left: 10px;
+}
+
+.flex-wrapper {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+
+  .uni-button,
+  .uni-input-container {
+    margin-right: 20px;
+  }
+}
+
+.uni-title {
+  margin-bottom: 15px;
 }
 
 @import "ember-power-calendar";
