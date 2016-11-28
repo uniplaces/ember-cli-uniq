@@ -8,6 +8,7 @@ const options = getOptions();
 function getOptions() {
   return getAllCountryNames().map((country) => {
     let { key } = country;
+
     return { key, value: `${getCountryName(key)} (${getCountryCallingCode(key)})` };
   });
 }
