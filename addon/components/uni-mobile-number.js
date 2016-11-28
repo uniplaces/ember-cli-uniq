@@ -25,8 +25,6 @@ export default Component.extend({
   actions: {
     onChangeSelect(option) {
       this.get('onChangeSelect')(option);
-
-      this.set('language', option);
     }
   }
 });
