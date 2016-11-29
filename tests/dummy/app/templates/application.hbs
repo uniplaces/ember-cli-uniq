@@ -143,30 +143,30 @@
 
 {{uni-title title="sign up"}}
 <p class="code-snippet">
-  \{{#uni-modal isOpen=true isSignup=true}}
+  \{{#uni-auth-modal isOpen=true isSignup=true}}
     \{{#uni-signup withEmail=false title="Sign up"}}
       \{{uni-signup-picker}}
     \{{/uni-signup}}
-  \{{/uni-modal}}
+  \{{/uni-auth-modal}}
 </p>
-{{!--
-{{#uni-modal isOpen=true isSignup=true}}
+{{#uni-auth-modal isOpen=true isSignup=true}}
   {{#uni-signup withEmail=false title="Sign up"}}
     {{uni-signup-picker}}
   {{/uni-signup}}
-{{/uni-modal}}
---}}
+{{/uni-auth-modal}}
 
+{{!--
 {{uni-title title="sign up with email"}}
 <p class="code-snippet">
-  \{{#uni-modal isOpen=true isSignup=true}}
+  \{{#uni-auth-modal isOpen=true isSignup=true}}
     \{{#uni-signup withEmail=true title="Sign up"}}
       \{{uni-signup-picker withEmail=true}}
     \{{/uni-signup}}
-  \{{/uni-modal}}
+  \{{/uni-auth-modal}}
 </p>
-{{#uni-modal isOpen=true isSignup=true}}
+{{#uni-auth-modal isOpen=true isSignup=true}}
   {{#uni-signup withEmail=true title="Sign up"}}
     {{uni-signup-picker withEmail=true}}
   {{/uni-signup}}
-{{/uni-modal}}
+{{/uni-auth-modal}}
+--}}

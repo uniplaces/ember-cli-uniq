@@ -1,0 +1,18 @@
+.uni-auth-modal {
+  position: relative;
+  @include modal();
+  border-radius: 0;
+
+  &__close-button {
+      svg,
+      svg .st0 {
+          fill: color('text', 'close');
+      }
+  }
+
+  &--signup &__wrapper {
+    @include column(4);
+    padding: 24px;
+    background-color: color('primary', 'highlight');
+  }
+}

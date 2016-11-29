@@ -48,15 +48,3 @@
     margin-right: 20px;
   }
 }
-
-.uni-modal {
-  position: relative;
-  @include modal();
-  border-radius: 0;
-
-  &--signup &__wrapper {
-    @include column(4);
-    padding: 24px;
-    background-color: color('primary', 'highlight');
-  }
-}

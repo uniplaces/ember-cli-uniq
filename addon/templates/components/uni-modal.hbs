@@ -1,13 +1,11 @@
 {{#if isOpen}}
 <div class="uni-modal {{if isSignup 'uni-modal--signup'}}">
   <div class="uni-modal__wrapper">
-    {{#unless isSignup}}
-      <div class="uni-modal__header">
-        {{uni-title title=title}}
-      </div>
+    <div class="uni-modal__header">
+      {{uni-title title=title}}
+    </div>
 
-      <div class="separator"></div>
-    {{/unless}}
+    <div class="separator"></div>
 
     <div aria-role="button" class="uni-modal__close-button" {{action (toggle "isOpen" this)}}>
       {{inline-svg "icons/close-modal.svg"}}
