@@ -22,7 +22,9 @@
         "partials/uni-autocomplete",
         "partials/uni-header",
         "partials/uni-subheader",
-        "partials/uni-select";
+        "partials/uni-select",
+        "partials/uni-signup",
+        "partials/uni-auth-modal";
 
 [data-ember-action]:not(:disabled) {
   cursor: pointer;

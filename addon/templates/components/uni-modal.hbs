@@ -1,15 +1,15 @@
 {{#if isOpen}}
-<div class="uni-modal">
+<div class="uni-modal {{if isSignup 'uni-modal--signup'}}">
   <div class="uni-modal__wrapper">
     <div class="uni-modal__header">
       {{uni-title title=title}}
-
-      <div aria-role="button" class="uni-modal__close-button" {{action (toggle "isOpen" this)}}>
-        {{inline-svg "icons/close-modal.svg"}}
-      </div>
     </div>
 
     <div class="separator"></div>
+
+    <div aria-role="button" class="uni-modal__close-button" {{action (toggle "isOpen" this)}}>
+      {{inline-svg "icons/close-modal.svg"}}
+    </div>
 
     {{yield}}
   </div>

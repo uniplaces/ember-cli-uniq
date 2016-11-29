@@ -1,0 +1,25 @@
+.uni-signup {
+    @include signup();
+
+    &--with-email &__title {
+        &:before {
+            top: 3px;
+        }
+
+        &:after {
+            bottom: 5px;
+        }
+    }
+
+    &__text {
+        line-height: 20px;
+    }
+
+    &__button {
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
