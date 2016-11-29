@@ -1,9 +1,19 @@
 .uni-modal {
+  @include flex();
+  @include align-items-center();
+  @include justify-content-center();
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
   padding: 10px;
   border-radius: 5px;
 
   &__wrapper {
     position: relative;
+    display: block;
   }
 
   &__header {
@@ -36,5 +46,17 @@
 
   .controls > * {
     margin-right: 20px;
+  }
+}
+
+.uni-modal {
+  position: relative;
+  @include modal();
+  border-radius: 0;
+
+  &--signup &__wrapper {
+    @include column(4);
+    padding: 24px;
+    background-color: color('primary', 'highlight');
   }
 }
