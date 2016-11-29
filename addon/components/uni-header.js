@@ -5,5 +5,6 @@ const { Component } = Ember;
 
 export default Component.extend({
   tagName: '',
-  layout
+  layout,
+  logoRoute: 'index'
 });

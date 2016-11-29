@@ -1,19 +1,19 @@
-{{#if withExit}}
-    <button class="uni-header__nav__button" {{action "triggerExit"}}>{{exitLabel}}</button>
-{{else}}
-    {{#if loggedIn}}
-        {{uni-header-button button=headerButtons.firstObject}}
+{{#if isUserLoggedIn}}
+    {{uni-header-button label="Help"}}
 
-        {{#uni-header-dropdown options=headerOptions selected="Filipe" as |option componentName|}}
-            {{component componentName option=option}}
-        {{/uni-header-dropdown}}
-    {{else}}
-        {{#each headerButtons as |option|}}
-            {{uni-header-button button=option}}
-        {{/each}}
-    {{/if}}
-
-    {{#uni-header-dropdown options=languageOptions selected=(capitalize languageOptions.0.value) as |option componentName|}}
+    {{#uni-header-dropdown options=headerOptions selected=username as |option componentName|}}
         {{component componentName option=option}}
     {{/uni-header-dropdown}}
+{{else}}
+    {{uni-header-button label="help"}}
+    {{uni-header-button label="login"}}
+    {{uni-header-button label="signup"}}
 {{/if}}
+
+{{#uni-header-dropdown options=languages selected=language as |componentName option|}}
+  {{component componentName option=option onClick=(action "onLanguageBtnClick")}}
+{{/uni-header-dropdown}}
+
+{{!-- {{#if withExit}}
+    <button class="uni-header__nav__button" {{action "triggerExit"}}>{{exitLabel}}</button>
+{{else}} --}}

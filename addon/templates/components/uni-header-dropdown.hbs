@@ -1,11 +1,11 @@
 <div class="uni-header__nav__dropdown {{if isOpen 'uni-header__nav__dropdown--active'}}">
-    <button class="uni-header__nav__button uni-header__nav__button--dropdown" {{action (toggle "isOpen" this)}}>{{capitalize selected}}</button>
+    <button class="uni-header__nav__button uni-header__nav__button--dropdown" {{action (toggle "isOpen" this)}}>
+      {{selected}}
+    </button>
 
     <ul class="uni-header__nav__dropdown__list">
-        {{#each options as |option|}}
-            {{yield option componentName}}
-        {{else}}
-            {{component noOptionsDropdown}}
-        {{/each}}
+      {{#each-in options as |k option|}}
+        {{yield componentName option}}
+      {{/each-in}}
     </ul>
 </div>
