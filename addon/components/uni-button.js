@@ -8,7 +8,8 @@ export default Component.extend({
   classNameBindings: [
     'isPrimary:uni-button--primary',
     'isDisabled:uni-button--disabled',
-    'isSecondary:uni-button--secondary'],
+    'isSecondary:uni-button--secondary'
+  ],
   classNames: ['uni-button'],
   layout,
 

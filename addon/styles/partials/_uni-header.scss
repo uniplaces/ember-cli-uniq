@@ -6,16 +6,14 @@
         height: auto;
     }
 
-    &__nav__dropdown {
-        z-index: 1;
+    &__wrapper {
+      svg {
+        height: 33px;
+        width: 140px;
+      }
     }
 
-    a {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color: inherit;
+    &__nav__dropdown {
+        z-index: 1;
     }
 }
