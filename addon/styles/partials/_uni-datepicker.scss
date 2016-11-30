@@ -1,24 +1,109 @@
 .ember-power-calendar {
-  max-width: 360px;
+    width: 100%;
+    max-width: 302px;
+
+    &-nav {
+        margin-bottom: 15px;
+
+        &-control {
+            width: 47px;
+            height: 35px;
+            background: #f5f9fc;
+            border: 1px solid #d1d5da;
+            color: #545d69;
+            cursor: pointer;
+
+            button[disabled] {
+                background-color: color('buttons');
+            }
+            background-color: color('dropdown');
+
+            &--previous {
+                &:after {
+                    content: "<";
+                }
+            }
+
+            &--next {
+                &:after {
+                    content: ">";
+                }
+            }
+        }
+
+        &-title {
+            @include font("IntervalNextReg");
+            font-size: em(19px);
+        }
+    }
+
+    &-day {
+      max-width: 50px;
+      max-height: 50px;
+
+      &--focused {
+        box-shadow: none !important;
+      }
+    }
+
+    &-day--current-month {
+        background-color: color('buttons');
+    }
+
+    &-week {
+        height: 35px;
+
+        &:last-child {
+            button {
+                border-bottom: 1px solid color('primary', 'divider');
+            }
+        }
+    }
+
+    &-row {
+        @include justify-content-center();
+
+        button {
+            width: 43px;
+            height: 35px;
+            padding: 0;
+            border-top: 1px solid color('primary', 'divider');
+            border-right: 1px solid color('primary', 'divider');
+            @include font("IntervalNextBook");
+            font-size: em(16px);
+
+            &:first-child {
+                border-left: 1px solid color('primary', 'divider');
+            }
+            &:nth-child(8n) {
+                border-left: 1px solid color('primary', 'divider');
+            }
+
+            &[disabled] {
+                background-color: color('buttons', 'disabled');
+            }
+        }
+    }
+
+    &-weekdays {
+        margin-bottom: 8px;
+    }
 }
 
-.ember-power-calendar-week {
-  height: 52px;
-}
+button.ember-power-calendar-nav-control {
+    position: relative;
+    color: transparent;
+    border-radius: 2px;
+    text-indent: -9999px;
 
-.ember-power-calendar-day {
-  max-width: 50px;
-  max-height: 50px;
-
-  &--focused {
-    box-shadow: none !important;
-  }
-}
-
-.ember-power-calendar-nav {
-  margin-bottom: 15px;
-}
-
-.ember-power-calendar-nav-control {
-  cursor: pointer;
+    &:after {
+        position: absolute;
+        display: block;
+        top: 6px;
+        left: 16px;
+        @include font("IntervalNextBook");
+        font-size: em(18px);
+        color: color('text');
+        text-indent: 0;
+    }
 }
