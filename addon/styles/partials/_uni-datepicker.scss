@@ -81,6 +81,7 @@
 
             &[disabled] {
                 background-color: color('buttons', 'disabled');
+                text-decoration: line-through;
             }
         }
     }
