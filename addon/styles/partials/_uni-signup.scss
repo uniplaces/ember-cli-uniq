@@ -1,14 +1,9 @@
 .uni-signup {
     @include signup();
 
-    &--with-email &__title {
-        &:before {
-            top: 3px;
-        }
-
-        &:after {
-            bottom: 5px;
-        }
+    &__back svg {
+      height: 30px;
+      width: 30px;
     }
 
     &__text {
