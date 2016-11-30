@@ -1,18 +1,13 @@
 <div class="uni-signup {{if withEmail 'uni-signup--with-email'}}">
-    <div class="uni-signup__title">
-      {{#if withEmail}}
-        <div class="uni-signup__back" {{action "onClickBack"}}>{{inline-svg "icons/close-modal.svg"}}</div>
-      {{/if}}
-
-      {{title}}
+  <div class="uni-signup__title">
+    {{#if withEmail}}
+    <div class="uni-signup__title__back" {{action "onClickBack"}}>
+      {{inline-svg "icons/back.svg"}}
     </div>
+    {{/if}}
 
-    {{yield}}
+    {{title}}
+  </div>
 
-    <p class="uni-signup__text">By signing up, you agree with the Uniplaces’ <a href="">terms</a> and <a href="">conditions</a>.</p>
-
-    <div class="uni-signup__aux">
-      Already have an account?
-      {{uni-anchor tagName="span" label="Log in here" click=(action "onClickLogin")}}
-    </div>
+  {{yield}}
 </div>

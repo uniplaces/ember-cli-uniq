@@ -7,15 +7,10 @@ export default Component.extend({
   tagName: '',
   layout,
   onClickBack() {},
-  onClickLogin() {},
 
   actions: {
     onClickBack() {
       this.get('onClickBack')();
-    },
-
-    onClickLogin() {
-      this.get('onClickLogin')();
     }
   }
 });

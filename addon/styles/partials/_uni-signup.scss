@@ -1,9 +1,15 @@
 .uni-signup {
     @include signup();
 
-    &__back svg {
-      height: 30px;
-      width: 30px;
+    &__title {
+      @include flex();
+      @include align-items-center();
+
+      &__back svg {
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+      }
     }
 
     &__text {
