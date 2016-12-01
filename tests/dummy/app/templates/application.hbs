@@ -171,9 +171,42 @@
 {{/uni-auth-modal}}
 --}}
 
-{{uni-title title="sign up"}}
+{{uni-title title="Login & Signup"}}
 <p class="code-snippet">
+  \{{#uni-auth-modal isOpen=model.isOpen onCloseModal=(action (toggle "model.isOpen" this))}}
+    \{{#if model.isSignup}}
+      \{{#uni-signup withEmail=model.withEmail title="Signup" onClickBack=(action (toggle "model.withEmail" this))}}
+        \{{#if model.withEmail}}
+          \Credentials form
+        \{{else}}
+          \Social Form
+        \{{/if}}
+      \{{/uni-signup}}
+    \{{/if}}
+    \{{#if model.isLogin}}
+      \{{#uni-signin title="Login"}}
+        \Signin form
+      \{{/uni-signin}}
+    \{{/if}}
+  \{{/uni-auth-modal}}
 </p>
-{{#uni-auth-modal isOpen=true isSignup=true}}
-  {{uni-signin title="Log in"}}
+
+{{uni-button isPrimary=true label="Show Signup" click=(route-action "isSignup")}}
+{{uni-button isSecondary=true label="Show Login" click=(route-action "isLogin")}}
+
+{{#uni-auth-modal isOpen=model.isOpen onCloseModal=(action (toggle "model.isOpen" this))}}
+  {{#if model.isSignup}}
+    {{#uni-signup withEmail=model.withEmail title="Signup" onClickBack=(action (toggle "model.withEmail" this))}}
+      {{#if model.withEmail}}
+        Credentials form
+      {{else}}
+        Social Form
+      {{/if}}
+    {{/uni-signup}}
+  {{/if}}
+  {{#if model.isLogin}}
+    {{#uni-signin title="Login"}}
+      Signin form
+    {{/uni-signin}}
+  {{/if}}
 {{/uni-auth-modal}}

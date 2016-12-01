@@ -6,5 +6,12 @@ const { Component } = Ember;
 export default Component.extend({
   tagName: '',
   layout,
-  isOpen: false
+  isOpen: false,
+  onCloseModal() {},
+
+  actions: {
+    onCloseModal() {
+      this.get('onCloseModal')();
+    }
+  }
 });
