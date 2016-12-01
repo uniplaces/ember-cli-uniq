@@ -1,28 +1,3 @@
 <div class="uni-signin__title">{{title}}</div>
 
-<form>
-    <button class="uni-signin__button uni-signin__button--facebook">
-        {{inline-svg "icons/facebook.svg"}}
-        Log in with facebook
-    </button>
-
-    <button class="uni-signin__button uni-signin__button--google">
-        {{inline-svg "icons/google.svg"}}
-        Log in with Google
-    </button>
-
-    <div class="uni-signin__divider">
-        <div class="uni-signin__divider__content">or</div>
-    </div>
-
-    {{input type="text" placeholder="Email address"}}
-    {{input type="password" placeholder="Password (min 5 characters)"}}
-
-    {{uni-button isPrimary=true label="Log in"}}
-
-    <div class="uni-signin__alt-text">
-        {{uni-anchor label="Forgot password?"}}
-    </div>
-</form>
-
-<div class="uni-signin__aux">Don't have an account? {{uni-anchor label="Sign up here"}}</div>
+{{yield}}

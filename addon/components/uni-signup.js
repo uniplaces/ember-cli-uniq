@@ -5,5 +5,12 @@ const { Component } = Ember;
 
 export default Component.extend({
   tagName: '',
-  layout
+  layout,
+  onClickBack() {},
+
+  actions: {
+    onClickBack() {
+      this.get('onClickBack')();
+    }
+  }
 });
