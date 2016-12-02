@@ -1,24 +1,45 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+const DEFAULT_TITLE = 'Uni modal title';
+
 moduleForComponent('uni-modal', 'Integration | Component | uni modal', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
+test('it does not render', function(assert) {
+  assert.expect(1);
 
-  this.render(hbs`{{uni-modal}}`);
+  this.set('isOpen', false);
+
+  this.render(hbs`{{uni-modal isOpen=isOpen}}`);
 
   assert.equal(this.$().text().trim(), '');
+});
 
-  // Template block usage:"
+test('it renders and renders title', function(assert) {
+  assert.expect(2);
+
+  this.set('isOpen', true);
+  this.set('title', DEFAULT_TITLE);
+
+  this.render(hbs`{{uni-modal isOpen=isOpen title=title}}`);
+
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$('.uni-title').text().trim(), DEFAULT_TITLE);
+});
+
+test('it renders content', function(assert) {
+  assert.expect(2);
+
+  this.set('isOpen', true);
+
   this.render(hbs`
-    {{#uni-modal}}
-      template block text
+    {{#uni-modal isOpen=isOpen}}
+      This is content
     {{/uni-modal}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'This is content');
 });

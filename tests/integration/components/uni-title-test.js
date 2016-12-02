@@ -1,24 +1,21 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+const DEFAULT_TITLE = 'Default title';
+const DEFAULT_SUBTITLE = 'Default subtitle';
+
 moduleForComponent('uni-title', 'Integration | Component | uni title', {
   integration: true
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
+  assert.expect(2);
 
-  this.render(hbs`{{uni-title}}`);
+  this.set('title', DEFAULT_TITLE);
+  this.set('subtitle', DEFAULT_SUBTITLE);
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{uni-title title=title subtitle=subtitle}}`);
 
-  // Template block usage:"
-  this.render(hbs`
-    {{#uni-title}}
-      template block text
-    {{/uni-title}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$('.uni-subtitle').text().trim(), DEFAULT_SUBTITLE);
 });

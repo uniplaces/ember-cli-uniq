@@ -6,19 +6,9 @@ moduleForComponent('uni-header', 'Integration | Component | uni header', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(1);
 
   this.render(hbs`{{uni-header}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-header}}
-      template block text
-    {{/uni-header}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

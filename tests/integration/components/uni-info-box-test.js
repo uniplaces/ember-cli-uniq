@@ -6,19 +6,9 @@ moduleForComponent('uni-info-box', 'Integration | Component | uni info box', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
+  assert.expect(1);
 
   this.render(hbs`{{uni-info-box}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:"
-  this.render(hbs`
-    {{#uni-info-box}}
-      template block text
-    {{/uni-info-box}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
