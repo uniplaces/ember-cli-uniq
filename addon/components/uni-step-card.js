@@ -9,9 +9,6 @@ export default Component.extend({
   classNameBindings: ['isComplete:uni-step-card--passed', 'isDisabled:uni-step-card--disabled'],
   layout,
 
-  step: 'First Step',
   isComplete: false,
-  isDisabled: false,
-  percentage: 0,
-  onContinue() {}
+  isDisabled: false
 });
