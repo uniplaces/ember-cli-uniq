@@ -6,19 +6,14 @@ moduleForComponent('uni-header-dropdown-item-simple', 'Integration | Component |
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(1);
 
-  this.render(hbs`{{uni-header-dropdown-item-simple}}`);
+  this.set('option', { key: 'pt', value: 'Portugal' });
+  this.set('onClick', (key) => {
+    return key;
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{uni-header-dropdown-item-simple option=option onClick=onClick}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-header-dropdown-item-simple}}
-      template block text
-    {{/uni-header-dropdown-item-simple}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(this.$().text().trim(), '');
 });

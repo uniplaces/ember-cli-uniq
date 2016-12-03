@@ -5,20 +5,20 @@ moduleForComponent('uni-header-dropdown', 'Integration | Component | uni header 
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders nothing', function(assert) {
+  assert.expect(1);
 
   this.render(hbs`{{uni-header-dropdown}}`);
 
   assert.equal(this.$().text().trim(), '');
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-header-dropdown}}
-      template block text
-    {{/uni-header-dropdown}}
-  `);
+test('it renders', function(assert) {
+  assert.expect(1);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set('selected', 'SELECTED');
+
+  this.render(hbs`{{uni-header-dropdown selected=selected}}`);
+
+  assert.equal(this.$().text().trim(), 'SELECTED');
 });

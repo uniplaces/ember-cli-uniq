@@ -5,20 +5,21 @@ moduleForComponent('uni-autocomplete-no-results', 'Integration | Component | uni
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders nothing', function(assert) {
+  assert.expect(1);
 
   this.render(hbs`{{uni-autocomplete-no-results}}`);
 
   assert.equal(this.$().text().trim(), '');
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-autocomplete-no-results}}
-      template block text
-    {{/uni-autocomplete-no-results}}
-  `);
+test('it renders', function(assert) {
+  assert.expect(2);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set('value', 'Lisbon');
+
+  this.render(hbs`{{uni-autocomplete-no-results value=value}}`);
+
+  assert.notEqual(this.$(), '');
+  assert.equal(this.$().text().trim(), 'No results for Lisbon.');
 });

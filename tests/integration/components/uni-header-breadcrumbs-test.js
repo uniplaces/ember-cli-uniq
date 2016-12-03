@@ -6,19 +6,14 @@ moduleForComponent('uni-header-breadcrumbs', 'Integration | Component | uni head
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(3);
 
-  this.render(hbs`{{uni-header-breadcrumbs}}`);
+  this.set('step', 'First');
+  this.set('description', 'This is a description');
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{uni-header-breadcrumbs step=step description=description}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-header-breadcrumbs}}
-      template block text
-    {{/uni-header-breadcrumbs}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$('.uni-header__breadcrumb__step').text().trim(), 'First:');
+  assert.equal(this.$('.uni-header__breadcrumb__description').text().trim(), 'This is a description');
 });

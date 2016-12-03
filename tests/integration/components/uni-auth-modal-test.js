@@ -6,19 +6,26 @@ moduleForComponent('uni-auth-modal', 'Integration | Component | uni auth modal',
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(2);
 
-  this.render(hbs`{{uni-auth-modal}}`);
+  this.set('isOpen', true);
+
+  this.render(hbs`{{uni-auth-modal isOpen=isOpen}}`);
 
   assert.equal(this.$().text().trim(), '');
+  assert.notEqual(this.$(), '');
+});
 
-  // Template block usage:
+test('it renders yielded content', function(assert) {
+  assert.expect(1);
+
+  this.set('isOpen', true);
+
   this.render(hbs`
-    {{#uni-auth-modal}}
-      template block text
+    {{#uni-auth-modal isOpen=isOpen}}
+      This is the content
     {{/uni-auth-modal}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'This is the content');
 });

@@ -10,5 +10,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{uni-info-box}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.notEqual(this.$().text().trim(), '');
 });

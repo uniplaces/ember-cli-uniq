@@ -18,11 +18,10 @@ test('it renders right side currency', function(assert) {
 
   this.set('isRightSideCurrency', true);
   this.set('per', 'day');
-  this.set('value', 100);
   this.set('currency', '€');
 
-  this.render(hbs`{{uni-input-price currency=currency isRightSideCurrency=isRightSideCurrency per=per value=value}}`);
+  this.render(hbs`{{uni-input-price currency=currency isRightSideCurrency=isRightSideCurrency per=per}}`);
 
   assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$().text().trim(), '100 ');
+  assert.equal(this.$().text().trim(), '€ / day');
 });
