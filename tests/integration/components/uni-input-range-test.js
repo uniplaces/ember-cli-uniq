@@ -6,19 +6,21 @@ moduleForComponent('uni-input-range', 'Integration | Component | uni input range
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
+  assert.expect(2);
 
   this.render(hbs`{{uni-input-range}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), '-\n+');
+});
 
-  // Template block usage:"
-  this.render(hbs`
-    {{#uni-input-range}}
-      template block text
-    {{/uni-input-range}}
-  `);
+test('it renders text', function(assert) {
+  assert.expect(1);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set('value', 10);
+  this.set('target', 'beds');
+
+  this.render(hbs`{{uni-input-range value=value target=target}}`);
+
+  assert.notEqual(this.$().text().trim(), '');
 });

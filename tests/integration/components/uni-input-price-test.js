@@ -6,19 +6,22 @@ moduleForComponent('uni-input-price', 'Integration | Component | uni input price
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(1);
 
   this.render(hbs`{{uni-input-price}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.notEqual(this.$().text().trim(), '');
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-input-price}}
-      template block text
-    {{/uni-input-price}}
-  `);
+test('it renders right side currency', function(assert) {
+  assert.expect(2);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set('isRightSideCurrency', true);
+  this.set('per', 'day');
+  this.set('currency', '€');
+
+  this.render(hbs`{{uni-input-price currency=currency isRightSideCurrency=isRightSideCurrency per=per}}`);
+
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), '€ / day');
 });

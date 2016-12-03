@@ -6,19 +6,17 @@ moduleForComponent('uni-select', 'Integration | Component | uni select', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(1);
 
-  this.render(hbs`{{uni-select}}`);
+  let options = [
+    { key: 'pt', value: 'Portugal' },
+    { key: 'it', value: 'Italy' },
+    { key: 'nl', value: 'Nederlands' },
+    { key: 'en', value: 'England' }
+  ];
+  this.set('options', options);
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{uni-select options=options}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-select}}
-      template block text
-    {{/uni-select}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(this.$().text().trim(), '');
 });
