@@ -1,24 +1,30 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+const DEFAULT_LABEL = 'uni tab label';
+
 moduleForComponent('uni-tabs', 'Integration | Component | uni tabs', {
   integration: true
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(1);
 
   this.render(hbs`{{uni-tabs}}`);
 
   assert.equal(this.$().text().trim(), '');
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-tabs}}
-      template block text
-    {{/uni-tabs}}
-  `);
+test('it renders and renders items', function(assert) {
+  assert.expect(2);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set('tabs', [{
+    label: DEFAULT_LABEL,
+    url: ''
+  }]);
+
+  this.render(hbs`{{uni-tabs tabs=tabs}}`);
+
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$('.uni-tabs__wrapper__item a').text().trim(), DEFAULT_LABEL);
 });
