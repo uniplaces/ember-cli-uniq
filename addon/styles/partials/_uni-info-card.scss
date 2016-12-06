@@ -1,30 +1,26 @@
 .uni-info-card {
   @include modal();
-  top: 0;
-  left: 0;
-
-  &--closed {
-    display: none;
-  }
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
 
   &__wrapper {
+    @include flex();
+    @include flex-wrap();
+    @include align-items-center();
+    @include justify-content-center();
     position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 523px;
+    max-height: 322px;
   }
 
   &__close-button {
-    width: 25px;
-    height: 25px;
     background-color: transparent;
+    -webkit-appearance: none;
+    outline: 0;
     border: 0;
-    padding: 0;
-    outline: none;
-  }
-
-  &__close-button svg {
-    width: 25px;
-    height: 25px;
-    top: 20px;
-    right: 20px;
-    fill: color('primary');
+    right: 30px;
   }
 }
