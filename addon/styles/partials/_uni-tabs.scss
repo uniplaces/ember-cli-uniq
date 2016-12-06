@@ -1,0 +1,8 @@
+.uni-tabs {
+    @include tabs();
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
