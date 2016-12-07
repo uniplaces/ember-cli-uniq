@@ -1,0 +1,36 @@
+.uni-carrousel {
+    @include carroussel();
+
+    .uni-carrousel__container__wrapper {
+        height: calc(100% - 8px);
+    }
+
+    &__container__markers {
+        @include flex();
+        @include flex-wrap();
+        @include align-items-center();
+        @include justify-content-center();
+        width: 100%;
+
+        &__item {
+            width: 8px;
+            height: 8px;
+            margin: 0 6px;
+            background-color: color('text', 'close');
+            border-radius: 50%;
+            will-change: background-color;
+            transition: background-color $animation-duration $swiftOut;
+            border: 0;
+            outline: 0;
+            padding: 0;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &--active {
+                background-color: color('primary');
+            }
+        }
+    }
+}

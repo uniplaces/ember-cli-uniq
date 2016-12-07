@@ -1,24 +1,24 @@
 .uni-modal {
-  @include flex();
-  @include align-items-center();
-  @include justify-content-center();
+  @include modal();
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
 
-  padding: 10px;
-  border-radius: 5px;
-
   &__wrapper {
     position: relative;
     display: block;
+    max-height: 100%;
+    height: auto;
+    padding: 26px;
+    background-color: color('background', 'modal');
   }
 
   &__header {
     @include flex();
     @include space-between();
+    text-align: left;
   }
 
   &__close-button svg {

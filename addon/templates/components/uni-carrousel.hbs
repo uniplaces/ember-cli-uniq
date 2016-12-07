@@ -1,0 +1,14 @@
+<div class="uni-carrousel__container">
+    <button class="uni-carrousel__button uni-carrousel__button--prev" {{action "prev"}}>&lt;</button>
+
+    <div class="uni-carrousel__container__wrapper" style="transform: translate3d({{deltaX}}px, 0, 0)">
+        {{yield}}
+    </div>
+    <div class="uni-carrousel__container__markers">
+        {{#each (range 0 itemCount) as |index|}}
+            <button class="uni-carrousel__container__markers__item {{if (eq page index) "uni-carrousel__container__markers__item--active"}}" {{action "navTo" index}}></button>
+        {{/each}}
+    </div>
+
+    <button class="uni-carrousel__button uni-carrousel__button--next" {{action "next"}}>&gt;</button>
+</div>
