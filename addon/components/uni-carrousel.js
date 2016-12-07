@@ -9,11 +9,11 @@ export default Component.extend({
   page: 0,
   componentWidth: 0,
   showPrev: computed.gt('page', 0),
-  showNext: computed('page', function (page) {
+  showNext: computed('page', function() {
     return this.get('page') < (this.get('itemCount') - 1);
   }),
 
-  deltaX: computed('page', function () {
+  deltaX: computed('page', function() {
     return this.get('page') * this.get('componentWidth') * -1;
   }),
 

@@ -4,7 +4,7 @@ import layout from '../templates/components/uni-modal';
 const { Component } = Ember;
 
 export default Component.extend({
-  classNames: ['uni-modal'],
+  tagName: '',
   layout,
 
   isOpen: false
