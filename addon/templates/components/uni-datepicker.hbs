@@ -1,9 +1,20 @@
 {{#power-calendar
-  selected=selected
   center=center
-  onCenterChange=(action (mut center) value="moment")
+  selected=selected
+  onCenter=(action onCenter value="moment")
   onSelect=(action onSelect value="moment") as |calendar|}}
 
-  {{calendar.nav}}
-  {{calendar.days minDate=minDate maxDate=maxDate}}
+  <nav class="ember-power-calendar-nav">
+    <button class="ember-power-calendar-nav-control" disabled={{isFirstMonth}} {{action "prevMonth"}}>
+      {{inline-svg "icons/arrow-left-calendar"}}
+    </button>
+    <div class="ember-power-calendar-nav-title">
+      {{moment-format calendar.center 'MMMM YYYY'}}
+    </div>
+    <button class="ember-power-calendar-nav-control" disabled={{isLastMonth}} {{action "nextMonth"}}>
+      {{inline-svg "icons/arrow-right-calendar"}}
+    </button>
+  </nav>
+
+  {{calendar.days minDate=minDate maxDate=maxDate showDaysAround=showDaysAround}}
 {{/power-calendar}}
