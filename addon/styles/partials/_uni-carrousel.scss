@@ -1,8 +1,17 @@
 .uni-carrousel {
-    @include carroussel();
+    @include carrousel();
 
     .uni-carrousel__container__wrapper {
         height: calc(100% - 8px);
+    }
+
+    .uni-carrousel__button svg {
+        width: 10px;
+        height: 15px;
+    }
+
+    .uni-carrousel__button:hover svg path {
+        fill: color('primary') !important;
     }
 
     &__container__markers {

@@ -1,7 +1,13 @@
 <div class="uni-carrousel__container">
-    <button class="uni-carrousel__button uni-carrousel__button--prev" {{action "prev"}}>&lt;</button>
+    {{#if showPrev}}
+        <button class="uni-carrousel__button uni-carrousel__button--prev" {{action "prev"}}>
+            <svg viewBox="0 0 7 11.6">
+            <path style="fill: #b2b9c2" d="M6.6 11.6c-.1 0-.2 0-.3-.1L.1 6.1c0-.1-.1-.2-.1-.3 0-.1.1-.2.1-.3L6.3.1c.2-.1.5-.1.6 0 .1.2.1.5 0 .6L1 5.8l5.8 5.1c.2.1.2.4 0 .6 0 .1-.1.1-.2.1z"/>
+            </svg>
+        </button>
+    {{/if}}
 
-    <div class="uni-carrousel__container__wrapper" style="transform: translate3d({{deltaX}}px, 0, 0)">
+    <div class="uni-carrousel__container__wrapper" style="transform: translate3d({{deltaX}}px, 0px, 0)">
         {{yield}}
     </div>
     <div class="uni-carrousel__container__markers">
@@ -10,5 +16,11 @@
         {{/each}}
     </div>
 
-    <button class="uni-carrousel__button uni-carrousel__button--next" {{action "next"}}>&gt;</button>
+    {{#if showNext}}
+        <button class="uni-carrousel__button uni-carrousel__button--next" {{action "next"}}>
+            <svg viewBox="0 0 7 11.6">
+            <path style="fill: #b2b9c2" d="M.4 11.6c.1 0 .2 0 .3-.1l6.2-5.4c0-.1.1-.2.1-.3 0-.1-.1-.2-.1-.3L.7.1C.5 0 .2 0 .1.1 0 .3 0 .6.1.7L6 5.8.2 10.9c-.2.1-.2.4 0 .6 0 .1.1.1.2.1z"/>
+            </svg>
+        </button>
+    {{/if}}
 </div>
