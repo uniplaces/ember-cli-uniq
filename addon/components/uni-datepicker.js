@@ -12,6 +12,7 @@ export default Component.extend({
   minDate: moment(),
   maxDate: moment().add(2, 'years'),
   weekdayFormat: 'min',
+  dateFormat: 'MMMM YYYY',
   showDaysAround: false,
   isFirstMonth: computed('center', function() {
     return this.get('center').isSame(this.get('minDate'), 'month');

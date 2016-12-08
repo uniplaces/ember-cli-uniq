@@ -9,7 +9,7 @@
       {{inline-svg "icons/arrow-left-calendar"}}
     </button>
     <div class="ember-power-calendar-nav-title">
-      {{moment-format calendar.center 'MMMM YYYY'}}
+      {{moment-format calendar.center dateFormat}}
     </div>
     <button class="ember-power-calendar-nav-control" disabled={{isLastMonth}} {{action "nextMonth"}}>
       {{inline-svg "icons/arrow-right-calendar"}}
