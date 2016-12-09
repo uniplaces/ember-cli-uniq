@@ -1,110 +1,150 @@
+$box-size: 42px;
+
 .ember-power-calendar {
-    width: 100%;
-    max-width: 302px;
+  width: 100%;
+  max-width: 294px;
 
-    &-nav {
-        margin-bottom: 15px;
+  &-nav {
+    margin-bottom: 15px;
 
-        &-control {
-            width: 47px;
-            height: 35px;
-            background: #f5f9fc;
-            border: 1px solid #d1d5da;
-            color: #545d69;
-            cursor: pointer;
+    &-control {
+      width: 47px;
+      height: 35px;
+      background: color('dropdown') !important;
+      border: 1px solid color('primary', 'divider') !important;
+      color: color('dropdown') !important;
+      cursor: pointer;
+      background-color: color('dropdown');
 
-            button[disabled] {
-                background-color: color('buttons');
-            }
-            background-color: color('dropdown');
-
-            &--previous {
-                &:after {
-                    content: "<";
-                }
-            }
-
-            &--next {
-                &:after {
-                    content: ">";
-                }
-            }
-        }
-
-        &-title {
-            @include font("IntervalNextReg");
-            font-size: em(19px);
-        }
-    }
-
-    &-day {
-      max-width: 50px;
-      max-height: 50px;
-
-      &--focused {
-        box-shadow: none !important;
+      button[disabled] {
+        background-color: color('buttons');
       }
     }
 
-    &-day--current-month {
-        background-color: color('buttons');
+    &-title {
+      @include font("IntervalNextReg");
+      font-size: em(19px);
+    }
+  }
+
+  &-day {
+    max-width: $box-size;
+    max-height: $box-size;
+    cursor: pointer;
+
+    &--focused {
+      box-shadow: none !important;
+    }
+  }
+
+  &-day--current-month {
+    background-color: color('buttons') !important;
+
+    &:hover {
+      background-color: color('buttons', 'hover') !important;
     }
 
-    &-week {
-        height: 35px;
+    &:disabled {
+      color: color('buttons', 'disabled-text') !important;
 
-        &:last-child {
-            button {
-                border-bottom: 1px solid color('primary', 'divider');
-            }
+      &:hover {
+        background-color: color('buttons') !important;
+      }
+    }
+  }
+
+  &-day--other-month {
+    background-color: color('buttons', 'disabled');
+  }
+
+  &-day--selected {
+    color: color('primary') !important;
+  }
+
+  &-day--interactive[disabled] {
+    opacity: 1 !important;
+  }
+
+  &-week {
+    border-top: 1px solid color('primary', 'divider');
+
+    &:first-child {
+      border-top: 0;
+      @include justify-content-end();
+
+      button {
+        border-top: 1px solid color('primary', 'divider');
+
+        &:first-child {
+          border-left: 0;
+          box-shadow: -1px 0 0 color('primary', 'divider');
         }
+      }
     }
 
-    &-row {
-        @include justify-content-center();
-
-        button {
-            width: 43px;
-            height: 35px;
-            padding: 0;
-            border-top: 1px solid color('primary', 'divider');
-            border-right: 1px solid color('primary', 'divider');
-            @include font("IntervalNextBook");
-            font-size: em(16px);
-
-            &:first-child {
-                border-left: 1px solid color('primary', 'divider');
-            }
-            &:nth-child(8n) {
-                border-left: 1px solid color('primary', 'divider');
-            }
-
-            &[disabled] {
-                background-color: color('buttons', 'disabled');
-                text-decoration: line-through;
-            }
-        }
+    &[data-missing-days="0"]:first-child button:first-child {
+      box-shadow: 0 0 0;
+      border-left: 1px solid color('primary', 'divider');
     }
 
-    &-weekdays {
-        margin-bottom: 8px;
+    &:last-child {
+      @include justify-content-start();
+
+      button {
+        border-bottom: 1px solid color('primary', 'divider');
+      }
     }
+  }
+
+  &-row {
+    @include justify-content-center();
+
+    button {
+      width: $box-size;
+      height: $box-size;
+      padding: 0;
+      border-right: 1px solid color('primary', 'divider');
+      @include font("IntervalNextBook");
+      font-size: em(16px);
+
+      &:first-child {
+        border-left: 1px solid color('primary', 'divider');
+      }
+      &:nth-child(8n) {
+        border-left: 1px solid color('primary', 'divider');
+      }
+
+      &[disabled] {
+        background-color: color('buttons', 'disabled');
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &-weekdays {
+    margin-bottom: 8px;
+  }
 }
 
 button.ember-power-calendar-nav-control {
-    position: relative;
-    color: transparent;
-    border-radius: 2px;
-    text-indent: -9999px;
+  @include flex();
+  @include align-items-center();
+  @include justify-content-center();
 
-    &:after {
-        position: absolute;
-        display: block;
-        top: 6px;
-        left: 16px;
-        @include font("IntervalNextBook");
-        font-size: em(18px);
-        color: color('text');
-        text-indent: 0;
-    }
+  svg {
+    height: 10px;
+  }
+
+  &:focus {
+    transform: scale(1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &[disabled] {
+    border: 0;
+    opacity: 0.4;
+  }
 }
