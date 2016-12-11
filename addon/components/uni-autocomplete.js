@@ -50,25 +50,8 @@ export default Component.extend(ClickOutside, {
       this.selectOption(option);
     },
 
-    keyDown(_, ev) {
-      let { keyCode } = ev;
-
-      switch (keyCode) {
-        case KeyCodes.UP_ARROW:
-          this._handleKeyUp(ev);
-          break;
-        case KeyCodes.DOWN_ARROW:
-          this._handleKeyDown(ev);
-          break;
-        case KeyCodes.ENTER:
-          this._handleKeyEnter();
-          break;
-        case KeyCodes.ESCAPE:
-          this._handleKeyESC();
-          break;
-        default:
-          this.get('onSelected')({});
-      }
+    keyPress(_, ev) {
+      this._handleKeyPress(ev);
     },
 
     setHighlighted(index) {
@@ -92,20 +75,33 @@ export default Component.extend(ClickOutside, {
     this.set('showOptions', false);
   },
 
-  _handleKeyUp(ev) {
-    ev.preventDefault();
+  _handleKeyPress(ev) {
+    let { keyCode } = ev;
 
-    if (this.get('highlighted') > 0) {
-      this.decrementProperty('highlighted');
+    if (keyCode === KeyCodes.UP_ARROW || keyCode === KeyCodes.DOWN_ARROW) {
+      ev.preventDefault();
+
+      return this._handleKeyUpDown(keyCode === KeyCodes.DOWN_ARROW ? 1 : -1);
     }
+
+    if (keyCode === KeyCodes.ENTER) {
+      return this._handleKeyEnter();
+    }
+
+    if (keyCode === KeyCodes.ESCAPE) {
+      return this._handleKeyESC();
+    }
+
+    this.set('highlighted', 0);
+    this.get('onSelected')();
   },
 
-  _handleKeyDown(ev) {
-    ev.preventDefault();
+  _handleKeyUpDown(increment) {
+    let maxOptions = this.get('maxOptionsToShow');
+    let highlightedOption = this.get('highlighted') + increment;
 
-    if (this.get('highlighted') < (this.get('maxOptionsToShow') - 1)) {
-      this.incrementProperty('highlighted');
-    }
+    // Allows to do a circular mod with positive and negative values: ((f % n) + n) % n.
+    this.set('highlighted', ((highlightedOption % maxOptions) + maxOptions) % maxOptions);
   },
 
   _handleKeyEnter() {
