@@ -1,14 +1,19 @@
 {{input
   value=value
   placeholder=placeholder
-  focus-in=(action (toggle "showOptions" this))
-  class="uni-input uni-input--bordered"}}
+  focus-in=(action "showOptions")
+  class="uni-input uni-input--bordered"
+  key-down=(action "keyDown")}}
 
 {{#if optionsFiltered}}
   {{#if showOptions}}
     <ul class="options">
-      {{#each optionsFiltered as |option|}}
-        <li class="option" {{action "onSelected" option}}>{{yield option}}</li>
+      {{#each optionsFiltered as |option index|}}
+        <li {{action "onSelected" option}}>
+          <span class="option {{if (eq index highlighted) 'option--highlighted'}}" {{action "setHighlighted" index on="mouseEnter"}}>
+            {{yield option}}
+          </span>
+        </li>
       {{/each}}
     </ul>
   {{/if}}
