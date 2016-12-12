@@ -1,13 +1,7 @@
 .uni-footer-website {
     @include footer-website();
 
-    &__row {
-        &__cell {
-            &__anchor {
-                &--inline {
+    &__row__cell__anchor--inline {
                     margin-right: 32px;
-                }
-            }
-        }
     }
 }
