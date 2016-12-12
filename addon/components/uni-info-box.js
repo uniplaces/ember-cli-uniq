@@ -4,6 +4,7 @@ import layout from '../templates/components/uni-info-box';
 const { Component } = Ember;
 
 export default Component.extend({
-  classNames: ['uni-info-box'],
-  layout
+  layout,
+
+  showInfoModal: false
 });

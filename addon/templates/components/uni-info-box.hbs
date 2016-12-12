@@ -1,12 +1,18 @@
-<div class="uni-info-box__wrapper">
-  <div class="uni-info-box__title">
-    {{inline-svg "icons/info.svg"}}
-    {{{title}}}
+{{#uni-modal isOpen=showInfoModal title=(concat (inline-svg "icons/info.svg") title)}}
+  {{yield}}
+{{/uni-modal}}
+
+<div class="uni-info-box">
+  <div class="uni-info-box__wrapper">
+    <div class="uni-info-box__title">
+      {{inline-svg "icons/info.svg"}}
+      {{{title}}}
+    </div>
+    <div class="uni-info-box__hr"></div>
+    <p class="uni-info-box__content">{{yield}}</p>
   </div>
-  <div class="uni-info-box__hr"></div>
-  <p class="uni-info-box__content">{{yield}}</p>
 </div>
 
-<div class="uni-info-box__mobile-button">
+<div class="uni-info-box-mobile-button" {{action (toggle "showInfoModal" this)}}>
   {{inline-svg "icons/info.svg"}}
 </div>

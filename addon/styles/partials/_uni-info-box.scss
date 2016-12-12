@@ -1,3 +1,7 @@
 .uni-info-box {
   @include info-box();
+
+  &-mobile-button svg {
+    width: 20px;
+  }
 }

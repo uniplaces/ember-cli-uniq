@@ -1,10 +1,17 @@
 .uni-title {
   @include title();
   width: 100%;
+  @include flex();
+  @include align-items-center();
 
   .uni-title__subtitle {
     @include subtitle();
     width: 100%;
     margin-top: 8px;
+  }
+
+  svg {
+    margin-right: 10px;
+    width: 20px;
   }
 }
