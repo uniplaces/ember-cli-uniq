@@ -7,6 +7,8 @@
     }
 
     &__wrapper {
+      @include justify-content-start();
+
       svg {
         height: 33px;
         width: 140px;
