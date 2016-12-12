@@ -150,9 +150,24 @@
 {{uni-title title="Select"}}
 {{uni-select}}
 
-{{#uni-info-card isOpen=true}}
-  "hello world"
-{{/uni-info-card}}
+{{#uni-modal isOpen=true title="Photography tips"}}
+  {{#uni-carrousel itemCount=3}}
+    {{uni-carrousel-item
+      thumbnail=""
+      title="Shoot for corners and go for straight lines"
+      content="Take advantage of the corners - it helps showing the range of space and adds dimensionality to the picture."}}
+
+    {{uni-carrousel-item
+      thumbnail=""
+      title="Shoot for corners and go for straight lines"
+      content="Take advantage of the corners - it helps showing the range of space and adds dimensionality to the picture."}}
+
+    {{uni-carrousel-item
+      thumbnail=""
+      title="Shoot for corners and go for straight lines"
+      content="Take advantage of the corners - it helps showing the range of space and adds dimensionality to the picture."}}
+  {{/uni-carrousel}}
+{{/uni-modal}}
 
 {{!--
 {{uni-title title="sign up"}}
