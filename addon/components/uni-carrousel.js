@@ -25,9 +25,11 @@ export default Component.extend({
     navTo(index) {
       this.set('page', index);
     },
+
     prev() {
       this.decrementProperty('page');
     },
+    
     next() {
       this.incrementProperty('page');
     }
