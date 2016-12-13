@@ -238,3 +238,42 @@
   {{/if}}
 {{/uni-auth-modal}}
 --}}
+<br/>
+
+{{#uni-footer-website as |footer|}}
+    {{#footer.row as |row|}}
+        {{#row.cell header="Uniplaces" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">About</a>
+            <a class="{{cell.cellClass}}__anchor">Partners</a>
+        {{/row.cell}}
+        {{#row.cell header="Students" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">Ambassador program</a>
+            <a class="{{cell.cellClass}}__anchor">Uniplaces scholarship</a>
+        {{/row.cell}}
+        {{#row.cell header="Need help?" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">Help center</a>
+            <a class="{{cell.cellClass}}__anchor">Contact us</a>
+        {{/row.cell}}
+    {{/footer.row}}
+    {{#footer.row as |row|}}
+        {{#row.cell halfLine=true as |cell|}}
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Lisbon</a>
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Porto</a>
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Barcelona</a>
+        {{/row.cell}}
+    {{/footer.row}}
+{{/uni-footer-website}}
+
+<p class="code-snippet">
+\{{#uni-footer-website as |footer|}}
+    <p class="tab">
+        \{{#footer.row as |row|}}
+            <p class="tab">
+            \{{#row.cell header="Students" as |cell|}}
+                Ambassador program
+            \{{/row.cell}}
+            </p>
+        \{{/footer.row}}
+    </p>
+\{{/uni-footer-website}}
+</p>
