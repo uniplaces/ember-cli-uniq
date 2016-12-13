@@ -2,6 +2,10 @@
   @include mobile-number();
   margin-bottom: 46px;
 
+  input {
+    padding-right: 0;
+  }
+
   .uni-select {
     max-width: 275px;
     border-right: 0;

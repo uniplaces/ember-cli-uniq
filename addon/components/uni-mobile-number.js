@@ -18,6 +18,7 @@ export default Component.extend({
   layout,
   number: null,
   language: null,
+  maxLength: '15',
 
   isOpen: false,
   options,
