@@ -1,11 +1,8 @@
-{{#if isOpen}}
-  <div class="uni-info-card">
-    <div class="uni-info-card__wrapper">
-      <button class="uni-info-card__close-button" {{action (toggle "isOpen" this)}}>
-        {{inline-svg "icons/close-modal.svg"}}
-      </button>
-
-      {{yield}}
-    </div>
-  </div>
-{{/if}}
+{{#uni-modal
+  isOpen=isOpen
+  hasSeparator=hasSeparator
+  baseCssClass=baseCssClass
+  customCssComponentClass=customCssComponentClass
+  onCloseModal=onCloseModal}}
+  {{yield this}}
+{{/uni-modal}}

@@ -7,6 +7,8 @@ export default Component.extend({
   tagName: '',
   layout,
   isOpen: false,
+  baseCssClass: 'uni-auth-modal',
+  hasSeparator: false,
   onCloseModal() {},
 
   actions: {

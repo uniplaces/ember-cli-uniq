@@ -6,5 +6,5 @@ const { Component } = Ember;
 export default Component.extend({
   layout,
 
-  showInfoModal: false
+  onCloseModal() {}
 });

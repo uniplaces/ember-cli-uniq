@@ -1,11 +1,8 @@
-{{#if isOpen}}
-  <div class="uni-auth-modal uni-auth-modal--signup">
-    <div class="uni-auth-modal__wrapper">
-      <div aria-role="button" class="uni-auth-modal__close-button" {{action "onCloseModal"}}>
-        {{inline-svg "icons/close-modal.svg"}}
-      </div>
-
-      {{yield}}
-    </div>
-  </div>
-{{/if}}
+{{#uni-modal
+  isOpen=isOpen
+  hasSeparator=hasSeparator
+  baseCssClass=baseCssClass
+  customCssComponentClass=customCssComponentClass
+  onCloseModal=onCloseModal}}
+  {{yield}}
+{{/uni-modal}}

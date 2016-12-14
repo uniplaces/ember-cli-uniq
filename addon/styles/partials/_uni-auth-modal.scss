@@ -1,7 +1,9 @@
 .uni-auth-modal {
-  position: relative;
   @include modal();
+  position: relative;
   border-radius: 0;
+  max-width: 375px;
+  width: 100%;
 
   &__close-button {
       svg,
@@ -11,7 +13,6 @@
   }
 
   &--signup &__wrapper {
-    @include column(4);
     padding: 24px;
     background-color: color('primary', 'highlight');
   }
