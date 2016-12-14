@@ -1,20 +1,22 @@
 {{#if isOpen}}
-  {{#modal-dialog close=(action (toggle "isOpen" this))}}
-    <div class="uni-modal">
-      <div class="uni-modal {{if isSignup 'uni-modal--signup'}}">
-        <div class="uni-modal__wrapper">
-          <div class="uni-modal__header">
+  {{#modal-dialog close=(action "onCloseModal")}}
+    <div class="{{baseCssClass}}">
+      <div class="{{baseCssClass}}__wrapper {{customCssComponentClass}}">
+        {{#if title}}
+          <div class="{{baseCssClass}}__header">
             {{uni-title title=title}}
           </div>
+        {{/if}}
 
+        {{#if hasSeparator}}
           <div class="separator"></div>
+        {{/if}}
 
-          <div aria-role="button" class="uni-modal__close-button" {{action (toggle "isOpen" this)}}>
-            {{inline-svg "icons/close-modal.svg"}}
-          </div>
-
-          {{yield}}
+        <div aria-role="button" class="{{baseCssClass}}__close-button" {{action "onCloseModal"}}>
+          {{inline-svg "icons/close-modal.svg"}}
         </div>
+
+        {{yield}}
       </div>
     </div>
   {{/modal-dialog}}
