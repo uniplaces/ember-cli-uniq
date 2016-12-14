@@ -1,4 +1,7 @@
-{{#uni-modal isOpen=showInfoModal title=(concat (inline-svg "icons/info.svg") title)}}
+{{#uni-modal
+  isOpen=showInfoModal
+  title=(i '${infoSvg} ${title}' infoSvg=(inline-svg "icons/info.svg") title=title)
+  onCloseModal=(action (toggle 'showInfoModal' this))}}
   {{yield}}
 {{/uni-modal}}
 
