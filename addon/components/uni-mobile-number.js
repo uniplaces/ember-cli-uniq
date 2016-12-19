@@ -16,6 +16,7 @@ function getOptions() {
 
 export default Component.extend({
   classNames: ['uni-mobile-number'],
+  classNameBindings: ['hasError:uni-mobile-number--error'],
   layout,
   number: null,
   language: null,
