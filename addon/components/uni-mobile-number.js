@@ -27,10 +27,14 @@ export default Component.extend({
   isOpen: false,
   options,
   onChangeSelect() {},
+  onChangeInput() {},
 
   actions: {
     onChangeSelect(option) {
       this.get('onChangeSelect')(option);
+    },
+    onChangeInput() {
+      this.get('onChangeInput')();
     }
   }
 });
