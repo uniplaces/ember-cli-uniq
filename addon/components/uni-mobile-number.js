@@ -15,18 +15,25 @@ function getOptions() {
 
 export default Component.extend({
   classNames: ['uni-mobile-number'],
+  classNameBindings: ['hasError:uni-mobile-number--error'],
   layout,
   number: null,
   language: null,
   maxLength: '15',
+  countrySelected: null,
+  selectPlaceholder: null,
 
   isOpen: false,
   options,
   onChangeSelect() {},
+  onChangeInput() {},
 
   actions: {
     onChangeSelect(option) {
       this.get('onChangeSelect')(option);
+    },
+    onChangeInput() {
+      this.get('onChangeInput')();
     }
   }
 });

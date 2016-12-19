@@ -1,3 +1,11 @@
-{{uni-select options=options onChange=(action "onChangeSelect")}}
+{{uni-select
+  placeholder=selectPlaceholder
+  selected=language
+  options=options
+  onChange=(action "onChangeSelect")}}
 
-{{input value=number placeholder=placeholder maxlength=maxLength}}
+{{input
+  value=number
+  placeholder=placeholder
+  maxlength=maxLength
+  key-down=(action "onChangeInput")}}

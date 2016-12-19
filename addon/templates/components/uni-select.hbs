@@ -1,7 +1,12 @@
 <div class="uni-select-wrapper">
   <select class="uni-select" onchange={{action "changeSelected"}}>
+    {{#if (and placeholder (not selected))}}
+      <option value="" disabled selected='selected'>
+        {{placeholder}}
+      </option>
+    {{/if}}
     {{#each options as |option|}}
-      <option value={{option.key}} class="uni-select__option">
+      <option selected={{if (eq option.key selected) 'selected'}} value={{option.key}} class="uni-select__option">
         {{option.value}}
       </option>
     {{/each}}
