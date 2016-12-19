@@ -4,7 +4,6 @@ import layout from '../templates/components/uni-mobile-number';
 
 const { Component } = Ember;
 const options = getOptions();
-const MAX_LENGTH = '15';
 
 function getOptions() {
   return getAllCountryNames().map((country) => {
@@ -20,7 +19,7 @@ export default Component.extend({
   layout,
   number: null,
   language: null,
-  maxLength: MAX_LENGTH,
+  maxLength: '15',
   countrySelected: null,
   selectPlaceholder: null,
 
