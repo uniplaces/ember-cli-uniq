@@ -5,8 +5,7 @@ const { Component } = Ember;
 
 export default Component.extend({
   tagName: 'div',
-  attributeBindings: ['aria-role'],
-  'aria-role': 'button',
+  ariaRole: 'button',
   classNameBindings: [
     'isPrimary:uni-button--primary',
     'isDisabled:uni-button--disabled',

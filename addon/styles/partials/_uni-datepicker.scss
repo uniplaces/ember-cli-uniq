@@ -16,7 +16,7 @@ $box-size: 42px;
       cursor: pointer;
       background-color: color('dropdown');
 
-      [aria-role="button"][disabled] {
+      [role="button"][disabled] {
         background-color: color('buttons');
       }
     }
@@ -72,7 +72,7 @@ $box-size: 42px;
       border-top: 0;
       @include justify-content-end();
 
-      [aria-role="button"] {
+      [role="button"] {
         border-top: 1px solid color('primary', 'divider');
 
         &:first-child {
@@ -90,7 +90,7 @@ $box-size: 42px;
     &:last-child {
       @include justify-content-start();
 
-      [aria-role="button"] {
+      [role="button"] {
         border-bottom: 1px solid color('primary', 'divider');
       }
     }
@@ -99,7 +99,7 @@ $box-size: 42px;
   &-row {
     @include justify-content-center();
 
-    [aria-role="button"] {
+    [role="button"] {
       width: $box-size;
       height: $box-size;
       padding: 0;
@@ -126,7 +126,7 @@ $box-size: 42px;
   }
 }
 
-[aria-role="button"].ember-power-calendar-nav-control {
+[role="button"].ember-power-calendar-nav-control {
   @include flex();
   @include align-items-center();
   @include justify-content-center();
