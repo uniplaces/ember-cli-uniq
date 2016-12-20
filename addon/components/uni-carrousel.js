@@ -29,7 +29,7 @@ export default Component.extend({
     prev() {
       this.decrementProperty('page');
     },
-    
+
     next() {
       this.incrementProperty('page');
     }
