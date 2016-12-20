@@ -1,8 +1,8 @@
-<button
+<div role="button"
   class="{{extraBtnClasses}} uni-dropdown-button {{if isOpen 'uni-dropdown-button--active'}}"
   {{action (toggle "isOpen" this)}}>
   {{component placeholderComponent option=selected}}
-</button>
+</div>
 
 <ul class="uni-dropdown__wrapper">
   {{#each options as |option|}}
