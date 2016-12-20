@@ -4,7 +4,9 @@ import layout from '../templates/components/uni-button';
 const { Component } = Ember;
 
 export default Component.extend({
-  tagName: 'button',
+  tagName: 'div',
+  attributeBindings: ['aria-role'],
+  'aria-role': 'button',
   classNameBindings: [
     'isPrimary:uni-button--primary',
     'isDisabled:uni-button--disabled',
