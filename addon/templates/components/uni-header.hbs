@@ -1,9 +1,7 @@
-<header class="uni-header {{if isTransparent 'uni-header--transparent'}}">
-  <div class="uni-header__wrapper">
-    {{#link-to logoRoute}}
-      {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
-    {{/link-to}}
+<div class="uni-header__wrapper">
+  {{#link-to logoRoute}}
+    {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
+  {{/link-to}}
 
-    {{yield}}
-  </div>
-</header>
+  {{yield}}
+</div>
