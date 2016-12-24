@@ -72,8 +72,9 @@ $box-size: 42px;
       border-top: 0;
       @include justify-content-end();
 
-      [role="button"] {
+      button {
         border-top: 1px solid color('primary', 'divider');
+        max-width: $box-size;
 
         &:first-child {
           border-left: 0;
@@ -90,8 +91,9 @@ $box-size: 42px;
     &:last-child {
       @include justify-content-start();
 
-      [role="button"] {
+      button {
         border-bottom: 1px solid color('primary', 'divider');
+        max-width: $box-size;
       }
     }
   }
@@ -99,7 +101,7 @@ $box-size: 42px;
   &-row {
     @include justify-content-center();
 
-    [role="button"] {
+    button {
       width: $box-size;
       height: $box-size;
       padding: 0;

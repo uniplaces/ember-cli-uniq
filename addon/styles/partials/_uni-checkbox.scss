@@ -2,6 +2,7 @@
   @include flex();
   @include align-items-center();
   width: 100%;
+  cursor: pointer;
 }
 
 .uni-checkbox {
