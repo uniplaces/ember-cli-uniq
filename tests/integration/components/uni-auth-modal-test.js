@@ -1,5 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
+
+const { $ } = Ember;
 
 moduleForComponent('uni-auth-modal', 'Integration | Component | uni auth modal', {
   integration: true
@@ -27,5 +30,5 @@ test('it renders yielded content', function(assert) {
     {{/uni-auth-modal}}
   `);
 
-  assert.equal(this.$().text().trim(), 'This is the content');
+  assert.equal($('.uni-auth-modal').text().trim(), 'This is the content');
 });
