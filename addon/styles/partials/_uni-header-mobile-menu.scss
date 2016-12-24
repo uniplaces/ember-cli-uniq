@@ -1,0 +1,14 @@
+.uni-header-mobile-menu {
+  @include breakpoint(small) {
+      margin-left: auto;
+  }
+
+  .uni-header__mobile-nav__dropdown div {
+    font-size: em(20px);
+    margin-bottom: 10px;
+  }
+
+  .uni-header__mobile-nav__button {
+    cursor: pointer;
+  }
+}
