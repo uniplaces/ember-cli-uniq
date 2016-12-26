@@ -8,7 +8,8 @@
 
   &-counter {
     @include body();
-    max-width: 410px;
+    max-width: 388px;
     text-align: right;
+    margin-top: 6px;
   }
 }
