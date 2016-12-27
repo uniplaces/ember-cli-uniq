@@ -4,6 +4,7 @@
   textarea {
     @include textarea();
     width: 100%;
+    resize: none;
   }
 
   &-counter {
