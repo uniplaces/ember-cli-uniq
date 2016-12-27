@@ -1,10 +1,29 @@
 .uni-radio-button {
   @include radio-button();
   cursor: pointer;
+
+  &__wrapper {
+    @include flex();
+    @include align-items-center();
+    width: 100%;
+  }
+
+  @include breakpoint(small) {
+    width: 100%;
+    padding: 20px;
+
+    input {
+      display: none;
+    }
+
+    label {
+      width: 100%;
+    }
+  }
 }
 
-.uni-radio-button__wrapper {
-  @include flex();
-  @include align-items-center();
-  width: 100%;
+.uni-input-container {
+  @include breakpoint(small) {
+    padding: 0;
+  }
 }
