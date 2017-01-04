@@ -15,14 +15,14 @@ function getOptions() {
 }
 
 function sortByName(nameA, nameB) {
-  let a = nameA.toUpperCase();
-  let b = nameB.toUpperCase();
+  let a = nameA.value.toUpperCase();
+  let b = nameB.value.toUpperCase();
 
-  if (a.value < b.value) {
+  if (a < b) {
     return -1;
   }
 
-  if (a.value > b.value) {
+  if (a > b) {
     return 1;
   }
 
