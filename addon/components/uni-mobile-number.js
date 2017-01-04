@@ -5,7 +5,7 @@ import layout from '../templates/components/uni-mobile-number';
 const { Component } = Ember;
 const options = getOptions().sort(sortByName);
 
-function getOptions(){
+function getOptions() {
 
   return getAllCountryNames().map((country) => {
     let { key } = country;
@@ -21,6 +21,7 @@ function sortByName(nameA, nameB) {
   if (a.value < b.value) {
     return -1;
   }
+
   if (a.value > b.value) {
     return 1;
   }
