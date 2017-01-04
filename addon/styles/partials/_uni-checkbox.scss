@@ -6,6 +6,13 @@
 
   @include breakpoint(small) {
     padding: 20px;
+
+    label {
+      max-width: 146px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -23,15 +30,6 @@
       fill: color("background");
       width: 14px;
       height: 11px;
-    }
-  }
-
-  @include breakpoint(small) {
-    label {
-      max-width: 146px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
   }
 }
