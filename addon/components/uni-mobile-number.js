@@ -3,9 +3,9 @@ import { getAllCountryNames, getCountryName, getCountryCallingCode } from 'ember
 import layout from '../templates/components/uni-mobile-number';
 
 const { Component } = Ember;
-const options = getOptions().sort(sortByValue);
+const options = getOptions().sort(sortByName);
 
-function getOptions() {
+function getOptions(){
 
   return getAllCountryNames().map((country) => {
     let { key } = country;
@@ -14,7 +14,10 @@ function getOptions() {
   });
 }
 
-function sortByValue(a, b) {
+function sortByName(nameA, nameB) {
+  let a = nameA.toUpperCase();
+  let b = nameB.toUpperCase();
+
   if (a.value < b.value) {
     return -1;
   }
