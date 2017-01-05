@@ -38,6 +38,7 @@ export default Component.extend({
   maxLength: '15',
   countrySelected: null,
   selectPlaceholder: null,
+  isInputDisabled: true,
 
   isOpen: false,
   options,
@@ -47,6 +48,8 @@ export default Component.extend({
   actions: {
     onChangeSelect(option) {
       this.get('onChangeSelect')(option);
+      this.set('isInputDisabled', false);
+      this.$().find('input')[0].focus();
     },
     onChangeInput() {
       this.get('onChangeInput')();

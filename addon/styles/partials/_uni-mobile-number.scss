@@ -13,16 +13,16 @@
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-  }
 
-  @include breakpoint(small) {
-    &__wrapper {
+    &-wrapper {
       &:before,
       &:after {
         z-index: 10;
       }
     }
+  }
 
+  @include breakpoint(small) {
     & > div,
     input {
       width: 100%;
