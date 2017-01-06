@@ -6,7 +6,6 @@ const { Component } = Ember;
 const options = getOptions().sort(sortByName);
 
 function getOptions() {
-
   return getAllCountryNames().map((country) => {
     let { key } = country;
 
@@ -38,9 +37,9 @@ export default Component.extend({
   maxLength: '15',
   countrySelected: null,
   selectPlaceholder: null,
-  isInputDisabled: true,
-
+  isInputDisabled: false,
   isOpen: false,
+
   options,
   onChangeSelect() {},
   onChangeInput() {},
