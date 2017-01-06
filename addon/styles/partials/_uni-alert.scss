@@ -1,3 +1,9 @@
 .uni-alert {
     @include alert();
+
+    &--success {
+      svg g {
+        fill: color('feedback', 'text');
+      }
+    }
 }

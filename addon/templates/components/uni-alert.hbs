@@ -1,5 +1,9 @@
 <div class="alert__wrapper">
-  {{inline-svg "icons/icon-warning.svg"}}
+  {{#if isSuccess}}
+    {{inline-svg "icons/success-icon.svg"}}
+  {{else}}
+    {{inline-svg "icons/icon-warning.svg"}}
+  {{/if}}
 
   <div class="alert__content">
     {{yield}}
