@@ -48,10 +48,21 @@
 
 {{uni-tabs}}
 <p class="code-snippet">
-  \{{uni-tabs tabs=...}}  
+  \{{uni-tabs tabs=...}}
   <br><br>
   note: each tab should follow this structure:<br>
   tabs: [{ label: "Rent price", url: "..."}, ...]
+  <br><br>
+</p>
+
+
+{{uni-title title="Alert"}}
+{{#uni-alert isFixed=true isSuccess=true}}
+  <p>Thank you for verifying your email.</p>
+  <p>You can now proceed and continue creating your listing.</p>
+{{/uni-alert}}
+<p class="code-snippet">
+  \{{uni-alert}}
   <br><br>
 </p>
 
