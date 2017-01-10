@@ -9,6 +9,7 @@
 
   &-counter {
     @include body();
+    color: color('text', 'subheader');
     max-width: 388px;
     text-align: right;
     margin-top: 6px;
