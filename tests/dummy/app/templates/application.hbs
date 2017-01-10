@@ -62,7 +62,10 @@
   <p>You can now proceed and continue creating your listing.</p>
 {{/uni-alert}}
 <p class="code-snippet">
-  \{{uni-alert}}
+  \{{#uni-alert isFixed=true isSuccess=true}}
+    <p>&lt;p&gt;Thank you for verifying your email.&lt;/p&gt;</p>
+    <p>&lt;p&gt;You can now proceed and continue creating your listing.&lt;/p&gt;</p>
+  \{{/uni-alert}}
   <br><br>
 </p>
 
@@ -131,9 +134,9 @@
   \{{uni-input-range placeholder="0" value="10" target="items"}}
 </p>
 {{uni-title title="uni-input-price"}}
-{{uni-input-price placeholder="00" currency="€" isRightSideCurrency=true per="month"}}
+{{uni-input-price currency="€" per="month"}}
 <p class="code-snippet">
-  \{{uni-input-price placeholder="00" currency="€" isRightSideCurrency=true per="month"}}
+  \{{uni-input-price currency="€" per="month"}}
 </p>
 {{uni-title title="uni-mobile-number"}}
 {{uni-mobile-number }}
