@@ -7,11 +7,14 @@ export default Component.extend({
   tagName: '',
   layout,
 
-  show: true,
+  isOpen: true,
+
+  onDismiss() {},
 
   actions: {
     dismiss() {
-      this.set('show', false);
+      this.set('isOpen', false);
+      this.get('onDismiss')();
     }
   }
 });
