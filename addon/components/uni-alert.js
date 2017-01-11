@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-alert';
+import UniAlertTypes from 'ember-cli-uniq/enums/uni-alert-type';
 
-const { Component } = Ember;
+const { Component, computed  } = Ember;
 
 export default Component.extend({
   classNames: ['uni-alert'],
@@ -11,9 +12,16 @@ export default Component.extend({
     'isError:uni-alert--error',
     'isWarning:uni-alert--warning'
   ],
+  layout,
+
   isFixed: false,
-  isSuccess: false,
-  isError: false,
-  isWarning: false,
-  layout
+  isSuccess: computed('type', function() {
+    return this.get('type') === UniAlertTypes.SUCCESS;
+  }),
+  isError: computed('type', function() {
+    return this.get('type') === UniAlertTypes.ERROR;
+  }),
+  isWarning: computed('type', function() {
+    return this.get('type') === UniAlertTypes.WARNING;
+  })
 });
