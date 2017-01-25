@@ -99,12 +99,14 @@
   {{uni-button isPrimary=true label="Primary"}}
   {{uni-button isSecondary=true label="Secondary"}}
   {{uni-button isDisabled=true label="Disabled"}}
+  {{uni-button isPrimary=true isLoading=true label="Loading..."}}
 </div>
 
 <p class="code-snippet">
-  \{{uni-button isPrimary=true label="Primary" customAction=(action "someAction")}}<br><br>
-  \{{uni-button isSecondary=true label="Secondary" customAction=(action "someAction")}}<br><br>
-  \{{uni-button isDisabled=true label="Disabled" customAction=(action "someAction")}}
+  \{{uni-button isPrimary=true label="Primary" action=(action "someAction")}}<br><br>
+  \{{uni-button isSecondary=true label="Secondary" action=(action "someAction")}}<br><br>
+  \{{uni-button isDisabled=true label="Disabled" action=(action "someAction")}}<br><br>
+  \{{uni-button isPrimary=true isLoading=true label="Loading..."}}
   <br><br>
 </p>
 
