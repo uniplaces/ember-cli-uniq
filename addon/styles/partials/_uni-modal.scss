@@ -20,7 +20,13 @@
   &__close-button svg {
     width: 20px;
     height: 20px;
-    fill: color('text', 'close');
+  }
+
+  @include breakpoint(small) {
+    &__close-button svg {
+      top: 35px;
+      right: 26px;
+    }
   }
 
   .content {

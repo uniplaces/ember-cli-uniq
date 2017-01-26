@@ -1,6 +1,10 @@
 .uni-input-price {
   @include input-price();
 
+  &--focused {
+    border-color: color('input', 'border-focus');
+  }
+
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
