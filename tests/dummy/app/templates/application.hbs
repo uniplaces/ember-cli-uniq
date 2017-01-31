@@ -123,11 +123,20 @@
 
 {{uni-title title="Dropdown"}}
 {{#uni-dropdown
-  selected="Filipe"
-  options=(array "Profile" "Preferences" "Logout") as |option|}}
+  isAbsolute=true
+  placeholder="Select one"
+  options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}
   {{option}}
 {{/uni-dropdown}}
-<br><br>
+
+<p class="code-snippet">
+  \{{#uni-dropdown<br><br>
+    isAbsolute=true<br><br>
+    selected="Dropdown option 1"<br><br>
+    options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}<br><br>
+    \{{option}}<br><br>
+  \{{/uni-dropdown}}
+</p>
 
 {{uni-title title="Inputs"}}
 {{uni-title title="uni-input-range"}}

@@ -1,12 +1,10 @@
 .uni-dropdown {
   @include dropdown();
 
-  .uni-dropdown-button--active {
-    background-color: color('background', 'modal') !important;
-    border: 1px solid color('borders') !important;
-  }
-
-  .uni-dropdown-button--active + .uni-dropdown__wrapper {
-    display: block;
+  &--absolute {
+    .uni-dropdown__wrapper {
+      position: absolute;
+      z-index: 1;
+    }
   }
 }
