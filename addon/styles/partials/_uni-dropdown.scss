@@ -1,3 +1,10 @@
 .uni-dropdown {
   @include dropdown();
+
+  &--absolute {
+    .uni-dropdown__wrapper {
+      position: absolute;
+      z-index: 1;
+    }
+  }
 }
