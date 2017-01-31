@@ -5,11 +5,21 @@ const { Component } = Ember;
 
 export default Component.extend({
   classNames: ['uni-dropdown'],
+  classNameBindings: ['isOpen:uni-dropdown--active'],
   layout,
 
   isOpen: false,
   selected: null,
   options: [],
-  extraBtnClasses: '',
-  placeholderComponent: 'uni-dropdown-placeholder-simple'
+  btnClass: '',
+  onChange() {},
+
+  actions: {
+    click(option) {
+      this.toggleProperty('isOpen');
+      this.set('selected', option);
+
+      this.get('onChange')();
+    }
+  }
 });
