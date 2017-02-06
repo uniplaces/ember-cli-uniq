@@ -1,0 +1,28 @@
+<div class="update-availability-standard__controls">
+  {{#if (not isFirst)}}
+    <div {{action "decrement" "yearIndex"}}>{{inline-svg "icons/arrow-left-calendar"}}</div>
+  {{/if}}
+
+  <div class="update-availability-standard__controls__year">{{currentYear.year}}</div>
+
+  {{#if (not isLast)}}
+    <div {{action "increment" "yearIndex"}}>{{inline-svg "icons/arrow-right-calendar"}}</div>
+  {{/if}}
+</div>
+
+<div class="update-availability-standard__availabilities">
+  {{#each monthlyAvailability as |availability index|}}
+    <div class="option option--{{compute (action 'checkStatus' availability index currentYear.year)}}">
+      {{#power-select
+        placeholder=(compute (action "monthAbreviation") index)
+        options=options
+        searchEnabled=false
+        renderInPlace=true
+        disabled=(compute (action "isDisabled" index currentYear.year))
+        highlighted=false
+        onchange=(action "updateAvailability" index currentYear.year) as |option|}}
+        {{option.value}}
+      {{/power-select}}
+    </div>
+  {{/each}}
+</div>

@@ -32,7 +32,11 @@
         "partials/uni-footer-website",
         "partials/uni-header-mobile-menu",
         "partials/uni-banner",
-        "partials/uni-tooltip";
+        "partials/uni-tooltip",
+        "partials/update-availability/_standard.scss",
+        "partials/update-availability/_standard-unitary.scss",
+        "partials/update-availability/_fixed.scss",
+        "partials/update-availability/_fixed-placeholder.scss";
 
 [data-ember-action]:not(:disabled) {
   cursor: pointer;

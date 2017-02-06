@@ -1,0 +1,7 @@
+.update-availability-standard-unitary {
+  .blocked-period {
+    @include flex();
+    @include align-items-center();
+    background-color: red;
+  }
+}

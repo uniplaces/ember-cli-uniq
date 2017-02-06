@@ -1,0 +1,17 @@
+{{#each blockedPeriods as |blockedPeriod|}}
+  <div class="blocked-period">
+    {{labelFrom}}
+
+    {{uni-datepicker-input
+      selected=blockedPeriod.from
+      onSelected=(action "onAvailableFromSelected")}}
+
+    {{labelTo}}
+
+    {{uni-datepicker-input
+      selected=blockedPeriod.to
+      onSelected=(action "onAvailableFromSelected")}}
+  </div>
+{{/each}}
+
+{{yield}}

@@ -1,0 +1,18 @@
+{{#each availabilityOptions as |availabilityOption index|}}
+  <div class="option option--{{availabilityOption.status}}">
+    <div class="option__label">
+      <p>{{label}} {{inc index}}</p>
+    </div>
+
+    {{#power-select
+      placeholderComponent="update-availability/fixed-placeholder"
+      placeholder=(compute (action "placeholder" availabilityOption))
+      options=options
+      searchEnabled=false
+      renderInPlace=true
+      highlighted=false
+      onchange=(action "updateAvailability" index) as |option|}}
+      {{option.value}}
+    {{/power-select}}
+  </div>
+{{/each}}

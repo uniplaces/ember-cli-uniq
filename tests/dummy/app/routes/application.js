@@ -20,6 +20,30 @@ export default Route.extend({
         { label: 'Help', url: 'application' },
         { label: 'Careers', url: 'application' },
         { label: 'Terms', url: 'application' }
+      ],
+      yearsAvailability: [
+        {
+          year: 2017,
+          monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+        },
+        {
+          year: 2018,
+          monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+        }
+      ],
+      options: [
+        {
+          id: 'uuid',
+          from: '2017-01-22',
+          to: '2017-09-12',
+          status: 'none'
+        },
+        {
+          id: 'uuid',
+          from: '2018-01-22',
+          to: '2018-10-22',
+          status: 'medium'
+        }
       ]
     };
   },
