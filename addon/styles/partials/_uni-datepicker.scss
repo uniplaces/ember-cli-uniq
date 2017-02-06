@@ -63,6 +63,13 @@ $box-size: 42px;
 
   &-day--interactive[disabled] {
     opacity: 1 !important;
+    text-decoration: none;
+    background-color: color('buttons', 'disabled') !important;
+    color: rgba(178, 185, 194, .3);
+
+    &:hover {
+      pointer-events: none;
+    }
   }
 
   &-week {
