@@ -1,0 +1,15 @@
+<span class="uni-tooltip__icon">
+    {{#if informationIcon}}
+        {{inline-svg "icons/information-icon"}}
+    {{else if questionIcon}}
+        {{inline-svg "icons/question-icon"}}
+    {{else}}
+        {{yield}}
+    {{/if}}
+</span>
+<div class="uni-tooltip__text">
+    {{#if title}}
+        <div class="uni-tooltip__text__title">{{{title}}}</div>
+    {{/if}}
+    {{{content}}}
+</div>
