@@ -1,6 +1,5 @@
 .uni-tooltip {
   @include tooltip();
-  display: inline-block;
 
   &__text {
     width: 200px;

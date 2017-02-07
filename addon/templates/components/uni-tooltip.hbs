@@ -1,7 +1,7 @@
 <span class="uni-tooltip__icon">
-    {{#if informationIcon}}
+    {{#if isInformation}}
         {{inline-svg "icons/information-icon"}}
-    {{else if questionIcon}}
+    {{else if isQuestion}}
         {{inline-svg "icons/question-icon"}}
     {{else}}
         {{yield}}

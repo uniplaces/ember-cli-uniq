@@ -6,14 +6,16 @@ const { Component } = Ember;
 export default Component.extend({
   tagName: 'span',
   classNames: ['uni-tooltip'],
-  classNameBindings: ['isOpen:uni-tooltip--active'],
+  classNameBindings: ['isActive:uni-tooltip--active'],
   layout,
 
-  informationIcon: false,
-  questionIcon: false,
-  isOpen: false,
+  isInformation: false,
+  isQuestion: false,
+  isActive: false,
 
   click() {
-    this.set('isOpen', !this.get('isOpen'));
+    this.set('isActive', !this.get('isActive'));
+
+    this.get('onClick')();
   }
 });
