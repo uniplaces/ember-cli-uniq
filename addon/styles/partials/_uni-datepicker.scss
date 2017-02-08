@@ -46,10 +46,6 @@ $box-size: 42px;
 
     &:disabled {
       color: color('buttons', 'disabled-text') !important;
-
-      &:hover {
-        background-color: color('buttons') !important;
-      }
     }
   }
 
@@ -66,10 +62,7 @@ $box-size: 42px;
     text-decoration: none;
     background-color: color('buttons', 'disabled') !important;
     color: rgba(178, 185, 194, .3);
-
-    &:hover {
-      pointer-events: none;
-    }
+    pointer-events: none;
   }
 
   &-week {
@@ -125,7 +118,6 @@ $box-size: 42px;
 
       &[disabled] {
         background-color: color('buttons', 'disabled');
-        text-decoration: line-through;
       }
     }
   }
