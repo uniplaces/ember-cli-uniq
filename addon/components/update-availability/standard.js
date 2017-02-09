@@ -8,16 +8,12 @@ const PAST = 'past';
 export default Component.extend({
   classNames: ['update-availability-standard'],
   layout,
-
   monthLabel: 'month.label',
-  years: computed.alias('availability.years'),
   yearIndex: 0,
-  options: [
-    { key: 'medium', value: 'Medium' },
-    { key: 'low', value: 'Low' },
-    { key: 'none', value: 'None' }
-  ],
+  options: [],
 
+  years: computed.alias('availability.years'),
+  monthlyAvailability: computed.alias('currentYear.monthly_availability'),
   isFirst: computed.equal('yearIndex', 0),
   isLast: computed('yearIndex', function() {
     return this.get('yearIndex') === (this.get('years').length - 1);
@@ -25,7 +21,6 @@ export default Component.extend({
   currentYear: computed('yearIndex', function() {
     return this.get('years')[this.get('yearIndex')];
   }),
-  monthlyAvailability: computed.alias('currentYear.monthly_availability'),
 
   onChange() {},
 

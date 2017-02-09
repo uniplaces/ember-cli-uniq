@@ -1,7 +1,7 @@
 {{#each availabilityOptions as |availabilityOption index|}}
   <div class="option option--{{availabilityOption.status}}">
     <div class="option__label">
-      <p>{{label}} {{inc index}}</p>
+      <p>{{labelOption}} {{inc index}}</p>
     </div>
 
     {{#power-select
@@ -14,5 +14,25 @@
       onchange=(action "updateAvailability" index) as |option|}}
       {{option.value}}
     {{/power-select}}
+
+    <div class="option__link link" {{action "deleteOption" index}}>Delete</div>
   </div>
+{{else}}
+  <div class="options__none">{{labelEmpty}}</div>
 {{/each}}
+
+<p class="link" {{action (toggle "displayNewOptionSection" this)}}>{{labelAdd}}</p>
+
+{{#if displayNewOptionSection}}
+  <div class="options__add">
+    {{labelFrom}}
+    {{uni-datepicker-input selected=startDate onSelected=(action (mut startDate))}}
+
+    {{labelTo}}
+    {{uni-datepicker-input selected=endDate onSelected=(action (mut endDate))}}
+
+    {{uni-input-price value=contractValue per=labelPer}}
+
+    <div class="link" {{action "addOption"}}>OK</div>
+  </div>
+{{/if}}

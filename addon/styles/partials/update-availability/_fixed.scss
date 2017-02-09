@@ -4,13 +4,38 @@
   padding: 30px 0 20px 0;
   position: relative;
 
+  .options {
+    &__none {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    &__add {
+      @include flex();
+      @include align-items-center();
+      margin-top: 20px;
+
+      & > div {
+        margin: 0 10px;
+      }
+    }
+  }
+
   .option {
     @include flex();
     @include align-items-center();
     margin: 20px 0;
 
     &__label {
-      margin-right: 20px;
+      width: 150px;
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    &__link {
+      margin-left: 20px;
     }
 
     &--medium {
@@ -48,6 +73,10 @@
     font-size: 12px;
   }
 
+  .ember-basic-dropdown-trigger {
+    padding: 7px;
+  }
+
   p {
     font-size: 14px;
     font-weight: 500;
@@ -58,5 +87,9 @@
     left: 10px;
     font-size: 15px;
     color: color('text', 'subheading');
+  }
+
+  .uni-input-price {
+    width: 300px;
   }
 }

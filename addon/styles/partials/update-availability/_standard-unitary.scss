@@ -1,7 +1,35 @@
 .update-availability-standard-unitary {
+  .blocked-periods {
+    &__none {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    &__add {
+      margin-top: 20px;
+    }
+  }
+
   .blocked-period {
     @include flex();
     @include align-items-center();
-    background-color: red;
+    margin-top: 20px;
+
+    & > div {
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    &__delete {
+      margin-left: 20px;
+    }
+  }
+
+  svg {
+    margin-left: 20px;
+    width: 20px;
   }
 }
