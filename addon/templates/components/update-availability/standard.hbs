@@ -26,3 +26,9 @@
     </div>
   {{/each}}
 </div>
+
+<div class="update-availability-standard__change-availabilities">
+  {{uni-button isSecondary=true label=labelAvailable action=(action "setYearAvailability" AvailabilityTypes.MEDIUM)}}
+  {{uni-button isSecondary=true label=labelLimitedAvailability action=(action "setYearAvailability" AvailabilityTypes.LOW)}}
+  {{uni-button isSecondary=true label=labelNotAvailable action=(action "setYearAvailability" AvailabilityTypes.NONE)}}
+</div>

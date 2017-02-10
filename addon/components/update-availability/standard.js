@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import layout from '../../templates/components/update-availability/standard';
+import AvailabilityTypes from 'ember-cli-uniq/enums/availability-options-type';
 import moment from 'moment';
 
 const { Component, computed } = Ember;
@@ -11,6 +12,11 @@ export default Component.extend({
   monthLabel: 'month.label',
   yearIndex: 0,
   options: [],
+  AvailabilityTypes,
+
+  labelAvailable: null,
+  labelNotAvailable: null,
+  labelLimitedAvailability: null,
 
   years: computed.alias('availability.years'),
   monthlyAvailability: computed.alias('currentYear.monthly_availability'),
@@ -36,9 +42,7 @@ export default Component.extend({
         return availabilityYear;
       });
 
-      this.get('onChange')(years);
-
-      this.notifyPropertyChange('monthlyAvailability');
+      this._updateYears(years);
     },
 
     isDisabled(month, year) {
@@ -53,6 +57,10 @@ export default Component.extend({
       return moment().month(currentMonth).format('MMM');
     },
 
+    setYearAvailability(type) {
+      this.set('monthlyAvailability', new Array(12).fill(type));
+    },
+
     increment(property) {
       this.incrementProperty(property);
     },
@@ -60,6 +68,12 @@ export default Component.extend({
     decrement(property) {
       this.decrementProperty(property);
     }
+  },
+
+  _updateYears(years) {
+    this.get('onChange')(years);
+
+    this.notifyPropertyChange('monthlyAvailability');
   },
 
   _isDateBeforeCurrentMonthAndYear(month, year) {

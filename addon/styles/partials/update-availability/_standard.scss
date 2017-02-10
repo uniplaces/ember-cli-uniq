@@ -29,7 +29,14 @@ $availabilities: (
   &__availabilities {
     @include flex();
     @include flex-wrap();
+  }
 
+  &__change-availabilities {
+    @include flex();
+
+    & > * {
+      margin: 20px 10px;
+    }
   }
 
   .option {

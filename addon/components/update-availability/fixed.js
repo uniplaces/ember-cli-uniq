@@ -2,6 +2,7 @@ import Ember from 'ember';
 import layout from '../../templates/components/update-availability/fixed';
 import AvailabilityTypes from 'ember-cli-uniq/enums/availability-options-type';
 import moment from 'moment';
+import { v1, v4 } from 'ember-uuid';
 
 const { Component, computed, $ } = Ember;
 
@@ -54,7 +55,8 @@ export default Component.extend({
       start_date: startDate,
       end_date: endDate,
       contract_value: contractValue,
-      status: AvailabilityTypes.MEDIUM
+      status: AvailabilityTypes.MEDIUM,
+      id: v4()
     };
   },
 
