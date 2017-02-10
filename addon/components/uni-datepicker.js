@@ -15,10 +15,10 @@ export default Component.extend({
   dateFormat: 'MMMM YYYY',
   showDaysAround: false,
   isFirstMonth: computed('center', function() {
-    return this.get('center').isSame(this.get('minDate'), 'month');
+    return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';
   }),
   isLastMonth: computed('center', function() {
-    return this.get('center').isSame(this.get('maxDate'), 'month');
+    return this.get('center').isSame(this.get('maxDate'), 'month') ? 'disabled' : '';
   }),
 
   onSelect() {},

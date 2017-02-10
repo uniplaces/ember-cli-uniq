@@ -4,6 +4,10 @@ $box-size: 42px;
   width: 100%;
   max-width: 294px;
 
+  .disabled {
+    pointer-events: none;
+  }
+
   &-nav {
     margin-bottom: 15px;
 
