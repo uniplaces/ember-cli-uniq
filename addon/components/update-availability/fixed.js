@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../../templates/components/update-availability/fixed';
 import AvailabilityTypes from 'ember-cli-uniq/enums/availability-options-type';
 import moment from 'moment';
-import { v1, v4 } from 'ember-uuid';
+import { v4 } from 'ember-uuid';
 
 const { Component, computed, $ } = Ember;
 

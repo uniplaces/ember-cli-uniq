@@ -21,30 +21,41 @@ export default Route.extend({
         { label: 'Careers', url: 'application' },
         { label: 'Terms', url: 'application' }
       ],
-      yearsAvailability: [
-        {
-          year: 2017,
-          monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
-        },
-        {
-          year: 2018,
-          monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
-        }
-      ],
-      options: [
-        {
-          id: 'uuid',
-          from: '2017-01-22',
-          to: '2017-09-12',
-          status: 'none'
-        },
-        {
-          id: 'uuid',
-          from: '2018-01-22',
-          to: '2018-10-22',
-          status: 'medium'
-        }
-      ]
+      standardUnitary: {
+        available_from: '2016-10-20',
+        blocked_periods: [
+            { from: '2016-10-21', to: '2016-10-22' },
+            { from: '2016-11-21', to: '2016-11-23' }
+        ]
+      },
+      standard: {
+        years: [
+          {
+            year: 2017,
+            monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+          },
+          {
+            year: 2018,
+            monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+          }
+        ]
+      },
+      fixed: {
+        options: [
+          {
+            id: 'uuid',
+            from: '2017-01-22',
+            to: '2017-09-12',
+            status: 'none'
+          },
+          {
+            id: 'uuid',
+            from: '2018-01-22',
+            to: '2018-10-22',
+            status: 'medium'
+          }
+        ]
+      }
     };
   },
 

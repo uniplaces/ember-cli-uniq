@@ -32,4 +32,12 @@
     margin-left: 20px;
     width: 20px;
   }
+
+  .ember-power-calendar {
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    border: 1px solid color('borders');
+    box-shadow: 0 0 10px color('borders');
+  }
 }
