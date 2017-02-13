@@ -8,7 +8,12 @@ export default Route.extend({
       isOpen: true,
       isSignup: true,
       isLogin: false,
-      withEmail: true
+      withEmail: true,
+      uniSelectOptions: [
+        { key: '1', value: 'One', disabled: false },
+        { key: '2', value: 'Two' },  // options are disabled by default
+        { key: '3', value: 'Three' }
+      ]
     };
   },
 
