@@ -59,14 +59,6 @@ export default Component.extend({
 
     setYearAvailability(type) {
       this.set('monthlyAvailability', new Array(12).fill(type));
-    },
-
-    increment(property) {
-      this.incrementProperty(property);
-    },
-
-    decrement(property) {
-      this.decrementProperty(property);
     }
   },
 
