@@ -138,19 +138,85 @@
   \{{/uni-dropdown}}
 </p>
 
-{{uni-title title="Inputs"}}
-{{uni-title title="uni-input-range"}}
-{{uni-input-range placeholder="0" value="10" target="items"}}
-<p class="code-snippet">
-  \{{uni-input-range placeholder="0" value="10" target="items"}}
-</p>
-{{uni-title title="uni-input-price"}}
-{{uni-input-price currency="€" per="month"}}
-<p class="code-snippet">
-  \{{uni-input-price currency="€" per="month"}}
-</p>
-{{uni-title title="uni-mobile-number"}}
-{{uni-mobile-number }}
+{{uni-title title="Inputs" class="uni-title--spaced"}}
+<div class="component">
+  {{uni-title title="uni-input-range"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input-range.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input-range.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input-range.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a component used for number inputs. It accepts a placeholder, a value and a string with the description
+    of the field (target).
+  </p>
+
+  {{uni-input-range placeholder="0" value="10" target="items"}}
+  <p class="code-snippet">
+    \{{uni-input-range placeholder="0" value="10" target="items"}}
+  </p>
+</div>
+
+<div class="component">
+  {{uni-title title="uni-input-price"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input-price.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input-price.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input-price.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a component used for price inputs, namely rent prices. It accepts the several properties, such as the currency
+    (currency) and the basis (per). One improvement is to support left side currencies. Currently all currencies are
+    being displayed as right side currencies.
+  </p>
+
+  {{uni-input-price currency="€" per="month"}}
+  <p class="code-snippet">
+    \{{uni-input-price currency="€" per="month"}}
+  </p>
+</div>
+
+<div class="component">
+  {{uni-title title="uni-mobile-number"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-mobile-number.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-mobile-number.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-mobile-number.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a component used for mobile number inputs, it accepts the several properties, such as an array of options
+    (options) which by default is a list of all countries, and an optional array of preferred countries (preferredCountries).
+    <br>
+    For more info on countries, check <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-countries">ember-cli-countries</a>.
+  </p>
+
+  {{uni-mobile-number }}
+  <p class="code-snippet">
+    \{{uni-mobile-number}}
+  </p>
+
+  {{uni-mobile-number preferredCountries=(array 'PT' 'DE' 'GB')}}
+  <p class="code-snippet">
+    \{{uni-mobile-number preferredCountries=(array 'PT' 'DE' 'GB')}}
+  </p>
+</div>
+
+<div class="component">
+  {{uni-title title="uni-select"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-select.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-select.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-select.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a select input component. Check the <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">application.js</a> for the uniSelectOptions array.
+  </p>
+
+  {{uni-select options=model.uniSelectOptions}}
+  <p class="code-snippet">
+    \{{uni-select options=model.uniSelectOptions}}
+  </p>
+</div>
 
 {{uni-title title='Textarea'}}
 {{uni-textarea placeholder="This is a placeholder"}}
@@ -165,15 +231,37 @@
   <br><br>
 </p>
 
+
+<div class="component">
+  {{uni-title title='Tooltip'}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-tooltip.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-tooltip.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-tooltip.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a component used for displaying tooltips. There are currently two types of tooltips: question (isQuestion)
+    and informative (isInformation). The title is optional.
+  </p>
+
+  {{uni-tooltip isInformation=true content="This is a demo information tooltip text"}}
+  <p class="code-snippet">
+    \{{uni-tooltip isInformation=true content="This is a demo information tooltip text"}}
+  </p>
+
+  {{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
+  <p class="code-snippet">
+    \{{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
+  </p>
+</div>
+
 {{uni-title title="Datepicker"}}
 {{uni-datepicker}}
-
 <p class="code-snippet">
   \{{uni-datepicker}}
 </p>
 
-{{uni-title title="Select"}}
-{{uni-select}}
+{{uni-title title="Carrousel"}}
 
 {{#uni-modal isOpen=true title="Photography tips"}}
   {{#uni-carrousel itemCount=3 keyboardActivated=true}}
@@ -301,11 +389,4 @@
         \{{/footer.row}}
     </p>
 \{{/uni-footer-website}}
-</p>
-
-<div>
-  {{uni-tooltip isQuestion=true content="This is a demo tooltip text"}}
-</div>
-<p class="code-snippet">
-  \{{uni-tooltip isQuestion=true content="This is a demo tooltip text"}}
 </p>
