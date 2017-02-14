@@ -4,7 +4,8 @@ import layout from '../templates/components/uni-mobile-number';
 
 const { Component } = Ember;
 
-const SEPARATOR = '--------------------------------';
+const SEPARATOR_KEY = '__SEPARATOR__';
+const SEPARATOR_VALUE = '--------------------------------';
 
 export default Component.extend({
   classNames: ['uni-mobile-number'],
@@ -31,7 +32,7 @@ export default Component.extend({
 
     if (preferredCountries.length > 0) {
       countries.push(...preferredCountries.map((key) => this._getOption(key)));
-      countries.push({ key: '', value: SEPARATOR, disabled: true });
+      countries.push({ key: SEPARATOR_KEY, value: SEPARATOR_VALUE, disabled: true });
     }
 
     countries.push(...getAllCountryNames().map(({ key }) => {
