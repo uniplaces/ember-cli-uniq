@@ -33,10 +33,11 @@
         "partials/uni-header-mobile-menu",
         "partials/uni-banner",
         "partials/uni-tooltip",
-        "partials/update-availability/_standard.scss",
-        "partials/update-availability/_standard-unitary.scss",
-        "partials/update-availability/_fixed.scss",
-        "partials/update-availability/_fixed-placeholder.scss";
+        "partials/uni-datepicker-input",
+        "partials/update-availability/standard.scss",
+        "partials/update-availability/standard-unitary.scss",
+        "partials/update-availability/fixed.scss",
+        "partials/update-availability/fixed-placeholder.scss";
 
 [data-ember-action]:not(:disabled) {
   cursor: pointer;

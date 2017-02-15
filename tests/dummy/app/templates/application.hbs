@@ -497,13 +497,31 @@
 </div>
 
 {{uni-title title="Availability update standard unitary"}}
-{{update-availability/standard-unitary label='available from' availability=model.standardUnitary onSelected=(action (mut availableFrom))}}
+{{update-availability/standard-unitary
+  availability=model.standardUnitary
+  onSelected=(action (mut availableFrom))
+  labelFrom="From"
+  labelTo="To"
+  labelDelet="Delete"}}
 
 {{uni-title title="Availability update standard"}}
-{{update-availability/standard availability=model.standard onChange=(action (mut model.yearsAvailability))}}
+{{update-availability/standard
+  availability=model.standard
+  onChange=(action (mut model.yearsAvailability))
+  labelAvailable="Available"
+  labelNotAvailable="Not available"
+  labelLimitedAvailability="Limited"}}
 
 {{uni-title title="Availability update fixed"}}
-{{update-availability/fixed label="option" availability=model.fixed labelAdd='add'}}
+{{update-availability/fixed
+  availability=model.fixed
+  labelOption="Option"
+  labelFrom="From"
+  labelTo="To"
+  labelAdd="Add"
+  labelEmpty="Empty"
+  labelPer="Per"
+  labelOk="Ok"}}
 
 {{#uni-footer-website as |footer|}}
     {{#footer.row as |row|}}
