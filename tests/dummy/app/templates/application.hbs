@@ -482,6 +482,118 @@
 --}}
 <br/>
 
+{{uni-title title="Datepicker with input" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-datepicker-input.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-datepicker-input.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-datepicker-input.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component shows a datepicker with the date as an input. It's also possible to open/close the datepicker
+    by clicking on the input.
+  </p>
+
+  {{uni-datepicker-input selected=startDate onSelected=(action (mut startDate))}}
+
+  <p class="code-snippet">
+    \{{uni-datepicker-input selected=startDate onSelected=(action (mut startDate))}}
+  </p>
+</div>
+
+{{uni-title title="Availabilities" class="uni-title--spaced"}}
+<div class="component">
+  {{uni-title title="Standard Unitary"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/standard.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/standard.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_standard.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component allows to update availability for the type standard-unitary.
+  </p>
+
+  {{update-availability/standard-unitary
+    availability=model.standardUnitary
+    onSelected=(action (mut model.standardUnitary))
+    labelFrom="From"
+    labelTo="To"
+    labelDelete="Delete"}}
+
+  <p class="code-snippet">
+    \{{update-availability/standard-unitary<br>
+      <span class="tab">availability=standardUnitary</span><br>
+      <span class="tab">onSelected=(action (mut standardUnitary))</span><br>
+      <span class="tab">labelFrom="From"</span><br>
+      <span class="tab">labelTo="To"</span><br>
+      <span class="tab">labelDelete="Delete"</span>}}<br>
+  </p>
+</div>
+
+<div class="component">
+  {{uni-title title="Standard"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/standard-unitary.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/standard-unitary.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_standard-unitary.scss">SASS</a>  </p>
+  <p class="description">
+    This component allows to update availability for the type standard.
+  </p>
+
+  {{update-availability/standard
+    availability=model.standard
+    onChange=(action (mut model.standard))
+    labelAvailable="Available"
+    labelNotAvailable="Not available"
+    labelLimitedAvailability="Limited"}}
+
+  <p class="code-snippet">
+    \{{update-availability/standard<br>
+      <span class="tab">availability=model.standard</span><br>
+      <span class="tab">onChange=(action (mut model.standard))</span><br>
+      <span class="tab">labelAvailable="Available"</span><br>
+      <span class="tab">labelNotAvailable="Not available"</span><br>
+      <span class="tab">labelLimitedAvailability="Limited"</span>}}<br>
+  </p>
+</div>
+
+<div class="component">
+  {{uni-title title="Standard"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/fixed.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/fixed.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_fixed.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component allows to update availability for the type fixed.
+  </p>
+
+  {{update-availability/fixed
+    availability=model.fixed
+    onSelected=(action (mut model.fixed))
+    labelOption="Option"
+    labelFrom="From"
+    labelTo="To"
+    labelAdd="Add"
+    labelEmpty="Empty"
+    labelPer="Per"
+    labelOk="Ok"}}
+
+  <p class="code-snippet">
+    \{{update-availability/fixed<br>
+      <span class="tab">availability=model.fixed</span><br>
+      <span class="tab">onSelected=(action (mut model.fixed))</span><br>
+      <span class="tab">labelOption="Option"</span><br>
+      <span class="tab">labelFrom="From"</span><br>
+      <span class="tab">labelTo="To"</span><br>
+      <span class="tab">labelAdd="Add"</span><br>
+      <span class="tab">labelEmpty="Empty"</span><br>
+      <span class="tab">labelPer="Per"</span><br>
+      <span class="tab">labelOk="Ok"</span>}}<br>
+  </p>
+</div>
+
+
 {{uni-title title="Footer" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">
