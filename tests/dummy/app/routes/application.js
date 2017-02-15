@@ -13,6 +13,13 @@ export default Route.extend({
         { key: '1', value: 'One', disabled: false },
         { key: '2', value: 'Two' },  // options are disabled by default
         { key: '3', value: 'Three' }
+      ],
+      tabs: [
+        { label: 'Home', url: 'application' },
+        { label: 'About us', url: 'application' },
+        { label: 'Help', url: 'application' },
+        { label: 'Careers', url: 'application' },
+        { label: 'Terms', url: 'application' }
       ]
     };
   },

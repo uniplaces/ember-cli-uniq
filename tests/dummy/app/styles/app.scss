@@ -1,3 +1,5 @@
+@import "bower_components/uniq/src/styles/_main";
+
 html,
 body {
   width: 100%;
@@ -26,6 +28,14 @@ body {
   padding-left: 10px;
 }
 
+.double-tab {
+  padding-left: 20px;
+}
+
+.triple-tab {
+  padding-left: 30px;
+}
+
 .flex-wrapper {
   display: flex;
   align-items: left;
@@ -38,6 +48,7 @@ body {
 }
 
 .uni-title {
+  display: block;
   margin-bottom: 15px;
 }
 
@@ -54,6 +65,11 @@ body {
   font-size: 30px;
 }
 
+.uni-title--centered {
+  width: 100%;
+  text-align: center;
+}
+
 .uni-input-price {
   margin: 0;
   max-width: 300px;
@@ -65,6 +81,12 @@ body {
   input {
     max-width: 175px;
   }
+}
+
+.uni-textarea {
+  max-width: 388px;
+  margin-bottom: 0;
+  padding-top: 12px;
 }
 
 @import "ember-power-calendar";
