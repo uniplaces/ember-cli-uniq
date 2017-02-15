@@ -1,3 +1,5 @@
+$medium-gray: #cccccc;
+
 .update-availability-fixed {
   @include fade-in();
   animation-duration: 1s;
@@ -6,7 +8,7 @@
 
   .options {
     &__none {
-      font-size: 20px;
+      font-size: em(20px);
       margin: 20px 0;
     }
 
@@ -30,7 +32,7 @@
       width: 150px;
 
       p {
-        font-size: 16px;
+        font-size: em(16px);
       }
     }
 
@@ -42,7 +44,7 @@
       .ember-power-select-option {
         &[data-option-index="0"] {
           background: color('dropdown', 'item-hover') !important;
-          color: color('medium-gray') !important;
+          color: $medium-gray !important;
           cursor: default;
         }
       }
@@ -52,7 +54,7 @@
       .ember-power-select-option {
         &[data-option-index="1"] {
           background: color('dropdown', 'item-hover') !important;
-          color: color('medium-gray') !important;
+          color: $medium-gray !important;
           cursor: default;
         }
       }
@@ -62,7 +64,7 @@
       .ember-power-select-option {
         &[data-option-index="2"] {
           background: color('dropdown', 'item-hover') !important;
-          color: color('medium-gray') !important;
+          color: $medium-gray !important;
           cursor: default;
         }
       }
@@ -70,7 +72,7 @@
   }
 
   .ember-power-select-placeholder {
-    font-size: 12px;
+    font-size: em(12px);
   }
 
   .ember-basic-dropdown-trigger {
@@ -78,14 +80,14 @@
   }
 
   p {
-    font-size: 14px;
+    font-size: em(14px);
     font-weight: 500;
   }
 
   .align-top-left {
     top: 25px;
     left: 10px;
-    font-size: 15px;
+    font-size: em(15px);
     color: color('text', 'subheading');
   }
 
@@ -95,7 +97,7 @@
 
   .ember-power-calendar {
     position: absolute;
-    background-color: white;
+    background-color: color('background');
     z-index: 1;
     border: 1px solid color('borders');
     box-shadow: 0 0 10px color('borders');

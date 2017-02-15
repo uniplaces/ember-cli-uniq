@@ -1,4 +1,4 @@
-{{input value=formatedDate click=(action "toggleDatepicker")}}
+{{input value=formattedDate click=(action "toggleDatepicker")}}
 
 {{#if showDatepicker}}
   {{uni-datepicker select=selected onSelect=(action "onSelect") center=center onCenter=(action (mut center))}}

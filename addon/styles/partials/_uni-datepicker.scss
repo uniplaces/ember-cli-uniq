@@ -4,7 +4,7 @@ $box-size: 42px;
   width: 100%;
   max-width: 294px;
 
-  .disabled {
+  .disabled:hover {
     pointer-events: none;
   }
 

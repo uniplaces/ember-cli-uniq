@@ -13,7 +13,7 @@ export default Component.extend(ClickOutsideMixin, {
   center: moment(),
   format: 'll',
 
-  formatedDate: computed('selected', function() {
+  formattedDate: computed('selected', function() {
     let selected = this.get('selected');
 
     return isNone(selected) ? moment().format(this.get('format')) : moment(selected).format(this.get('format'));

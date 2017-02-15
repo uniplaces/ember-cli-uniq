@@ -78,7 +78,7 @@ $availabilities: (
   }
 
   .ember-power-select-placeholder {
-    font-size: 14px;
+    font-size: em(14px);
   }
 
   .ember-power-select-trigger {
@@ -108,17 +108,17 @@ $availabilities: (
 
   .ember-power-select-options {
     .ember-power-select-option {
-      font-size: 12px;
+      font-size: em(12px);
       padding: 8px;
 
       &:hover {
-        background: white;
+        background: color('background');
         color: color('text', 'header');
       }
     }
 
     [aria-current="true"] {
-      background: white;
+      background: color('background');
       color: color('text', 'header');
     }
   }

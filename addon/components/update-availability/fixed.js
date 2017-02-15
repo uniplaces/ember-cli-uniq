@@ -19,6 +19,7 @@ export default Component.extend({
   labelAdd: null,
   labelEmpty: null,
   labelPer: null,
+  labelOk: null,
   options: [],
 
   availabilityOptions: computed.alias('availability.options'),

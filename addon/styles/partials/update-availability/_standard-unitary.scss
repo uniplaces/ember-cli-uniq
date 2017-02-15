@@ -1,7 +1,7 @@
 .update-availability-standard-unitary {
   .blocked-periods {
     &__none {
-      font-size: 20px;
+      font-size: em(20px);
       margin: 20px 0;
     }
 
@@ -35,7 +35,7 @@
 
   .ember-power-calendar {
     position: absolute;
-    background-color: white;
+    background-color: color('background');
     z-index: 1;
     border: 1px solid color('borders');
     box-shadow: 0 0 10px color('borders');
