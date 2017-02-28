@@ -8,7 +8,10 @@ moduleForComponent('uni-banner', 'Integration | Component | uni banner', {
 test('it renders', function(assert) {
   assert.expect(1);
 
-  this.render(hbs`{{uni-banner}}`);
+  this.render(hbs`
+    {{#uni-banner}}
+      Example
+    {{/uni-banner}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Example');
 });

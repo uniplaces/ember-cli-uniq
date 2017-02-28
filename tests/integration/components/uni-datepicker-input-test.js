@@ -6,6 +6,8 @@ moduleForComponent('uni-datepicker-input', 'Integration | Component | uni datepi
 });
 
 test('it renders', function(assert) {
+  assert.expect(1);
+
   this.render(hbs`{{uni-datepicker-input}}`);
 
   assert.equal(this.$().text().trim(), '');
