@@ -1,0 +1,16 @@
+<section class="uni-image-gallery uni-image-gallery--select-images">
+  {{#if title}}
+    <div class="uni-image-gallery__title">
+      {{title}}
+    </div>
+  {{/if}}
+  <ul class="uni-image-gallery__wrapper">
+    {{#each photos as |photo|}}
+      <li class="uni-image-gallery__wrapper__item">
+        {{#uni-photo-thumbnail photo=photo}}
+          {{yield photo}}
+        {{/uni-photo-thumbnail}}
+      </li>
+    {{/each}}
+  </ul>
+</section>

@@ -55,7 +55,18 @@ export default Route.extend({
             status: 'medium'
           }
         ]
-      }
+      },
+      mainPhotoUrl: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
+      photos: [
+        {
+          url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
+          id: '1234567890'
+        },
+        {
+          url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/porto-small.jpg',
+          id: '0987654321'
+        }
+      ]
     };
   },
 
@@ -72,6 +83,10 @@ export default Route.extend({
       this.set('currentModel.isLogin', true);
 
       this.set('currentModel.isOpen', true);
+    },
+
+    setAsMainPhoto(photo) {
+      this.set('currentModel.mainPhotoUrl', photo.url);
     }
   }
 });
