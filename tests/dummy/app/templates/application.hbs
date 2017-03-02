@@ -501,6 +501,28 @@
   </p>
 </div>
 
+{{uni-title title="Horizontal tabs" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-horizontal-tabs.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-horizontal-tabs.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-horizontal-tabs.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component allows to have horizontal tabs that switch the content on click.
+  </p>
+
+  {{#uni-horizontal-tabs options=(array "A" "B" "C") as |option|}}
+    {{option}}
+  {{/uni-horizontal-tabs}}
+  
+  <p class="code-snippet">
+    \{{#uni-horizontal-tabs options=(array "A" "B" "C") as |option|}}<br>
+      <span class="tab">\{{option}}</span><br>
+    \{{/uni-horizontal-tabs}}
+  </p>
+</div>
+
 {{uni-title title="Availabilities" class="uni-title--spaced"}}
 <div class="component">
   {{uni-title title="Standard Unitary"}}
