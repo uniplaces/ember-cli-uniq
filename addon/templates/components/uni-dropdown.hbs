@@ -1,4 +1,4 @@
-<div role="button" class="{{btnClass}} uni-dropdown__button" {{action (toggle "isOpen" this)}}>
+<div role="button" class="{{btnClass}} uni-dropdown__button" {{action "buttonClick"}}>
   {{#if selected}}
     {{selected}}
   {{else}}
@@ -9,7 +9,7 @@
 {{#if isOpen}}
   <ul class="uni-dropdown__wrapper">
     {{#each options as |option|}}
-      <li class="uni-dropdown__item" {{action "click" option}}>{{yield option}}</li>
+      <li class="uni-dropdown__item" {{action "optionClick" option}}>{{yield option}}</li>
     {{/each}}
   </ul>
 {{/if}}
