@@ -17,9 +17,16 @@ export default Component.extend({
   options: [],
   btnClass: '',
   onChange() {},
+  onClick() {},
 
   actions: {
-    click(option) {
+    buttonClick() {
+      this.toggleProperty('isOpen');
+
+      this.get('onClick')();
+    },
+
+    optionClick(option) {
       this.toggleProperty('isOpen');
       this.set('selected', option);
 
