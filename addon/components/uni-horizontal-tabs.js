@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-horizontal-tabs';
 
-const { Component, computed, isEmpty } = Ember;
+const { Component, computed, isEmpty, observer } = Ember;
 
 export default Component.extend({
   layout,
@@ -19,6 +19,10 @@ export default Component.extend({
   toTitle(option) {
     return option;
   },
+
+  onOptionsChanged: observer('options.[]', function() {
+    this.set('currentTab', Math.min(this.get('currentTab'), this.get('options.length') - 1));
+  }),
 
   optionSelected: computed('options.[]', 'currentTab', function() {
     if (isEmpty(this.get('options'))) {

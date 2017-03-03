@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-file-upload';
 
-const { Component, $ } = Ember;
+const { Component } = Ember;
 
 export default Component.extend({
   layout,
@@ -14,7 +14,7 @@ export default Component.extend({
 
   actions: {
     triggerInputFile() {
-      $('.uni-file-upload').click();
+      this.$('.uni-file-upload').click();
     },
 
     handleFile(event) {
