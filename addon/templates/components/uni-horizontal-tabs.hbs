@@ -6,4 +6,6 @@
   {{/each}}
 </ul>
 
-{{yield optionSelected}}
+{{#if optionSelected}}
+  {{yield optionSelected currentTab}}
+{{/if}}
