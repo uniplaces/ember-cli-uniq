@@ -1,7 +1,7 @@
 <div class="uni-header__nav__dropdown {{if isOpen 'uni-header__nav__dropdown--active'}}">
-    <button class="uni-header__nav__button uni-header__nav__button--dropdown" {{action (toggle "isOpen" this)}}>
+    <div role="button" class="uni-header__nav__button uni-header__nav__button--dropdown" {{action (toggle "isOpen" this)}}>
       {{selected}}
-    </button>
+    </div>
 
     <ul class="uni-header__nav__dropdown__list">
       {{#each-in options as |k option|}}

@@ -4,19 +4,22 @@ $box-size: 42px;
   width: 100%;
   max-width: 294px;
 
+  .disabled:hover {
+    pointer-events: none;
+  }
+
   &-nav {
     margin-bottom: 15px;
 
     &-control {
       width: 47px;
       height: 35px;
-      background: color('dropdown') !important;
       border: 1px solid color('primary', 'divider') !important;
       color: color('dropdown') !important;
       cursor: pointer;
       background-color: color('dropdown');
 
-      button[disabled] {
+      [role="button"][disabled] {
         background-color: color('buttons');
       }
     }
@@ -46,10 +49,6 @@ $box-size: 42px;
 
     &:disabled {
       color: color('buttons', 'disabled-text') !important;
-
-      &:hover {
-        background-color: color('buttons') !important;
-      }
     }
   }
 
@@ -63,6 +62,10 @@ $box-size: 42px;
 
   &-day--interactive[disabled] {
     opacity: 1 !important;
+    text-decoration: none;
+    background-color: color('buttons', 'disabled') !important;
+    color: rgba(178, 185, 194, .3);
+    pointer-events: none;
   }
 
   &-week {
@@ -74,6 +77,7 @@ $box-size: 42px;
 
       button {
         border-top: 1px solid color('primary', 'divider');
+        max-width: $box-size;
 
         &:first-child {
           border-left: 0;
@@ -92,6 +96,7 @@ $box-size: 42px;
 
       button {
         border-bottom: 1px solid color('primary', 'divider');
+        max-width: $box-size;
       }
     }
   }
@@ -116,7 +121,6 @@ $box-size: 42px;
 
       &[disabled] {
         background-color: color('buttons', 'disabled');
-        text-decoration: line-through;
       }
     }
   }
@@ -126,7 +130,7 @@ $box-size: 42px;
   }
 }
 
-button.ember-power-calendar-nav-control {
+[role="button"].ember-power-calendar-nav-control {
   @include flex();
   @include align-items-center();
   @include justify-content-center();

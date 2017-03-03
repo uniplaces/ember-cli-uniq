@@ -4,11 +4,14 @@
   textarea {
     @include textarea();
     width: 100%;
+    resize: none;
   }
 
   &-counter {
     @include body();
-    max-width: 410px;
+    color: color('text', 'subheader');
+    max-width: 388px;
     text-align: right;
+    margin-top: 6px;
   }
 }

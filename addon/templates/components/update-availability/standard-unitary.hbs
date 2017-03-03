@@ -1,0 +1,25 @@
+{{#each blockedPeriods as |blockedPeriod i|}}
+  <div class="blocked-period">
+    <div class="label">{{labelFrom}}</div>
+
+    {{uni-datepicker-input
+      selected=blockedPeriod.from
+      onSelected=(action (mut blockedPeriod.from))}}
+
+    <div class="label">{{labelTo}}</div>
+
+    {{uni-datepicker-input
+      selected=blockedPeriod.to
+      onSelected=(action (mut blockedPeriod.to))}}
+
+    {{inline-svg 'icons/calendar.svg'}}
+
+    <p class="blocked-period__delete link" {{action "deleteBlockedPeriod" i}}>{{labelDelete}}</p>
+  </div>
+{{else}}
+  <div class="blocked-periods__none">{{labelEmpty}}</div>
+{{/each}}
+
+<p class="blocked-periods__add link" {{action "addBlockedPeriod"}}>{{labelAdd}}</p>
+
+{{yield}}

@@ -1,7 +1,10 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
 
 const DEFAULT_TITLE = 'Uni modal title';
+
+const { $ } = Ember;
 
 moduleForComponent('uni-modal', 'Integration | Component | uni modal', {
   integration: true
@@ -25,8 +28,8 @@ test('it renders and renders title', function(assert) {
 
   this.render(hbs`{{uni-modal isOpen=isOpen title=title}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-title').text().trim(), DEFAULT_TITLE);
+  assert.equal(this.$().text().trim(), '');
+  assert.equal($('.uni-modal .uni-title').text().trim(), DEFAULT_TITLE);
 });
 
 test('it renders content', function(assert) {
@@ -40,6 +43,6 @@ test('it renders content', function(assert) {
     {{/uni-modal}}
   `);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$().text().trim(), 'This is content');
+  assert.equal(this.$().text().trim(), '');
+  assert.equal($('.uni-modal').text().trim(), 'This is content');
 });

@@ -1,0 +1,7 @@
+.uni-tooltip {
+  @include tooltip();
+
+  &__text {
+    width: 200px;
+  }
+}

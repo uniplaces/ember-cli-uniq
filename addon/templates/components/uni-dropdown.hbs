@@ -1,11 +1,15 @@
-<button
-  class="{{extraBtnClasses}} uni-dropdown-button {{if isOpen 'uni-dropdown-button--active'}}"
-  {{action (toggle "isOpen" this)}}>
-  {{component placeholderComponent option=selected}}
-</button>
+<div role="button" class="{{btnClass}} uni-dropdown__button" {{action "buttonClick"}}>
+  {{#if selected}}
+    {{selected}}
+  {{else}}
+    {{placeholder}}
+  {{/if}}
+</div>
 
-<ul class="uni-dropdown__wrapper">
-  {{#each options as |option|}}
-    <li class="uni-dropdown__item">{{yield option}}</li>
-  {{/each}}
-</ul>
+{{#if isOpen}}
+  <ul class="uni-dropdown__wrapper">
+    {{#each options as |option|}}
+      <li class="uni-dropdown__item" {{action "optionClick" option}}>{{yield option}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

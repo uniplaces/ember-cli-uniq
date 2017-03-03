@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-uniq/components/update-availability/standard-unitary';

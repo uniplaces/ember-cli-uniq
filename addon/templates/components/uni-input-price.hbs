@@ -1,8 +1,19 @@
+{{#if (not isRightSideCurrency)}}
+  <span class="uni-input-price__currency">{{currency}}</span>
+{{/if}}
+
+{{input
+  type=type
+  value=value
+  max=max
+  min=min
+  maxlength=maxLength
+  placeholder=placeholder
+  focus-in=(action "onFocusIn")
+  key-down=(action "onChange")}}
+
 {{#if isRightSideCurrency}}
-  {{input type=type maxlength=maxLength placeholder=placeholder value=value}}
   <span>{{currency}} / {{per}}</span>
 {{else}}
-  <span class="uni-input-price__currency">{{currency}}</span>
-  {{input type=type maxlength=maxLength placeholder=placeholder value=value}}
-  <span> / {{per}}</span>
+  <span>/ {{per}}</span>
 {{/if}}

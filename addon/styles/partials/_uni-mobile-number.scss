@@ -7,9 +7,26 @@
   }
 
   .uni-select {
+    position: relative;
+    width: 100%;
     max-width: 275px;
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+
+    &-wrapper {
+      &:before,
+      &:after {
+        z-index: 10;
+      }
+    }
+  }
+
+  @include breakpoint(small) {
+    & > div,
+    input {
+      width: 100%;
+      max-width: 50%;
+    }
   }
 }

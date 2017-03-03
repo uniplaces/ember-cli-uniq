@@ -2,6 +2,7 @@
   @include button();
 
   &--loading {
+    opacity: .5;
     pointer-events: none;
   }
 

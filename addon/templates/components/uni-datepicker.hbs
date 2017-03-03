@@ -5,15 +5,15 @@
   onSelect=(action onSelect value="moment") as |calendar|}}
 
   <nav class="ember-power-calendar-nav">
-    <button class="ember-power-calendar-nav-control" disabled={{isFirstMonth}} {{action "prevMonth"}}>
+    <div role="button" class="ember-power-calendar-nav-control {{isFirstMonth}}" {{action "prevMonth"}}>
       {{inline-svg "icons/arrow-left-calendar"}}
-    </button>
+    </div>
     <div class="ember-power-calendar-nav-title">
       {{moment-format calendar.center dateFormat}}
     </div>
-    <button class="ember-power-calendar-nav-control" disabled={{isLastMonth}} {{action "nextMonth"}}>
+    <div role="button" class="ember-power-calendar-nav-control {{isLastMonth}}" {{action "nextMonth"}}>
       {{inline-svg "icons/arrow-right-calendar"}}
-    </button>
+    </div>
   </nav>
 
   {{calendar.days minDate=minDate maxDate=maxDate showDaysAround=showDaysAround}}

@@ -1,0 +1,11 @@
+<ul class="tabs">
+  {{#each titles as |title i|}}
+    <li class="tabs__item {{if (eq currentTab i) 'tabs__item--active'}}" role="button" {{action "setTab" i}}>
+      {{title}}
+    </li>
+  {{/each}}
+</ul>
+
+{{#if optionSelected}}
+  {{yield optionSelected currentTab}}
+{{/if}}
