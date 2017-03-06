@@ -7,6 +7,11 @@
         margin-bottom: 8px;
         border-bottom: 1px solid color('borders');
 
+        &__button {
+          margin-left: auto;
+          margin-bottom: 4px;
+        }
+
         &__item {
             position: relative;
             @include flex();
