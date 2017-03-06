@@ -4,6 +4,11 @@
       {{title}}
     </li>
   {{/each}}
+  {{#if btnLabel}}
+    <li class="tabs__button uni-button uni-button--primary" role="button" {{action "onBtnClick"}}>
+      {{btnLabel}}
+    </li>
+  {{/if}}
 </ul>
 
 {{#if optionSelected}}

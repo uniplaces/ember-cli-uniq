@@ -538,6 +538,16 @@
       <span class="tab">\{{option}}</span><br>
     \{{/uni-horizontal-tabs}}
   </p>
+
+  {{#uni-horizontal-tabs options=options btnLabel="This is a button" as |option|}}
+    {{option}}
+  {{/uni-horizontal-tabs}}
+
+  <p class="code-snippet">
+    \{{#uni-horizontal-tabs options=options btnLabel="This is a button" as |option|}}
+      <span class="tab">\{{option}}</span><br>
+    \{{/uni-horizontal-tabs}}
+  </p>
 </div>
 
 {{uni-title title="Availabilities" class="uni-title--spaced"}}
