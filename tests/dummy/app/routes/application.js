@@ -5,6 +5,7 @@ const { Route } = Ember;
 export default Route.extend({
   model() {
     return {
+      options: ['A', 'B', 'C'],
       isOpen: true,
       isSignup: true,
       isLogin: false,
