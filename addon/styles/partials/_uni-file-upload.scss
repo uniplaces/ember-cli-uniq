@@ -1,0 +1,39 @@
+.uni-file-upload-preview-container {
+  @include flex();
+  @include justify-content-center();
+  @include align-items-center();
+  @include column(4);
+
+  height: 216px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 2px dashed color('borders', 'gallery-item');
+  background-color: color('background', 'gallery-item');
+}
+
+.uni-file-upload {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.uni-file-upload-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  margin-right: auto;
+}
+
+.uni-button {
+  display: inline-flex;
+}
+
+.uni-file-upload-name {
+  @include subtitle();
+  @include font("IntervalNextReg");
+
+  margin-left: 16px;
+}
