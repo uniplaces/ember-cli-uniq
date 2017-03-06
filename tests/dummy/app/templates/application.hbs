@@ -529,12 +529,12 @@
     This component allows to have horizontal tabs that switch the content on click.
   </p>
 
-  {{#uni-horizontal-tabs options=(array "A" "B" "C") as |option|}}
+  {{#uni-horizontal-tabs options=options as |option|}}
     {{option}}
   {{/uni-horizontal-tabs}}
 
   <p class="code-snippet">
-    \{{#uni-horizontal-tabs options=(array "A" "B" "C") as |option|}}<br>
+    \{{#uni-horizontal-tabs options=options as |option|}}
       <span class="tab">\{{option}}</span><br>
     \{{/uni-horizontal-tabs}}
   </p>
