@@ -1,10 +1,10 @@
 {{#if renderFile}}
-  <span class="uni-file-upload-preview-container">
+  <span class="uni-file-upload__preview-container">
       {{yield}}
   </span>
 {{/if}}
 
-{{input class="uni-file-upload" type="file" accept=accept change=(action "handleFile")}}
+{{input class="uni-file-upload__uploader" type="file" accept=accept change=(action "handleFile")}}
 
 {{uni-button label=label isPrimary=true action=(action "triggerInputFile")}}
 
