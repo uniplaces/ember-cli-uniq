@@ -23,4 +23,4 @@ A Demo of the components: https://vast-shelf-62262.herokuapp.com/
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on how to use ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
