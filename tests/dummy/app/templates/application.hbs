@@ -529,7 +529,7 @@
     This component allows to have horizontal tabs that switch the content on click.
   </p>
 
-  {{#uni-horizontal-tabs options=options as |option|}}
+  {{#uni-horizontal-tabs options=model.options as |option|}}
     {{option}}
   {{/uni-horizontal-tabs}}
 
@@ -539,7 +539,7 @@
     \{{/uni-horizontal-tabs}}
   </p>
 
-  {{#uni-horizontal-tabs options=options btnLabel="This is a button" as |option|}}
+  {{#uni-horizontal-tabs options=model.options btnLabel="This is a button" as |option|}}
     {{option}}
   {{/uni-horizontal-tabs}}
 
