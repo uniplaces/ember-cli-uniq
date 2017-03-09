@@ -1,9 +1,11 @@
 .uni-file-upload {
-  visibility: hidden;
-  width: 0;
-  height: 0;
+  &__uploader {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+  }
 
-  .uni-file-upload-preview {
+  &__preview {
     position: relative;
     width: 100%;
     height: 100%;
@@ -17,14 +19,14 @@
     display: inline-flex;
   }
 
-  .uni-file-upload-name {
+  &__name {
     @include subtitle();
     @include font("IntervalNextReg");
 
     margin-left: 16px;
   }
 
-  .uni-file-upload-preview-container {
+  &__preview-container {
     @include flex();
     @include justify-content-center();
     @include align-items-center();
