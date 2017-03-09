@@ -67,7 +67,8 @@ export default Route.extend({
           url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/porto-small.jpg',
           id: '0987654321'
         }
-      ]
+      ],
+      uniHorizontalTabsBtnLabel: 'This is a button'
     };
   },
 

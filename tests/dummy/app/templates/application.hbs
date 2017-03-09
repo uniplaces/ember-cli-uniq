@@ -539,12 +539,12 @@
     \{{/uni-horizontal-tabs}}
   </p>
 
-  {{#uni-horizontal-tabs options=model.options btnLabel="This is a button" as |option|}}
+  {{#uni-horizontal-tabs options=model.options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
     {{option}}
   {{/uni-horizontal-tabs}}
 
   <p class="code-snippet">
-    \{{#uni-horizontal-tabs options=options btnLabel="This is a button" as |option|}}
+    \{{#uni-horizontal-tabs options=options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
       <span class="tab">\{{option}}</span><br>
     \{{/uni-horizontal-tabs}}
   </p>
