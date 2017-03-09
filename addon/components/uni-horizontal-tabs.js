@@ -35,7 +35,13 @@ export default Component.extend({
     return this.get('options').map(this.get('toTitle'));
   }),
 
+  onBtnClick() {},
+
   actions: {
+    onBtnClick() {
+      this.get('onBtnClick')();
+    },
+
     setTab(index) {
       this.set('currentTab', index);
     }
