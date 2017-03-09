@@ -15,7 +15,7 @@ export default Component.extend({
 
   actions: {
     triggerInputFile() {
-      this.$('.uni-file-upload').click();
+      this.$('input').click();
     },
 
     handleFile(event) {
