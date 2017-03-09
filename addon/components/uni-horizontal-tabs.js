@@ -32,7 +32,7 @@ export default Component.extend({
     return this.get('options')[this.get('currentTab')];
   }),
   titles: computed('options.@each.title', function() {
-    return this.get('options').map(this.get('toTitle'));
+    return this.get('options').map(this.toTitle);
   }),
 
   actions: {
