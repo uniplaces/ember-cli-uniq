@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-uniq",
-  "version": "0.0.81",
+  "version": "0.0.82",
   "description": "Ember add-on with a variety of components with uniplaces-uniq styles and default behaviours.",
   "directories": {
     "doc": "doc",
