@@ -4,6 +4,7 @@ import layout from '../templates/components/uni-file-upload';
 const { Component } = Ember;
 
 export default Component.extend({
+  classNames: ['uni-file-upload'],
   layout,
   accept: null,
   renderFile: false,
