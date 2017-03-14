@@ -511,10 +511,10 @@
     by clicking on the input.
   </p>
 
-  {{uni-datepicker-input selected=startDate onSelected=(action (mut startDate))}}
+  {{uni-datepicker-input selected=model.startDate minDate=model.minDate onSelected=(action (mut startDate))}}
 
   <p class="code-snippet">
-    \{{uni-datepicker-input selected=startDate onSelected=(action (mut startDate))}}
+    \{{uni-datepicker-input selected=startDate minDate=minDate onSelected=(action (mut startDate))}}
   </p>
 </div>
 

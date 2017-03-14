@@ -1,7 +1,13 @@
 {{input class="uni-input uni-input--bordered" value=formattedDate click=(action "toggleDatepicker")}}
 
 {{#if showDatepicker}}
-  {{uni-datepicker select=selected onSelect=(action "onSelect") center=center onCenter=(action (mut center))}}
+  {{uni-datepicker
+  	selected=selected
+  	onSelect=(action "onSelect")
+  	center=center
+  	onCenter=(action (mut center))
+  	minDate=minDate
+  	maxDate=MaxDate}}
 {{/if}}
 
 {{yield}}
