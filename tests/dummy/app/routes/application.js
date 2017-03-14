@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 const { Route } = Ember;
 
@@ -10,6 +11,8 @@ export default Route.extend({
       isSignup: true,
       isLogin: false,
       withEmail: true,
+      minDate: moment().subtract(1, 'days'),
+      startDate: moment(),
       uniSelectOptions: [
         { key: '1', value: 'One', disabled: false },
         { key: '2', value: 'Two' },  // options are disabled by default
