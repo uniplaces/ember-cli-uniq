@@ -84,14 +84,14 @@
   </p>
 </div>
 
-{{#uni-alert isFixed=true isSuccess=true}}
+{{#uni-alert isSuccess=true}}
   <p>Thank you for verifying your email.</p>
   <p>You can now proceed and continue creating your listing.</p>
 {{/uni-alert}}
 
 <div class="component">
   <p class="code-snippet">
-    \{{#uni-alert isFixed=true isSuccess=true}}<br>
+    \{{#uni-alert isSuccess=true}}<br>
       <span class="tab">&lt;p&gt;Thank you for verifying your email.&lt;/p&gt;</span><br>
       <span class="tab">&lt;p&gt;You can now proceed and continue creating your listing.&lt;/p&gt;</span><br>
     \{{/uni-alert}}
@@ -243,6 +243,25 @@
   </p>
 </div>
 
+{{uni-title title="Datepicker with input" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-datepicker-input.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-datepicker-input.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-datepicker-input.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component shows a datepicker with the date as an input. It's also possible to open/close the datepicker
+    by clicking on the input.
+  </p>
+
+  {{uni-datepicker-input selected=model.startDate minDate=model.minDate onSelected=(action (mut startDate))}}
+
+  <p class="code-snippet">
+    \{{uni-datepicker-input selected=startDate minDate=minDate onSelected=(action (mut startDate))}}
+  </p>
+</div>
+
 {{uni-title title="Dropdown" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">
@@ -269,6 +288,33 @@
       <span class="tab">options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}</span><br><br>
       <span class="tab">\{{option}}</span><br><br>
     \{{/uni-dropdown}}
+  </p>
+</div>
+
+{{uni-title title="Radio button" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-radio-button.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-radio-button.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-radio-button.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a component used for radio button inputs.
+  </p>
+
+  {{uni-radio-button checked=true label="Checked radio button"}}
+  <p class="code-snippet">
+    \{{uni-radio-button checked=true label="Checked radio button"}}
+  </p>
+
+  {{uni-radio-button checked=false label="Unchecked radio button"}}
+  <p class="code-snippet">
+    \{{uni-radio-button checked=false label="Unchecked radio button"}}
+  </p>
+
+  {{uni-radio-button label="Disabled radio button" isDisabled=true}}
+  <p class="code-snippet">
+    \{{uni-radio-button label="Disabled radio button" isDisabled=true}}
   </p>
 </div>
 
@@ -499,25 +545,6 @@
 --}}
 <br/>
 
-{{uni-title title="Datepicker with input" class="uni-title--spaced"}}
-<div class="component">
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-datepicker-input.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-datepicker-input.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-datepicker-input.scss">SASS</a>
-  </p>
-  <p class="description">
-    This component shows a datepicker with the date as an input. It's also possible to open/close the datepicker
-    by clicking on the input.
-  </p>
-
-  {{uni-datepicker-input selected=model.startDate minDate=model.minDate onSelected=(action (mut startDate))}}
-
-  <p class="code-snippet">
-    \{{uni-datepicker-input selected=startDate minDate=minDate onSelected=(action (mut startDate))}}
-  </p>
-</div>
-
 {{uni-title title="Horizontal tabs" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">
@@ -641,7 +668,6 @@
       <span class="tab">labelOk="Ok"</span>}}<br>
   </p>
 </div>
-
 
 {{uni-title title="Footer" class="uni-title--spaced"}}
 <div class="component">
