@@ -10,6 +10,7 @@ export default Component.extend({
   hasChanged() {},
   name: null,
   label: null,
+  isDisabled: false,
 
   checked: computed('value', 'groupValue', function() {
     return this.get('value') === this.get('groupValue');
