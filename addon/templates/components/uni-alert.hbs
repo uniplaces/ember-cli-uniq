@@ -1,11 +1,18 @@
-<div class="alert__wrapper">
-  {{#if isSuccess}}
-    {{inline-svg "icons/success-icon.svg"}}
-  {{else}}
-    {{inline-svg "icons/icon-warning.svg"}}
-  {{/if}}
+{{inline-svg (i "icons/${iconName}.svg" iconName=iconName)}}
 
-  <div class="alert__content">
-    {{yield}}
-  </div>
+<div class="uni-alert__wrapper">
+    {{#if title}}
+        <div class="uni-alert__title">{{title}}</div>
+    {{/if}}
+    {{#if subtitle}}
+        <div class="uni-alert__content">{{subtitle}}</div>
+    {{/if}}
+
+    <div class="uni-alert__content">
+        {{yield}}
+    </div>
+
+    {{#if hasClose}}
+        <div class="uni-alert__close" {{action 'close'}}>{{inline-svg "icons/cross.svg"}}</div>
+    {{/if}}
 </div>

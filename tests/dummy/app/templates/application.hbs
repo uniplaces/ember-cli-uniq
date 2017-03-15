@@ -79,22 +79,41 @@
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-alert.scss">SASS</a>
   </p>
   <p class="description">
-    This is a component used to generate alerts. There are four types of alerts: success, warning, error and info.<br>
-    <strong>WARNING: </strong>They might not all be implemented.
+    This is a component used to generate alerts. There are four types of alerts: default (information), success, warning and error.
   </p>
 </div>
 
-{{#uni-alert isSuccess=true}}
-  <p>Thank you for verifying your email.</p>
-  <p>You can now proceed and continue creating your listing.</p>
-{{/uni-alert}}
+{{uni-alert
+  stickyMode=true
+  hasClose=true
+  title="This is the default alert!"
+  subtitle="The stickyMode option and the hasClose option are also enabled."}}
+<div class="component" style="margin-top: 60px;">
+  <p class="code-snippet">
+    \{{uni-alert<br>
+    <span class="tab">stickyMode=true</span><br>
+    <span class="tab">hasClose=true</span><br>
+    <span class="tab">title="This is the default alert!"</span><br>
+    <span class="tab">subtitle="The isFixed option and the hasClose option are also enabled."}}</span><br>
+  </p>
+</div>
 
+{{uni-alert isSuccess=true title="Success!" subtitle="This is a subtitle."}}
 <div class="component">
   <p class="code-snippet">
-    \{{#uni-alert isSuccess=true}}<br>
-      <span class="tab">&lt;p&gt;Thank you for verifying your email.&lt;/p&gt;</span><br>
-      <span class="tab">&lt;p&gt;You can now proceed and continue creating your listing.&lt;/p&gt;</span><br>
-    \{{/uni-alert}}
+    \{{uni-alert isSuccess=true title="Success!" subtitle="This is a subtitle."}}
+  </p>
+</div>
+{{uni-alert isWarning=true title="Warning!" subtitle="This is a subtitle."}}
+<div class="component">
+  <p class="code-snippet">
+    \{{uni-alert isWarning=true title="Warning!" subtitle="This is a subtitle."}}
+  </p>
+</div>
+{{uni-alert isError=true title="Error!" subtitle="This is a subtitle."}}
+<div class="component">
+  <p class="code-snippet">
+    \{{uni-alert isError=true title="Error!" subtitle="This is a subtitle."}}
   </p>
 </div>
 
