@@ -10,7 +10,8 @@
   maxlength=maxLength
   placeholder=placeholder
   focus-in=(action "onFocusIn")
-  key-down=(action "onChange")}}
+  key-down=(action "onKeyDown")
+  change=(action "onChange")}}
 
 {{#if isRightSideCurrency}}
   <span>{{currency}} / {{per}}</span>

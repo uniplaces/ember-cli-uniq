@@ -20,12 +20,17 @@ export default Component.extend({
   options: null,
 
   onInvalidInput() {},
+  onChange() {},
 
   actions: {
-    onChange() {
+    onKeyDown() {
       if (!parseFloat(this.get('value')) && this.get('value') < this.get('minValue')) {
         this.get('onInvalidInput')(this.get('options'));
       }
+    },
+
+    onChange() {
+      this.get('onChange')(this.get('value'));
     },
 
     onFocusIn() {
