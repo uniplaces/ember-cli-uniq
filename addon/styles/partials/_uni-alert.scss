@@ -1,9 +1,31 @@
 .uni-alert {
-    @include alert();
+  &--sticky {
+    position: absolute;
+  }
 
-    &--success {
-      svg g {
-        fill: color('feedback', 'text');
-      }
+  @include alert();
+
+  &--fixed {
+    background-color: color('feedback', 'primary-translucent');
+
+    &.uni-alert--success {
+      background-color: color('feedback', 'success-light-translucent');
     }
+
+    &.uni-alert--warning {
+      background-color: color('feedback', 'warning-translucent');
+    }
+
+    &.uni-alert--error {
+      background-color: color('feedback', 'error-translucent');
+    }
+  }
+
+  &__close {
+    background: none;
+  }
+
+  &--closed {
+    display: none;
+  }
 }
