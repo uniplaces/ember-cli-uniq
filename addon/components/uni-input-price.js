@@ -3,6 +3,8 @@ import layout from '../templates/components/uni-input-price';
 
 const { Component, $ } = Ember;
 
+const INPUT_TYPE_NUMBER = 'number';
+
 export default Component.extend({
   classNames: ['uni-input-price'],
   layout,
@@ -23,14 +25,13 @@ export default Component.extend({
   onChange() {},
 
   actions: {
-    onKeyDown() {
+    onChange() {
       if (!parseFloat(this.get('value')) && this.get('value') < this.get('minValue')) {
         this.get('onInvalidInput')(this.get('options'));
       }
-    },
-
-    onChange() {
-      this.get('onChange')(this.get('value'));
+      if (this.get('type') === INPUT_TYPE_NUMBER) {
+        this.set('value', parseInt(this.get('value')));
+      }
     },
 
     onFocusIn() {
