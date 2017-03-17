@@ -4,7 +4,7 @@
 
 {{input
   type=type
-  value=numberAsString
+  value=numberAsInt
   max=max
   min=min
   maxlength=maxLength
@@ -13,13 +13,11 @@
   key-up=(action "onChange")}}
 
 {{#if per}}
-  
   {{#if isRightSideCurrency}}
     <span>{{currency}} / {{per}}</span>
   {{else}}
     <span>/ {{per}}</span>
   {{/if}}
-
 {{else}}
-  <span>{{currency}}</span>  
+  <span>{{currency}}</span>
 {{/if}}
