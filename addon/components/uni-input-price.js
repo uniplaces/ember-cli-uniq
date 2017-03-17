@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-input-price';
 
-const { Component, $ } = Ember;
+const { Component, $, computed } = Ember;
 
 const INPUT_TYPE_NUMBER = 'number';
 
@@ -21,6 +21,31 @@ export default Component.extend({
   type: 'number',
   options: null,
 
+  /**
+   * Converts a value to an integer when able, or leaves it as a string
+   * @public
+   */
+  numberAsString: computed('value', {
+    get() {
+      return this.get('value') === null ? '' : `${this.get('value')}`;
+    },
+
+    set(_, value) {
+      if (this.get('type') === INPUT_TYPE_NUMBER) {
+        let newValue = this._isInt(value) ? parseInt(value) : value;
+        this.set('value', newValue);
+
+        return newValue;
+      }
+
+      return value;
+    }
+  }),
+
+  _isInt(value) {
+    return /^\d+$/.test(value);
+  },
+
   onInvalidInput() {},
   onChange() {},
 
@@ -29,9 +54,8 @@ export default Component.extend({
       if (!parseFloat(this.get('value')) && this.get('value') < this.get('minValue')) {
         this.get('onInvalidInput')(this.get('options'));
       }
-      if (this.get('type') === INPUT_TYPE_NUMBER) {
-        this.set('value', parseInt(this.get('value')));
-      }
+
+      this.get('onChange')(this.get('numberAsString'));
     },
 
     onFocusIn() {
