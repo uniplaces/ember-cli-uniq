@@ -35,11 +35,14 @@ export default Component.extend({
         return;
       }
 
-      let newValue = Number.isInteger(value) ? parseInt(value) : value;
+      let newValue = this._isInt(value) ? parseInt(value) : value;
       this.set('value', newValue);
     }
   }),
 
+  _isInt(value) {
+    return /^\d+$/.test(value);
+  },
   onInvalidInput() {},
   onChange() {},
 
