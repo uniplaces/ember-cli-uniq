@@ -18,7 +18,7 @@ export default Component.extend({
   maxLength: 4,
   placeholder: '0',
   isRightSideCurrency: true,
-  type: 'number',
+  type: INPUT_TYPE_NUMBER,
   options: null,
 
   /**
@@ -32,17 +32,20 @@ export default Component.extend({
 
     set(_, value) {
       if (this.get('type') !== INPUT_TYPE_NUMBER) {
-        return;
+        this.set('value', value);
+        return value;
       }
 
       let newValue = this._isInt(value) ? parseInt(value) : value;
       this.set('value', newValue);
+      return newValue;
     }
   }),
 
   _isInt(value) {
     return /^\d+$/.test(value);
   },
+
   onInvalidInput() {},
   onChange() {},
 
@@ -52,7 +55,7 @@ export default Component.extend({
         this.get('onInvalidInput')(this.get('options'));
       }
 
-      this.get('onChange')(this.get('numberAsString'));
+      this.get('onChange')(this.get('value'));
     },
 
     onFocusIn() {
