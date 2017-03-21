@@ -27,9 +27,17 @@ export default Component.extend({
 
     let result = this.get('action')();
     if (result && result.then) {
-      return result.then(() => this.set('isLoading', false), () => this.set('isLoading', false));
+      return result.then(() => this.trySetLoading(false), () => this.trySetLoading(false));
     }
 
     this.set('isLoading', false);
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
+  },
+
+  trySetLoading(value) {
+    return this.isComponentDestroyed() ||  this.set('isLoading', value);
   }
 });
