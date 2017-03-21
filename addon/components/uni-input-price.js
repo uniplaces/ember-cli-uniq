@@ -36,15 +36,11 @@ export default Component.extend({
         return value;
       }
 
-      let newValue = this._isInt(value) ? parseInt(value) : value;
+      let newValue = isNaN(value) ? value : parseInt(value);
       this.set('value', newValue);
       return newValue;
     }
   }),
-
-  _isInt(value) {
-    return /^\d+$/.test(value);
-  },
 
   onInvalidInput() {},
   onChange() {},
