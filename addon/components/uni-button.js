@@ -27,6 +27,10 @@ export default Component.extend({
 
     let result = this.get('action')();
     if (result && result.then) {
+      if (this.get('isDestroyed') || this.get('isDestroying')) {
+        return;
+      }
+
       return result.then(() => this.set('isLoading', false), () => this.set('isLoading', false));
     }
 
