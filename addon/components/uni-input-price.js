@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-input-price';
 
-const { Component, $, computed, isEmpty } = Ember;
+const { Component, $, computed } = Ember;
 
 const INPUT_TYPE_NUMBER = 'number';
 
@@ -9,7 +9,7 @@ export default Component.extend({
   classNames: ['uni-input-price'],
   layout,
 
-  value: null,
+  value: '',
   minValue: 1,
   offset: 1,
   currency: '€',
@@ -27,17 +27,19 @@ export default Component.extend({
    */
   numberAsInt: computed('value', {
     get() {
-      return isEmpty(this.get('value')) ? '' : `${this.get('value')}`;
+      return this.get('value');
     },
 
     set(_, value) {
       if (this.get('type') !== INPUT_TYPE_NUMBER) {
         this.set('value', value);
+
         return value;
       }
 
       let newValue = isNaN(value) ? value : parseInt(value);
       this.set('value', newValue);
+
       return newValue;
     }
   }),
