@@ -4,16 +4,20 @@
 
 {{input
   type=type
-  value=value
+  value=numberAsInt
   max=max
   min=min
   maxlength=maxLength
   placeholder=placeholder
   focus-in=(action "onFocusIn")
-  key-down=(action "onChange")}}
+  key-up=(action "onChange")}}
 
-{{#if isRightSideCurrency}}
-  <span>{{currency}} / {{per}}</span>
+{{#if per}}
+  {{#if isRightSideCurrency}}
+    <span>{{currency}} / {{per}}</span>
+  {{else}}
+    <span>/ {{per}}</span>
+  {{/if}}
 {{else}}
-  <span>/ {{per}}</span>
+  <span>{{currency}}</span>
 {{/if}}
