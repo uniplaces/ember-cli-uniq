@@ -31,13 +31,7 @@ export default Component.extend({
     },
 
     set(_, value) {
-      if (this.get('type') !== INPUT_TYPE_NUMBER) {
-        this.set('value', value);
-
-        return value;
-      }
-
-      let newValue = isNaN(value) ? value : parseInt(value);
+      let newValue = isNaN(value) ? 0 : parseInt(value);
       this.set('value', newValue);
 
       return newValue;
