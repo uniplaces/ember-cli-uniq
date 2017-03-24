@@ -1,0 +1,12 @@
+<div class="uni-points-of-interest__wrapper">
+  {{inline-svg 'uniplaces_logo.svg' class="logo"}}
+  {{input type="number" class="uni-input uni-input--small uni-input--bordered" placeholder="latitude" value=(mut latitude)}}
+  {{input type="number" class="uni-input uni-input--small uni-input--bordered" placeholder="longitude" value=(mut longitude)}}
+
+  <br><br>
+  {{#g-map lat=latitude lng=longitude zoom=zoom markersFitMode=markersFitMode options=mapOptions as |context|}}
+      {{#each markers as |marker|}}
+          {{g-map-marker context lat=marker.lat lng=marker.long title=marker.title icon=marker.icon}}
+      {{/each}}
+  {{/g-map}}
+</div>

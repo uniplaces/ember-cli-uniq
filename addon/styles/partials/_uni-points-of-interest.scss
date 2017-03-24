@@ -1,0 +1,47 @@
+.uni-points-of-interest {
+    &__wrapper {
+      @include flex();
+      @include flex-wrap();
+      @include justify-content-center();
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      min-height: 460px;
+      margin: 0 auto 48px auto;
+      background-color: color('background', 'modal');
+      border: 1px dashed color('borders');
+
+      .logo {
+        display: inline-block;
+        width: auto;
+        height: 32px;
+        margin-top: 12px;
+        margin-right: 16px;
+      }
+
+      .uni-input {
+        margin: 8px 0;
+      }
+
+      .uni-input:first-child {
+        border-right: 0;
+        margin-left: 8px;
+      }
+
+      .g-map {
+          width: 100%;
+          height: 400px;
+          margin-top: 2px dashed color('borders');
+      }
+
+      .g-map-canvas {
+          width: 100%;
+          height: 100%;
+
+          .gm-style-cc,
+          .gmnoprint {
+            display: none;
+          }
+      }
+    }
+}

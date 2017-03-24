@@ -23,6 +23,16 @@ module.exports = function(environment) {
     }
   };
 
+    // ENV['g-map'] = {
+    //   exclude: true,
+    //   libraries: ['places', 'geometry'],
+    //   key: 'AIzaSyDVcdgHAsh2u1u78JhPY9tnLPYMwTVJ9AI',
+    //   client: 'nUcGBUu9XTZQhEEha9lUfI9e',
+    //   version: '3.26',
+    //   language: 'en',
+    //   protocol: 'http'
+    // }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
