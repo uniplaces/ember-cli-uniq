@@ -9,4 +9,19 @@
           {{g-map-marker context lat=marker.lat lng=marker.long title=marker.title icon=marker.icon}}
       {{/each}}
   {{/g-map}}
+
+  <div class="uni-points-of-interest__cards">
+    {{#each markers as |marker|}}
+      <div class="uni-points-of-interest__cards__card">
+        <div class="uni-points-of-interest__cards__card__thumbnail" style="background-image: url({{marker.image}})"></div>
+
+        <div class="uni-points-of-interest__cards__card__category"></div>
+
+        <div class="uni-points-of-interest__cards__card__content">
+          title: {{marker.title}}<br>
+          category: {{marker.category}}<br>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </div>

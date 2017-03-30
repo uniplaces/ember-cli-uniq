@@ -40,6 +40,8 @@ export default Component.extend({
       this.set('markers', res.map(({lat, long, title, category}) => {
         let marker = { lat, long, title, category };
 
+        marker.image = 'https://tinyurl.com/lag4dey';//test url
+
         marker.icon = {
             // url: '/assets/images/uniplaces_logo.svg',
             size: new google.maps.Size(30,30),

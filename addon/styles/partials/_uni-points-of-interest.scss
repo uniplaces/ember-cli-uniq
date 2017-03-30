@@ -10,6 +10,7 @@
       margin: 0 auto 48px auto;
       background-color: color('background', 'modal');
       border: 1px dashed color('borders');
+      overflow-x: hidden;
 
       .logo {
         display: inline-block;
@@ -44,4 +45,91 @@
           }
       }
     }
+
+  &__cards {
+    @include flex();
+    @include flex-wrap();
+    @include align-items-center();
+    width: 1000px;
+    padding: 8px;
+
+    &__card {
+      @include flex();
+      @include flex-wrap();
+      @include align-items-center();
+      position: relative;
+      width: calc(25% - 16px);
+      margin: 8px;
+      padding-bottom: 8px;
+      background-color: color('primary', 'highlight');
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+
+      &__thumbnail {
+        position: relative;
+        width: 100%;
+        padding-top: 120px;
+        margin-bottom: 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      &__category {
+        @include flex();
+        @include align-items-center();
+        @include justify-content-center();
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        top: 97px;
+        right: 20px;
+        border-radius: 50%;
+        z-index: 2;
+        border: 1px dashed #ccc;
+
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          background-color: color('primary', 'highlight');
+          background-image: url("https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-18-512.png");
+          background-size: 24px 24px;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-radius: 50%;
+        }
+
+        &:after {
+          z-index: 1;
+          background-color: rgba(0,0,0,0.2);
+          width: calc(100% - 3px);
+          height: calc(100% - 3px);
+          top: -3px;
+          filter: blur(2px);
+        }
+
+        svg {
+          width: 24px;
+          height: 24px;
+          z-index: 3;
+        }
+      }
+
+      &__content {
+        padding: 8px 16px;
+        @include font('IntervalNextBook');
+        font-size: em(14px);
+        color: color('text', 'disabled');
+        line-height: 1.5;
+      }
+    }
+  }
 }
