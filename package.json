@@ -1,41 +1,55 @@
 {
   "name": "ember-cli-uniq",
+<<<<<<< HEAD
   "version": "0.1.12",
   "description": "Ember add-on with a variety of components with uniplaces-uniq styles and default behaviours.",
+=======
+  "version": "0.1.10",
+  "description": "Ember addon with a variety of components with uniplaces-uniq's styles and default behaviours.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "license": "MIT",
+  "author": "Uniplaces",
+>>>>>>> Update ember version to 2.9.1
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
+  "repository": "",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:testall"
+    "test": "ember try:each"
   },
-  "repository": "",
-  "engines": {
-    "node": ">= 0.10.0"
+  "dependencies": {
+    "broccoli-funnel": "^1.0.7",
+    "ember-cli-babel": "^5.1.7",
+    "ember-cli-countries": "0.0.3",
+    "ember-cli-htmlbars": "^1.1.1",
+    "ember-cli-sass": "^5.6.0",
+    "ember-power-calendar": "0.1.8"
   },
-  "author": "Uniplaces",
-  "license": "MIT",
   "devDependencies": {
-    "broccoli-asset-rev": "^2.2.0",
-    "ember-ajax": "0.7.1",
-    "ember-cli": "^2.3.1",
+    "broccoli-asset-rev": "^2.4.5",
+    "ember-ajax": "^2.4.1",
+    "ember-cli": "2.12.1",
     "ember-cli-app-version": "^1.0.0",
-    "ember-cli-dependency-checker": "^1.2.0",
-    "ember-cli-eslint": "3.0.0",
+    "ember-cli-dependency-checker": "^1.3.0",
+    "ember-cli-eslint": "^3.0.0",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
-    "ember-cli-inject-live-reload": "^1.3.1",
+    "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-moment-shim": "2.2.1",
-    "ember-cli-qunit": "^1.2.1",
-    "ember-cli-release": "0.2.8",
-    "ember-cli-sri": "^2.0.0",
+    "ember-cli-qunit": "^3.1.0",
+    "ember-cli-shims": "^1.0.2",
+    "ember-cli-sri": "^2.1.0",
+    "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-composable-helpers": "1.1.2",
     "ember-data": "^2.3.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-disable-proxy-controllers": "^1.0.1",
-    "ember-export-application-global": "^1.0.4",
+    "ember-export-application-global": "^1.0.5",
     "ember-inline-svg": "0.1.7",
     "ember-interpolate-helper": "1.0.0",
     "ember-keyboard": "2.1.9",
@@ -45,22 +59,16 @@
     "ember-power-select": "1.4.3",
     "ember-resolver": "^2.0.3",
     "ember-route-action-helper": "2.0.0",
+    "ember-source": "~2.12.0",
     "ember-truth-helpers": "1.2.0",
     "ember-try": "^0.1.2",
     "ember-uuid": "^1.0.0",
+    "ember-welcome-page": "^2.0.2",
     "eslint-plugin-ember-suave": "^1.0.0",
-    "loader.js": "^4.0.0"
+    "loader.js": "^4.2.3"
   },
-  "keywords": [
-    "ember-addon"
-  ],
-  "dependencies": {
-    "broccoli-funnel": "^1.0.7",
-    "ember-cli-babel": "^5.1.5",
-    "ember-cli-countries": "0.0.3",
-    "ember-cli-htmlbars": "^1.1.0",
-    "ember-cli-sass": "^5.6.0",
-    "ember-power-calendar": "0.1.8"
+  "engines": {
+    "node": ">= 4"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

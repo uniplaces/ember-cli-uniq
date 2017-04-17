@@ -1,6 +1,4 @@
-/* jshint node: true */
-/* global require, module */
-
+/* eslint-env node */
 'use strict';
 
 let Funnel = require('broccoli-funnel');

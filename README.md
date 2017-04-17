@@ -1,21 +1,24 @@
-# Ember-cli-uniq
+# ember-cli-uniq
 
-A Demo of the components: https://stormy-escarpment-22836.herokuapp.com/
+This is an addon that contains the most used front-end components in the several Uniplaces' products.
+
+A demo of the components can be found [here](https://stormy-escarpment-22836.herokuapp.com/).
 
 ## Installation
 
-* `git clone` this repository
+* `git clone <repository-url>` this repository
+* `cd ember-cli-uniq`
 * `npm install`
 * `bower install`
 
 ## Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+* `ember serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
@@ -23,4 +26,4 @@ A Demo of the components: https://stormy-escarpment-22836.herokuapp.com/
 
 * `ember build`
 
-For more information on how to use ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
