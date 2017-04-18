@@ -352,6 +352,28 @@
   </p>
 </div>
 
+{{uni-title title="Multi selector" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-multi-selector.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-multi-selector.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-multi-selector.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component is a visual alternative to the above radio buttons.
+  </p>
+
+  {{uni-multi-selector name="gender" options=model.genderOptions}}
+  <p class="code-snippet">
+    \{{uni-multi-selector name="gender" options=options}}
+  </p>
+
+  {{uni-multi-selector name="options" groupValue="option2" options=model.multiOptions}}
+  <p class="code-snippet">
+    \{{uni-multi-selector name="options" groupValue="option2" options=options}}
+  </p>
+</div>
+
 {{uni-title title="Special inputs" class="uni-title--spaced"}}
 <div class="component">
   {{uni-title title="uni-input-range"}}

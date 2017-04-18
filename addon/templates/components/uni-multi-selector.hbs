@@ -1,0 +1,12 @@
+<div class="input-container">
+  <div class="uni-multi-selector">
+    {{#each options as |option|}}
+      {{uni-selector-button
+        name=name
+        groupValue=groupValue
+        value=option.value
+        label=option.label
+        hasChanged=(action "hasChanged")}}
+    {{/each}}
+  </div>
+ </div>
