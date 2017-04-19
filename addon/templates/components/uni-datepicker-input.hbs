@@ -1,4 +1,8 @@
-{{input class="uni-input uni-input--bordered" value=formattedDate click=(action "toggleDatepicker")}}
+{{input
+  class="uni-input uni-input--bordered"
+  value=formattedDate
+  placeholder=placeholder
+  click=(action "toggleDatepicker")}}
 
 {{#if showDatepicker}}
   {{uni-datepicker
