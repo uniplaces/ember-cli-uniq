@@ -18,9 +18,8 @@ export default Component.extend(ClickOutsideMixin, {
 
   formattedDate: computed('selected', function() {
     let selected = this.get('selected');
-    let placeholder = this.get('placeholder');
 
-    if (isNone(selected) && isPresent(placeholder)) {
+    if (isNone(selected) && isPresent(this.get('placeholder'))) {
       return '';
     }
 
