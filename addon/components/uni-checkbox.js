@@ -9,7 +9,7 @@ export default Component.extend({
   isSelected: false,
   onChange() {},
 
-  click() {
-    this.get('onChange')(!this.get('isSelected'));
+  change() {
+    this.get('onChange')(this.get('value'));
   }
 });
