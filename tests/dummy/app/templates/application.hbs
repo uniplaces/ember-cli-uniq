@@ -237,10 +237,12 @@
   <div class="flex-wrapper">
     {{uni-checkbox label="Selected" isSelected=true}}
     {{uni-checkbox label="Not selected" isSelected=false}}
+    {{uni-checkbox label="Functional checkbox" isSelected=checked onChange=(action (mut checked))}}
   </div>
   <p class="code-snippet">
     \{{uni-checkbox label="Selected" isSelected=true}}<br><br>
-    \{{uni-checkbox label="Not selected" isSelected=false}}
+    \{{uni-checkbox label="Not selected" isSelected=false}}<br><br>
+    \{{uni-checkbox label="Functional checkbox" isSelected=checked onChange=(action (mut checked))}}
     <br><br>
   </p>
 </div>
