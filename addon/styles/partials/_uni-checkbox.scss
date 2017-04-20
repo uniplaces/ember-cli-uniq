@@ -1,13 +1,4 @@
 .uni-checkbox {
   @include checkbox();
   will-change: border;
-
-  &:focus,
-    &:checked {
-        & + label {
-            &:before {
-                background-image: url("images/icons/checkbox-icon.svg");
-            }
-        }
-    }
-}
+  }

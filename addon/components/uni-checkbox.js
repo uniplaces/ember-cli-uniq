@@ -7,6 +7,9 @@ export default Component.extend({
   layout,
 
   isSelected: false,
+  isDisabled: false,
+  hasError: false,
+
   onChange() {},
 
   change() {
