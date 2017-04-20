@@ -14,6 +14,8 @@ export default Route.extend({
       withEmail: true,
       minDate: moment().subtract(1, 'days'),
       startDate: moment(),
+      date: null,
+      datepickerInputPlaceholder: 'Insert date',
       uniSelectOptions: [
         { key: '1', value: 'One', disabled: false },
         { key: '2', value: 'Two' },  // options are disabled by default
