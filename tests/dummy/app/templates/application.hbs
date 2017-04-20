@@ -363,9 +363,9 @@
     This component is a visual alternative to the above radio buttons.
   </p>
 
-  {{uni-multi-selector name="gender" options=model.genderOptions}}
+  {{uni-multi-selector name="gender" options=model.genderOptions errorOptions=model.errorOptions isStatic=true}}
   <p class="code-snippet">
-    \{{uni-multi-selector name="gender" options=options}}
+    \{{uni-multi-selector name="gender" options=options errorOptions=model.errorOptions isStatic=true}}
   </p>
 
   {{uni-multi-selector name="options" groupValue="option2" options=model.multiOptions}}

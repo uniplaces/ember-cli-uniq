@@ -21,7 +21,7 @@ test('it renders 2 options and selects given one', function(assert) {
   this.render(hbs`{{uni-multi-selector name=name groupValue=groupValue options=options}}`);
 
   assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-selector-button').length, 2);
+  assert.equal(this.$('.uni-multi-selector__button').length, 2);
   assert.equal(this.$('input:checked').val(), groupValue);
 });
 
@@ -40,6 +40,6 @@ test('it renders 3 options and selects default one', function(assert) {
   this.render(hbs`{{uni-multi-selector name=name options=options}}`);
 
   assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-selector-button').length, 3);
+  assert.equal(this.$('.uni-multi-selector__button').length, 3);
   assert.equal(this.$('input:checked').val(), options[0].value);
 });
