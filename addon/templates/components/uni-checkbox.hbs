@@ -1,7 +1,7 @@
 {{#uni-input-container isChecked=isSelected}}
   <input
     type="checkbox"
-    value={{value}}
+    value={{isSelected}}
     checked={{isSelected}}
     name={{name}}
     id={{i '${id}-checkbox' id=elementId}}
@@ -12,8 +12,6 @@
 
   <label for={{i '${id}-checkbox' id=elementId}}>
     {{{label}}}
-    {{#if isSelected}}
-      {{inline-svg "icons/checkbox-icon.svg"}}
-    {{/if}}
+    {{inline-svg "icons/checkbox-icon.svg"}}
   </label>
 {{/uni-input-container}}

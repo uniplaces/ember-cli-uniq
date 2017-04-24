@@ -13,6 +13,8 @@ export default Component.extend({
   onChange() {},
 
   change() {
-    this.get('onChange')(this.get('value'));
+    this.toggleProperty('isSelected');
+    this.get('onChange')(this.get('isSelected'));
   }
 });
+
