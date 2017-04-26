@@ -1,0 +1,10 @@
+{{#each options as |option|}}
+  {{uni-selector-button
+    name=name
+    groupValue=groupValue
+    value=option.value
+    label=option.label
+    error=(contains option.value errorOptions)
+    warning=(contains  option.value warningOptions)
+    hasChanged=(action "hasChanged")}}
+{{/each}}

@@ -16,6 +16,16 @@ export default Route.extend({
       startDate: moment(),
       date: null,
       datepickerInputPlaceholder: 'Insert date',
+      genderOptions: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' }
+      ],
+      errorOptions: ['female'],
+      multiOptions: [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' }
+      ],
       uniSelectOptions: [
         { key: '1', value: 'One', disabled: false },
         { key: '2', value: 'Two' },  // options are disabled by default
