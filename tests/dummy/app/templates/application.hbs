@@ -390,9 +390,9 @@
     It's also possible to use a different validation by setting useDefaultErrorValidation to false and setting the appropriate showError/showSuccess/showWarning.
   </p>
 
-  {{uni-input placeholder="Name"}}
+  {{uni-input placeholder="Name" tooltipMessage="Click me!"}}
   <p class="code-snippet">
-    \{{uni-input placeholder="Name"}}
+    \{{uni-input placeholder="Name" tooltipMessage="Click me!"}}
   </p>
 
   {{uni-input type="number" value=123 isRequired=true}}
@@ -543,6 +543,11 @@
   {{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
   <p class="code-snippet">
     \{{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
+  </p>
+
+  {{uni-tooltip isAlternative=true isActive=true content="This is a demo tooltip for inputs"}}
+  <p class="code-snippet">
+    \{{uni-tooltip isAlternative=true isActive=true content="This is a demo tooltip for inputs"}}
   </p>
 </div>
 

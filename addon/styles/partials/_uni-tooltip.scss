@@ -4,4 +4,19 @@
   &__text {
     width: 200px;
   }
+
+  &--alternative {
+    left: calc(100% + 12px);
+    top: 0;
+
+    &:not(.uni-tooltip--active):hover,
+    &:not(.uni-tooltip--active):hover .uni-tooltip__text {
+      visibility: hidden !important;
+    }
+
+    .uni-tooltip__text {
+      position: relative;
+      left: 0;
+    }
+  }
 }
