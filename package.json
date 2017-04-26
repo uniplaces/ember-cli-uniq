@@ -63,7 +63,6 @@
     "ember-truth-helpers": "1.2.0",
     "ember-try": "^0.1.2",
     "ember-uuid": "^1.0.0",
-    "ember-welcome-page": "^2.0.2",
     "eslint-plugin-ember-suave": "^1.0.0",
     "loader.js": "^4.2.3"
   },
