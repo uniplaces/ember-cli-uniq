@@ -7,9 +7,14 @@ export default Component.extend({
   layout,
 
   isSelected: false,
+  isDisabled: false,
+  hasError: false,
+
   onChange() {},
 
-  click() {
-    this.get('onChange')(!this.get('isSelected'));
+  change() {
+    this.toggleProperty('isSelected');
+    this.get('onChange')(this.get('isSelected'));
   }
 });
+

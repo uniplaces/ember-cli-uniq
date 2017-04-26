@@ -1,10 +1,17 @@
 {{#uni-input-container isChecked=isSelected}}
-  <div class="uni-checkbox__wrapper">
-    <div class="uni-checkbox {{if isSelected 'uni-checkbox--checked'}}">
-      {{#if isSelected}}
-        {{inline-svg 'icons/check-checkbox.svg'}}
-      {{/if}}
-    </div>
-    <label for="">{{{label}}}</label>
-  </div>
+  <input
+    type="checkbox"
+    value={{isSelected}}
+    checked={{isSelected}}
+    name={{name}}
+    id={{i '${id}-checkbox' id=elementId}}
+    disabled={{if isDisabled 'disabled' ''}}
+    class={{i "uni-checkbox ${disabledClass} ${errorClass}"
+      disabledClass=(if isDisabled "uni-checkbox--disabled" '')
+      errorClass=(if hasError "uni-checkbox--error" '')}}>
+
+  <label for={{i '${id}-checkbox' id=elementId}}>
+    {{{label}}}
+    {{inline-svg "icons/checkbox-icon.svg"}}
+  </label>
 {{/uni-input-container}}

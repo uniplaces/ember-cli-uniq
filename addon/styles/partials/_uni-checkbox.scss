@@ -1,35 +1,25 @@
-.uni-checkbox__wrapper {
-  @include flex();
-  @include align-items-center();
-  width: 100%;
-  cursor: pointer;
-
-  @include breakpoint(small) {
-    padding: 14px 20px;
-
-    label {
-      max-width: 146px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-}
-
 .uni-checkbox {
   @include checkbox();
   will-change: border;
 
-  &--checked {
-    @include flex();
-    @include align-items-center();
-    @include justify-content-center();
+  & + label {
+    @include breakpoint(small) {
+      width: 100%;
+      height: auto;
+      white-space: initial;
+      padding: 14px 14px 14px 62px;
+      line-height: 1.4;
 
-    svg {
-      display: block;
-      fill: color("background");
-      width: 14px;
-      height: 11px;
+      &:before {
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        left: 14px;
+      }
+
+      svg {
+        left: 22px;
+      }
     }
   }
 }
