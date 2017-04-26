@@ -11,6 +11,7 @@ const INPUT_TYPE_EMAIL = 'email';
 export default Component.extend({
   layout,
 
+  classNames: ['uni-input-tooltip-container'],
   defaultClass: ['uni-input uni-input--bordered uni-input--small'],
   customClass: '',
   value: null,
@@ -18,6 +19,8 @@ export default Component.extend({
   name: '',
   placeholder: '',
   maxLength: null,
+  tooltipMessage: null,
+  showTooltip: false,
   useDefaultErrorValidation: true,
   useDefaultSuccessValidation: false,
   isRequired: false,
@@ -74,6 +77,18 @@ export default Component.extend({
       return newValue;
     }
   }),
+
+  focusIn() {
+    if (this.get('tooltipMessage')) {
+      this.set('showTooltip', true);
+    }
+  },
+
+  focusOut() {
+    if (this.get('tooltipMessage')) {
+      this.set('showTooltip', false);
+    }
+  },
 
   actions: {
     onChange() {
