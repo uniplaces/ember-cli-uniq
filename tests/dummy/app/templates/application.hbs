@@ -275,13 +275,26 @@
   </p>
   <p class="description">
     This component shows a datepicker with the date as an input. It's also possible to open/close the datepicker
-    by clicking on the input.
+    by clicking on the input. You can provide a placeholder for the input.
   </p>
 
-  {{uni-datepicker-input selected=model.startDate minDate=model.minDate onSelected=(action (mut startDate))}}
+  {{uni-datepicker-input
+    selected=model.startDate
+    minDate=model.minDate
+    onSelected=(action (mut model.startDate))}}
 
   <p class="code-snippet">
     \{{uni-datepicker-input selected=startDate minDate=minDate onSelected=(action (mut startDate))}}
+  </p>
+
+  {{uni-datepicker-input
+    placeholder=model.datepickerInputPlaceholder
+    selected=model.date
+    minDate=model.minDate
+    onSelected=(action (mut model.date))}}
+
+  <p class="code-snippet">
+    \{{uni-datepicker-input placeholder=placeholder selected=date minDate=minDate onSelected=(action (mut date))}}
   </p>
 </div>
 
@@ -338,6 +351,28 @@
   {{uni-radio-button label="Disabled radio button" isDisabled=true}}
   <p class="code-snippet">
     \{{uni-radio-button label="Disabled radio button" isDisabled=true}}
+  </p>
+</div>
+
+{{uni-title title="Multi selector" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-multi-selector.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-multi-selector.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-multi-selector.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component is a visual alternative to the above radio buttons.
+  </p>
+
+  {{uni-multi-selector name="gender" options=model.genderOptions errorOptions=model.errorOptions isStatic=true}}
+  <p class="code-snippet">
+    \{{uni-multi-selector name="gender" options=options errorOptions=model.errorOptions isStatic=true}}
+  </p>
+
+  {{uni-multi-selector name="options" groupValue="option2" options=model.multiOptions}}
+  <p class="code-snippet">
+    \{{uni-multi-selector name="options" groupValue="option2" options=options}}
   </p>
 </div>
 
