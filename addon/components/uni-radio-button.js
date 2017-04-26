@@ -21,14 +21,12 @@ export default Component.extend({
   },
 
   actions: {
-    onClick(value) {
+    onClick() {
       if (isPresent(this.get('onClick'))) {
         this.get('onClick')();
 
         return false;
       }
-
-      this.set('value', value);
     }
   }
 });
