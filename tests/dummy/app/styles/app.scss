@@ -89,5 +89,9 @@ body {
   padding-top: 12px;
 }
 
+.uni-multi-selector {
+  width: 50%;
+}
+
 @import "ember-power-calendar";
 @import "ember-power-select";

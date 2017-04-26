@@ -3,7 +3,7 @@ import layout from '../templates/components/uni-datepicker-input';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 import moment from 'moment';
 
-const { Component, computed, isNone } = Ember;
+const { Component, computed, isNone, isPresent } = Ember;
 
 export default Component.extend(ClickOutsideMixin, {
   classNames: ['uni-datepicker-input'],
@@ -14,11 +14,18 @@ export default Component.extend(ClickOutsideMixin, {
   format: 'll',
   minDate: moment(),
   maxDate: moment().add(2, 'years'),
+  placeholder: null,
 
   formattedDate: computed('selected', function() {
     let selected = this.get('selected');
 
-    return isNone(selected) ? moment().format(this.get('format')) : moment(selected).format(this.get('format'));
+    if (isNone(selected) && isPresent(this.get('placeholder'))) {
+      return '';
+    }
+
+    return isNone(selected)
+      ? moment().format(this.get('format'))
+      : moment(selected).format(this.get('format'));
   }),
 
   onSelected() {},
