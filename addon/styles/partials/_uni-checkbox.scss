@@ -3,23 +3,21 @@
   will-change: border;
 
   & + label {
-    @include breakpoint(small) {
-      width: 100%;
-      height: auto;
-      white-space: initial;
-      padding: 14px 14px 14px 62px;
-      line-height: 1.4;
+    width: 100%;
+    height: auto;
+    white-space: initial;
+    padding: 14px 14px 14px 62px;
+    line-height: 1.4;
 
-      &:before {
-        position: absolute;
-        top: 50%;
-        transform: translate3d(0, -50%, 0);
-        left: 14px;
-      }
+    &:before {
+      position: absolute;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+      left: 14px;
+    }
 
-      svg {
-        left: 22px;
-      }
+    svg {
+      left: 22px;
     }
   }
 }
