@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-dropdown';
+import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
 const { Component } = Ember;
 
-export default Component.extend({
+export default Component.extend(ClickOutsideMixin, {
   classNames: ['uni-dropdown'],
   classNameBindings: [
     'isOpen:uni-dropdown--active',
@@ -18,6 +19,10 @@ export default Component.extend({
   btnClass: '',
   onChange() {},
   onClick() {},
+
+  onOutsideClick() {
+    this.set('isOpen', false);
+  },
 
   actions: {
     buttonClick() {

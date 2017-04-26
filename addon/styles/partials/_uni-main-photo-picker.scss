@@ -221,22 +221,5 @@
   &__wrapper {
     overflow: hidden;
     overflow-x: scroll;
-
-    &__item {
-        position: relative;
-
-        svg {
-            position: absolute;
-            top: 8px;
-            left: 10px;
-            width: 14px;
-            height: 14px;
-
-            &,
-            path {
-                fill: color('primary', 'highlight');
-            }
-        }
-    }
   }
 }
