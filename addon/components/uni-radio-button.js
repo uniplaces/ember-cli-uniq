@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-radio-button';
 
-const { Component, computed } = Ember;
+const { Component, computed, isPresent } = Ember;
 
 export default Component.extend({
   layout,
@@ -18,5 +18,15 @@ export default Component.extend({
 
   change() {
     this.get('hasChanged')(this.get('value'));
+  },
+
+  actions: {
+    onClick() {
+      if (isPresent(this.get('onClick'))) {
+        this.get('onClick')();
+
+        return false;
+      }
+    }
   }
 });
