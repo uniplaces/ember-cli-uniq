@@ -3,21 +3,37 @@
   will-change: border;
 
   & + label {
-    width: 100%;
+    @include align-items-center();
+
+    width: auto;
     height: auto;
+    min-height: 32px;
     white-space: initial;
-    padding: 14px 14px 14px 62px;
-    line-height: 1.4;
+    line-height: 1;
+    padding-left: 48px;
 
     &:before {
       position: absolute;
       top: 50%;
       transform: translate3d(0, -50%, 0);
-      left: 14px;
+      left: 0;
     }
 
     svg {
-      left: 22px;
+      left: 8px;
+    }
+
+    @include breakpoint(medium) {
+      width: 100%;
+      padding: 14px 14px 14px 62px;
+
+      &:before {
+        left: 14px;
+      }
+
+      svg {
+        left: 22px;
+      }
     }
   }
 }
