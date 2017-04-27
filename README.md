@@ -1,5 +1,8 @@
 # ember-cli-uniq
 
+[![npm version](https://badge.fury.io/js/ember-cli-uniq.svg)](https://badge.fury.io/js/ember-cli-uniq)
+[![Build Status](https://travis-ci.org/uniplaces/ember-cli-uniq.svg?branch=master)](https://travis-ci.org/uniplaces/ember-cli-uniq)
+
 This is an addon that contains the most used front-end components in the several Uniplaces' products.
 
 A demo of the components can be found [here](https://stormy-escarpment-22836.herokuapp.com/).
