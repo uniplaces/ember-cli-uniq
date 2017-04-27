@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/ember-cli-uniq.svg)](https://badge.fury.io/js/ember-cli-uniq)
 [![Build Status](https://travis-ci.org/uniplaces/ember-cli-uniq.svg?branch=master)](https://travis-ci.org/uniplaces/ember-cli-uniq)
+[![node dependencies](https://david-dm.org/uniplaces/ember-cli-uniq)](https://david-dm.org/uniplaces/ember-cli-uniq.svg)
 
 This is an addon that contains the most used front-end components in the several Uniplaces' products.
 
@@ -15,19 +16,8 @@ Install the ember-cli addon in your ember-cli project:
 $ ember install ember-cli-uniq
 ```
 
-## Running
+## Contributing
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+Any contribution is welcome. Please read our [guidelines](CONTRIBUTING.md).
+However, if your contribution involves adding a new feature, please open an issue before to
+share your plan and agree the details of the feature before starting implementing it.
