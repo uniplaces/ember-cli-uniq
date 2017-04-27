@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/ember-cli-uniq.svg)](https://badge.fury.io/js/ember-cli-uniq)
 [![Build Status](https://travis-ci.org/uniplaces/ember-cli-uniq.svg?branch=master)](https://travis-ci.org/uniplaces/ember-cli-uniq)
-[![node dependencies](https://david-dm.org/uniplaces/ember-cli-uniq)](https://david-dm.org/uniplaces/ember-cli-uniq.svg)
+[![node dependencies](https://david-dm.org/uniplaces/ember-cli-uniq.svg)](https://david-dm.org/uniplaces/ember-cli-uniq)
 
 This is an addon that contains the most used front-end components in the several Uniplaces' products.
 
