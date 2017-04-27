@@ -35,7 +35,7 @@ export default Component.extend({
         return this._isValidEmail();
       case INPUT_TYPE_NUMBER:
         return this.get('isRequired') ? !isNaN(this.get('value')) : true;
-      default: return !(this.get('isRequired') && isEmpty(this.get('value')));
+      default: return !this.get('isRequired') || (this.get('isRequired') && !isEmpty(this.get('value')));
     }
   }),
 
