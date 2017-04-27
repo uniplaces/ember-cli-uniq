@@ -9,10 +9,11 @@ A demo of the components can be found [here](https://stormy-escarpment-22836.her
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-uniq`
-* `npm install`
-* `bower install`
+Install the ember-cli addon in your ember-cli project:
+
+```bash
+$ ember install ember-cli-uniq
+```
 
 ## Running
 
