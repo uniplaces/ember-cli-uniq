@@ -87,7 +87,7 @@ export default Route.extend({
       uniHorizontalTabsBtnLabel: 'This is a button',
       email: 'username@uniplaces',
       number: 10,
-      maxTen: computed.gte('number', 10)
+      gteTen: computed.gte('number', 10)
     };
   },
 

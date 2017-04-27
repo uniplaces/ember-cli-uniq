@@ -1,58 +1,70 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-input';
+import InputTypes from 'ember-cli-uniq/enums/input-type';
 
-const { Component, computed, isEmpty } = Ember;
+const { Component, computed, isEmpty, isPresent } = Ember;
 const SUCCESS_CLASS = 'uni-input--success';
 const ERROR_CLASS = 'uni-input--error';
 const WARNING_CLASS = 'uni-input--warning';
-const INPUT_TYPE_NUMBER = 'number';
-const INPUT_TYPE_EMAIL = 'email';
 
 export default Component.extend({
   layout,
 
   classNames: ['uni-input-tooltip-container'],
-  defaultClass: ['uni-input uni-input--bordered uni-input--small'],
-  customClass: '',
+  defaultClass: 'uni-input uni-input--bordered',
+  customClass: 'uni-input--small',
+
   value: null,
-  type: 'text',
+  type: InputTypes.TEXT,
   name: '',
   placeholder: '',
   maxLength: null,
+
   tooltipMessage: null,
   showTooltip: false,
-  useDefaultErrorValidation: true,
-  useDefaultSuccessValidation: false,
+
+  showErrorDefault: true,
+  showSuccessDefault: false,
   isRequired: false,
-  showSuccess: false,
-  showError: false,
-  showWarning: false,
+  showSuccess: null,
+  showError: null,
+  showWarning: null,
+
   onChange() {},
 
   isValid: computed('value', function() {
     switch (this.get('type')) {
-      case INPUT_TYPE_EMAIL:
+      case InputTypes.EMAIL:
         return this._isValidEmail();
-      case INPUT_TYPE_NUMBER:
+      case InputTypes.NUMBER:
         return this.get('isRequired') ? !isNaN(this.get('value')) : true;
-      default: return !this.get('isRequired') || (this.get('isRequired') && !isEmpty(this.get('value')));
+      default:
+        return !this.get('isRequired') || (this.get('isRequired') && !isEmpty(this.get('value')));
     }
   }),
 
-  successClass: computed('showSuccess', function() {
-    if (this.get('useDefaultSuccessValidation')) {
+  successClass: computed('showSuccess', 'value', function() {
+    if (isPresent(this.get('showSuccess'))) {
+      return this.get('showSuccess') ? SUCCESS_CLASS : '';
+    }
+
+    if (this.get('showSuccessDefault')) {
       return this.get('isValid') ? SUCCESS_CLASS : '';
     }
 
-    return this.get('showSuccess') ? SUCCESS_CLASS : '';
+    return '';
   }),
 
   errorClass: computed('showError', 'value', function() {
-    if (this.get('useDefaultErrorValidation')) {
+    if (isPresent(this.get('showError'))) {
+      return this.get('showError') ? ERROR_CLASS : '';
+    }
+
+    if (this.get('showErrorDefault')) {
       return this.get('isValid') ? '' : ERROR_CLASS;
     }
 
-    return this.get('showError') ? ERROR_CLASS : '';
+    return '';
   }),
 
   warningClass: computed('showWarning', function() {
@@ -79,25 +91,25 @@ export default Component.extend({
   }),
 
   focusIn() {
-    if (this.get('tooltipMessage')) {
+    if (isPresent(this.get('tooltipMessage'))) {
       this.set('showTooltip', true);
     }
   },
 
   focusOut() {
-    if (this.get('tooltipMessage')) {
+    if (isPresent(this.get('tooltipMessage'))) {
       this.set('showTooltip', false);
     }
   },
 
   actions: {
     onChange() {
-      this.get('onChange')(this.get('value'));
+      this.get('onChange')(this.get('value'), this.get('isValid'));
     }
   },
 
   _isTypeNumber() {
-    return this.get('type') === INPUT_TYPE_NUMBER;
+    return this.get('type') === InputTypes.NUMBER;
   },
 
   _isValidEmail() {

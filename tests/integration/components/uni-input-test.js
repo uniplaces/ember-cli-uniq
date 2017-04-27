@@ -16,17 +16,26 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), '');
 });
 
-test('it renders error without default error validation', function(assert) {
+test('it renders error with given error validation', function(assert) {
   assert.expect(1);
 
   this.set('showError', computed('value', function() {
     return isEmpty(this.get('value'));
   }));
-  this.set('useDefaultErrorValidation', false);
 
-  this.render(hbs`{{uni-input showError=showError useDefaultErrorValidation=useDefaultErrorValidation}}`);
+  this.render(hbs`{{uni-input showError=showError}}`);
 
   assert.equal(this.$('.uni-input--error').length, 1);
+});
+
+test('it renders success with given success validation', function(assert) {
+  assert.expect(1);
+
+  this.set('showSuccess', true);
+
+  this.render(hbs`{{uni-input showSuccess=showSuccess}}`);
+
+  assert.equal(this.$('.uni-input--success').length, 1);
 });
 
 test('it renders error on invalid email', function(assert) {
@@ -52,9 +61,9 @@ test('it renders error with default validations on empty required field', functi
 test('it renders success with default validations', function(assert) {
   assert.expect(1);
 
-  this.set('useDefaultSuccessValidation', true);
+  this.set('showSuccessDefault', true);
 
-  this.render(hbs`{{uni-input useDefaultSuccessValidation=useDefaultSuccessValidation}}`);
+  this.render(hbs`{{uni-input showSuccessDefault=showSuccessDefault}}`);
   assert.equal(this.$('.uni-input--success').length, 1);
 });
 
@@ -62,9 +71,9 @@ test('it doesnt render success with default validations and empty required field
   assert.expect(1);
 
   this.set('isRequired', true);
-  this.set('useDefaultSuccessValidation', true);
+  this.set('showSuccessDefault', true);
 
-  this.render(hbs`{{uni-input isRequired=isRequired useDefaultSuccessValidation=useDefaultSuccessValidation}}`);
+  this.render(hbs`{{uni-input isRequired=isRequired showSuccessDefault=showSuccessDefault}}`);
   assert.equal(this.$('.uni-input--success').length, 0);
 });
 
