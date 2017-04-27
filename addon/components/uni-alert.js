@@ -5,6 +5,7 @@ import UniAlertTypes from 'ember-cli-uniq/enums/uni-alert-type';
 const { Component, computed, $ } = Ember;
 
 export default Component.extend({
+  layout,
   classNames: ['uni-alert'],
   classNameBindings: [
     'isFixed:uni-alert--fixed',
@@ -14,13 +15,13 @@ export default Component.extend({
     'isWarning:uni-alert--warning',
     'isClosed:uni-alert--closed'
   ],
-  layout,
 
   stickyMode: false,
   isFixed: false,
   hasClose: false,
   isClosed: false,
   onClose: null,
+
   isSuccess: computed('type', function() {
     return this.get('type') === UniAlertTypes.SUCCESS;
   }),
