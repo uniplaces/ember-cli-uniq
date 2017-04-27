@@ -4,7 +4,6 @@
 
   & + label {
     @include align-items-center();
-
     width: auto;
     height: auto;
     min-height: 32px;
@@ -23,8 +22,9 @@
       left: 8px;
     }
 
-    @include breakpoint(medium) {
+    @include breakpoint(small) {
       width: 100%;
+      min-height: 60px;
       padding: 14px 14px 14px 62px;
 
       &:before {
