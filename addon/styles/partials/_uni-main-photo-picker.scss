@@ -221,5 +221,24 @@
   &__wrapper {
     overflow: hidden;
     overflow-x: scroll;
+
+    &__item {
+      &__main {
+        @include flex();
+        @include align-items-center();
+        padding: 0 10px;
+        font-size: em(16px);
+
+        svg {
+          width: 15px;
+          margin-right: 8px;
+
+          &,
+          path {
+            fill: color('primary', 'highlight');
+          }
+        }
+      }
+    }
   }
 }
