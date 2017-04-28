@@ -1,20 +1,47 @@
 $box-size: 42px;
 
+// TODO: add all colors to uniQ (?)
 .ember-power-calendar {
   width: 100%;
-  max-width: 294px;
+  max-width: 300px;
+  padding: 20px 10px 10px;
+  border: 1px solid color('primary', 'divider');
+  box-shadow: 0 16px 18px 0 rgba(31, 37, 50, 0.32);
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid color('primary', 'highlight');
+    z-index: 4;
+    top: -12px;
+    left: 56px;
+  }
+
+  &:after {
+    border-bottom: 12px solid color('primary', 'divider');
+    z-index: 3;
+    top: -13px;
+    left: 56px;
+  }
 
   .disabled:hover {
     pointer-events: none;
   }
 
   &-nav {
-    margin-bottom: 15px;
+    margin-bottom: 23px;
 
     &-control {
       width: 47px;
       height: 35px;
       border: 1px solid color('primary', 'divider') !important;
+      border-radius: 2px;
       color: color('dropdown') !important;
       cursor: pointer;
       background-color: color('dropdown');
@@ -26,7 +53,8 @@ $box-size: 42px;
 
     &-title {
       @include font("IntervalNextReg");
-      font-size: em(19px);
+      font-size: em(16px);
+      color: color('text', 'subheader');
     }
   }
 
@@ -125,6 +153,11 @@ $box-size: 42px;
     }
   }
 
+  &-weekday {
+    font-size: em(13px);
+    color: color('text', 'subheader');
+  }
+
   &-weekdays {
     margin-bottom: 8px;
   }
@@ -137,6 +170,7 @@ $box-size: 42px;
 
   svg {
     height: 10px;
+    fill: color('background', 'negative');
   }
 
   &:focus {
