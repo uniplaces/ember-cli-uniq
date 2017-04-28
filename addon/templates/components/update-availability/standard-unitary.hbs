@@ -3,14 +3,17 @@
     <div class="label">{{labelFrom}}</div>
 
     {{uni-datepicker-input
-      selected=blockedPeriod.from
-      onSelected=(action (mut blockedPeriod.from))}}
+      selected=(compute (action "stringToMoment" blockedPeriod.from))
+      center=(compute (action "getCenter" blockedPeriod.from))
+      onSelected=(action "changeBlockedPeriodFrom" blockedPeriod.from)}}
 
     <div class="label">{{labelTo}}</div>
 
     {{uni-datepicker-input
-      selected=blockedPeriod.to
-      onSelected=(action (mut blockedPeriod.to))}}
+      selected=(compute (action "stringToMoment" blockedPeriod.to))
+      center=(compute (action "getCenter" blockedPeriod.to))
+      minDate=(compute (action "stringToMoment" blockedPeriod.from))
+      onSelected=(action "storeDate" (action (mut blockedPeriod.to)))}}
 
     {{inline-svg 'icons/calendar.svg'}}
 
@@ -21,5 +24,3 @@
 {{/each}}
 
 <p class="blocked-periods__add link" {{action "addBlockedPeriod"}}>{{labelAdd}}</p>
-
-{{yield}}

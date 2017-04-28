@@ -11,6 +11,7 @@ export default Component.extend({
   layout,
   dateFormat: 'D MMMM Y',
   displayNewOptionSection: false,
+  allowEditOptions: true,
   startDate: moment(),
   endDate: moment(),
   labelOption: null,

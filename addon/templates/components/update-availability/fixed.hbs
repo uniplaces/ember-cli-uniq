@@ -15,13 +15,17 @@
       {{option.value}}
     {{/power-select}}
 
-    <div class="option__link link" {{action "deleteOption" index}}>Delete</div>
+    {{#if allowEditOptions}}
+      <div class="option__link link" {{action "deleteOption" index}}>Delete</div>
+    {{/if}}
   </div>
 {{else}}
   <div class="options__none">{{labelEmpty}}</div>
 {{/each}}
 
-<p class="link" {{action (toggle "displayNewOptionSection" this)}}>{{labelAdd}}</p>
+{{#if allowEditOptions}}
+  <p class="link" {{action (toggle "displayNewOptionSection" this)}}>{{labelAdd}}</p>
+{{/if}}
 
 {{#if displayNewOptionSection}}
   <div class="options__add">

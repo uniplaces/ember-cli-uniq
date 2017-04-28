@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../../templates/components/update-availability/standard-unitary';
 import moment from 'moment';
 
-const { Component, computed } = Ember;
+const { Component, computed, isNone, isPresent, set, get } = Ember;
 
 export default Component.extend({
   classNames: ['update-availability-standard-unitary'],
@@ -31,13 +31,36 @@ export default Component.extend({
 
     deleteBlockedPeriod(index) {
       this.get('blockedPeriods').removeAt(index);
+    },
+
+    changeBlockedPeriodFrom(blockedPeriod, date) {
+      set(blockedPeriod, 'from', date.format(this.get('momentFormat')));
+
+      if (moment(get(blockedPeriod, 'to')).isBefore(get(blockedPeriod, 'from'))) {
+        set(blockedPeriod, 'to', date.format(this.get('momentFormat')));
+      }
+    },
+
+    storeDate(setDateAction, date) {
+      setDateAction(date.format(this.get('momentFormat')));
+    },
+
+    stringToMoment(date) {
+      let convertedDate = moment(date);
+
+      return !convertedDate.isValid() ? null : convertedDate;
+    },
+
+    getCenter(date) {
+      return isNone(date) ? moment() : moment(date);
     }
   },
 
   _createEmptyBlockedPeriod() {
-    return {
-      from: moment().format(this.get('format')),
-      to: moment().format(this.get('format'))
-    };
+    let hasAvailableFrom = isPresent(this.get('availability.available_from'));
+    let today = moment().format(this.get('format'));
+    let defaultDate = hasAvailableFrom ? this.get('availability.available_from') : today;
+
+    return { from: defaultDate, to: defaultDate };
   }
 });
