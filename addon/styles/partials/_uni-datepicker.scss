@@ -2,31 +2,68 @@ $box-size: 42px;
 
 .ember-power-calendar {
   width: 100%;
-  max-width: 294px;
+  max-width: 300px;
+  padding: 20px 10px 10px;
+  border: 1px solid color('calendar', 'border');
+  box-shadow: 0 16px 18px 0 color('calendar', 'shadow');
+  margin-top: 16px;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid color('calendar', 'background');
+    z-index: 4;
+    top: -10px;
+    left: 56px;
+  }
+
+  &:after {
+    border-bottom: 12px solid color('calendar', 'border');
+    z-index: 3;
+    top: -12px;
+    left: 56px;
+  }
 
   .disabled:hover {
     pointer-events: none;
   }
 
   &-nav {
-    margin-bottom: 15px;
+    margin-bottom: 23px;
 
     &-control {
       width: 47px;
       height: 35px;
-      border: 1px solid color('primary', 'divider') !important;
-      color: color('dropdown') !important;
+      border: 1px solid color('calendar', 'border') !important;
+      border-radius: 2px;
+      color: color('calendar', 'text') !important;
       cursor: pointer;
-      background-color: color('dropdown');
+      background-color: color('calendar', 'button-bg');
 
-      [role="button"][disabled] {
-        background-color: color('buttons');
+
+      &.disabled {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      &:not(.disabled) {
+        background-color: color('calendar', 'button-bg');
+
+        svg {
+          fill: color('background', 'negative');
+        }
       }
     }
 
     &-title {
       @include font("IntervalNextReg");
-      font-size: em(19px);
+      font-size: em(16px);
+      color: color('text', 'subheader');
     }
   }
 
@@ -44,7 +81,7 @@ $box-size: 42px;
     background-color: color('buttons') !important;
 
     &:hover {
-      background-color: color('buttons', 'hover') !important;
+      background-color: color('calendar', 'hover-day-bg') !important;
     }
 
     &:disabled {
@@ -53,49 +90,50 @@ $box-size: 42px;
   }
 
   &-day--other-month {
-    background-color: color('buttons', 'disabled');
+    background-color: color('buttons', 'disabled') !important;
+    color: color('calendar', 'border');
   }
 
   &-day--selected {
-    color: color('primary') !important;
+    background-color: color('calendar', 'hover-day-bg') !important;
   }
 
   &-day--interactive[disabled] {
     opacity: 1 !important;
     text-decoration: none;
     background-color: color('buttons', 'disabled') !important;
-    color: rgba(178, 185, 194, .3);
+    color: color('calendar', 'border');
     pointer-events: none;
   }
 
   &-week {
-    border-top: 1px solid color('primary', 'divider');
+    border-top: 1px solid color('calendar', 'border');
 
     &:first-child {
       border-top: 0;
       @include justify-content-end();
 
       button {
-        border-top: 1px solid color('primary', 'divider');
+        border-top: 1px solid color('calendar', 'border');
         max-width: $box-size;
 
         &:first-child {
           border-left: 0;
-          box-shadow: -1px 0 0 color('primary', 'divider');
+          box-shadow: -1px 0 0 color('calendar', 'border');
         }
       }
     }
 
     &[data-missing-days="0"]:first-child button:first-child {
       box-shadow: 0 0 0;
-      border-left: 1px solid color('primary', 'divider');
+      border-left: 1px solid color('calendar', 'border');
     }
 
     &:last-child {
       @include justify-content-start();
 
       button {
-        border-bottom: 1px solid color('primary', 'divider');
+        border-bottom: 1px solid color('calendar', 'border');
         max-width: $box-size;
       }
     }
@@ -108,21 +146,26 @@ $box-size: 42px;
       width: $box-size;
       height: $box-size;
       padding: 0;
-      border-right: 1px solid color('primary', 'divider');
+      border-right: 1px solid color('calendar', 'border');
       @include font("IntervalNextBook");
       font-size: em(16px);
 
       &:first-child {
-        border-left: 1px solid color('primary', 'divider');
+        border-left: 1px solid color('calendar', 'border');
       }
       &:nth-child(8n) {
-        border-left: 1px solid color('primary', 'divider');
+        border-left: 1px solid color('calendar', 'border');
       }
 
       &[disabled] {
         background-color: color('buttons', 'disabled');
       }
     }
+  }
+
+  &-weekday {
+    font-size: em(13px);
+    color: color('calendar', 'text');
   }
 
   &-weekdays {
@@ -137,6 +180,7 @@ $box-size: 42px;
 
   svg {
     height: 10px;
+    fill: color('background', 'negative');
   }
 
   &:focus {
