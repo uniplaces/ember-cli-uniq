@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../../templates/components/update-availability/standard-unitary';
 import moment from 'moment';
 
-const { Component, computed, isNone, isPresent, set, get } = Ember;
+const { Component, computed, isNone, set, get } = Ember;
 
 export default Component.extend({
   classNames: ['update-availability-standard-unitary'],
@@ -59,9 +59,7 @@ export default Component.extend({
   },
 
   _createEmptyBlockedPeriod() {
-    let hasAvailableFrom = isPresent(this.get('availability.available_from'));
-    let today = moment().format(this.get('format'));
-    let defaultDate = hasAvailableFrom ? this.get('availability.available_from') : today;
+    let defaultDate = this.getWithDefault('availability.available_from', moment().format(this.get('format')));
 
     return { from: defaultDate, to: defaultDate };
   }
