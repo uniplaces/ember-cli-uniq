@@ -33,16 +33,8 @@ export default Component.extend({
       this.get('blockedPeriods').removeAt(index);
     },
 
-    changeBlockedPeriodFrom(blockedPeriod, date) {
-      set(blockedPeriod, 'from', date.format(this.get('momentFormat')));
-
-      if (moment(get(blockedPeriod, 'to')).isBefore(get(blockedPeriod, 'from'))) {
-        set(blockedPeriod, 'to', date.format(this.get('momentFormat')));
-      }
-    },
-
     storeDate(setDateAction, date) {
-      setDateAction(date.format(this.get('momentFormat')));
+      setDateAction(date.format(this.get('format')));
     },
 
     stringToMoment(date) {
@@ -53,6 +45,16 @@ export default Component.extend({
 
     getCenter(date) {
       return isNone(date) ? moment() : moment(date);
+    },
+
+    changeBlockedPeriodFrom(blockedPeriod, date) {
+      let from = date.format(this.get('format'));
+
+      set(blockedPeriod, 'from', from);
+
+      if (date.isAfter(get(blockedPeriod, 'to'))) {
+        set(blockedPeriod, 'to', from);
+      }
     }
   },
 

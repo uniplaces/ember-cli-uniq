@@ -5,7 +5,7 @@
     {{uni-datepicker-input
       selected=(compute (action "stringToMoment" blockedPeriod.from))
       center=(compute (action "getCenter" blockedPeriod.from))
-      onSelected=(action "changeBlockedPeriodFrom" blockedPeriod.from)}}
+      onSelected=(action "changeBlockedPeriodFrom" blockedPeriod)}}
 
     <div class="label">{{labelTo}}</div>
 
