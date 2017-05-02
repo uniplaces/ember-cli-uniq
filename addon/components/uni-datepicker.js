@@ -13,7 +13,7 @@ export default Component.extend({
   maxDate: moment().add(2, 'years'),
   weekdayFormat: 'min',
   dateFormat: 'MMMM YYYY',
-  showDaysAround: false,
+  showDaysAround: true,
   isFirstMonth: computed('center', function() {
     return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';
   }),
