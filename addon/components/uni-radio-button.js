@@ -7,10 +7,13 @@ export default Component.extend({
   layout,
 
   groupValue: null,
-  hasChanged() {},
   name: null,
   label: null,
   isDisabled: false,
+
+  hasChanged() {},
+  onClick: null,
+  onClickPreventDefault: true,
 
   checked: computed('value', 'groupValue', function() {
     return this.get('value') === this.get('groupValue');
@@ -21,11 +24,13 @@ export default Component.extend({
   },
 
   actions: {
-    onClick() {
+    onClick(e) {
       if (isPresent(this.get('onClick'))) {
         this.get('onClick')();
 
-        return false;
+        if (this.get('onClickPreventDefault')) {
+          e.preventDefault();
+        }
       }
     }
   }

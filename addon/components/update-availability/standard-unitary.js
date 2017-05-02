@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../../templates/components/update-availability/standard-unitary';
 import moment from 'moment';
 
-const { Component, computed } = Ember;
+const { Component, computed, isNone, set, get } = Ember;
 
 export default Component.extend({
   classNames: ['update-availability-standard-unitary'],
@@ -31,13 +31,36 @@ export default Component.extend({
 
     deleteBlockedPeriod(index) {
       this.get('blockedPeriods').removeAt(index);
+    },
+
+    storeDate(setDateAction, date) {
+      setDateAction(date.format(this.get('format')));
+    },
+
+    stringToMoment(date) {
+      let convertedDate = moment(date);
+
+      return !convertedDate.isValid() ? null : convertedDate;
+    },
+
+    getCenter(date) {
+      return isNone(date) ? moment() : moment(date);
+    },
+
+    changeBlockedPeriodFrom(blockedPeriod, date) {
+      let from = date.format(this.get('format'));
+
+      set(blockedPeriod, 'from', from);
+
+      if (date.isAfter(get(blockedPeriod, 'to'))) {
+        set(blockedPeriod, 'to', from);
+      }
     }
   },
 
   _createEmptyBlockedPeriod() {
-    return {
-      from: moment().format(this.get('format')),
-      to: moment().format(this.get('format'))
-    };
+    let defaultDate = this.getWithDefault('availability.available_from', moment().format(this.get('format')));
+
+    return { from: defaultDate, to: defaultDate };
   }
 });
