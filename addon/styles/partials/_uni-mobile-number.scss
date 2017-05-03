@@ -1,5 +1,6 @@
 .uni-mobile-number {
   @include mobile-number();
+  @include inline-flex();
   margin-bottom: 46px;
 
   input {

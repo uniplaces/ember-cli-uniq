@@ -10,3 +10,7 @@
   placeholder=placeholder
   maxlength=maxLength
   key-down=(action "onChangeInput")}}
+
+  {{#if showTooltip}}
+    {{uni-tooltip isAlternative=true isActive=true content=tooltipMessage}}
+  {{/if}}
