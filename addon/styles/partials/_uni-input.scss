@@ -1,0 +1,12 @@
+.uni-input {
+  @include input();
+
+  & + .uni-tooltip--alternative {
+    position: absolute;
+  }
+}
+
+.uni-input-tooltip-container {
+  position: relative;
+  display: inline-block;
+}

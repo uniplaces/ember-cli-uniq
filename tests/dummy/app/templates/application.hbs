@@ -271,7 +271,7 @@
   <p class="links">
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-datepicker-input.js">Javascript</a> |
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-datepicker-input.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-datepicker-input.scss">SASS</a>
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input.scss">SASS</a>
   </p>
   <p class="description">
     This component shows a datepicker with the date as an input. It's also possible to open/close the datepicker
@@ -373,6 +373,47 @@
   {{uni-multi-selector name="options" groupValue="option2" options=model.multiOptions}}
   <p class="code-snippet">
     \{{uni-multi-selector name="options" groupValue="option2" options=options}}
+  </p>
+</div>
+
+{{uni-title title="Input" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is the default component used for inputs - it accepts the basic input options. <br>
+    It has default validations for email and required empty fields - by default it shows error and does <u>not</u> show success.<br>
+    It's also possible to use a different validation by setting showError/showSuccess/showWarning with either a boolean or a function. <br>
+    On type number inputs it has numeric conversion.<br>
+    It's possible to use tooltips by setting a tooltipMessage.
+  </p>
+
+  {{uni-input placeholder="Name" tooltipMessage="Click me!"}}
+  <p class="code-snippet">
+    \{{uni-input placeholder="Name" tooltipMessage="Click me!"}}
+  </p>
+
+  {{uni-input type="number" isRequired=true}}
+  <p class="code-snippet">
+    \{{uni-input type="number" isRequired=true}}
+  </p>
+
+  {{uni-input type="email" value=model.email}}
+  <p class="code-snippet">
+    \{{uni-input type="email" value=email}}
+  </p>
+
+  {{uni-input value=model.number showError=model.gteTen showSuccess=(not model.gteTen)}}
+  <p class="code-snippet">
+    \{{uni-input value=number showError=gteTen showSuccess=(not gteTen)}}
+  </p>
+
+  {{uni-input showSuccessDefault=true isRequired=true}}
+  <p class="code-snippet">
+    \{{uni-input showSuccessDefault=true isRequired=true}}
   </p>
 </div>
 
@@ -508,6 +549,11 @@
   {{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
   <p class="code-snippet">
     \{{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
+  </p>
+
+  {{uni-tooltip isAlternative=true isActive=true content="This is a demo tooltip for inputs"}}
+  <p class="code-snippet">
+    \{{uni-tooltip isAlternative=true isActive=true content="This is a demo tooltip for inputs"}}
   </p>
 </div>
 
