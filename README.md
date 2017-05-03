@@ -1,6 +1,6 @@
 # Ember-cli-uniq
 
-A Demo of the components: https://vast-shelf-62262.herokuapp.com/ 
+A Demo of the components: https://stormy-escarpment-22836.herokuapp.com/
 
 ## Installation
 
