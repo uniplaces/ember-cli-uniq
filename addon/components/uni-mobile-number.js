@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { getAllCountryNames, getCountryName, getCountryCallingCode } from 'ember-cli-countries/utils/countries';
 import layout from '../templates/components/uni-mobile-number';
 
-const { Component, isPresent } = Ember;
+const { Component } = Ember;
 
 const SEPARATOR_KEY = '__SEPARATOR__';
 const SEPARATOR_VALUE = '--------------------------------';
@@ -11,7 +11,6 @@ export default Component.extend({
   classNames: ['uni-mobile-number'],
   classNameBindings: ['hasError:uni-mobile-number--error'],
   layout,
-
   number: null,
   language: null,
   maxLength: '15',
@@ -21,9 +20,6 @@ export default Component.extend({
   isOpen: false,
   options: [],
   preferredCountries: [], // e.g. ['PT', 'GB', 'DE']
-
-  tooltipMessage: null,
-  showTooltip: false,
 
   onChangeSelect() {},
   onChangeInput() {},
@@ -65,18 +61,6 @@ export default Component.extend({
     }
 
     return 0;
-  },
-
-  focusIn() {
-    if (isPresent(this.get('tooltipMessage'))) {
-      this.set('showTooltip', true);
-    }
-  },
-
-  focusOut() {
-    if (isPresent(this.get('tooltipMessage'))) {
-      this.set('showTooltip', false);
-    }
   },
 
   actions: {
