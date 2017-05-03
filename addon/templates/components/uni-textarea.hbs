@@ -1,3 +1,7 @@
 {{textarea placeholder=placeholder maxlength=maxLength rows=rows value=value}}
 
 <div class="uni-textarea-counter">{{yield count}}</div>
+
+{{#if showTooltip}}
+  {{uni-tooltip isAlternative=true isActive=true content=tooltipMessage}}
+{{/if}}
