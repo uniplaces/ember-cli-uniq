@@ -1,12 +1,23 @@
-/*jshint node:true*/
+function makeScenario(emberVersion) {
+  return {
+    name: `ember-${emberVersion}`,
+    bower: {
+      dependencies: {
+        'ember': `~${emberVersion}.0`
+      },
+      resolutions: {
+        'ember': `~${emberVersion}.0`
+      }
+    }
+  };
+}
+
+/* eslint-env node */
 module.exports = {
   scenarios: [
-    {
-      name: 'default',
-      bower: {
-        dependencies: { }
-      }
-    },
+    makeScenario('2.8'),
+    makeScenario('2.9'),
+    makeScenario('2.12'),
     {
       name: 'ember-release',
       bower: {

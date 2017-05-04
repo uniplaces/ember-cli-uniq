@@ -33,12 +33,21 @@ test('it execute onInvalidInput on not valid input', function(assert) {
   this.set('per', 'day');
   this.set('currency', '€');
   this.set('value', 0);
+  this.set('minValue', 100);
   this.set('onInvalidInput', () => {
     assert.equal(true, true);
   });
 
-  this.render(hbs`{{uni-input-price currency=currency isRightSideCurrency=isRightSideCurrency per=per value=value onInvalidInput=onInvalidInput}}`);
-  this.$('input').keydown();
+  this.render(hbs`
+    {{uni-input-price
+      currency=currency
+      minValue=minValue
+      isRightSideCurrency=isRightSideCurrency
+      per=per
+      value=value
+      onInvalidInput=onInvalidInput}}
+  `);
+  this.$('input').keyup();
 
   assert.notEqual(this.$().text().trim(), '');
   assert.equal(this.$().text().trim(), '€ / day');

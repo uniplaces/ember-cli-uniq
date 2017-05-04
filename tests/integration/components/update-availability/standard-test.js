@@ -6,7 +6,31 @@ moduleForComponent('update-availability/standard', 'Integration | Component | up
 });
 
 test('it renders', function(assert) {
-  this.render(hbs`{{update-availability/standard}}`);
+  let standard = {
+    years: [
+      {
+        year: 2017,
+        monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+      },
+      {
+        year: 2018,
+        monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+      }
+    ]
+  };
 
-  assert.equal(this.$().text().trim(), '');
+  this.set('standard', standard);
+  this.set('availableLabel', 'Available');
+  this.set('notAvailableLabel', 'Not available');
+  this.set('limitedAvailabilityLabel', 'Limited');
+
+  this.render(hbs`
+    {{update-availability/standard
+      availability=standard
+      labelAvailable=availableLabel
+      labelNotAvailable=notAvailableLabel
+      labelLimitedAvailability=limitedAvailabilityLabel}}
+  `);
+
+  assert.notEqual(this.$().text().trim(), '');
 });

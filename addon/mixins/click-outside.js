@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-const { $, Mixin, run, on, K } = Ember;
+const { $, Mixin, run, on } = Ember;
 
 export default Mixin.create({
-  onOutsideClick: K,
+  onOutsideClick() {},
 
   handleOutsideClick(event) {
     let $element = this.$();

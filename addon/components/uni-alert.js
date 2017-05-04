@@ -2,9 +2,10 @@ import Ember from 'ember';
 import layout from '../templates/components/uni-alert';
 import UniAlertTypes from 'ember-cli-uniq/enums/uni-alert-type';
 
-const { Component, computed, $ } = Ember;
+const { Component, computed, $, run } = Ember;
 
 export default Component.extend({
+  layout,
   classNames: ['uni-alert'],
   classNameBindings: [
     'isFixed:uni-alert--fixed',
@@ -14,13 +15,13 @@ export default Component.extend({
     'isWarning:uni-alert--warning',
     'isClosed:uni-alert--closed'
   ],
-  layout,
 
   stickyMode: false,
   isFixed: false,
   hasClose: false,
   isClosed: false,
   onClose: null,
+
   isSuccess: computed('type', function() {
     return this.get('type') === UniAlertTypes.SUCCESS;
   }),
@@ -46,22 +47,15 @@ export default Component.extend({
     return 'alert';
   }),
 
-  init() {
+  didInsertElement() {
     this._super();
 
     if (this.get('stickyMode')) {
-      $(window).bind('scroll', () => {
-        this._verifyStickyScroll();
-      });
-    }
-  },
-
-  didRender() {
-    this._super(...arguments);
-
-    if (this.get('stickyMode')) {
       this.set('componentTop', this.$().offset().top);
-      this._verifyStickyScroll();
+
+      $(window).bind('scroll', () => {
+        run.throttle(this, this._verifyStickyScroll, 50);
+      });
     }
   },
 
@@ -86,6 +80,7 @@ export default Component.extend({
 
   willDestroyElement() {
     this._super(...arguments);
+
     $(window).unbind('scroll');
   }
 });
