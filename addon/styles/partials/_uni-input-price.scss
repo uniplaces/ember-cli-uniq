@@ -1,6 +1,10 @@
 .uni-input-price {
   @include input-price();
 
+  input {
+    border-radius: 0 4px;
+  }
+
   &--focused {
     border-color: color('input', 'border-focus');
   }
