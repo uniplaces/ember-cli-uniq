@@ -296,6 +296,17 @@
   <p class="code-snippet">
     \{{uni-datepicker-input placeholder=placeholder selected=date minDate=minDate onSelected=(action (mut date))}}
   </p>
+
+  {{uni-datepicker-input
+    label="Move-in date"
+    placeholder=model.datepickerInputLabel
+    selected=model.date
+    minDate=model.minDate
+    onSelected=(action (mut model.date))}}
+
+  <p class="code-snippet">
+    \{{uni-datepicker-input label=label placeholder=placeholder selected=date minDate=minDate onSelected=(action (mut date))}}
+  </p>
 </div>
 
 {{uni-title title="Dropdown" class="uni-title--spaced"}}

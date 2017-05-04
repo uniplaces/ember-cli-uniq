@@ -1,0 +1,10 @@
+.uni-datepicker-input {
+  &__label{
+    @include font("IntervalNextReg");
+    display: inline-block;
+    font-size: em(16px);
+    width: 100%;
+    margin-bottom: 7px;
+    margin-left: 2px;
+  }
+}

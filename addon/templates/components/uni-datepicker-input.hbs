@@ -1,3 +1,7 @@
+{{#if label}}
+  <label class="uni-datepicker-input__label" >{{label}}</label>
+{{/if}}
+
 {{input
   class="uni-input uni-input--bordered"
   value=formattedDate
@@ -13,5 +17,3 @@
   	minDate=minDate
   	maxDate=maxDate}}
 {{/if}}
-
-{{yield}}
