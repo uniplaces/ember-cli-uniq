@@ -1,17 +1,12 @@
 {
   "name": "ember-cli-uniq",
-<<<<<<< HEAD
   "version": "0.1.12",
   "description": "Ember add-on with a variety of components with uniplaces-uniq styles and default behaviours.",
-=======
-  "version": "0.1.10",
-  "description": "Ember addon with a variety of components with uniplaces-uniq's styles and default behaviours.",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
   "author": "Uniplaces",
->>>>>>> Update ember version to 2.9.1
   "directories": {
     "doc": "doc",
     "test": "tests"
