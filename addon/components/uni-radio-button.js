@@ -11,9 +11,10 @@ export default Component.extend({
   label: null,
   isDisabled: false,
 
-  hasChanged() {},
   onClick: null,
   onClickPreventDefault: true,
+
+  hasChanged() {},
 
   checked: computed('value', 'groupValue', function() {
     return this.get('value') === this.get('groupValue');

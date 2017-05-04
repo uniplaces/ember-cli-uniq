@@ -15,6 +15,7 @@ export default Component.extend(ClickOutside, {
   showOptions: false,
   highlighted: 0,
   maxOptionsToShow: 4,
+
   onSelected() {},
 
   // @Required The function must return an array of strings
