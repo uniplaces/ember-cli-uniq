@@ -15,6 +15,8 @@ export default Component.extend(ClickOutsideMixin, {
   minDate: moment(),
   maxDate: moment().add(2, 'years'),
   placeholder: null,
+  label: null,
+  isReadOnly: true,
 
   formattedDate: computed('selected', function() {
     let selected = this.get('selected');
