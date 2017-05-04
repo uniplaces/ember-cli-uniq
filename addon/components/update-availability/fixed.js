@@ -27,6 +27,10 @@ export default Component.extend({
 
   actions: {
     updateAvailability(index, { key }) {
+      if (this.get(`availabilityOptions.${index}.status`) === key) {
+        this.set(`availabilityOptions.${index}.status`, key);
+      }
+
       let availabilityOptions = this.set(`availabilityOptions.${index}.status`, key);
 
       return availabilityOptions;

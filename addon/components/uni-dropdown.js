@@ -17,6 +17,7 @@ export default Component.extend(ClickOutsideMixin, {
   placeholder: null,
   options: [],
   btnClass: '',
+
   onChange() {},
   onClick() {},
 
@@ -33,7 +34,6 @@ export default Component.extend(ClickOutsideMixin, {
 
     optionClick(option) {
       this.toggleProperty('isOpen');
-      this.set('selected', option);
 
       this.get('onChange')(option);
     }

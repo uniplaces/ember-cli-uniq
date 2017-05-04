@@ -1,105 +1,14 @@
-$medium-gray: #cccccc;
-
 .update-availability-fixed {
-  @include fade-in();
-  animation-duration: 1s;
-  padding: 30px 0 20px 0;
-  position: relative;
+  @include flex-wrap();
+}
 
-  .options {
-    &__none {
-      font-size: em(20px);
-      margin: 20px 0;
-    }
+.option {
+  @include flex();
+  @include align-items-center();
+  margin-top: 20px;
 
-    &__add {
-      @include flex();
-      @include align-items-center();
-      margin-top: 20px;
-
-      & > div {
-        margin: 0 10px;
-      }
-    }
-  }
-
-  .option {
-    @include flex();
-    @include align-items-center();
-    margin: 20px 0;
-
-    &__label {
-      width: 150px;
-
-      p {
-        font-size: em(16px);
-      }
-    }
-
-    &__link {
-      margin-left: 20px;
-    }
-
-    &--medium {
-      .ember-power-select-option {
-        &[data-option-index="0"] {
-          background: color('dropdown', 'item-hover') !important;
-          color: $medium-gray !important;
-          cursor: default;
-        }
-      }
-    }
-
-    &--low {
-      .ember-power-select-option {
-        &[data-option-index="1"] {
-          background: color('dropdown', 'item-hover') !important;
-          color: $medium-gray !important;
-          cursor: default;
-        }
-      }
-    }
-
-    &--none {
-      .ember-power-select-option {
-        &[data-option-index="2"] {
-          background: color('dropdown', 'item-hover') !important;
-          color: $medium-gray !important;
-          cursor: default;
-        }
-      }
-    }
-  }
-
-  .ember-power-select-placeholder {
-    font-size: em(12px);
-  }
-
-  .ember-basic-dropdown-trigger {
-    padding: 7px;
-  }
-
-  p {
-    font-size: em(14px);
-    font-weight: 500;
-  }
-
-  .align-top-left {
-    top: 25px;
-    left: 10px;
-    font-size: em(15px);
-    color: color('text', 'subheading');
-  }
-
-  .uni-input-price {
-    width: 300px;
-  }
-
-  .ember-power-calendar {
-    position: absolute;
-    background-color: color('background');
-    z-index: 1;
-    border: 1px solid color('borders');
-    box-shadow: 0 0 10px color('borders');
+  .uni-dropdown {
+    max-width: 180px;
+    margin-left: 24px;
   }
 }
