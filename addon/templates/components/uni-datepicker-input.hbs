@@ -6,7 +6,8 @@
   class="uni-input uni-input--bordered"
   value=formattedDate
   placeholder=placeholder
-  click=(action "toggleDatepicker")}}
+  click=(action "toggleDatepicker")
+  readonly=true}}
 
 {{#if showDatepicker}}
   {{uni-datepicker
