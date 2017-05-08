@@ -8,6 +8,7 @@ export default Component.extend({
   options: [],
   selected: null,
   placeholder: null,
+
   onChange() {},
 
   actions: {

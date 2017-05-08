@@ -15,6 +15,9 @@ export default Route.extend({
       minDate: moment().subtract(1, 'days'),
       startDate: moment(),
       date: null,
+      dropdown: {
+        selected: null
+      },
       datepickerInputLabel: 'Move-in date',
       datepickerInputPlaceholder: 'Insert date',
       genderOptions: [

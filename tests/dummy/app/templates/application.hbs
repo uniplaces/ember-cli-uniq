@@ -230,8 +230,7 @@
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-checkbox.scss">SASS</a>
   </p>
   <p class="description">
-    This is a component used for dropdown inputs. It accepts a placeholder, an array of options and a boolean to determine
-    if it's positioned absolutely of relatively (this is related to the CSS property <strong>position</strong>).
+    This is a component used for checkbox inputs.
   </p>
 
   <div class="flex-wrapper">
@@ -323,7 +322,9 @@
 
   {{#uni-dropdown
     isAbsolute=true
+    selected=model.dropdown.selected
     placeholder="Select one"
+    onChange=(action (mut model.dropdown.selected))
     options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}
     {{option}}
   {{/uni-dropdown}}
@@ -331,7 +332,8 @@
   <p class="code-snippet">
     \{{#uni-dropdown<br><br>
       <span class="tab">isAbsolute=true</span><br><br>
-      <span class="tab">selected="Dropdown option 1"</span><br><br>
+      <span class="tab">selected=selected</span><br><br>
+      <span class="tab">onChange=(action (mut selected))</span><br><br>
       <span class="tab">options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}</span><br><br>
       <span class="tab">\{{option}}</span><br><br>
     \{{/uni-dropdown}}

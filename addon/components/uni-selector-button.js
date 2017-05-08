@@ -22,6 +22,7 @@ export default Component.extend({
   }),
   showWarning: computed.and('checked', 'warning'),
   showError: computed.and('checked', 'error'),
+
   hasChanged() {},
 
   change() {

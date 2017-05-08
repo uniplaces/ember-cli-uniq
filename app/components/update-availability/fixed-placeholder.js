@@ -1,1 +1,0 @@
-export { default } from 'ember-cli-uniq/components/update-availability/fixed-placeholder';
