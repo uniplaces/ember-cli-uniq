@@ -10,7 +10,7 @@
       placeholder=optionsPlaceholder
       onChange=(action "updateAvailability" index)
       options=options as |option|}}
-      {{capitalize option.key}}
+      {{capitalize option.value}}
     {{/uni-dropdown}}
 
     {{#if allowEditOptions}}

@@ -61,6 +61,16 @@ export default Route.extend({
           }
         ]
       },
+      fixedOptions: [
+        {
+          key: 'None',
+          value: 'none'
+        },
+        {
+          key: 'medium',
+          value: 'medium'
+        }
+      ],
       fixed: {
         options: [
           {

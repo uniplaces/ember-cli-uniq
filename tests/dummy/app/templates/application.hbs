@@ -726,9 +726,9 @@
 <div class="component">
   {{uni-title title="Standard"}}
   <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/standard-unitary.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/standard-unitary.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_standard-unitary.scss">SASS</a>  </p>
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/standard.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/standard.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_standard.scss">SASS</a>  </p>
   <p class="description">
     This component allows to update availability for the type standard.
   </p>
@@ -751,7 +751,7 @@
 </div>
 
 <div class="component">
-  {{uni-title title="Standard"}}
+  {{uni-title title="Fixed"}}
   <p class="links">
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/fixed.js">Javascript</a> |
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/fixed.hbs">Handlebars</a> |
@@ -764,6 +764,7 @@
   {{update-availability/fixed
     availability=model.fixed
     onSelected=(action (mut model.fixed))
+    options=model.fixedOptions
     labelOption="Option"
     labelFrom="From"
     labelTo="To"
@@ -774,8 +775,8 @@
 
   <p class="code-snippet">
     \{{update-availability/fixed<br>
-      <span class="tab">availability=model.fixed</span><br>
-      <span class="tab">onSelected=(action (mut model.fixed))</span><br>
+      <span class="tab">availability=fixed</span><br>
+      <span class="tab">onSelected=(action (mut fixed))</span><br>
       <span class="tab">labelOption="Option"</span><br>
       <span class="tab">labelFrom="From"</span><br>
       <span class="tab">labelTo="To"</span><br>

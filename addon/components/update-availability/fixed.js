@@ -4,7 +4,7 @@ import AvailabilityTypes from 'ember-cli-uniq/enums/availability-options-type';
 import moment from 'moment';
 import { v4 } from 'ember-uuid';
 
-const { Component, computed, $ } = Ember;
+const { Component, computed } = Ember;
 
 export default Component.extend({
   classNames: ['update-availability-fixed'],
@@ -22,6 +22,7 @@ export default Component.extend({
   labelPer: null,
   labelOk: null,
   options: [],
+  optionsPlaceholder: '',
 
   availabilityOptions: computed.alias('availability.options'),
 
@@ -30,13 +31,6 @@ export default Component.extend({
       let availabilityOptions = this.set(`availabilityOptions.${index}.status`, key);
 
       return availabilityOptions;
-    },
-
-    placeholder(option) {
-      let startMonth = moment(option.start_date).format(this.get('dateFormat'));
-      let endMonth = moment(option.end_date).format(this.get('dateFormat'));
-
-      return this._createPlaceholder(startMonth, endMonth);
     },
 
     deleteOption(index) {
@@ -60,16 +54,5 @@ export default Component.extend({
       status: AvailabilityTypes.MEDIUM,
       id: v4()
     };
-  },
-
-  _createPlaceholder(startMonth, endMonth) {
-    let boldSpan = $('<span>').css('font-weight', 'bold');
-
-    return [
-      this.get('labelFrom'),
-      boldSpan.html(startMonth).prop('outerHTML'),
-      this.get('labelTo'),
-      boldSpan.html(endMonth).prop('outerHTML')
-    ].join(' ');
   }
 });
