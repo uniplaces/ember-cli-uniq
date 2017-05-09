@@ -6,7 +6,7 @@
 
     {{#uni-dropdown
       isAbsolute=true
-      selected=(capitalize availabilityOption.status)
+      selected=(t (i 'availability.ops.${status}' status=availabilityOption.status))
       placeholder=optionsPlaceholder
       onChange=(action "updateAvailability" index)
       options=options as |option|}}
