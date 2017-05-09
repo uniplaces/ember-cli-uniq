@@ -35,9 +35,14 @@ export default Route.extend({
         { value: 'option3', label: 'Option 3' }
       ],
       uniSelectOptions: [
-        { key: '1', value: 'One', disabled: false },
-        { key: '2', value: 'Two' },  // options are disabled by default
+        { key: '1', value: 'One', disabled: true },
+        { key: '2', value: 'Two' },  // options are enabled by default
         { key: '3', value: 'Three' }
+      ],
+      uniSelectAliasOptions: [
+        { key: '1', value: 'This is a one', alias: 'One' },
+        { key: '2', value: 'This is a two', alias: 'Two' },
+        { key: '3', value: 'This is a three', alias: 'Three' }
       ],
       tabs: [
         { label: 'Home', url: 'application' },
