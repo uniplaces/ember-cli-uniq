@@ -301,10 +301,11 @@
     placeholder=model.datepickerInputPlaceholder
     selected=model.date
     minDate=model.minDate
-    onSelected=(action (mut model.date))}}
+    onSelected=(action (mut model.date))
+    disabledDates=model.disabledDates}}
 
   <p class="code-snippet">
-    \{{uni-datepicker-input label=label placeholder=placeholder selected=date minDate=minDate onSelected=(action (mut date))}}
+    \{{uni-datepicker-input label=label placeholder=placeholder disabledDates=disabledDates selected=date minDate=minDate onSelected=(action (mut date))}}
   </p>
 </div>
 
