@@ -14,6 +14,7 @@ export default Component.extend({
   weekdayFormat: 'min',
   dateFormat: 'MMMM YYYY',
   showDaysAround: true,
+  disabledDates: [],
   isFirstMonth: computed('center', function() {
     return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';
   }),

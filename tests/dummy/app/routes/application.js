@@ -14,6 +14,10 @@ export default Route.extend({
       withEmail: true,
       minDate: moment().subtract(1, 'days'),
       startDate: moment(),
+      disabledDates: [
+        moment().add(2, 'days'),
+        moment().add(3, 'days')
+      ],
       date: null,
       dropdown: {
         selected: null
