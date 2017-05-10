@@ -25,7 +25,11 @@ export default Component.extend({
 
     if (this.get('selected')) {
       this._changeAliasValue(this.get('selected'));
-    } else if (isNone(this.get('placeholder'))) {
+
+      return;
+    }
+
+    if (isNone(this.get('placeholder'))) {
       this._changeAliasValue(this._getFirstAvailableValue());
     }
   },
@@ -46,9 +50,7 @@ export default Component.extend({
   },
 
   _getFirstAvailableValue() {
-    let option = A(this.get('options')).find(function(option) {
-      return isNone(option.disabled);
-    });
+    let option = A(this.get('options')).find(({ disabled }) => isNone(disabled));
 
     return !isNone(option) ? option.key : null;
   }

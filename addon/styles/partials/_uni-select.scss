@@ -16,10 +16,10 @@
   }
 
   div.uni-select {
-    z-index: 1;
     @include align-items-center();
     @include justify-content-center();
     @include flex();
+    z-index: 1;
     line-height: 1;
   }
 }
