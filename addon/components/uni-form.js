@@ -30,7 +30,7 @@ export default Component.extend({
       this.set('isLoading', true);
 
       let promise = this.get('onSubmit')();
-      if (promise && typeof promise.then === "function") {
+      if (promise && typeof promise.then === 'function') {
         promise.then(() => this.setIsLoading(false), () => this.setIsLoading(false));
       }
     }
