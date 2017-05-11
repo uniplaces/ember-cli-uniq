@@ -49,7 +49,11 @@ export default Component.extend({
   },
 
   _getOption(key) {
-    return { key, value: `${getCountryName(key)} (${getCountryCallingCode(key)})` };
+    return {
+      key,
+      value: `${getCountryName(key)} (${getCountryCallingCode(key)})`,
+      alias: getCountryCallingCode(key)
+    };
   },
 
   sortByName(nameA, nameB) {

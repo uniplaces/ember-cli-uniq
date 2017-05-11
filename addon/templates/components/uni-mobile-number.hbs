@@ -1,12 +1,15 @@
 {{uni-select
+  class="uni-mobile-number__select-wrapper"
   placeholder=selectPlaceholder
   selected=language
   options=options
+  useAlias=true
   onChange=(action "onChangeSelect")}}
 
 {{input
   disabled=isInputDisabled
   value=number
+  type="number"
   placeholder=placeholder
   maxlength=maxLength
   key-down=(action "onChangeInput")}}
