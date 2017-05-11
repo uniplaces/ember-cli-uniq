@@ -29,7 +29,10 @@ export default Component.extend({
 
       this.set('isLoading', true);
 
-      this.get('onSubmit')().then(() => this.setIsLoading(false), () => this.setIsLoading(false));
+      let promise = this.get('onSubmit')();
+      if (promise && typeof promise.then === "function") {
+        promise.then(() => this.setIsLoading(false), () => this.setIsLoading(false));
+      }
     }
   }
 });
