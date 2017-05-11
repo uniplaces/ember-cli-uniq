@@ -43,7 +43,7 @@ export default Component.extend({
       if (preferredCountries.indexOf(key) < 0) {
         return this._getOption(key);
       }
-    }).sort(this.sortByName));
+    }).filter((country) => isPresent(country)).sort(this.sortByName));
 
     this.set('options', countries);
   },
