@@ -339,6 +339,34 @@
       <span class="tab">\{{option}}</span><br><br>
     \{{/uni-dropdown}}
   </p>
+
+  <p class="description">
+    This component also accepts an alias for the selected option and, not related, svgs to display in the selected button.
+  </p>
+
+  {{#uni-dropdown as
+    isAbsolute=true
+    selected=model.secondDropdown
+    placeholder="Select one"
+    onChange=(action (mut model.secondDropdown))
+    selectedAlias=(i 'Alias example - ${selected}' selected=model.secondDropdown.value)
+    selectedSvgs=(if model.secondDropdown null (array 'icons/google' 'icons/facebook'))
+    options=model.dropdownOptions as |option|}}
+    {{option.value}}
+  {{/uni-dropdown}}
+
+  <p class="code-snippet">
+    \{{#uni-dropdown<br><br>
+      <span class="tab">isAbsolute=true</span><br><br>
+      <span class="tab">selected=selected</span><br><br>
+      <span class="tab">placeholder="Select one"</span><br><br>
+      <span class="tab">onChange=(action (mut selected))</span><br><br>
+      <span class="tab">selectedAlias=(i 'Alias example - ${selected}' selected=selected.value)</span><br><br>
+      <span class="tab">selectedSvgs=(if selected null (array 'icons/google' 'icons/facebook'))</span><br><br>
+      <span class="tab">options=dropdownOptions as |option|}}</span><br><br>
+      <span class="tab">\{{option}}</span><br><br>
+    \{{/uni-dropdown}}
+  </p>
 </div>
 
 {{uni-title title="Radio button" class="uni-title--spaced"}}

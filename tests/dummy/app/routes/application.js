@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-const { Route, computed } = Ember;
+const { Route, computed, isNone } = Ember;
 
 export default Route.extend({
   model() {
@@ -43,6 +43,11 @@ export default Route.extend({
         { key: '1', value: 'This is a one', alias: 'One' },
         { key: '2', value: 'This is a two', alias: 'Two' },
         { key: '3', value: 'This is a three', alias: 'Three' }
+      ],
+      secondDropdown: null,
+      dropdownOptions: [
+        { key: 'facebook', value: 'Facebook' },
+        { key: 'google', value: 'Google' }
       ],
       tabs: [
         { label: 'Home', url: 'application' },
