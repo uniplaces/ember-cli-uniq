@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-const { Route, computed, isNone } = Ember;
+const { Route, computed } = Ember;
 
 export default Route.extend({
   model() {
