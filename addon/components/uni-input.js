@@ -29,9 +29,10 @@ export default Component.extend({
   showSuccess: null,
   showError: null,
   showWarning: null,
+  onKeyUp: null,
+  onKeyDown: null,
 
   onChange() {},
-  onKeyUp() {},
 
   isValid: computed('value', function() {
     switch (this.get('type')) {
@@ -90,10 +91,6 @@ export default Component.extend({
       return newValue;
     }
   }),
-
-  keyUp() {
-    this.get('onKeyUp')(this.get('value'), this.get('isValid'));
-  },
 
   focusIn() {
     if (isPresent(this.get('tooltipMessage'))) {
