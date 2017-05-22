@@ -44,6 +44,11 @@ export default Route.extend({
         { key: '2', value: 'This is a two', alias: 'Two' },
         { key: '3', value: 'This is a three', alias: 'Three' }
       ],
+      secondDropdown: null,
+      dropdownOptions: [
+        { key: 'facebook', value: 'Facebook' },
+        { key: 'google', value: 'Google' }
+      ],
       tabs: [
         { label: 'Home', url: 'application' },
         { label: 'About us', url: 'application' },

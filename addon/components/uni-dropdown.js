@@ -8,10 +8,13 @@ export default Component.extend(ClickOutsideMixin, {
   classNames: ['uni-dropdown'],
   classNameBindings: [
     'isOpen:uni-dropdown--active',
-    'isAbsolute:uni-dropdown--absolute'
+    'isAbsolute:uni-dropdown--absolute',
+    'selectedSvgs:uni-dropdown--svg'
   ],
   layout,
 
+  selectedAlias: null,
+  selectedSvgs: null,
   isOpen: false,
   selected: null,
   placeholder: null,

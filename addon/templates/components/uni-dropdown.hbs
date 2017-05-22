@@ -1,8 +1,20 @@
 <div role="button" class="{{btnClass}} uni-dropdown__button" {{action "buttonClick"}}>
   {{#if selected}}
-    {{selected}}
+    {{#if selectedAlias}}
+      {{selectedAlias}}
+    {{else}}
+      {{selected}}
+    {{/if}}
   {{else}}
     {{placeholder}}
+  {{/if}}
+
+  {{#if selectedSvgs}}
+    <div class="uni-dropdown__svg-group">
+      {{#each selectedSvgs as |svg|}}
+        {{inline-svg svg}}
+      {{/each}}
+    </div>
   {{/if}}
 </div>
 

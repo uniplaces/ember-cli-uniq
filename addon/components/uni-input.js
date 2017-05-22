@@ -29,6 +29,8 @@ export default Component.extend({
   showSuccess: null,
   showError: null,
   showWarning: null,
+  onKeyUp: null,
+  onKeyDown: null,
 
   onChange() {},
 

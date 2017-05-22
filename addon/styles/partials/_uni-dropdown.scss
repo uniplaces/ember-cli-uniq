@@ -7,4 +7,23 @@
       z-index: 1;
     }
   }
+
+  &--svg {
+    .uni-dropdown__button {
+      @include flex();
+      @include space-between();
+      @include align-items-center();
+      padding-right: 40px;
+    }
+  }
+
+  &__svg-group {
+    @include flex();
+    height: 18px;
+
+    svg {
+      margin-left: 4px;
+      height: 100%;
+    }
+  }
 }
