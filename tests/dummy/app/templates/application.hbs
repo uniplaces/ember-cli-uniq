@@ -71,6 +71,38 @@
   </p>
 </div>
 
+{{uni-title title="Horizontal tabs" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-horizontal-tabs.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-horizontal-tabs.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-horizontal-tabs.scss">SASS</a>
+  </p>
+  <p class="description">
+    This component allows to have horizontal tabs that switch the content on click.
+  </p>
+
+  {{#uni-horizontal-tabs options=model.options as |option|}}
+    {{option}}
+  {{/uni-horizontal-tabs}}
+
+  <p class="code-snippet">
+    \{{#uni-horizontal-tabs options=options as |option|}}
+      <span class="tab">\{{option}}</span><br>
+    \{{/uni-horizontal-tabs}}
+  </p>
+
+  {{#uni-horizontal-tabs options=model.options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
+    {{option}}
+  {{/uni-horizontal-tabs}}
+
+  <p class="code-snippet">
+    \{{#uni-horizontal-tabs options=options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
+      <span class="tab">\{{option}}</span><br>
+    \{{/uni-horizontal-tabs}}
+  </p>
+</div>
+
 {{uni-title title="Alerts" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">
@@ -611,222 +643,28 @@
   </p>
 </div>
 
-{{!-- {{uni-title title="Carrousel"}}
-
-{{#uni-modal isOpen=true title="Photography tips"}}
-  {{#uni-carrousel itemCount=3 keyboardActivated=true}}
-    {{uni-carrousel-item
-      thumbnail=""
-      title="Shoot for corners and go for straight lines"
-      content="Take advantage of the corners - it helps showing the range of space and adds dimensionality to the picture."}}
-
-    {{uni-carrousel-item
-      thumbnail=""
-      title="Shoot for corners and go for straight lines"
-      content="Take advantage of the corners - it helps showing the range of space and adds dimensionality to the picture."}}
-
-    {{uni-carrousel-item
-      thumbnail=""
-      title="Shoot for corners and go for straight lines"
-      content="Take advantage of the corners - it helps showing the range of space and adds dimensionality to the picture."}}
-  {{/uni-carrousel}}
-{{/uni-modal}} --}}
-
-{{!--
-{{uni-title title="sign up"}}
-<p class="code-snippet">
-  \{{#uni-auth-modal isOpen=true isSignup=true}}
-    \{{#uni-signup withEmail=false title="Sign up"}}
-      \{{uni-signup-picker}}
-    \{{/uni-signup}}
-  \{{/uni-auth-modal}}
-</p>
-{{#uni-auth-modal isOpen=true isSignup=true}}
-  {{#uni-signup withEmail=false title="Sign up"}}
-    {{uni-signup-picker}}
-  {{/uni-signup}}
-{{/uni-auth-modal}}
-
-{{uni-title title="sign up with email"}}
-<p class="code-snippet">
-  \{{#uni-auth-modal isOpen=true isSignup=true}}
-    \{{#uni-signup withEmail=true title="Sign up"}}
-      \{{uni-signup-picker withEmail=true}}
-    \{{/uni-signup}}
-  \{{/uni-auth-modal}}
-</p>
-{{#uni-auth-modal isOpen=true isSignup=true}}
-  {{#uni-signup withEmail=true title="Sign up"}}
-    {{uni-signup-picker withEmail=true}}
-  {{/uni-signup}}
-{{/uni-auth-modal}}
-
-{{uni-title title="Login & Signup"}}
-<p class="code-snippet">
-  \{{#uni-auth-modal isOpen=model.isOpen onCloseModal=(action (toggle "model.isOpen" this))}}
-    \{{#if model.isSignup}}
-      \{{#uni-signup withEmail=model.withEmail title="Signup" onClickBack=(action (toggle "model.withEmail" this))}}
-        \{{#if model.withEmail}}
-          \Credentials form
-        \{{else}}
-          \Social Form
-        \{{/if}}
-      \{{/uni-signup}}
-    \{{/if}}
-    \{{#if model.isLogin}}
-      \{{#uni-signin title="Login"}}
-        \Signin form
-      \{{/uni-signin}}
-    \{{/if}}
-  \{{/uni-auth-modal}}
-</p>
-
-{{uni-button isPrimary=true label="Show Signup" click=(route-action "isSignup")}}
-{{uni-button isSecondary=true label="Show Login" click=(route-action "isLogin")}}
-
-{{#uni-auth-modal isOpen=model.isOpen onCloseModal=(action (toggle "model.isOpen" this))}}
-  {{#if model.isSignup}}
-    {{#uni-signup withEmail=model.withEmail title="Signup" onClickBack=(action (toggle "model.withEmail" this))}}
-      {{#if model.withEmail}}
-        Credentials form
-      {{else}}
-        Social Form
-      {{/if}}
-    {{/uni-signup}}
-  {{/if}}
-  {{#if model.isLogin}}
-    {{#uni-signin title="Login"}}
-      Signin form
-    {{/uni-signin}}
-  {{/if}}
-{{/uni-auth-modal}}
---}}
-<br/>
-
-{{uni-title title="Horizontal tabs" class="uni-title--spaced"}}
+{{uni-title title="Main photo picker" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-horizontal-tabs.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-horizontal-tabs.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-horizontal-tabs.scss">SASS</a>
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-main-photo-picker.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-main-photo-picker.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-main-photo-picker.scss">SASS</a>
   </p>
   <p class="description">
-    This component allows to have horizontal tabs that switch the content on click.
-  </p>
-
-  {{#uni-horizontal-tabs options=model.options as |option|}}
-    {{option}}
-  {{/uni-horizontal-tabs}}
-
-  <p class="code-snippet">
-    \{{#uni-horizontal-tabs options=options as |option|}}
-      <span class="tab">\{{option}}</span><br>
-    \{{/uni-horizontal-tabs}}
-  </p>
-
-  {{#uni-horizontal-tabs options=model.options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
-    {{option}}
-  {{/uni-horizontal-tabs}}
-
-  <p class="code-snippet">
-    \{{#uni-horizontal-tabs options=options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
-      <span class="tab">\{{option}}</span><br>
-    \{{/uni-horizontal-tabs}}
+    Unified main photo picker component. Should not differ much from platform to platform and has custom
+    action hooks for the main photo selection (from a pool of provided photos)
   </p>
 </div>
 
-{{uni-title title="Availabilities" class="uni-title--spaced"}}
-<div class="component">
-  {{uni-title title="Standard Unitary"}}
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/standard.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/standard.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_standard.scss">SASS</a>
-  </p>
-  <p class="description">
-    This component allows to update availability for the type standard-unitary.
-  </p>
-
-  {{update-availability/standard-unitary
-    availability=model.standardUnitary
-    onSelected=(action (mut model.standardUnitary))
-    labelFrom="From"
-    labelTo="To"
-    labelDelete="Delete"}}
-
-  <p class="code-snippet">
-    \{{update-availability/standard-unitary<br>
-      <span class="tab">availability=standardUnitary</span><br>
-      <span class="tab">onSelected=(action (mut standardUnitary))</span><br>
-      <span class="tab">labelFrom="From"</span><br>
-      <span class="tab">labelTo="To"</span><br>
-      <span class="tab">labelDelete="Delete"</span>}}<br>
-  </p>
-</div>
-
-<div class="component">
-  {{uni-title title="Standard"}}
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/standard.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/standard.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_standard.scss">SASS</a>  </p>
-  <p class="description">
-    This component allows to update availability for the type standard.
-  </p>
-
-  {{update-availability/standard
-    availability=model.standard
-    onChange=(action (mut model.standard))
-    labelAvailable="Available"
-    labelNotAvailable="Not available"
-    labelLimitedAvailability="Limited"}}
-
-  <p class="code-snippet">
-    \{{update-availability/standard<br>
-      <span class="tab">availability=model.standard</span><br>
-      <span class="tab">onChange=(action (mut model.standard))</span><br>
-      <span class="tab">labelAvailable="Available"</span><br>
-      <span class="tab">labelNotAvailable="Not available"</span><br>
-      <span class="tab">labelLimitedAvailability="Limited"</span>}}<br>
-  </p>
-</div>
-
-<div class="component">
-  {{uni-title title="Fixed"}}
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/update-availability/fixed.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/update-availability/fixed.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/update-availability/_fixed.scss">SASS</a>
-  </p>
-  <p class="description">
-    This component allows to update availability for the type fixed.
-  </p>
-
-  {{update-availability/fixed
-    availability=model.fixed
-    onSelected=(action (mut model.fixed))
-    options=model.fixedOptions
-    labelOption="Option"
-    labelFrom="From"
-    labelTo="To"
-    labelAdd="Add"
-    labelEmpty="Empty"
-    labelPer="Per"
-    labelOk="Ok"}}
-
-  <p class="code-snippet">
-    \{{update-availability/fixed<br>
-      <span class="tab">availability=fixed</span><br>
-      <span class="tab">onSelected=(action (mut fixed))</span><br>
-      <span class="tab">labelOption="Option"</span><br>
-      <span class="tab">labelFrom="From"</span><br>
-      <span class="tab">labelTo="To"</span><br>
-      <span class="tab">labelAdd="Add"</span><br>
-      <span class="tab">labelEmpty="Empty"</span><br>
-      <span class="tab">labelPer="Per"</span><br>
-      <span class="tab">labelOk="Ok"</span>}}<br>
-  </p>
-</div>
+{{#uni-main-photo-picker
+  title="Lorem ipsum dolor"
+  photos=model.photos
+  mainPhotoUrl=model.mainPhotoUrl as |photo|}}
+  <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
+    {{inline-svg (i "icons/main-photo-${type}.svg" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
+    Cover Photo
+  </div>
+{{/uni-main-photo-picker}}
 
 {{uni-title title="Footer" class="uni-title--spaced"}}
 <div class="component">
@@ -924,26 +762,3 @@
   \{{/uni-footer-website}}
   </p>
 </div>
-
-{{uni-title title="Main photo picker" class="uni-title--spaced"}}
-<div class="component">
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-main-photo-picker.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-main-photo-picker.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-main-photo-picker.scss">SASS</a>
-  </p>
-  <p class="description">
-    Unified main photo picker component. Should not differ much from platform to platform and has custom
-    action hooks for the main photo selection (from a pool of provided photos)
-  </p>
-</div>
-
-{{#uni-main-photo-picker
-  title="Lorem ipsum dolor"
-  photos=model.photos
-  mainPhotoUrl=model.mainPhotoUrl as |photo|}}
-  <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
-    {{inline-svg (i "icons/main-photo-${type}.svg" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
-    Cover Photo
-  </div>
-{{/uni-main-photo-picker}}
