@@ -14,6 +14,8 @@ export default Component.extend({
   isActive: false,
   isAlternative: false,
 
+  onClick() {},
+
   click() {
     if (!this.get('isAlternative')) {
       this.set('isActive', !this.get('isActive'));
