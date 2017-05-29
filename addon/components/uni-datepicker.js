@@ -7,6 +7,8 @@ const { Component, computed } = Ember;
 export default Component.extend({
   layout,
 
+  classNames: ['uni-datepicker'],
+
   center: moment(),
   selected: moment(),
   minDate: moment(),

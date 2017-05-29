@@ -1,198 +1,200 @@
 $box-size: 42px;
 
-.ember-power-calendar {
-  width: 100%;
-  max-width: 300px;
-  padding: 20px 10px 10px;
-  border: 1px solid color('calendar', 'border');
-  box-shadow: 0 16px 18px 0 color('calendar', 'shadow');
-  margin-top: 16px;
+.uni-datepicker {
+  .ember-power-calendar {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px 10px 10px;
+    border: 1px solid color('calendar', 'border');
+    box-shadow: 0 16px 18px 0 color('calendar', 'shadow');
+    margin-top: 16px;
 
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 0;
-    height: 0;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    border-bottom: 11px solid color('calendar', 'background');
-    z-index: 4;
-    top: -10px;
-    left: 56px;
-  }
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-bottom: 11px solid color('calendar', 'background');
+      z-index: 4;
+      top: -10px;
+      left: 56px;
+    }
 
-  &:after {
-    border-bottom: 12px solid color('calendar', 'border');
-    z-index: 3;
-    top: -12px;
-    left: 56px;
-  }
+    &:after {
+      border-bottom: 12px solid color('calendar', 'border');
+      z-index: 3;
+      top: -12px;
+      left: 56px;
+    }
 
-  .disabled:hover {
-    pointer-events: none;
-  }
+    .disabled:hover {
+      pointer-events: none;
+    }
 
-  &-nav {
-    margin-bottom: 23px;
+    &-nav {
+      margin-bottom: 23px;
 
-    &-control {
-      width: 47px;
-      height: 35px;
-      border: 1px solid color('calendar', 'border') !important;
-      border-radius: 2px;
-      color: color('calendar', 'text') !important;
-      cursor: pointer;
-      background-color: color('calendar', 'button-bg');
-
-
-      &.disabled {
-        opacity: 0.4;
-        pointer-events: none;
-      }
-      &:not(.disabled) {
+      &-control {
+        width: 47px;
+        height: 35px;
+        border: 1px solid color('calendar', 'border') !important;
+        border-radius: 2px;
+        color: color('calendar', 'text') !important;
+        cursor: pointer;
         background-color: color('calendar', 'button-bg');
 
-        svg {
-          fill: color('background', 'negative');
+
+        &.disabled {
+          opacity: 0.4;
+          pointer-events: none;
         }
+        &:not(.disabled) {
+          background-color: color('calendar', 'button-bg');
+
+          svg {
+            fill: color('background', 'negative');
+          }
+        }
+      }
+
+      &-title {
+        @include font("IntervalNextReg");
+        font-size: em(16px);
+        color: color('text', 'subheader');
       }
     }
 
-    &-title {
-      @include font("IntervalNextReg");
-      font-size: em(16px);
-      color: color('text', 'subheader');
+    &-day {
+      max-width: $box-size;
+      max-height: $box-size;
+      cursor: pointer;
+
+      &--focused {
+        box-shadow: none !important;
+      }
     }
-  }
 
-  &-day {
-    max-width: $box-size;
-    max-height: $box-size;
-    cursor: pointer;
+    &-day--current-month {
+      background-color: color('buttons') !important;
 
-    &--focused {
-      box-shadow: none !important;
+      &:hover {
+        background-color: color('calendar', 'hover-day-bg') !important;
+      }
+
+      &:disabled {
+        color: color('buttons', 'disabled-text') !important;
+      }
     }
-  }
 
-  &-day--current-month {
-    background-color: color('buttons') !important;
+    &-day--other-month {
+      background-color: color('buttons', 'disabled') !important;
+      color: color('calendar', 'border');
+    }
 
-    &:hover {
+    &-day--selected {
       background-color: color('calendar', 'hover-day-bg') !important;
     }
 
-    &:disabled {
-      color: color('buttons', 'disabled-text') !important;
+    &-day--interactive[disabled] {
+      opacity: 1 !important;
+      text-decoration: none;
+      background-color: color('buttons', 'disabled') !important;
+      color: color('calendar', 'border');
+      pointer-events: none;
     }
-  }
 
-  &-day--other-month {
-    background-color: color('buttons', 'disabled') !important;
-    color: color('calendar', 'border');
-  }
+    &-week {
+      border-top: 1px solid color('calendar', 'border');
 
-  &-day--selected {
-    background-color: color('calendar', 'hover-day-bg') !important;
-  }
+      &:first-child {
+        border-top: 0;
+        @include justify-content-end();
 
-  &-day--interactive[disabled] {
-    opacity: 1 !important;
-    text-decoration: none;
-    background-color: color('buttons', 'disabled') !important;
-    color: color('calendar', 'border');
-    pointer-events: none;
-  }
+        button {
+          border-top: 1px solid color('calendar', 'border');
+          max-width: $box-size;
 
-  &-week {
-    border-top: 1px solid color('calendar', 'border');
+          &:first-child {
+            border-left: 0;
+            box-shadow: -1px 0 0 color('calendar', 'border');
+          }
+        }
+      }
 
-    &:first-child {
-      border-top: 0;
-      @include justify-content-end();
+      &[data-missing-days="0"]:first-child button:first-child {
+        box-shadow: 0 0 0;
+        border-left: 1px solid color('calendar', 'border');
+      }
 
-      button {
-        border-top: 1px solid color('calendar', 'border');
-        max-width: $box-size;
+      &:last-child {
+        @include justify-content-start();
 
-        &:first-child {
-          border-left: 0;
-          box-shadow: -1px 0 0 color('calendar', 'border');
+        button {
+          border-bottom: 1px solid color('calendar', 'border');
+          max-width: $box-size;
         }
       }
     }
 
-    &[data-missing-days="0"]:first-child button:first-child {
-      box-shadow: 0 0 0;
-      border-left: 1px solid color('calendar', 'border');
-    }
-
-    &:last-child {
-      @include justify-content-start();
+    &-row {
+      @include justify-content-center();
 
       button {
-        border-bottom: 1px solid color('calendar', 'border');
-        max-width: $box-size;
+        width: $box-size;
+        height: $box-size;
+        padding: 0;
+        border-right: 1px solid color('calendar', 'border');
+        @include font("IntervalNextBook");
+        font-size: em(16px);
+
+        &:first-child {
+          border-left: 1px solid color('calendar', 'border');
+        }
+        &:nth-child(8n) {
+          border-left: 1px solid color('calendar', 'border');
+        }
+
+        &[disabled] {
+          background-color: color('buttons', 'disabled');
+        }
       }
+    }
+
+    &-weekday {
+      font-size: em(13px);
+      color: color('calendar', 'text');
+    }
+
+    &-weekdays {
+      margin-bottom: 8px;
     }
   }
 
-  &-row {
+  [role="button"].ember-power-calendar-nav-control {
+    @include flex();
+    @include align-items-center();
     @include justify-content-center();
 
-    button {
-      width: $box-size;
-      height: $box-size;
-      padding: 0;
-      border-right: 1px solid color('calendar', 'border');
-      @include font("IntervalNextBook");
-      font-size: em(16px);
-
-      &:first-child {
-        border-left: 1px solid color('calendar', 'border');
-      }
-      &:nth-child(8n) {
-        border-left: 1px solid color('calendar', 'border');
-      }
-
-      &[disabled] {
-        background-color: color('buttons', 'disabled');
-      }
+    svg {
+      height: 10px;
+      fill: color('background', 'negative');
     }
-  }
 
-  &-weekday {
-    font-size: em(13px);
-    color: color('calendar', 'text');
-  }
+    &:focus {
+      transform: scale(1);
+    }
 
-  &-weekdays {
-    margin-bottom: 8px;
-  }
-}
+    &:active {
+      transform: scale(0.9);
+    }
 
-[role="button"].ember-power-calendar-nav-control {
-  @include flex();
-  @include align-items-center();
-  @include justify-content-center();
-
-  svg {
-    height: 10px;
-    fill: color('background', 'negative');
-  }
-
-  &:focus {
-    transform: scale(1);
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-
-  &[disabled] {
-    border: 0;
-    opacity: 0.4;
+    &[disabled] {
+      border: 0;
+      opacity: 0.4;
+    }
   }
 }
