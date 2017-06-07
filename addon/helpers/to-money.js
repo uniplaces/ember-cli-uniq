@@ -1,9 +1,9 @@
 import Helper from 'ember-helper';
 import { isEmpty } from 'ember-utils';
-import CurrencyTypeSymbol from 'ember-cli-uniq/enums/currency-symbol-type';
+import toMoneyUtil from 'ember-cli-uniq/utils/to-money';
 
 export function toMoney([params]) {
-  return isEmpty(params) ? '' : `${params.amount / 100}${CurrencyTypeSymbol[params.currency_code]}`;
+  return isEmpty(params) ? '' : toMoneyUtil(params.amount, params.currency_code);
 }
 
 export default Helper.helper(toMoney);
