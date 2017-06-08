@@ -1,5 +1,5 @@
 export default function i18nToCoreLocale(locale) {
-  let separated = locale.split('-');
+  let [language, locale] = locale.split('-');
 
-  return `${separated[0]}_${separated[1].toUpperCase()}`;
+  return `${language}_${locale.toUpperCase()}`;
 }
