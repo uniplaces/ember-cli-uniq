@@ -17,6 +17,10 @@
     }
   }
 
+  .uni-dropdown__button--error {
+    border-color: color('feedback', 'error');
+  }
+
   &__svg-group {
     @include flex();
     height: 18px;
