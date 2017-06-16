@@ -3,10 +3,12 @@
     <a href="{{logoUrl}}">
       {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
     </a>
-  {{else}}
+  {{else if logoRoute}}
     {{#link-to logoRoute}}
       {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
     {{/link-to}}
+    {{else}}
+      {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
   {{/if}}
 
   {{yield}}
