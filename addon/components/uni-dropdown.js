@@ -19,12 +19,12 @@ export default Component.extend(ClickOutsideMixin, {
   hasError: false,
   selected: null,
   placeholder: null,
-  dropdownErrorClass: 'uni-dropdown--error',
+  buttonErrorClass: 'uni-dropdown__button--error',
   options: [],
   btnClass: '',
 
   errorClass: computed('hasError', function() {
-    return this.get('hasError') ? this.get('dropdownErrorClass') : '';
+    return this.get('hasError') ? this.get('buttonErrorClass') : '';
   }),
 
   onChange() {},
