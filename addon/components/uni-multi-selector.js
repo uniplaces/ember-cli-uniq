@@ -13,6 +13,7 @@ export default Component.extend({
   groupValue: null,
   errorOptions: [],
   warningOptions: [],
+  hasDefaultState: true,
   isStatic: false,
 
   hasWarning: computed('groupValue', 'warningOptions', function() {
@@ -26,7 +27,7 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
-    if (isEmpty(this.get('groupValue'))) {
+    if (isEmpty(this.get('groupValue')) && this.get('hasDefaultState')) {
       this.set('groupValue', this.get('options')[0].value);
     }
   },

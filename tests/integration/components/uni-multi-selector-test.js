@@ -43,3 +43,22 @@ test('it renders 3 options and selects default one', function(assert) {
   assert.equal(this.$('.uni-multi-selector__button').length, 3);
   assert.equal(this.$('input:checked').val(), options[0].value);
 });
+
+test('it renders options without setting default state', function(assert) {
+  assert.expect(3);
+
+  let options = [
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'unknown', label: 'unknown' }
+  ];
+
+  this.set('options', options);
+  this.set('name', 'gender');
+
+  this.render(hbs`{{uni-multi-selector name=name hasDefaultState=false options=options}}`);
+
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$('.uni-multi-selector__button').length, 3);
+  assert.equal(this.$('input:checked').length, 0);
+});
