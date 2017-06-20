@@ -35,8 +35,8 @@ export default Component.extend({
 
         return;
       }
-    
-      this.setIsLoading(false)
+
+      this.setIsLoading(false);
     }
   }
 });

@@ -24,8 +24,8 @@ test('it calls onSubmit and stops the loading after promise', function(assert) {
     return new RSVP.Promise((resolve) => {
       assert.equal(this.get('isLoading'), true, 'it starts the loading');
       resolve();
-    })
-  })
+    });
+  });
 
   this.render(hbs`{{uni-form isLoading=isLoading onSubmit=submit}}`);
 
@@ -40,7 +40,7 @@ test('it calls onSubmit and works without it returning a promise', function(asse
   this.set('isLoading', null);
   this.set('submit', () => {
     assert.equal(this.get('isLoading'), true, 'it starts the loading');
-  })
+  });
 
   this.render(hbs`{{uni-form isLoading=isLoading onSubmit=submit}}`);
 
