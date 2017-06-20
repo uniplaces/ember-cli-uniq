@@ -13,6 +13,7 @@ export default Component.extend(ClickOutside, {
   value: '',
   placeholder: '',
   showOptions: false,
+  hasError: false,
   highlighted: 0,
   maxOptionsToShow: 4,
 

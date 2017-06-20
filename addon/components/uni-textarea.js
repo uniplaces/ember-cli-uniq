@@ -5,6 +5,7 @@ const { computed, Component, isPresent } = Ember;
 
 export default Component.extend({
   classNames: ['uni-textarea'],
+  classNameBindings: ['hasError:uni-textarea--error'],
   layout,
 
   rows: '3',

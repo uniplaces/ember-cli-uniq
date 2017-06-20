@@ -8,6 +8,12 @@
     resize: none;
   }
 
+  &--error {
+    textarea {
+      border-color: color('feedback', 'error');
+    }
+  }
+
   &-counter {
     @include body();
     color: color('text', 'subheader');

@@ -2,7 +2,7 @@
   value=value
   placeholder=placeholder
   focus-in=(action "showOptions")
-  class="uni-input uni-input--bordered"
+  class=(i 'uni-input uni-input--bordered ${errorClass}' errorClass=(if hasError 'uni-input--error'))
   key-down=(action "keyPress")}}
 
 {{#if optionsFiltered}}
