@@ -9,6 +9,10 @@ export default Component.extend({
   classNameBindings: ['isBordered:uni-header__nav__button--bordered'],
   classNames: ['uni-header__nav__button'],
   layout,
+
+  href: null,
+  target: '_blank',
+
   action() {},
 
   click() {
