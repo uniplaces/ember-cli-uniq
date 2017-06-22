@@ -15,6 +15,15 @@
       }
     }
 
+    &__nav__button a {
+      color: color('text', 'header');
+      text-decoration: none;
+
+      &:hover {
+        color: color('primary');
+      }
+    }
+
     &__nav__dropdown {
         z-index: 1;
     }
