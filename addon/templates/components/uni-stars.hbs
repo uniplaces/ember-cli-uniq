@@ -1,0 +1,9 @@
+{{#each (repeat fullStarsCount)}}
+  {{inline-svg "icons/star-on"}}
+{{/each}}
+{{#if hasHalfStar}}
+  {{inline-svg "icons/star-half"}}
+{{/if}}
+{{#each (repeat emptyStarsCount)}}
+  {{inline-svg "icons/star-off"}}
+{{/each}}
