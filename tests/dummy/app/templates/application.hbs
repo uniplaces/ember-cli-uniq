@@ -666,6 +666,33 @@
   </div>
 {{/uni-main-photo-picker}}
 
+{{uni-title title="Stars" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-stars.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-stars.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-stars.scss">SASS</a>
+  </p>
+  <p class="description">
+    Stars component to display grades.
+  </p>
+
+  {{uni-stars grade=2}}
+  <p class="code-snippet">
+    \{{uni-stars grade=2}}
+  </p>
+
+  {{uni-stars grade=2.5}}
+  <p class="code-snippet">
+    \{{uni-stars grade=2.6}}
+  </p>
+
+  {{uni-stars grade=2.5 maxStars=10}}
+  <p class="code-snippet">
+    \{{uni-stars grade=2.6 maxStars=10}}
+  </p>
+</div>
+
 {{uni-title title="Footer" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">

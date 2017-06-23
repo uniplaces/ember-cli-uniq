@@ -1,0 +1,8 @@
+.uni-stars {
+  @include flex();
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
