@@ -51,7 +51,7 @@
     "ember-interpolate-helper": "1.0.0",
     "ember-keyboard": "2.1.10",
     "ember-load-initializers": "^0.6.1",
-    "ember-modal-dialog": "2.2.0",
+    "ember-modal-dialog": "2.0.0",
     "ember-moment": "7.3.0",
     "ember-power-select": "1.8.2",
     "ember-resolver": "^4.1.0",

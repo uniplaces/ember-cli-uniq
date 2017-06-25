@@ -12,6 +12,7 @@ export default Component.extend({
   customCssComponentClass: '',
   hasSeparator: true,
   isOpen: null,
+
   onCloseModal() {},
 
   // This observer is used to bypass the scroll on mobile when a modal is open
