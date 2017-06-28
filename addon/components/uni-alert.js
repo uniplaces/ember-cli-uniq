@@ -52,10 +52,9 @@ export default Component.extend({
 
     if (this.get('stickyMode')) {
       this.set('componentTop', this.$().offset().top);
+      this._verifyStickyScroll();
 
-      $(window).bind('scroll', () => {
-        run.throttle(this, this._verifyStickyScroll, 50);
-      });
+      $(window).bind('scroll', () => this._verifyStickyScroll());
     }
   },
 
