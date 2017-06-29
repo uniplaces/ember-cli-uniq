@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/uni-alert';
 import UniAlertTypes from 'ember-cli-uniq/enums/uni-alert-type';
 
-const { Component, computed, $, run } = Ember;
+const { Component, computed, $ } = Ember;
 
 export default Component.extend({
   layout,
