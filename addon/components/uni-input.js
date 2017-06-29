@@ -19,6 +19,7 @@ export default Component.extend({
   name: '',
   placeholder: '',
   maxLength: null,
+  readonly: false,
 
   tooltipMessage: null,
   showTooltip: false,
