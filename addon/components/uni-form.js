@@ -5,7 +5,7 @@ const { Component } = Ember;
 
 export default Component.extend({
   classNames: ['uni-form'],
-  classNameBindings: ['isValid:uni-form--valid'],
+  classNameBindings: ['isValid:uni-form--valid:uni-form--invalid'],
   layout,
 
   isLoading: false,
