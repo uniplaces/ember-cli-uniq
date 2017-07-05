@@ -7,6 +7,7 @@ export default Component.extend({
   tagName: '',
   layout,
   baseCssClass: 'uni-modal',
+  modifierCssClass: '',
 
   title: null,
   customCssComponentClass: '',
