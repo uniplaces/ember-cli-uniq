@@ -3,7 +3,7 @@
         {{inline-svg "icons/information-icon"}}
     {{else if isQuestion}}
         {{inline-svg "icons/question-icon"}}
-    {{else}}
+    {{else if (not yieldContent)}}
         {{yield}}
     {{/if}}
 </span>
@@ -11,6 +11,10 @@
     {{#if title}}
         <div class="uni-tooltip__text__title">{{{title}}}</div>
     {{/if}}
-
+    
     {{{content}}}
+
+    {{#if yieldContent}}
+      {{yield}}
+    {{/if}}
 </div>
