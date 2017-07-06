@@ -13,6 +13,7 @@ export default Component.extend({
   isQuestion: false,
   isActive: false,
   isAlternative: false,
+  yieldContent: false,
 
   onClick() {},
 

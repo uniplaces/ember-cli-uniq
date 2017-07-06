@@ -3,7 +3,7 @@
         {{inline-svg "icons/information-icon"}}
     {{else if isQuestion}}
         {{inline-svg "icons/question-icon"}}
-    {{else}}
+    {{else if (not yieldContent)}}
         {{yield}}
     {{/if}}
 </span>
@@ -13,4 +13,8 @@
     {{/if}}
 
     {{{content}}}
+
+    {{#if yieldContent}}
+      {{yield}}
+    {{/if}}
 </div>
