@@ -12,3 +12,24 @@ test('it renders', function(assert) {
 
   assert.notEqual(this.$().text().trim(), '');
 });
+
+test('it blocks invalid symbols', function(assert) {
+  assert.expect(3);
+
+  this.render(hbs`{{uni-mobile-number}}`);
+
+  this.$('input').val('+');
+  this.$('input').trigger('keyup');
+
+  assert.equal(this.$('input').val(), '');
+
+  this.$('input').val('e');
+  this.$('input').trigger('keyup');
+
+  assert.equal(this.$('input').val(), '');
+
+  this.$('input').val('123');
+  this.$('input').trigger('keyup');
+
+  assert.equal(this.$('input').val(), '123');
+});

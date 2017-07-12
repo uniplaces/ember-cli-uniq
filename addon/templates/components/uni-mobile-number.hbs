@@ -12,8 +12,7 @@
   type="number"
   placeholder=placeholder
   maxlength=maxLength
-  key-down=(action "onChangeInput")}}
-
+  key-down=(action "onKeyDown")}}
   {{#if showTooltip}}
     {{uni-tooltip isAlternative=true isActive=true content=tooltipMessage}}
   {{/if}}

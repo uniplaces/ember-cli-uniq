@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { getAllCountryNames, getCountryName, getCountryCallingCode } from 'ember-cli-countries/utils/countries';
 import layout from '../templates/components/uni-mobile-number';
+import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
 
 const { Component, isPresent } = Ember;
 
@@ -89,8 +90,35 @@ export default Component.extend({
       this.set('isInputDisabled', false);
       this.$().find('input')[0].focus();
     },
-    onChangeInput() {
+
+    onKeyDown(_, event) {
+      let { keyCode } = event;
+
+      if (!this._isNumericValue(keyCode) && !this._isAllowedKey(keyCode)) {
+        event.preventDefault();
+      }
+
       this.get('onChangeInput')();
     }
+  },
+
+  _isNumericValue(keyCode) {
+    return (keyCode >= KeyCodes.ZERO && keyCode <= KeyCodes.NINE)
+        || (keyCode >= KeyCodes.NUMPAD_ZERO && keyCode <= KeyCodes.NUMPAD_NINE);
+  },
+
+  _isAllowedKey(keyCode) {
+    let allowedKeys = [
+      KeyCodes.TAB,
+      KeyCodes.ESCAPE,
+      KeyCodes.LEFT_ARROW,
+      KeyCodes.UP_ARROW,
+      KeyCodes.RIGHT_ARROW,
+      KeyCodes.DOWN_ARROW,
+      KeyCodes.BACKSPACE,
+      KeyCodes.DELETE
+    ];
+
+    return allowedKeys.includes(keyCode);
   }
 });
