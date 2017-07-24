@@ -25,7 +25,7 @@ export default Component.extend({
 
   actions: {
     onChange(value) {
-      this.set('value', value);
+      this.set('value', parseInt(value, 10));
     },
 
     decrement() {
