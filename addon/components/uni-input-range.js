@@ -24,6 +24,10 @@ export default Component.extend({
   }),
 
   actions: {
+    onChange(value) {
+      this.set('value', value);
+    },
+
     decrement() {
       this.get('onChange')(Math.max(this.get('value') - this.get('offset'), this.get('min')));
     },
