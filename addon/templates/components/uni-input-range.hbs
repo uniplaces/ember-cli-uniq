@@ -2,6 +2,7 @@
   class="uni-input uni-input--range"
   type="text"
   placeholder=placeholder
-  value=(i '${value} ${target}' value=value target=target)}}
+  change=(action "onChange" value="target.value")
+  value=(if target (i '${value} ${target}' value=value target=target) value)}}
 <div role="button" class="uni-input-range-button {{if isDecrementDisabled 'uni-input-range-button--disabled'}}" {{action 'decrement'}}>-</div>
 <div role="button" class="uni-input-range-button {{if isIncrementDisabled 'uni-input-range-button--disabled'}}" {{action 'increment'}}>+</div>
