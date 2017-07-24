@@ -4,6 +4,7 @@ import layout from '../templates/components/uni-input-range';
 const { Component, computed } = Ember;
 
 export default Component.extend({
+  classNameBindings: ['isEditable:uni-input-range--editable'],
   classNames: ['uni-input-range'],
   layout,
 
