@@ -25,7 +25,9 @@ export default Component.extend({
 
   actions: {
     onChange(value) {
-      this.set('value', parseInt(value, 10));
+      let val = Math.min(Math.max(value, this.get('min')), this.get('max'));
+
+      this.get('onChange')(val);
     },
 
     decrement() {
