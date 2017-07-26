@@ -79,7 +79,7 @@ export default Component.extend({
       this.set('showTooltip', true);
     }
 
-    this.onFocusIn();
+    this.get('onFocusIn')();
   },
 
   focusOut() {
@@ -87,7 +87,7 @@ export default Component.extend({
       this.set('showTooltip', false);
     }
 
-    this.onFocusOut();
+    this.get('onFocusOut')();
   },
 
   actions: {
