@@ -28,6 +28,8 @@ export default Component.extend({
 
   onChangeSelect() {},
   onChangeInput() {},
+  onFocusIn() {},
+  onFocusOut() {},
 
   init() {
     this._super(...arguments);
@@ -76,12 +78,16 @@ export default Component.extend({
     if (isPresent(this.get('tooltipMessage'))) {
       this.set('showTooltip', true);
     }
+
+    this.get('onFocusIn')();
   },
 
   focusOut() {
     if (isPresent(this.get('tooltipMessage'))) {
       this.set('showTooltip', false);
     }
+
+    this.get('onFocusOut')();
   },
 
   actions: {
@@ -97,7 +103,9 @@ export default Component.extend({
       if (!this._isNumericValue(keyCode) && !this._isAllowedKey(keyCode)) {
         event.preventDefault();
       }
+    },
 
+    onKeyUp() {
       this.get('onChangeInput')();
     }
   },
