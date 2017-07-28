@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-points-of-interest';
+import GoogleMapsActionsMixin from '../mixins/google-maps-actions';
 
 const { Component, computed, inject } = Ember;
 // const ICON_BASE_PATH = '/assets/images/';
-const POI_ENDPOINT = 'https://7fb04176.ngrok.io/points-of-interest';
+const POI_ENDPOINT = 'https://dec9a163.ngrok.io/points-of-interest';
 const MAP_ZOOM = 16;
 const MARKERS_FIT_MODE = 'live';
 const DEFAULT_LOCATION = {
@@ -92,7 +93,8 @@ const CATEGORY_SVG_ENUM = {
   subway: 'ic_subway'
 };
 
-export default Component.extend({
+export default Component.extend(GoogleMapsActionsMixin, {
+  gMap: inject.service(),
   ajax: inject.service(),
   tagName: 'article',
   classNames: ['uni-points-of-interest'],
@@ -115,6 +117,12 @@ export default Component.extend({
     this._super(...arguments);
 
     this._populateMap();
+  },
+
+  actions: {
+    createMarker({ icon }, iconSize = [40, 40]) {
+      return L.icon({ iconUrl: icon, iconSize });
+    }
   },
 
   // find what categories are common - between the categories of a marker and the pre-existing categories
@@ -161,8 +169,6 @@ export default Component.extend({
     }).then(({ markers, categories }) => {
       this.set('catgs', Object.keys(categories));
 
-      window.console.debug('categories', this.get('catgs'));
-
       this.set('markers', markers.map(({ lat, long, name, categories, image }) => {
         let marker = { lat, long, name, categories, image };
 
@@ -173,6 +179,8 @@ export default Component.extend({
           return marker;
         }
       }));
+
+      window.console.debug(this.get('markers'));
 
     }).catch((err) => {
       window.console.log('ERROR', err);

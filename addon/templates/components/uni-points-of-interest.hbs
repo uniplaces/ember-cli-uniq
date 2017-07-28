@@ -4,7 +4,7 @@
   {{input type="number" class="uni-input uni-input--small uni-input--bordered" placeholder="longitude" value=(mut longitude)}}
 
   <br><br>
-  {{#g-map lat=latitude lng=longitude zoom=zoom markersFitMode=markersFitMode options=mapOptions as |context|}}
+  {{!-- {{#g-map lat=latitude lng=longitude zoom=zoom markersFitMode=markersFitMode options=mapOptions as |context|}}
       {{#each markers as |marker|}}
           {{#g-map-marker context lat=marker.lat lng=marker.long title=marker.name icon=marker.icon as |markerContext|}}
             {{#g-map-infowindow markerContext}}
@@ -16,7 +16,18 @@
             {{/g-map-infowindow}}
           {{/g-map-marker}}
       {{/each}}
-  {{/g-map}}
+  {{/g-map}} --}}
+
+  {{#mapbox-map
+    mapId='kjalwyn.pk23bmpg'
+    classNames="uni-poi-map"
+    center=(mapbox-coords latitude longitude)
+    recenter=true
+    zoom=zoom as |map|}}
+    {{#each markers as |marker|}}
+      {{mapbox-marker map=map popup-title=marker.name coordinates=(mapbox-coords marker.lat marker.long)}}
+    {{/each}}
+  {{/mapbox-map}}
 
   <div class="uni-points-of-interest__cards">
     {{#each markers as |marker|}}
