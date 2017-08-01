@@ -10,11 +10,11 @@
   }
 
   &--disabled {
-    color: color('input', 'disabled');
-    background-color: #f0f1f3;
+    color: color("input", "disabled");
 
+    &,
     input {
-      background-color: #f0f1f3;
+      background-color: color("buttons", "disabled");
     }
   }
 
