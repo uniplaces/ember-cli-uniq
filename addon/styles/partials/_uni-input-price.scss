@@ -9,6 +9,15 @@
     border-color: color('input', 'border-focus');
   }
 
+  &--disabled {
+    color: color("input", "disabled");
+
+    &,
+    input {
+      background-color: color("buttons", "disabled");
+    }
+  }
+
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;

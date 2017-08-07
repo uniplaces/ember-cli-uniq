@@ -7,6 +7,7 @@ const INPUT_TYPE_NUMBER = 'number';
 
 export default Component.extend({
   classNames: ['uni-input-price'],
+  classNameBindings: ['isDisabled:uni-input-price--disabled'],
   layout,
 
   value: null,
@@ -20,6 +21,7 @@ export default Component.extend({
   isRightSideCurrency: true,
   type: INPUT_TYPE_NUMBER,
   options: null,
+  isDisabled: false,
 
   /**
    * Converts a value to an integer when able, or leaves it as a string
