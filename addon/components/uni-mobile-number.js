@@ -12,7 +12,7 @@ export default Component.extend({
   classNames: ['uni-mobile-number'],
   classNameBindings: ['hasError:uni-mobile-number--error'],
   layout,
-
+  isToShowTooltipOnlyOnInput: false,
   number: null,
   language: null,
   maxLength: '15',
@@ -75,19 +75,19 @@ export default Component.extend({
   },
 
   focusIn() {
-    if (isPresent(this.get('tooltipMessage'))) {
-      this.set('showTooltip', true);
-    }
-
     this.get('onFocusIn')();
+
+    if (!this.get('isToShowTooltipOnlyOnInput')) {
+      this._showTooltipIfExists();
+    }
   },
 
   focusOut() {
-    if (isPresent(this.get('tooltipMessage'))) {
-      this.set('showTooltip', false);
-    }
-
     this.get('onFocusOut')();
+
+    if (!this.get('isToShowTooltipOnlyOnInput')) {
+      this._hideTooltipIfExists();
+    }
   },
 
   actions: {
@@ -107,6 +107,34 @@ export default Component.extend({
 
     onKeyUp() {
       this.get('onChangeInput')();
+    },
+
+    onInputFocusIn() {
+      if (!this.get('isToShowTooltipOnlyOnInput')) {
+        return;
+      }
+
+      this._showTooltipIfExists();
+    },
+
+    onInputFocusOut() {
+      if (!this.get('isToShowTooltipOnlyOnInput')) {
+        return;
+      }
+
+      this._hideTooltipIfExists();
+    }
+  },
+
+  _showTooltipIfExists() {
+    if (isPresent(this.get('tooltipMessage'))) {
+      this.set('showTooltip', true);
+    }
+  },
+
+  _hideTooltipIfExists() {
+    if (isPresent(this.get('tooltipMessage'))) {
+      this.set('showTooltip', false);
     }
   },
 
