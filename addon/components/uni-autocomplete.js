@@ -16,6 +16,7 @@ export default Component.extend(ClickOutside, {
   hasError: false,
   highlighted: 0,
   maxOptionsToShow: 4,
+  autocomplete: 'off',
 
   onSelected() {},
 
