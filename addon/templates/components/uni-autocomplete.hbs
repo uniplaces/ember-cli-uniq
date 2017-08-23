@@ -1,6 +1,7 @@
 {{input
   value=value
   placeholder=placeholder
+  autocomplete=autocomplete
   focus-in=(action "showOptions")
   class=(i 'uni-input uni-input--bordered ${errorClass}' errorClass=(if hasError 'uni-input--error'))
   key-down=(action "keyPress")}}
