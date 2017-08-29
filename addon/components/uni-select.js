@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { A } from '@ember/array';
-import { isNone } from '@ember/utils';
+import { isNone, isPresent } from '@ember/utils';
 import layout from '../templates/components/uni-select';
 
 export default Component.extend({
