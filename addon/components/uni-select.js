@@ -19,7 +19,7 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
-    if (isNone(this.get('useAlias'))) {
+    if (!this.get('useAlias')) {
       return;
     }
 
@@ -36,7 +36,7 @@ export default Component.extend({
 
   actions: {
     changeSelected({ target }) {
-      if (!isNone(this.get('useAlias'))) {
+      if (this.get('useAlias')) {
         this._changeAliasValue(target.value);
       }
 
@@ -45,13 +45,13 @@ export default Component.extend({
   },
 
   _changeAliasValue(key) {
-    let option = A(this.get('options')).findBy('key', key);
-    this.set('aliasValue', option.alias);
+    let { alias } = A(this.get('options')).findBy('key', key);
+    this.set('aliasValue', alias);
   },
 
   _getFirstAvailableValue() {
     let option = A(this.get('options')).find(({ disabled }) => isNone(disabled));
 
-    return !isNone(option) ? option.key : null;
+    return isPresent(option) ? option.key : null;
   }
 });
