@@ -1,6 +1,9 @@
 {
   "name": "ember-cli-uniq",
   "dependencies": {
-    "uniq": "2.4.9"
+    "uniq": "2.4.9",
+    "mapbox.js": "2.3.0",
+    "leaflet.markerclusterer": "0.4.0",
+    "gmaps-for-apps": "^0.5.15"
   }
 }

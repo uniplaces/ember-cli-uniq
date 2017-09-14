@@ -1,0 +1,52 @@
+<div class="uni-points-of-interest__wrapper">
+  {{inline-svg 'uniplaces_logo.svg' class="logo"}}
+  {{input type="number" class="uni-input uni-input--small uni-input--bordered" placeholder="latitude" value=(mut latitude)}}
+  {{input type="number" class="uni-input uni-input--small uni-input--bordered" placeholder="longitude" value=(mut longitude)}}
+
+  <br><br>
+  {{!-- {{#g-map lat=latitude lng=longitude zoom=zoom markersFitMode=markersFitMode options=mapOptions as |context|}}
+      {{#each markers as |marker|}}
+          {{#g-map-marker context lat=marker.lat lng=marker.long title=marker.name icon=marker.icon as |markerContext|}}
+            {{#g-map-infowindow markerContext}}
+              <div class="uni-points-of-interest__points">
+                <div class="uni-points-of-interest__points__title">
+                  {{marker.name}}
+                </div>
+              </div>
+            {{/g-map-infowindow}}
+          {{/g-map-marker}}
+      {{/each}}
+  {{/g-map}} --}}
+
+  {{#mapbox-map
+    mapId='kjalwyn.pk23bmpg'
+    classNames="uni-poi-map"
+    center=(mapbox-coords latitude longitude)
+    recenter=true
+    zoom=zoom as |map|}}
+    {{#each markers as |marker|}}
+      {{mapbox-marker map=map popup-title=marker.name coordinates=(mapbox-coords marker.lat marker.long)}}
+    {{/each}}
+  {{/mapbox-map}}
+
+  <div class="uni-points-of-interest__cards">
+    {{#each markers as |marker|}}
+      <div class="uni-points-of-interest__cards__card">
+        <div class="uni-points-of-interest__cards__card__thumbnail" style="background-image: url({{marker.image}})"></div>
+
+        <div class="uni-points-of-interest__cards__card__category">
+          <img src="{{marker.icon}}">
+        </div>
+
+        <div class="uni-points-of-interest__cards__card__content">
+          {{marker.name}}
+        </div>
+      </div>
+      {{else}}
+        <div class="uni-points-of-interest__cards__empty">
+          <div class="uni-points-of-interest__cards__empty__title">Oh noes!</div>
+          <div class="uni-points-of-interest__cards__empty__message">No results matching your search were found :(</div>
+        </div>
+    {{/each}}
+  </div>
+</div>

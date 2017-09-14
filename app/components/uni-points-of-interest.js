@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-uniq/components/uni-points-of-interest';

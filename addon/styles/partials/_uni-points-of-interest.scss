@@ -1,0 +1,148 @@
+.uni-points-of-interest {
+    &__wrapper {
+      @include flex();
+      @include flex-wrap();
+      @include justify-content-center();
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      min-height: 460px;
+      margin: 0 auto 48px auto;
+      background-color: color('background', 'modal');
+      border: 1px dashed color('borders');
+      overflow-x: hidden;
+
+      .logo {
+        display: inline-block;
+        width: auto;
+        height: 32px;
+        margin-top: 12px;
+        margin-right: 16px;
+      }
+
+      .uni-input {
+        margin: 8px 0;
+      }
+
+      .uni-input:first-child {
+        border-right: 0;
+        margin-left: 8px;
+      }
+
+      .g-map {
+          width: 100%;
+          height: 400px;
+      }
+
+      .g-map-canvas {
+          width: 100%;
+          height: 100%;
+
+          .gm-style-cc,
+          .gmnoprint {
+            display: none;
+          }
+      }
+    }
+
+  &__cards {
+    @include flex();
+    @include flex-wrap();
+    @include align-items-top();
+    width: 1000px;
+    padding: 8px;
+
+    &__card {
+      @include scale-in();
+      @include flex();
+      @include flex-wrap();
+      @include align-items-center();
+      position: relative;
+      width: calc(25% - 16px);
+      margin: 8px;
+      background-color: color('primary', 'highlight');
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation-delay: $animation-duration;
+      animation-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
+      transform-origin: center;
+
+      &__thumbnail {
+        position: relative;
+        width: 100%;
+        padding-top: 120px;
+        margin-bottom: 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      &__category {
+        @include scale-in();
+        @include flex();
+        @include align-items-center();
+        @include justify-content-center();
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        top: 97px;
+        right: 20px;
+        border-radius: 50%;
+        z-index: 2;
+        border: 1px dashed #ccc;
+        background-color: color('primary', 'highlight');
+
+        animation-delay: $animation-duration*2.5;
+        animation-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
+        transform-origin: center;
+
+        img {
+          width: 24px;
+          height: 24px;
+          z-index: 3;
+        }
+      }
+
+      &__content {
+        padding: 8px 16px 16px 16px;
+        @include font('IntervalNextReg');
+        font-size: em(16px);
+        line-height: 1.5;
+        margin-bottom: auto;
+      }
+    }
+
+    &__empty {
+      width: 100%;
+      padding: 40px;
+
+      &__title {
+        @include font("IntervalNextReg");
+        font-size: em(48px);
+        margin-bottom: 16px;
+        color: color("text", "title");
+      }
+
+      &__message {
+        @include font("IntervalNextBook");
+        font-size: em(18px);
+        color: color("text", "subtitle");
+      }
+    }
+  }
+
+  &__points {
+    &__title {
+      @include font("IntervalNextReg");
+      font-size: em(14px);
+    }
+  }
+}
+
+#map,
+#uni-poi-map,
+.uni-poi-map {
+    width: 100%;
+    height: 360px;
+}

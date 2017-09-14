@@ -813,3 +813,40 @@
   \{{/uni-footer-website}}
   </p>
 </div>
+
+{{uni-title title="Main photo picker" class="uni-title--spaced"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-main-photo-picker.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-main-photo-picker.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-main-photo-picker.scss">SASS</a>
+  </p>
+  <p class="description">
+    Unified main photo picker component. Should not differ much from platform to platform and has custom
+    action hooks for the main photo selection (from a pool of provided photos)
+  </p>
+</div>
+
+{{#uni-main-photo-picker
+  title="Lorem ipsum dolor"
+  photos=model.photos
+  mainPhotoUrl=model.mainPhotoUrl as |photo|}}
+  <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
+    {{inline-svg (i "icons/main-photo-${type}.svg" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
+    Cover Photo
+  </div>
+{{/uni-main-photo-picker}}
+
+{{uni-title title="Points of interest"}}
+<div class="component">
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/">SASS</a>
+  </p>
+  <p class="description">
+    Improved version of the current map implementation can be used on the search page, offer page or even externally.
+  </p>
+</div>
+
+{{uni-points-of-interest}}
