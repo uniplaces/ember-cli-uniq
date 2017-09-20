@@ -10,5 +10,8 @@
       disabled={{if isDisabled 'disabled' ''}}>
 
     <label for={{i '${id}-radio' id=elementId}}>{{label}}</label>
+    {{#if tooltip}}
+      {{uni-tooltip isQuestion=true content=tooltip}}
+    {{/if}}
   </div>
 {{/uni-input-container}}
