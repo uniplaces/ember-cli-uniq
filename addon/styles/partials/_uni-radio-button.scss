@@ -1,30 +1,57 @@
-.uni-radio-button {
-  @include radio-button();
-  cursor: pointer;
+.uni-input-container{
+  overflow: visible;
 
-  &__wrapper {
-    @include flex();
-    @include align-items-center();
-    width: 100%;
-  }
+  .uni-radio-button {
+    @include radio-button();
+    cursor: pointer;
 
-  @include breakpoint(small) {
-    width: 100%;
-    padding: 14px;
-
-    input {
-      display: none;
-    }
-
-    label {
+    &__wrapper {
+      @include flex();
+      @include align-items-center();
       width: 100%;
-      cursor: pointer;
+    }
+
+    @include breakpoint(small) {
+      width: 100%;
+      padding: 14px;
+
+      input {
+        display: none;
+      }
+
+      label {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+
+    .uni-tooltip{
+      z-index: 1;
+      margin-left: 10px;
+      margin-top: 5px;
+
+      svg {
+        width: 15px;
+        height:15px;
+      }
+
+      &__text {
+        white-space: normal;
+        margin-left:10px;
+        height: auto;
+        padding:20px 15px;
+        border: solid 2px #d1d5da;
+        box-shadow: 0 8px 10px 0 rgba(31, 37, 50, 0.45);
+        background-color: #fff;
+        font-size: em(14px);
+        color: #545d69;
+      }
     }
   }
-}
 
-.uni-input-container {
-  @include breakpoint(small) {
-    padding: 0;
+  .uni-input-container {
+    @include breakpoint(small) {
+      padding: 0;
+    }
   }
 }

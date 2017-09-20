@@ -9,6 +9,7 @@ export default Component.extend({
   groupValue: null,
   name: null,
   label: null,
+  tooltip: null,
   isDisabled: false,
 
   onClick: null,
