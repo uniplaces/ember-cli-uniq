@@ -9,7 +9,7 @@
   }
 
   &__wrapper {
-    position:relative;
+    position: relative;
     width: auto;
 
     input{
@@ -30,7 +30,7 @@
         width: 22px;
 
         path{
-          fill: #00adef !important;
+          fill: color("primary") !important;
         }
       }
     }
