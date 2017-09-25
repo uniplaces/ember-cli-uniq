@@ -16,21 +16,16 @@ export default Component.extend({
     'isClosed:uni-alert--closed'
   ],
 
+  type: null,
   stickyMode: false,
   isFixed: false,
   hasClose: false,
   isClosed: false,
   onClose: null,
 
-  isSuccess: computed('type', function() {
-    return this.get('type') === UniAlertTypes.SUCCESS;
-  }),
-  isError: computed('type', function() {
-    return this.get('type') === UniAlertTypes.ERROR;
-  }),
-  isWarning: computed('type', function() {
-    return this.get('type') === UniAlertTypes.WARNING;
-  }),
+  isSuccess: computed.equal('type', UniAlertTypes.SUCCESS),
+  isError: computed.equal('type', UniAlertTypes.ERROR),
+  isWarning: computed.equal('type', UniAlertTypes.WARNING),
   iconName: computed('isSuccess', 'isWarning', 'isError', function() {
     if (this.get('isSuccess')) {
       return 'alert--success';
@@ -48,7 +43,7 @@ export default Component.extend({
   }),
 
   didInsertElement() {
-    this._super();
+    this._super(...arguments);
 
     if (this.get('stickyMode')) {
       this.set('componentTop', this.$().offset().top);
