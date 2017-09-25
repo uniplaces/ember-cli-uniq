@@ -12,12 +12,12 @@
     position: relative;
     width: auto;
 
-    input{
+    input {
       width: 100%;
       margin-right: 0;
     }
 
-    &__icon{
+    &__icon {
       width: 22px;
       height: 100%;
       position: absolute;
@@ -29,7 +29,7 @@
       svg {
         width: 22px;
 
-        path{
+        path {
           fill: color("primary") !important;
         }
       }
