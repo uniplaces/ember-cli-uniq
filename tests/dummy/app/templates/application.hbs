@@ -112,6 +112,8 @@
   </p>
   <p class="description">
     This is a component used to generate alerts. There are four types of alerts: default (information), success, warning and error.
+    The <span class="code-snippet">type</span> of the alert can be passed by string - <span class="code-snippet">success, warning or error</span>
+    - or by setting custom variables - <span class="code-snippet">isSuccess, isWarning or isError</span>.
   </p>
 </div>
 
@@ -130,18 +132,20 @@
   </p>
 </div>
 
-{{uni-alert isSuccess=true title="Success!" subtitle="This is a subtitle."}}
+{{uni-alert type="success" title="Success!" subtitle="This is a subtitle."}}
 <div class="component">
   <p class="code-snippet">
-    \{{uni-alert isSuccess=true title="Success!" subtitle="This is a subtitle."}}
+    \{{uni-alert type="success" title="Success!" subtitle="This is a subtitle."}}
   </p>
 </div>
+
 {{uni-alert isWarning=true title="Warning!" subtitle="This is a subtitle."}}
 <div class="component">
   <p class="code-snippet">
     \{{uni-alert isWarning=true title="Warning!" subtitle="This is a subtitle."}}
   </p>
 </div>
+
 {{uni-alert isError=true title="Error!" subtitle="This is a subtitle."}}
 <div class="component">
   <p class="code-snippet">
@@ -501,26 +505,12 @@
   </p>
   <p class="description">
     This is a component used for number inputs. It accepts a placeholder, a value and a string with the description
-    of the field (target).
+    of the field (target). It can become editable by setting the isEditable flag to true.
   </p>
 
   {{uni-input-range placeholder="0" value="10" target="items"}}
   <p class="code-snippet">
     \{{uni-input-range placeholder="0" value="10" target="items"}}
-  </p>
-</div>
-
-{{uni-title title="Special inputs" class="uni-title--spaced"}}
-<div class="component">
-  {{uni-title title="uni-input-range editable"}}
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input-range.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input-range.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input-range.scss">SASS</a>
-  </p>
-  <p class="description">
-    This is a component used for number inputs. It accepts a placeholder, a value and a string with the description
-    of the field (target). And is editable
   </p>
 
   {{uni-input-range placeholder="0" value="10" isEditable=true}}
@@ -542,14 +532,14 @@
     being displayed as right side currencies.
   </p>
 
-  {{uni-input-price currency="€" per="month" isDisabled=true}}
-  <p class="code-snippet">
-    \{{uni-input-price currency="€" per="month" isDisabled=true}}
-  </p>
-
   {{uni-input-price currency="€" per="month"}}
   <p class="code-snippet">
     \{{uni-input-price currency="€" per="month"}}
+  </p>
+
+  {{uni-input-price currency="€" per="month" isDisabled=true}}
+  <p class="code-snippet">
+    \{{uni-input-price currency="€" per="month" isDisabled=true}}
   </p>
 </div>
 
@@ -563,7 +553,7 @@
   <p class="description">
     This is a component used for mobile number inputs, it accepts the several properties, such as an array of options
     (options) which by default is a list of all countries, and an optional array of preferred countries (preferredCountries).
-    <br>
+    <br/><br/>
     For more info on countries, check <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-countries">ember-cli-countries</a>.
   </p>
 
@@ -598,17 +588,12 @@
 
   {{uni-select options=model.uniSelectOptions}}
   <p class="code-snippet">
-    \{{uni-select options=model.uniSelectOptions}}
+    \{{uni-select options=options}}
   </p>
 
   {{uni-select placeholder="Choose an option" useAlias=true options=model.uniSelectAliasOptions}}
   <p class="code-snippet">
-    \{{uni-select placeholder="Choose an option" useAlias=true options=model.uniSelectAliasOptions}}
-  </p>
-
-  {{uni-select useAlias=true options=model.uniSelectAliasOptions}}
-  <p class="code-snippet">
-    \{{uni-select useAlias=true options=model.uniSelectAliasOptions}}
+    \{{uni-select placeholder="Choose an option" useAlias=true options=aliasOptions}}
   </p>
 </div>
 
@@ -659,11 +644,6 @@
   {{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
   <p class="code-snippet">
     \{{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
-  </p>
-
-  {{uni-tooltip isAlternative=true isActive=true content="This is a demo tooltip for inputs"}}
-  <p class="code-snippet">
-    \{{uni-tooltip isAlternative=true isActive=true content="This is a demo tooltip for inputs"}}
   </p>
 </div>
 
@@ -717,12 +697,7 @@
   </p>
 </div>
 
-
-{{#uni-info-box title="Type of place"}}
-  The type of place and total area will let students know how big your place is.
-{{/uni-info-box}}
-
-{{uni-title title="Info box" class="uni-title--spaced"}}
+{{uni-title title="Information box" class="uni-title--spaced"}}
 <div class="component">
   <p class="links">
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-info-box.js">Javascript</a> |
@@ -730,12 +705,18 @@
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-info-box.scss">SASS</a>
   </p>
   <p class="description">
-    Sidebar additional information container
+    This information box is used to provide additional information to the user. Mainly used on the self-service platform.
   </p>
 
-  \{{#uni-info-box title="Type of place"}}<br>
-    The type of place and total area will let students know how big your place is.<br>
-  \{{/uni-info-box}}
+  {{#uni-info-box title="Type of place"}}
+    The type of place and total area will let students know how big your place is.
+  {{/uni-info-box}}
+
+  <p class="code-snippet">
+    \{{#uni-info-box title="Type of place"}}<br>
+      <span class="tab">The type of place and total area will let students know how big your place is.</span><br>
+    \{{/uni-info-box}}
+  </p>
 </div>
 
 
