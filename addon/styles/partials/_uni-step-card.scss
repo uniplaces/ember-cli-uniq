@@ -5,6 +5,62 @@
         width: 100%;
     }
 
+    text-align: center;
+
+    background-color: rgba(0, 173, 239, 0.15);
+    height: 100%;
+
+    &--disabled {
+        background-color: #ffffff;
+
+         .uni-step-card__step {
+            color: #b2b9c2;
+        }
+    }
+
+    &--passed {
+        .uni-step-card__icon {
+            svg {
+                width: 70px !important;
+                height: 70px !important;
+            }
+
+            svg g {
+                fill: none !important;
+            }
+        }
+    }
+
+    &__step {
+        font-size: em(20px);
+        color: #00adef;
+        margin-bottom: 50px;
+    }
+
+    &__title {
+        font-size: em(23px);
+    }
+
+    &__hint {
+        font-size: 16px;
+        color: #545d69;
+    }
+
+    &__icon {
+
+      svg {
+          position: static !important;
+          width: 146px !important;
+          height: auto !important;
+      }
+    }
+
+    .uni-button{
+        margin-top: 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+
     .uni-progress-bar {
         position: relative;
         display: block;
