@@ -5,28 +5,6 @@
         width: 100%;
     }
 
-    &--passed {
-        .uni-step-card__icon {
-            svg {
-                width: 70px !important;
-                height: 70px !important;
-            }
-
-            svg g {
-                fill: none !important;
-            }
-        }
-    }
-
-    &__icon {
-
-      svg {
-          position: static !important;
-          width: 146px !important;
-          height: auto !important;
-      }
-    }
-
     .uni-button{
         margin-top: 20px;
         width: 100%;
