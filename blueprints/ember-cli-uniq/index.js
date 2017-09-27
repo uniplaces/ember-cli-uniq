@@ -2,9 +2,9 @@
 'use strict';
 
 module.exports = {
-  normalizeEntityName: function() {}, // no-op since we're just adding dependencies
+  normalizeEntityName() {}, // no-op since we're just adding dependencies
 
-  afterInstall: function() {
+  afterInstall() {
     return this.addBowerPackageToProject('uniq');
   }
 };

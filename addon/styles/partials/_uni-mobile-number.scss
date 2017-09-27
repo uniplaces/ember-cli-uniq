@@ -1,4 +1,26 @@
 .uni-mobile-number {
   @include mobile-number();
   max-width: 320px;
+
+  .uni-tooltip {
+    @include breakpoint("small") {
+      left: 0;
+      top: calc(100% + 8px);
+      min-width: 60%;
+      max-width: 80%;
+      width: auto;
+
+      .uni-tooltip__text {
+        width: auto;
+        left: 0;
+        box-shadow: 0 8px 10px 0 rgba(31, 36, 50, 0.45);
+
+        &:before {
+          top: -10px;
+          transform: rotate(90deg);
+          left: 5px;
+        }
+      }
+    }
+  }
 }

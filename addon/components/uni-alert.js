@@ -49,7 +49,7 @@ export default Component.extend({
       this.set('componentTop', this.$().offset().top);
       this._verifyStickyScroll();
 
-      $(window).bind('scroll', () => this._verifyStickyScroll());
+      $(window).bind('scroll.uni-alert', () => this._verifyStickyScroll());
     }
   },
 
@@ -75,6 +75,6 @@ export default Component.extend({
   willDestroyElement() {
     this._super(...arguments);
 
-    $(window).unbind('scroll');
+    $(window).unbind('scroll.uni-alert');
   }
 });
