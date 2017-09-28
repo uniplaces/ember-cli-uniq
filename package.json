@@ -18,7 +18,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "deploy-to-gh-pages": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push -u origin gh-pages"
   },
   "dependencies": {
     "broccoli-funnel": "^1.0.7",
