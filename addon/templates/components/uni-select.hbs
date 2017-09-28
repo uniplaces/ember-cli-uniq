@@ -6,7 +6,11 @@
   {{/if}}
   {{#each options as |option|}}
     <option disabled={{option.disabled}} selected={{if (eq option.key selected) 'selected'}} value={{option.key}} class="uni-select__option">
-      {{option.value}}
+      {{#if hasBlock}}
+        {{yield option}}
+      {{else}}    
+        {{option.value}}
+      {{/if}}
     </option>
   {{/each}}
 </select>
