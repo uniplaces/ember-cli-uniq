@@ -1,10 +1,11 @@
 import Ember from 'ember';
 import layout from '../templates/components/uni-tooltip';
+import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
-const { Component, $, inject: { service }, run, on } = Ember;
+const { Component, $, inject: { service }, run } = Ember;
 const MARGIN_TOP = 8;
 
-export default Component.extend({
+export default Component.extend(ClickOutsideMixin, {
   tagName: 'span',
   classNames: ['uni-tooltip'],
   classNameBindings: ['isActive:uni-tooltip--active', 'isAlternative:uni-tooltip--alternative'],
@@ -19,6 +20,12 @@ export default Component.extend({
   yieldContent: false,
 
   onClick() {},
+
+  onOutsideClick() {
+    if (!this.get('isAlternative')) {
+      this._hideTooltip();
+    }
+  },
 
   click() {
     this.get('onClick')();

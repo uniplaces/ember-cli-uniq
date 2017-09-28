@@ -2,7 +2,7 @@
   @include input();
 
   & + .uni-tooltip--alternative {
-    @include breakpoint("medium") {
+    @media (max-width: 767px) {
       left: 0;
       top: calc(100% + 12px);
       min-width: 60%;
