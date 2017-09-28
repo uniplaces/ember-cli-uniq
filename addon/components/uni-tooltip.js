@@ -22,25 +22,29 @@ export default Component.extend(ClickOutsideMixin, {
   onClick() {},
 
   onOutsideClick() {
-    if (!this.get('isAlternative')) {
-      this._hideTooltip();
+    if (this.get('isAlternative')) {
+      return;
     }
+
+    this._hideTooltip();
   },
 
   click() {
     this.get('onClick')();
 
-    if (!this.get('isAlternative')) {
-      if (this.get('isActive')) {
-        this._hideTooltip();
+    if (this.get('isAlternative')) {
+      return;
+    }
 
-        return;
-      }
+    if (this.get('isActive')) {
+      this._hideTooltip();
 
-      this._showTooltip();
-      if (this.get('media.isMobile')) {
-        run.later(this, () => this._setTopPositionMobile(), 0);
-      }
+      return;
+    }
+
+    this._showTooltip();
+    if (this.get('media.isMobile')) {
+      run.later(this, () => this._setTopPositionMobile(), 0);
     }
   },
 
