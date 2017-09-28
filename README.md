@@ -7,7 +7,7 @@
 
 This is an addon that contains the most used front-end components in the several Uniplaces' products.
 
-A demo of the components can be found [here](https://stormy-escarpment-22836.herokuapp.com/).
+A demo of the components can be found on [uniplaces.github.io/ember-cli-uniq](https://uniplaces.github.io/ember-cli-uniq/).
 
 ## Installation
 
