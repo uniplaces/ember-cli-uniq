@@ -5,6 +5,23 @@
     width: 200px;
   }
 
+  &:not(.uni-tooltip--alternative) {
+    @media (max-width: 767px) {
+      min-width: 60%;
+      max-width: 80%;
+      width: auto;
+
+      .uni-tooltip__text {
+        position: fixed;
+        width: auto;
+        top: 8px;
+        left: 50vw;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+    }
+  }
+
   &--alternative {
     position: absolute;
     left: calc(100% + 12px);
@@ -16,8 +33,10 @@
     }
 
     .uni-tooltip__text {
-      position: relative;
-      left: 0;
+      @media (min-width: 767px) {
+        position: relative;
+        left: 0;
+      }
     }
   }
 }
