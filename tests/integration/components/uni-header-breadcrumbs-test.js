@@ -14,6 +14,6 @@ test('it renders', function(assert) {
   this.render(hbs`{{uni-header-breadcrumbs step=step description=description}}`);
 
   assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-header__breadcrumb__step').text().trim(), 'First:');
+  assert.equal(this.$('.uni-header__breadcrumb__step').text().trim(), 'First');
   assert.equal(this.$('.uni-header__breadcrumb__description').text().trim(), 'This is a description');
 });
