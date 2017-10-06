@@ -1,1 +1,5 @@
 <div role="progressbar" class="uni-progress-bar__bar" style={{inlineStyle}}></div>
+
+{{#each inlineStepStyles as |stepStyles|}}
+  <div class="uni-progress-bar__step" style="{{stepStyles}}"></div>
+{{/each}}
