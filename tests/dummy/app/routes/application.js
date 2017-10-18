@@ -58,8 +58,8 @@ export default Route.extend({
       standardUnitary: {
         available_from: '2016-10-20',
         blocked_periods: [
-            { from: '2016-10-21', to: '2016-10-22' },
-            { from: '2016-11-21', to: '2016-11-23' }
+          { from: '2016-10-21', to: '2016-10-22' },
+          { from: '2016-11-21', to: '2016-11-23' }
         ]
       },
       standard: {
