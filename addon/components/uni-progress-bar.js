@@ -1,8 +1,12 @@
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 import Ember from 'ember';
 import layout from '../templates/components/uni-progress-bar';
 import createArrayOfIntegers from 'ember-cli-uniq/utils/array-methods';
 
-const { computed, Component, String } = Ember;
+const {
+  String
+} = Ember;
 
 export default Component.extend({
   classNames: ['uni-progress-bar'],

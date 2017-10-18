@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
+import { isPresent } from '@ember/utils';
 import layout from '../templates/components/uni-textarea';
-
-const { computed, Component, isPresent } = Ember;
 
 export default Component.extend({
   classNames: ['uni-textarea'],

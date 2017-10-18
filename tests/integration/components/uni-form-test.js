@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import RSVP from 'rsvp';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-
-const { RSVP } = Ember;
 
 moduleForComponent('uni-form', 'Integration | Component | uni form', {
   integration: true

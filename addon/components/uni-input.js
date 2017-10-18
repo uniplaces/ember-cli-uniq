@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isPresent, isEmpty } from '@ember/utils';
 import layout from '../templates/components/uni-input';
 import InputTypes from 'ember-cli-uniq/enums/input-type';
 
-const { Component, computed, isEmpty, isPresent } = Ember;
 const SUCCESS_CLASS = 'uni-input--success';
 const ERROR_CLASS = 'uni-input--error';
 const WARNING_CLASS = 'uni-input--warning';

@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { observer } from '@ember/object';
+import $ from 'jquery';
 import layout from '../templates/components/uni-modal';
-
-const { Component, observer, $ } = Ember;
 
 export default Component.extend({
   tagName: '',

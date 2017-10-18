@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { isEmpty } from '@ember/utils';
+import { computed } from '@ember/object';
 import layout from '../templates/components/uni-multi-selector';
-
-const { Component, isEmpty, computed } = Ember;
 
 export default Component.extend({
   layout,

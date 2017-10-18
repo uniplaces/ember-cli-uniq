@@ -1,10 +1,8 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | click outside');
-
-const { Object: EmberObject } = Ember;
 
 // Replace this with your real tests.
 test('it works', function(assert) {

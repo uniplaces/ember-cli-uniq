@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { equal } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import $ from 'jquery';
 import layout from '../templates/components/uni-alert';
 import UniAlertTypes from 'ember-cli-uniq/enums/uni-alert-type';
-
-const { Component, computed, $ } = Ember;
 
 export default Component.extend({
   layout,
@@ -23,9 +24,9 @@ export default Component.extend({
   isClosed: false,
   onClose: null,
 
-  isSuccess: computed.equal('type', UniAlertTypes.SUCCESS),
-  isError: computed.equal('type', UniAlertTypes.ERROR),
-  isWarning: computed.equal('type', UniAlertTypes.WARNING),
+  isSuccess: equal('type', UniAlertTypes.SUCCESS),
+  isError: equal('type', UniAlertTypes.ERROR),
+  isWarning: equal('type', UniAlertTypes.WARNING),
   iconName: computed('isSuccess', 'isWarning', 'isError', function() {
     if (this.get('isSuccess')) {
       return 'alert--success';

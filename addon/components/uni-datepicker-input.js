@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isPresent, isNone } from '@ember/utils';
 import layout from '../templates/components/uni-datepicker-input';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 import moment from 'moment';
-
-const { Component, computed, isNone, isPresent } = Ember;
 
 export default Component.extend(ClickOutsideMixin, {
   classNames: ['uni-datepicker-input'],

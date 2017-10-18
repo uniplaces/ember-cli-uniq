@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { isPresent, isBlank } from '@ember/utils';
+import Component from '@ember/component';
 import layout from '../templates/components/uni-autocomplete';
 import ClickOutside from '../mixins/click-outside';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
-
-const { computed, isBlank, isPresent, Component } = Ember;
 
 export default Component.extend(ClickOutside, {
   classNames: ['uni-autocomplete'],

@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import $ from 'jquery';
+import { isEmpty } from '@ember/utils';
 import layout from '../templates/components/uni-input-price';
-
-const { Component, computed, $, isEmpty } = Ember;
 
 const INPUT_TYPE_NUMBER = 'number';
 

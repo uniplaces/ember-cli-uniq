@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import { gte } from '@ember/object/computed';
+import Route from '@ember/routing/route';
 import moment from 'moment';
-
-const { Route, computed } = Ember;
 
 export default Route.extend({
   model() {
@@ -115,7 +114,7 @@ export default Route.extend({
       uniHorizontalTabsBtnLabel: 'This is a button',
       email: 'username@uniplaces',
       number: 10,
-      gteTen: computed.gte('number', 10)
+      gteTen: gte('number', 10)
     };
   },
 

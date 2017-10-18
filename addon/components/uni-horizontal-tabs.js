@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { isEmpty } from '@ember/utils';
+import { observer, computed } from '@ember/object';
 import layout from '../templates/components/uni-horizontal-tabs';
-
-const { Component, computed, isEmpty, observer } = Ember;
 
 export default Component.extend({
   layout,

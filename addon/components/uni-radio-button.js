@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isPresent } from '@ember/utils';
 import layout from '../templates/components/uni-radio-button';
-
-const { Component, computed, isPresent } = Ember;
 
 export default Component.extend({
   layout,

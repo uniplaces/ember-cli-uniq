@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import { and } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/uni-selector-button';
-
-const { Component, computed } = Ember;
 
 export default Component.extend({
   layout,
@@ -20,8 +20,8 @@ export default Component.extend({
   checked: computed('value', 'groupValue', function() {
     return this.get('value') === this.get('groupValue');
   }),
-  showWarning: computed.and('checked', 'warning'),
-  showError: computed.and('checked', 'error'),
+  showWarning: and('checked', 'warning'),
+  showError: and('checked', 'error'),
 
   hasChanged() {},
 
