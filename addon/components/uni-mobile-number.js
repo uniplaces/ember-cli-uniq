@@ -2,11 +2,13 @@ import Ember from 'ember';
 import { getAllCountryNames, getCountryName, getCountryCallingCode } from 'ember-cli-countries/utils/countries';
 import layout from '../templates/components/uni-mobile-number';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
+import CountryCodes from 'ember-cli-uniq/enums/country-codes-type';
 
-const { Component, isPresent } = Ember;
+const { Component, isPresent, computed } = Ember;
 
 const SEPARATOR_KEY = '__SEPARATOR__';
 const SEPARATOR_VALUE = '--------------------------------';
+const PT_PHONE_REGEXP = /^(?:[92]\d{2}(?:\s?\d{3}){2})$/;
 
 export default Component.extend({
   classNames: ['uni-mobile-number'],
@@ -89,6 +91,10 @@ export default Component.extend({
       this._hideTooltipIfExists();
     }
   },
+
+  hasError: computed('number', 'language', function() {
+    return this.get('language') === CountryCodes.PT && !PT_PHONE_REGEXP.test(this.get('number'));
+  }),
 
   actions: {
     onChangeSelect(option) {
