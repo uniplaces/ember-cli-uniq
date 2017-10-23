@@ -8,7 +8,6 @@ test('it works with valid number', function(assert) {
   let result = isValidPhoneNumber(CountryCodes.PT, 916124194);
 
   assert.ok(result);
-  assert.ok(true);
 });
 
 test('it works with invalid number prefix', function(assert) {
