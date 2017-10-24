@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import { getAllCountryNames, getCountryName, getCountryCallingCode } from 'ember-cli-countries/utils/countries';
+import isValidPhoneNumber from 'ember-cli-uniq/utils/is-valid-phone-number';
 import layout from '../templates/components/uni-mobile-number';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
 
-const { Component, isPresent } = Ember;
+const { Component, isPresent, computed } = Ember;
 
 const SEPARATOR_KEY = '__SEPARATOR__';
 const SEPARATOR_VALUE = '--------------------------------';
@@ -89,6 +90,10 @@ export default Component.extend({
       this._hideTooltipIfExists();
     }
   },
+
+  hasError: computed('number', 'language', function() {
+    return !isValidPhoneNumber(this.get('language'), this.get('number'));
+  }),
 
   actions: {
     onChangeSelect(option) {
