@@ -156,14 +156,13 @@
 
 {{uni-title title="Progress bar" class="uni-title--spaced"}}
 <div class="component">
-  {{uni-title title="Progress bar"}}
   <p class="links">
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-progress-bar.js">Javascript</a> |
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-progress-bar.hbs">Handlebars</a> |
     <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-progress-bar.scss">SASS</a>
   </p>
   <p class="description">
-    Component that illustrates given flow's completion.
+    This is a component used to illustrate a progress for a determined flow. It takes as arguments a percentage and the total steps.
   </p>
 
   {{uni-progress-bar percentage=25 totalStepsCount=4}}
@@ -209,23 +208,6 @@
   {{uni-subtitle subtitle="This is a subtitle"}}
   <p class="code-snippet">
     \{{uni-subtitle subtitle="This is a subtitle"}}
-  </p>
-</div>
-
-<div class="component">
-  {{uni-title title="File upload"}}
-  <p class="links">
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-file-upload.js">Javascript</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-file-upload.hbs">Handlebars</a> |
-    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-file-upload.scss">SASS</a>
-  </p>
-  <p class="description">
-    This is a component used to upload a single file.
-  </p>
-
-  {{uni-file-upload}}
-  <p class="code-snippet">
-    \{{uni-file-upload}}
   </p>
 </div>
 
@@ -589,6 +571,24 @@
   {{uni-mobile-number selectPlaceholder='Select one' placeholder='Mobile number' preferredCountries=(array 'PT' 'DE' 'GB')}}
   <p class="code-snippet">
     \{{uni-mobile-number selectPlaceholder='Select one' placeholder='Mobile number' preferredCountries=(array 'PT' 'DE' 'GB')}}
+  </p>
+</div>
+
+
+<div class="component">
+  {{uni-title title="uni-file-upload"}}
+  <p class="links">
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-file-upload.js">Javascript</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-file-upload.hbs">Handlebars</a> |
+    <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-file-upload.scss">SASS</a>
+  </p>
+  <p class="description">
+    This is a component used to upload a single file.
+  </p>
+
+  {{uni-file-upload}}
+  <p class="code-snippet">
+    \{{uni-file-upload}}
   </p>
 </div>
 
