@@ -74,7 +74,15 @@ export default Component.extend(ClickOutside, {
     this.set('showOptions', false);
   },
 
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
+  },
+
   onOutsideClick() {
+    if (this.isComponentDestroyed()) {
+      return;
+    }
+
     this.set('showOptions', false);
   },
 

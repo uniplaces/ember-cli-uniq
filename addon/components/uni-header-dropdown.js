@@ -19,6 +19,14 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   onOutsideClick() {
+    if (this.isComponentDestroyed()) {
+      return;
+    }
+
     this.set('isOpen', false);
-  }
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
+  },
 });

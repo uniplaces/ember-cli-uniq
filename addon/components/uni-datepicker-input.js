@@ -32,8 +32,17 @@ export default Component.extend(ClickOutsideMixin, {
   }),
 
   onSelected() {},
+
   onOutsideClick() {
+    if (this.isComponentDestroyed()) {
+      return;
+    }
+
     this.set('showDatepicker', false);
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   },
 
   actions: {

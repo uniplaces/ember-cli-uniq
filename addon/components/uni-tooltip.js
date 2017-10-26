@@ -24,7 +24,7 @@ export default Component.extend(ClickOutsideMixin, {
   onClick() {},
 
   onOutsideClick() {
-    if (this.get('isAlternative')) {
+    if (this.get('isAlternative') || this.isComponentDestroyed()) {
       return;
     }
 
@@ -63,5 +63,9 @@ export default Component.extend(ClickOutsideMixin, {
   _setTopPositionMobile() {
     let topPosition = this.$().offset().top - $(window).scrollTop() + this.$().height() + MARGIN_TOP;
     this.$('.uni-tooltip__text').css('top', `${topPosition}px`);
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   }
 });
