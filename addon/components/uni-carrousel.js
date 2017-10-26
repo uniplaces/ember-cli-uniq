@@ -5,12 +5,14 @@ import $ from 'jquery';
 import { on } from '@ember/object/evented';
 import layout from '../templates/components/uni-carrousel';
 import { EKMixin, keyUp } from 'ember-keyboard';
+import { htmlSafe } from '@ember/string';
 
 export default Component.extend(EKMixin, {
   classNames: ['uni-carrousel'],
   layout,
   page: 0,
   componentWidth: 0,
+
   showPrev: gt('page', 0),
   showNext: computed('page', function() {
     return this.get('page') < (this.get('itemCount') - 1);
@@ -18,6 +20,9 @@ export default Component.extend(EKMixin, {
 
   deltaX: computed('page', function() {
     return this.get('page') * this.get('componentWidth') * -1;
+  }),
+  wrapperStyle: computed('deltaX', function() {
+    return htmlSafe(`transform: translate3d(${this.get('deltaX')}px, 0px, 0)`);
   }),
 
   didRender() {
