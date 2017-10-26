@@ -1,12 +1,8 @@
 import { computed } from '@ember/object';
 import Component from '@ember/component';
-import Ember from 'ember';
+import { htmlSafe } from '@ember/string';
 import layout from '../templates/components/uni-progress-bar';
 import createArrayOfIntegers from 'ember-cli-uniq/utils/array-methods';
-
-const {
-  String
-} = Ember;
 
 export default Component.extend({
   classNames: ['uni-progress-bar'],
@@ -22,13 +18,13 @@ export default Component.extend({
     return 100 / this.get('totalStepsCount');
   }),
   inlineStyle: computed('percentage', function() {
-    return String.htmlSafe(`width: ${this.get('percentage')}%`);
+    return htmlSafe(`width: ${this.get('percentage')}%`);
   }),
   inlineStepStyles: computed('eachStepPercentage', function() {
     let stepStyles = [];
 
     this.get('totalStepsCountAsArray').forEach((step) => {
-      stepStyles.push(String.htmlSafe(`left: calc(${this.get('eachStepPercentage')}% * ${step});`));
+      stepStyles.push(htmlSafe(`left: calc(${this.get('eachStepPercentage')}% * ${step});`));
     });
 
     return stepStyles;
