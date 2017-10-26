@@ -5,7 +5,8 @@ module.exports = {
     sourceType: 'module'
   },
   extends: [
-    'eslint:recommended'
+    'eslint:recommended',
+    'plugin:ember-suave/recommended'
   ],
   env: {
     browser: true
