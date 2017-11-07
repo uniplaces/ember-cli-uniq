@@ -13,6 +13,7 @@ export default Component.extend({
   customCssComponentClass: '',
   hasSeparator: true,
   hasCloseButton: true,
+  renderInPlace: false,
   isOpen: null,
   onCloseModal() {},
 
