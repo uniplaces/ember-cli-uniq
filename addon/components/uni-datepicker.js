@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import moment from 'moment';
 import layout from '../templates/components/uni-datepicker';
-
-const { Component, computed } = Ember;
 
 export default Component.extend({
   layout,

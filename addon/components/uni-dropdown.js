@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/uni-dropdown';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
-
-const { Component, computed } = Ember;
 
 export default Component.extend(ClickOutsideMixin, {
   classNames: ['uni-dropdown'],
@@ -31,7 +30,15 @@ export default Component.extend(ClickOutsideMixin, {
   onClick() {},
 
   onOutsideClick() {
+    if (this.isComponentDestroyed()) {
+      return;
+    }
+
     this.set('isOpen', false);
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   },
 
   actions: {

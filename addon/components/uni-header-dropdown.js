@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uni-header-dropdown';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
-const { Component } = Ember;
 
 export default Component.extend(ClickOutsideMixin, {
   tagName: 'span',
@@ -20,6 +19,14 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   onOutsideClick() {
+    if (this.isComponentDestroyed()) {
+      return;
+    }
+
     this.set('isOpen', false);
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   }
 });

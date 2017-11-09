@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 import layout from '../templates/components/uni-photo-thumbnail';
-
-const { Component, computed, String: { htmlSafe } } = Ember;
 
 const progressOptions = {
   strokeWidth: 6,

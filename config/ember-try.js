@@ -1,23 +1,22 @@
-function makeScenario(emberVersion) {
-  return {
-    name: `ember-${emberVersion}`,
-    bower: {
-      dependencies: {
-        'ember': `~${emberVersion}.0`
-      },
-      resolutions: {
-        'ember': `~${emberVersion}.0`
-      }
-    }
-  };
-}
-
 /* eslint-env node */
 module.exports = {
   scenarios: [
-    makeScenario('2.8'),
-    makeScenario('2.9'),
-    makeScenario('2.12'),
+    {
+      name: 'ember-lts-2.12',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.12.0'
+        }
+      }
+    },
+    {
+      name: 'ember-2.16',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.16.0'
+        }
+      }
+    },
     {
       name: 'ember-release',
       bower: {
@@ -27,27 +26,10 @@ module.exports = {
         resolutions: {
           'ember': 'release'
         }
-      }
-    },
-    {
-      name: 'ember-beta',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#beta'
-        },
-        resolutions: {
-          'ember': 'beta'
-        }
-      }
-    },
-    {
-      name: 'ember-canary',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#canary'
-        },
-        resolutions: {
-          'ember': 'canary'
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     }

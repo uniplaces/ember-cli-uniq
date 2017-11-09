@@ -1,6 +1,7 @@
-import Ember from 'ember';
-
-const { $, Mixin, run, on } = Ember;
+import $ from 'jquery';
+import Mixin from '@ember/object/mixin';
+import { run } from '@ember/runloop';
+import { on } from '@ember/object/evented';
 
 export default Mixin.create({
   onOutsideClick() {},

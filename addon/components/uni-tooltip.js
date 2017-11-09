@@ -1,8 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import $ from 'jquery';
+import { inject as service } from '@ember/service';
+import { run } from '@ember/runloop';
 import layout from '../templates/components/uni-tooltip';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
-const { Component, $, inject: { service }, run } = Ember;
 const MARGIN_TOP = 8;
 
 export default Component.extend(ClickOutsideMixin, {
@@ -22,7 +24,7 @@ export default Component.extend(ClickOutsideMixin, {
   onClick() {},
 
   onOutsideClick() {
-    if (this.get('isAlternative')) {
+    if (this.get('isAlternative') || this.isComponentDestroyed()) {
       return;
     }
 
@@ -61,5 +63,9 @@ export default Component.extend(ClickOutsideMixin, {
   _setTopPositionMobile() {
     let topPosition = this.$().offset().top - $(window).scrollTop() + this.$().height() + MARGIN_TOP;
     this.$('.uni-tooltip__text').css('top', `${topPosition}px`);
+  },
+
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   }
 });

@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uni-footer-website-row-cell';
-
-const { Component } = Ember;
 
 const cellClass = 'uni-footer-website__row__cell';
 
