@@ -10,7 +10,6 @@ addons:
   chrome: stable
 
 cache:
-  yarn: true
   directories:
     - $HOME/.npm
     - $HOME/.cache # includes bowers cache
