@@ -84,9 +84,14 @@ export default Component.extend({
     },
 
     set(key, value) {
-      let newValue = this._isTypeNumber() && !isNaN(value)
-        ? parseInt(value)
-        : value;
+      let newValue = value;
+
+      if (this._isTypeNumber()) {
+        let number = parseInt(value, 10);
+
+        newValue = isNaN(number) ? null : number;
+      }
+
       this.set('value', newValue);
 
       return newValue;
