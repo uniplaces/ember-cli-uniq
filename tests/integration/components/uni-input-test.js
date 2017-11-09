@@ -88,3 +88,15 @@ test('it converts numeric value', function(assert) {
   assert.equal(this.$('input').val(), 123);
   assert.equal(this.get('value'), 123);
 });
+
+test('it returns null instead of NaN when the input is empty', function(assert) {
+  assert.expect(2);
+
+  this.set('value', null);
+  this.set('type', 'number');
+
+  this.render(hbs`{{uni-input value=value type=type}}`);
+
+  assert.equal(this.$('input').val(), '');
+  assert.equal(this.get('value'), null);
+});
