@@ -20,6 +20,8 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   onOutsideClick() {
-    this.set('isOpen', false);
+    if (!this.isDestroyed) {
+      this.set('isOpen', false);
+    }
   }
 });
