@@ -8,7 +8,7 @@ export default Component.extend({
   didRender() {
     this._super(...arguments);
 
-    $(document).on('click', 'a[href^="#"]', function (event) {
+    $(document).on('click', 'a[href^="#"]', function(event) {
       event.preventDefault();
 
       let componentsContainer = $('.components');
@@ -25,6 +25,6 @@ export default Component.extend({
         $('.demo-app__banner').removeClass('demo-app__banner--smaller');
         $('.container').removeClass('container--bigger');
       }
-    })
+    });
   }
 });
