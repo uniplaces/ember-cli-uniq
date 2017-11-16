@@ -1,23 +1,9 @@
 import { gte } from '@ember/object/computed';
 import Route from '@ember/routing/route';
 import moment from 'moment';
-import $ from 'jquery';
 
 export default Route.extend({
-  _bindAnchorClick() {
-    $(document).on('click', 'a[href^="#"]', function (event) {
-      event.preventDefault();
-
-      let componentsContainer = $('.components');
-      componentsContainer.animate({
-        scrollTop: componentsContainer.scrollTop() + $($.attr(this, 'href')).position().top
-      }, 500);
-    });
-  },
-
   model() {
-    this._bindAnchorClick();
-
     return {
       checked: false,
       options: ['A', 'B', 'C'],
