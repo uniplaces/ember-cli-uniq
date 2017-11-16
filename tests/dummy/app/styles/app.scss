@@ -94,11 +94,15 @@ body {
     padding: 0 32px;
 
     .uni-title--spaced {
-      padding-top: 48px;
+      padding-top: 56px;
       padding-bottom: 16px;
       border-bottom: 2px solid #dedede;
       font-weight: 300;
       font-size: em(28px);
+    }
+
+    .component .uni-title:first-child {
+      margin-top: 42px;
     }
   }
 }
