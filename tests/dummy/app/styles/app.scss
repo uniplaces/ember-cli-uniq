@@ -70,10 +70,10 @@ body {
     background-color: #fafafa;
 
     li {
-      padding: 8px 24px;
-
-      &:first-child {
-        margin-top: 0;
+      a {
+        display: block;
+        padding: 8px 24px;
+        width: 100%;
       }
 
       &:hover {

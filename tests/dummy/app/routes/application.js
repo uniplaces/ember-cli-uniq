@@ -133,15 +133,12 @@ export default Route.extend({
         'select',
         'textarea',
         'tooltip',
+        'photos',
         'rating',
         'information-box',
         'footer'
       ]
     };
-  },
-
-  beforeModel() {
-
   },
 
   actions: {
