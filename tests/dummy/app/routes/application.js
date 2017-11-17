@@ -114,7 +114,30 @@ export default Route.extend({
       uniHorizontalTabsBtnLabel: 'This is a button',
       email: 'username@uniplaces',
       number: 10,
-      gteTen: gte('number', 10)
+      gteTen: gte('number', 10),
+      componentSections: [
+        'headers',
+        'tabs',
+        'alerts',
+        'progress-bar',
+        'headings',
+        'anchor',
+        'buttons',
+        'checkbox',
+        'datepickers',
+        'dropdown',
+        'radio-button',
+        'multi-selector',
+        'input',
+        'special-inputs',
+        'select',
+        'textarea',
+        'tooltip',
+        'photos',
+        'rating',
+        'information-box',
+        'footer'
+      ]
     };
   },
 

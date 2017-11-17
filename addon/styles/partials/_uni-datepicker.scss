@@ -150,10 +150,12 @@ $box-size: 42px;
         border-right: 1px solid color('calendar', 'border');
         @include font("IntervalNextBook");
         font-size: em(16px);
+        border-radius: 0;
 
         &:first-child {
           border-left: 1px solid color('calendar', 'border');
         }
+
         &:nth-child(8n) {
           border-left: 1px solid color('calendar', 'border');
         }
