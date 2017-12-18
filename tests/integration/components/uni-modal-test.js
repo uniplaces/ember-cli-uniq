@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { click } from 'ember-native-dom-helpers';
 
 const DEFAULT_TITLE = 'Uni modal title';
 
@@ -44,3 +45,19 @@ test('it renders content', function(assert) {
   assert.equal(this.$().text().trim(), '');
   assert.equal($('.uni-modal').text().trim(), 'This is content');
 });
+
+test('it calls the onclose callback', async function(assert) {
+  assert.expect(1);
+
+  this.setProperties({
+    isOpen: true,
+    onCloseModal: () => assert.ok(true)
+  });
+
+  this.render(hbs`
+    {{uni-modal baseCssClass="test" isOpen=isOpen onCloseModal=onCloseModal}}
+  `);
+
+  await click('.test__close-button');
+});
+
