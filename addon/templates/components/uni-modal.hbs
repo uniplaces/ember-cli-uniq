@@ -1,5 +1,5 @@
 {{#if isOpen}}
-  {{#modal-dialog close=(action "onCloseModal") renderInPlace=renderInPlace}}
+  {{#modal-dialog onClose=(action "onCloseModal") renderInPlace=renderInPlace}}
     <div class="{{baseCssClass}} {{modifierCssClass}}">
       <div class="{{baseCssClass}}__wrapper {{customCssComponentClass}}">
         {{#if title}}
