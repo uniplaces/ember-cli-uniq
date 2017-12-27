@@ -1,0 +1,11 @@
+<div class="uni-button-dropdown {{if isOpen 'uni-button-dropdown--active'}}">
+    <div role="button" class="uni-button-dropdown__button" {{action (toggle "isOpen" this)}}>
+      {{selected}}
+    </div>
+
+    <ul class="uni-button-dropdown__list">
+      {{#each-in options as |k option|}}
+        {{yield componentName option}}
+      {{/each-in}}
+    </ul>
+</div>
