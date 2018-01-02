@@ -3,5 +3,6 @@ import EmberObject from 'ember-object';
 export default EmberObject.create({
   EUR: '€',
   GBP: '£',
-  USD: '$'
+  USD: '$',
+  SEK: 'kr'
 });
