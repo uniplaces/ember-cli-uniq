@@ -13,6 +13,7 @@
   <div class="components">
     <div id="headers" class="components__section">
       {{uni-title title="Headers" class="uni-title--spaced"}}
+
       <div class="component">
         {{uni-title title="uni-header"}}
         {{component-links component="uni-header"}}
@@ -41,18 +42,13 @@
 
         {{code-snippet name="uni-header-3.hbs"}}
       </div>
-
     </div>
 
     <div id="tabs" class="components__section">
       {{uni-title title="Tabs" class="uni-title--spaced"}}
       <div class="component">
         {{uni-title title="uni-horizontal-tabs"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-horizontal-tabs.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-horizontal-tabs.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-horizontal-tabs.scss">SASS</a>
-        </p>
+        {{component-links component="uni-horizontal-tabs"}}
         <p class="description">
           This component allows to have horizontal tabs that switch the content on click.
         </p>
@@ -61,21 +57,13 @@
           {{option}}
         {{/uni-horizontal-tabs}}
 
-        <p class="code-snippet">
-          \{{#uni-horizontal-tabs options=options as |option|}}
-            <span class="tab">\{{option}}</span><br>
-          \{{/uni-horizontal-tabs}}
-        </p>
+        {{code-snippet name="uni-horizontal-tabs-1.hbs"}}
 
         {{#uni-horizontal-tabs options=model.options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
           {{option}}
         {{/uni-horizontal-tabs}}
 
-        <p class="code-snippet">
-          \{{#uni-horizontal-tabs options=options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
-            <span class="tab">\{{option}}</span><br>
-          \{{/uni-horizontal-tabs}}
-        </p>
+        {{code-snippet name="uni-horizontal-tabs-2.hbs"}}
       </div>
 
       <div class="component">
