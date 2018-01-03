@@ -15,51 +15,33 @@
       {{uni-title title="Headers" class="uni-title--spaced"}}
       <div class="component">
         {{uni-title title="uni-header"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-header.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-header.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-header.scss">SASS</a>
-        </p>
+        {{component-links component="uni-header"}}
         <p class="description">
           This is a component used for the unified header. It's a straight forward component that must yield the desired
           components. See below for more insight.
         </p>
+
+        {{uni-header}}
+
+        {{code-snippet name="uni-header-1.hbs"}}
+
+        {{#uni-header logoUrl="https://www.uniplaces.com"}}
+          {{#uni-header-menu}}
+            {{uni-header-button label="Help" href="https://help.uniplaces.com"}}
+            {{uni-header-button label="Log in"}}
+            {{uni-header-button label="Sign up" isBordered=true}}
+          {{/uni-header-menu}}
+        {{/uni-header}}
+
+        {{code-snippet name="uni-header-2.hbs"}}
+
+        <div style="background-color: #333">
+          {{uni-header isTransparent=true}}
+        </div>
+
+        {{code-snippet name="uni-header-3.hbs"}}
       </div>
 
-      {{uni-header}}
-      <div class="component">
-        <p class="code-snippet">
-          \{{uni-header}}
-        </p>
-      </div>
-
-      {{#uni-header logoUrl="https://www.uniplaces.com"}}
-        {{#uni-header-menu}}
-          {{uni-header-button label="Help" href="https://help.uniplaces.com"}}
-          {{uni-header-button label="Log in"}}
-          {{uni-header-button label="Sign up" isBordered=true}}
-        {{/uni-header-menu}}
-      {{/uni-header}}
-      <div class="component">
-        <p class="code-snippet">
-          \{{#uni-header logoUrl="https://www.uniplaces.com"}}<br>
-            <span class="tab">\{{#uni-header-menu}}</span><br>
-              <span class="tab"><span class="tab">\{{uni-header-button label="Help" href="https://help.uniplaces.com"}}</span></span><br>
-              <span class="tab"><span class="tab">\{{uni-header-button label="Log in" action=yourRandomAction}}</span></span><br>
-              <span class="tab"><span class="tab">\{{uni-header-button label="Sign up" isBordered=true}}</span></span><br>
-            <span class="tab">\{{/uni-header-menu}}</span><br>
-          \{{/uni-header}}
-        </p>
-      </div>
-
-      <div style="background-color: #333">
-        {{uni-header isTransparent=true}}
-      </div>
-      <div class="component">
-        <p class="code-snippet">
-          \{{uni-header isTransparent=true}}
-        </p>
-      </div>
     </div>
 
     <div id="tabs" class="components__section">
@@ -797,6 +779,7 @@
 
     <div id="photos" class="components__section">
       {{uni-title title="Photos" class="uni-title--spaced"}}
+
       <div class="component">
         {{uni-title title="uni-main-photo-picker"}}
         <p class="links">
@@ -819,6 +802,7 @@
           Cover Photo
         </div>
       {{/uni-main-photo-picker}}
+
       <p class="code-snippet">
         \{{#uni-main-photo-picker title="Lorem ipsum dolor" photos=model.photos mainPhotoUrl=model.mainPhotoUrl as |photo|}}
         \{{/uni-main-photo-picker}}

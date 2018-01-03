@@ -12,7 +12,6 @@ const progressOptions = {
 };
 
 export default Component.extend({
-  onImageClick() {},
   progressOptions,
   layout,
 
@@ -21,10 +20,8 @@ export default Component.extend({
   }),
 
   imageStyle: computed('photo.url', function() {
-    if (!this.get('photo.url')) {
-      return htmlSafe('');
-    }
+    return htmlSafe(!this.get('photo.url') ? '' : `background-image: url(${this.get('photo.url')})`);
+  }),
 
-    return htmlSafe(`background-image: url(${this.get('photo.url')})`);
-  })
+  onImageClick() {}
 });
