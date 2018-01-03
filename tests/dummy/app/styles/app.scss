@@ -144,18 +144,6 @@ body {
   line-height: 1.2;
 }
 
-.tab {
-  padding-left: 10px;
-}
-
-.double-tab {
-  padding-left: 20px;
-}
-
-.triple-tab {
-  padding-left: 30px;
-}
-
 .flex-wrapper {
   display: flex;
   align-items: left;
@@ -201,6 +189,10 @@ body {
 .uni-country,
 .uni-autocomplete {
   width: 300px;
+}
+
+.hljs {
+  padding: 16px;
 }
 
 @import "ember-power-calendar";

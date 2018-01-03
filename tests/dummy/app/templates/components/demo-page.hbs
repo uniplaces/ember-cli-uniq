@@ -23,7 +23,6 @@
         </p>
 
         {{uni-header}}
-
         {{code-snippet name="uni-header-1.hbs"}}
 
         {{#uni-header logoUrl="https://www.uniplaces.com"}}
@@ -33,13 +32,11 @@
             {{uni-header-button label="Sign up" isBordered=true}}
           {{/uni-header-menu}}
         {{/uni-header}}
-
         {{code-snippet name="uni-header-2.hbs"}}
 
         <div style="background-color: #333">
           {{uni-header isTransparent=true}}
         </div>
-
         {{code-snippet name="uni-header-3.hbs"}}
       </div>
     </div>
@@ -56,107 +53,67 @@
         {{#uni-horizontal-tabs options=model.options as |option|}}
           {{option}}
         {{/uni-horizontal-tabs}}
-
         {{code-snippet name="uni-horizontal-tabs-1.hbs"}}
 
         {{#uni-horizontal-tabs options=model.options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
           {{option}}
         {{/uni-horizontal-tabs}}
-
         {{code-snippet name="uni-horizontal-tabs-2.hbs"}}
       </div>
 
       <div class="component">
         {{uni-title title="uni-tabs"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-tabs.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-tabs.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-tabs.scss">SASS</a>
-        </p>
+        {{component-links component="uni-tabs"}}
         <p class="description">
           This is a component used for header tabs. It receives an array of tabs consisting of objects containing a
           <strong>label</strong> and an <strong>url</strong>.<br><br>
           You can check an example of tabs <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">here</a>.<br>
           <strong>WARNING: </strong>Currently it's only possible to use urls that are a route of the own application.
         </p>
-      </div>
 
-      {{uni-tabs tabs=model.tabs}}
-      <div class="component">
-        <p class="code-snippet">
-          \{{uni-tabs tabs=model.tabs}}
-        </p>
+        {{uni-tabs tabs=model.tabs}}
+        {{code-snippet name="uni-tabs-1.hbs"}}
       </div>
     </div>
 
     <div id="alerts" class="components__section">
       {{uni-title title="Alerts" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-alert.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-alert.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-alert.scss">SASS</a>
-        </p>
+        {{component-links component="uni-alert"}}
         <p class="description">
-          This is a component used to generate alerts. There are four types of alerts: default (information), success, warning and error.
-          The <span class="code-snippet">type</span> of the alert can be passed by string - <span class="code-snippet">success, warning or error</span>
-          - or by setting custom variables - <span class="code-snippet">isSuccess, isWarning or isError</span>.
+          This is a component used to generate alerts. There are four types of alerts: default (information),
+          success, warning and error. The <code>type</code> of the alert can be passed by string - <code>success,
+          warning or error</code> - or by setting custom variables - <code>isSuccess, isWarning or isError</code>.
         </p>
-      </div>
 
-      {{uni-alert
-        stickyMode=true
-        hasClose=true
-        title="This is the default alert!"
-        subtitle="The stickyMode option and the hasClose option are also enabled."}}
-      <div class="component" style="margin-top: 60px;">
-        <p class="code-snippet">
-          \{{uni-alert<br>
-          <span class="tab">stickyMode=true</span><br>
-          <span class="tab">hasClose=true</span><br>
-          <span class="tab">title="This is the default alert!"</span><br>
-          <span class="tab">subtitle="The isFixed option and the hasClose option are also enabled."}}</span><br>
-        </p>
+        {{uni-alert
+          stickyMode=true
+          hasClose=true
+          title="This is the default alert!"
+          subtitle="The stickyMode option and the hasClose option are also enabled."}}
+        {{code-snippet name="uni-alert-1.hbs"}}
       </div>
 
       {{uni-alert type="success" title="Success!" subtitle="This is a subtitle."}}
-      <div class="component">
-        <p class="code-snippet">
-          \{{uni-alert type="success" title="Success!" subtitle="This is a subtitle."}}
-        </p>
-      </div>
+      {{code-snippet name="uni-alert-2.hbs"}}
 
-      {{uni-alert isWarning=true title="Warning!" subtitle="This is a subtitle."}}
-      <div class="component">
-        <p class="code-snippet">
-          \{{uni-alert isWarning=true title="Warning!" subtitle="This is a subtitle."}}
-        </p>
-      </div>
+      {{uni-alert type="warning" title="Warning!" subtitle="This is a subtitle."}}
+      {{code-snippet name="uni-alert-3.hbs"}}
 
       {{uni-alert isError=true title="Error!" subtitle="This is a subtitle."}}
-      <div class="component">
-        <p class="code-snippet">
-          \{{uni-alert isError=true title="Error!" subtitle="This is a subtitle."}}
-        </p>
-      </div>
+      {{code-snippet name="uni-alert-4.hbs"}}
     </div>
 
     <div id="progress-bar" class="components__section">
       {{uni-title title="Progress bar" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-progress-bar.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-progress-bar.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-progress-bar.scss">SASS</a>
-        </p>
+        {{component-links component="uni-progress.bar"}}
         <p class="description">
           This is a component used to illustrate a progress for a determined flow. It takes as arguments a percentage and the total steps.
         </p>
 
         {{uni-progress-bar percentage=25 totalStepsCount=4}}
-        <p class="code-snippet">
-          \{{uni-progress-bar percentage=25 totalStepsCount=4}}
-        </p>
+        {{code-snippet name="uni-progress-bar-1.hbs"}}
       </div>
     </div>
 
@@ -164,11 +121,7 @@
       {{uni-title title="Headings" class="uni-title--spaced"}}
       <div class="component">
         {{uni-title title="uni-title"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-title.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-title.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-title.scss">SASS</a>
-        </p>
+        {{component-links component="uni-title"}}
         <p class="description">
           This is a component used to generate titles. It accepts a string (title) and an optional string (subtitle).
         </p>
@@ -186,11 +139,7 @@
 
       <div class="component">
         {{uni-title title="uni-subtitle"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-subtitle.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-subtitle.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-subtitle.scss">SASS</a>
-        </p>
+        {{component-links component="uni-subtitle"}}
         <p class="description">
           This is a component used to generate subtitles. It accepts a string (subtitle).
         </p>
@@ -205,11 +154,7 @@
     <div id="anchor" class="components__section">
       {{uni-title title="Anchor" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-anchor.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-anchor.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-anchor.scss">SASS</a>
-        </p>
+        {{component-links component="uni-anchor"}}
         <p class="description">
           This is an anchor. This is implemented using <strong>a</strong> elements. For EmberJS transitions, use a
           <strong>linkTo</strong> component with the class 'uni-anchor'.
@@ -225,11 +170,7 @@
     <div id="buttons" class="components__section">
       {{uni-title title="Buttons" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-button.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-button.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-button.scss">SASS</a>
-        </p>
+        {{component-links component="uni-button"}}
         <p class="description">
           This is a component used for all types of buttons. There are several types of buttons: primary, secondary, disabled
           and loading. It receives a label and an action that may or may not return a promise.<br>
@@ -244,24 +185,14 @@
           {{uni-button isPrimary=true isLoading=true label="Loading..."}}
         </div>
 
-        <p class="code-snippet">
-          \{{uni-button isPrimary=true label="Primary" action=(action "someAction")}}<br><br>
-          \{{uni-button isSecondary=true label="Secondary" action=(action "someAction")}}<br><br>
-          \{{uni-button isDisabled=true label="Disabled" action=(action "someAction")}}<br><br>
-          \{{uni-button isPrimary=true isLoading=true label="Loading..." action=(action "someAction")}}
-          <br><br>
-        </p>
+        {{code-snippet name="uni-button-1.hbs"}}
       </div>
     </div>
 
     <div id="checkbox" class="components__section">
       {{uni-title title="Checkbox" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-checkbox.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-checkbox.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-checkbox.scss">SASS</a>
-        </p>
+        {{component-links component="uni-checkbox"}}
         <p class="description">
           This is a component used for checkbox inputs.
         </p>
@@ -272,13 +203,8 @@
           {{uni-checkbox label="Disabled checkbox" isDisabled=true}}
           {{uni-checkbox label="Checkbox with error" hasError=true}}
         </div>
-        <p class="code-snippet">
-          \{{uni-checkbox label="Selected" isSelected=true}}<br><br>
-          \{{uni-checkbox label="Not selected" isSelected=false}}<br><br>
-          \{{uni-checkbox label="Disabled checkbox" isDisabled=true}}<br><br>
-          \{{uni-checkbox label="Checkbox with error" hasError=true}}
-          <br><br>
-        </p>
+
+        {{code-snippet name="uni-checkbox-1.hbs"}}
       </div>
     </div>
 
@@ -287,11 +213,7 @@
 
       <div class="component">
         {{uni-title title="uni-datepicker"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-datepicker.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-datepicker.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-datepicker.scss">SASS</a>
-        </p>
+        {{component-links component="uni-datepicker"}}
         <p class="description">
           This is a calendar component.
         </p>
@@ -854,12 +776,7 @@
     <div id="footer" class="components__section">
       {{uni-title title="Footer" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-footer-website.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-footer-website.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-footer-website.scss">SASS</a> |
-          <a target="_blank" href="https://github.com/uniplaces/uniplaces-uniq/blob/master/src/styles/_components/_footer.scss#L29">Uniq</a>
-        </p>
+        {{component-links component="uni-footer-website"}}
         <p class="description">
           This is the unified website footer component. As this may vary from platform to platform, this must be a very
           versatile component. This is composed of rows and cells.
@@ -867,88 +784,54 @@
       </div>
 
       {{#uni-footer-website as |footer|}}
-          {{#footer.row as |row|}}
-              {{#row.cell header="Uniplaces" as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor">About</a>
-                  <a class="{{cell.cellClass}}__anchor">Partners</a>
-              {{/row.cell}}
-              {{#row.cell header="Students" as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor">Ambassador program</a>
-                  <a class="{{cell.cellClass}}__anchor">Uniplaces scholarship</a>
-              {{/row.cell}}
-              {{#row.cell header="Need help?" as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor">Help center</a>
-                  <a class="{{cell.cellClass}}__anchor">Contact us</a>
-              {{/row.cell}}
-          {{/footer.row}}
-          {{#footer.row as |row|}}
-              {{#row.cell halfLine=true as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Lisbon</a>
-                  <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Porto</a>
-              {{/row.cell}}
-          {{/footer.row}}
+        {{#footer.row as |row|}}
+          {{#row.cell header="Uniplaces" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">About</a>
+            <a class="{{cell.cellClass}}__anchor">Partners</a>
+          {{/row.cell}}
+          {{#row.cell header="Students" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">Ambassador program</a>
+            <a class="{{cell.cellClass}}__anchor">Uniplaces scholarship</a>
+          {{/row.cell}}
+          {{#row.cell header="Need help?" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">Help center</a>
+            <a class="{{cell.cellClass}}__anchor">Contact us</a>
+          {{/row.cell}}
+        {{/footer.row}}
+        {{#footer.row as |row|}}
+          {{#row.cell halfLine=true as |cell|}}
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Lisbon</a>
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Porto</a>
+          {{/row.cell}}
+        {{/footer.row}}
       {{/uni-footer-website}}
 
-      <div class="component">
-        <p class="code-snippet">
-        \{{#uni-footer-website as |footer|}}<br>
-          <span class="tab">\{{#footer.row as |row|}}</span><br>
-              <span class="double-tab">\{{#row.cell header="Uniplaces" as |cell|}}</span><br>
-                <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor"&gt;About&lt;/a&gt;</span><br>
-                <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor"&gt;Partners&lt;/a&gt;</span><br>
-              <span class="double-tab">\{{/row.cell}}</span><br>
-              <span class="double-tab">\{{#row.cell header="Students" as |cell|}}</span><br>
-                <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor"&gt;Ambassador program&lt;/a&gt;</span><br>
-                <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor"&gt;Uniplaces scholarship&lt;/a&gt;</span><br>
-              <span class="double-tab">\{{/row.cell}}</span><br>
-              <span class="double-tab">\{{#row.cell header="Need help?" as |cell|}}</span><br>
-                <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor"&gt;Help center&lt;/a&gt;</span><br>
-                <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor"&gt;Contact us&lt;/a&gt;</span><br>
-              <span class="double-tab">\{{/row.cell}}</span><br>
-          <span class="tab">\{{/footer.row}}</span><br>
-          <span class="tab">\{{#footer.row as |row|}}</span><br>
-            <span class="double-tab">\{{#row.cell halfLine=true as |cell|}}</span><br>
-              <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor \{{cell.cellClass}}__anchor--inline"&gt;Lisbon&lt;/a&gt;</span><br>
-              <span class="triple-tab">&lt;a class="\{{cell.cellClass}}__anchor \{{cell.cellClass}}__anchor--inline"&gt;Porto&lt;/a&gt;</span><br>
-            <span class="double-tab">\{{/row.cell}}</span><br>
-          <span class="tab">\{{/footer.row}}</span><br>
-        \{{/uni-footer-website}}
-        </p>
-      </div>
+      {{code-snippet name="uni-footer-website-1.hbs"}}
 
       {{#uni-footer-website isDark=true as |footer|}}
-          {{#footer.row as |row|}}
-              {{#row.cell header="Uniplaces" as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor">About</a>
-                  <a class="{{cell.cellClass}}__anchor">Partners</a>
-              {{/row.cell}}
-              {{#row.cell header="Students" as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor">Ambassador program</a>
-                  <a class="{{cell.cellClass}}__anchor">Uniplaces scholarship</a>
-              {{/row.cell}}
-              {{#row.cell header="Need help?" as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor">Help center</a>
-                  <a class="{{cell.cellClass}}__anchor">Contact us</a>
-              {{/row.cell}}
-          {{/footer.row}}
-          {{#footer.row as |row|}}
-              {{#row.cell halfLine=true as |cell|}}
-                  <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Lisbon</a>
-                  <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Porto</a>
-              {{/row.cell}}
-          {{/footer.row}}
+        {{#footer.row as |row|}}
+          {{#row.cell header="Uniplaces" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">About</a>
+            <a class="{{cell.cellClass}}__anchor">Partners</a>
+          {{/row.cell}}
+          {{#row.cell header="Students" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">Ambassador program</a>
+            <a class="{{cell.cellClass}}__anchor">Uniplaces scholarship</a>
+          {{/row.cell}}
+          {{#row.cell header="Need help?" as |cell|}}
+            <a class="{{cell.cellClass}}__anchor">Help center</a>
+            <a class="{{cell.cellClass}}__anchor">Contact us</a>
+          {{/row.cell}}
+        {{/footer.row}}
+        {{#footer.row as |row|}}
+          {{#row.cell halfLine=true as |cell|}}
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Lisbon</a>
+            <a class="{{cell.cellClass}}__anchor {{cell.cellClass}}__anchor--inline">Porto</a>
+          {{/row.cell}}
+        {{/footer.row}}
       {{/uni-footer-website}}
 
-      <div class="component">
-        <p class="code-snippet">
-        \{{#uni-footer-website isDark=true as |footer|}}<br>
-          <span class="tab">\{{#footer.row as |row|}}</span><br>
-          <span class="double-tab">...</span><br>
-          <span class="tab">\{{/footer.row}}</span><br>
-        \{{/uni-footer-website}}
-        </p>
-      </div>
+      {{code-snippet name="uni-footer-website-2.hbs"}}
     </div>
-
   </div>
 </div>
