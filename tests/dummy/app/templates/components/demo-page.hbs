@@ -127,14 +127,10 @@
         </p>
 
         {{uni-title title="This is a title!"}}
-        <p class="code-snippet">
-          \{{uni-title title="This is a title!"}}
-        </p>
+        {{code-snippet name="uni-title-1.hbs"}}
 
         {{uni-title title="This is another title!" subtitle="with its own subtitle"}}
-        <p class="code-snippet">
-          \{{uni-title title="This is another title!" subtitle="with its own subtitle"}}
-        </p>
+        {{code-snippet name="uni-title-2.hbs"}}
       </div>
 
       <div class="component">
@@ -145,9 +141,7 @@
         </p>
 
         {{uni-subtitle subtitle="This is a subtitle"}}
-        <p class="code-snippet">
-          \{{uni-subtitle subtitle="This is a subtitle"}}
-        </p>
+        {{code-snippet name="uni-subtitle-1.hbs"}}
       </div>
     </div>
 
@@ -156,14 +150,12 @@
       <div class="component">
         {{component-links component="uni-anchor"}}
         <p class="description">
-          This is an anchor. This is implemented using <strong>a</strong> elements. For EmberJS transitions, use a
-          <strong>linkTo</strong> component with the class 'uni-anchor'.
+          This is an anchor. This is implemented using <code>a</code> elements. For EmberJS transitions, use a
+          <code>linkTo</code> component with the class 'uni-anchor'.
         </p>
 
         {{uni-anchor label="This is an anchor" href="//www.uniplaces.com" target="_blank"}}
-        <p class="code-snippet">
-          \{{uni-anchor label="This is an anchor" href="//www.uniplaces.com" target="_blank"}}
-        </p>
+        {{code-snippet name="uni-anchor-1.hbs"}}
       </div>
     </div>
 
@@ -184,7 +176,6 @@
           {{uni-button isDisabled=true label="Disabled"}}
           {{uni-button isPrimary=true isLoading=true label="Loading..."}}
         </div>
-
         {{code-snippet name="uni-button-1.hbs"}}
       </div>
     </div>
@@ -203,7 +194,6 @@
           {{uni-checkbox label="Disabled checkbox" isDisabled=true}}
           {{uni-checkbox label="Checkbox with error" hasError=true}}
         </div>
-
         {{code-snippet name="uni-checkbox-1.hbs"}}
       </div>
     </div>
@@ -226,11 +216,7 @@
 
       <div class="component">
         {{uni-title title="uni-datepicker-input"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-datepicker-input.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-datepicker-input.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input.scss">SASS</a>
-        </p>
+        {{component-links component="uni-datepicker-input"}}
         <p class="description">
           This component shows a datepicker with the date as an input. It's also possible to open/close the datepicker
           by clicking on the input. You can provide a placeholder for the input.
