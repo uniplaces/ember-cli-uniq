@@ -665,25 +665,23 @@
     <div id="tooltip" class="components__section">
       {{uni-title title="Tooltip" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-tooltip.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-tooltip.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-tooltip.scss">SASS</a>
-        </p>
+        {{component-links component="uni-tooltip"}}
         <p class="description">
           This is a component used for displaying tooltips. There are currently two types of tooltips: question (isQuestion)
-          and informative (isInformation). The title is optional.
+          and informative (isInformation). The title is optional. You can also yield a component within the tooltip to
+          make it have a tooltip.
         </p>
 
         {{uni-tooltip isInformation=true content="This is a demo information tooltip text"}}
-        <p class="code-snippet">
-          \{{uni-tooltip isInformation=true content="This is a demo information tooltip text"}}
-        </p>
+        {{code-snippet name="uni-tooltip-1.hbs"}}
 
         {{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
-        <p class="code-snippet">
-          \{{uni-tooltip isQuestion=true title="Demo tooltip" content="This is a demo question tooltip content"}}
-        </p>
+        {{code-snippet name="uni-tooltip-2.hbs"}}
+
+        {{#uni-tooltip content="Tooltip content about this button"}}
+          {{uni-button isDisabled=true label="Button with tooltip"}}
+        {{/uni-tooltip}}
+        {{code-snippet name="uni-tooltip-3.hbs"}}
       </div>
     </div>
 
@@ -723,11 +721,7 @@
       {{uni-title title="Rating" class="uni-title--spaced"}}
       <div class="component">
         {{uni-title title="uni-stars"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-stars.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-stars.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-stars.scss">SASS</a>
-        </p>
+        {{component-links component="uni-stars"}}
         <p class="description">
           Stars component to display grades.
         </p>
@@ -752,11 +746,7 @@
     <div id="information-box" class="components__section">
       {{uni-title title="Information box" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-info-box.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-info-box.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-info-box.scss">SASS</a>
-        </p>
+        {{component-links component="uni-info-box"}}
         <p class="description">
           This information box is used to provide additional information to the user. Mainly used on the self-service platform.
         </p>
@@ -764,12 +754,7 @@
         {{#uni-info-box title="Type of place"}}
           The type of place and total area will let students know how big your place is.
         {{/uni-info-box}}
-
-        <p class="code-snippet">
-          \{{#uni-info-box title="Type of place"}}<br>
-            <span class="tab">The type of place and total area will let students know how big your place is.</span><br>
-          \{{/uni-info-box}}
-        </p>
+        {{code-snippet name="uni-info-box-1.hbs"}}
       </div>
     </div>
 

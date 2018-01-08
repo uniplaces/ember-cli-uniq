@@ -2,4 +2,6 @@
   <a target="_blank" href="{{i '${path}/components/${component}.js' path=path component=component}}">Javascript</a> |
   <a target="_blank" href="{{i '${path}/templates/components/${component}.hbs' path=path component=component}}">Handlebars</a> |
   <a target="_blank" href="{{i '${path}/styles/partials/_${component}.scss' path=path component=component}}">SASS</a>
+
+  {{yield component}}
 </p>
