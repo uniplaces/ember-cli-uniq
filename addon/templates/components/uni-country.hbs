@@ -1,0 +1,12 @@
+{{#uni-autocomplete
+  options=countries
+  value=selectedCountry
+  placeholder=placeholderText
+  hasError=hasError
+  noResultsComponent="uni-autocomplete-no-results"
+  noResultsText=noResultsText
+  searchTextValues=(action "countryNames")
+  onSelected=(action "changeCountryCode") as |optionSearchable|}}
+  {{inline-svg (i "flags/${code}" code=optionSearchable.option.code)}}
+  {{titleize optionSearchable.matchedValues.firstObject}}
+{{/uni-autocomplete}}

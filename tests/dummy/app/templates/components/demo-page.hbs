@@ -538,6 +538,42 @@
     <div id="special-inputs" class="components__section">
       {{uni-title title="Special inputs" class="uni-title--spaced"}}
       <div class="component">
+        {{uni-title title="uni-country"}}
+        <p class="links">
+          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-country.js">Javascript</a> |
+          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-country.hbs">Handlebars</a> |
+          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-country.scss">SASS</a>
+        </p>
+        <p class="description">
+          This is a component used for selecting countries using our uni-autocomplete component.
+          <br>
+          It can receive a list of countries, but it already has the default list.
+          <br>
+          Parameters:
+          <br>
+          - countryCode
+          <br>
+          - hasError: should be v-get validation
+          <br>
+          - placeholderText: an already translated string for the placeholder
+          <br>
+          - noResultsText: an already translated string for when there aren't matches.
+          <br>
+          - pathToTranslateCountry: a string to translate the countries's names eg. 'general.country.'
+        </p>
+
+        {{uni-country}}
+        <p class="code-snippet">
+          \{{uni-country}}
+        </p>
+
+        {{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
+        <p class="code-snippet">
+          \{{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
+        </p>
+      </div>
+
+      <div class="component">
         {{uni-title title="uni-input-range"}}
         <p class="links">
           <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input-range.js">Javascript</a> |

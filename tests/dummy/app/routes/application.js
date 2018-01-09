@@ -137,7 +137,8 @@ export default Route.extend({
         'rating',
         'information-box',
         'footer'
-      ]
+      ],
+      countryCode: "PT"
     };
   },
 
