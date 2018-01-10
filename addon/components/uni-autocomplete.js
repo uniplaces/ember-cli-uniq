@@ -39,6 +39,7 @@ export default Component.extend(ClickOutside, {
       let options = this.get('options').map((option) => {
         let options = this.get('searchTextValues')(option).map((x) => x.toLowerCase());
         let matchedValues = A(options.filter((el) => el.startsWith(this.get('valueLowerCase'))));
+
         return { option, matchedValues };
       });
 

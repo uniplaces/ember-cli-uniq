@@ -2,7 +2,6 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import { inject as service } from '@ember/service';
-import { A } from '@ember/array';
 import layout from '../templates/components/uni-country';
 import Countries from 'ember-cli-countries/enums/countries';
 
@@ -14,7 +13,7 @@ export default Component.extend({
   classNameBindings: ['hasError:uni-country--error'],
 
   countryCode: null,
-  countries: A(),
+  countries: [],
   noResultsText: 'No results for ',
   placeholderText: 'Type your country ',
   pathToTranslateCountry: null,
@@ -26,7 +25,7 @@ export default Component.extend({
       return '';
     }
 
-    let country = this.get('countries').findBy('code', this.get('countryCode').toLowerCase());
+    let country = this.get('countries').find(({ code }) => code === this.get('countryCode').toLowerCase());
 
     return country ? country.name : '';
   }),
@@ -58,6 +57,6 @@ export default Component.extend({
       countries.push({ code: key.toLowerCase(), name });
     });
 
-    return A(countries);
+    return countries;
   }
 });
