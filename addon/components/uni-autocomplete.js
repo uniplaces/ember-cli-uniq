@@ -21,6 +21,9 @@ export default Component.extend(ClickOutside, {
   noResultsText: 'No results for ',
   placeholderText: '',
 
+  //@deprecated
+  placeholder: null,
+
   onSelected() {},
 
   // @Required The function must return an array of strings
