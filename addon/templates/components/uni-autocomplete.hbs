@@ -1,6 +1,8 @@
+<span class="uni-autocomplete__placeholder">{{autocompleteText}}</span>
+
 {{input
   value=value
-  placeholder=placeholder
+  placeholder=(if placeholder placeholder placeholderText)
   autocomplete=autocomplete
   focus-in=(action "showOptions")
   class=(i 'uni-input uni-input--bordered ${errorClass}' errorClass=(if hasError 'uni-input--error'))
@@ -19,5 +21,5 @@
     </ul>
   {{/if}}
 {{else}}
-  {{component noResultsComponent value=value}}
+  {{component noResultsComponent translatedText=noResultsText value=value}}
 {{/if}}

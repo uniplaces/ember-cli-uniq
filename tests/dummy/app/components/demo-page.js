@@ -40,5 +40,15 @@ export default Component.extend({
     let action = $(this.get('options.componentsSelector')).scrollTop() > DEVILS_NUMBER ? 'add' : 'remove';
     demoAppBanner[`${action}Class`](topBannerSmallerClass);
     outerContainer[`${action}Class`](containerBiggerClass);
+  },
+
+  actions: {
+    onAutocompleteSelect({ option } = { option: null }) {
+      this.set('model.autocompleteKey', option ? option.key : null);
+    },
+
+    onAutocompleteSearch(option) {
+      return [option.value];
+    }
   }
 });

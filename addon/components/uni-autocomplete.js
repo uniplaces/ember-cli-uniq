@@ -1,9 +1,11 @@
 import { computed } from '@ember/object';
-import { isPresent, isBlank } from '@ember/utils';
+import { isPresent, isBlank, isEmpty } from '@ember/utils';
 import Component from '@ember/component';
 import layout from '../templates/components/uni-autocomplete';
 import ClickOutside from '../mixins/click-outside';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
+import { A } from '@ember/array';
+import { capitalize } from '@ember/string';
 
 export default Component.extend(ClickOutside, {
   classNames: ['uni-autocomplete'],
@@ -11,12 +13,16 @@ export default Component.extend(ClickOutside, {
   noResultsComponent: 'uni-autocomplete-no-results',
   options: [],
   value: '',
-  placeholder: '',
   showOptions: false,
   hasError: false,
   highlighted: 0,
   maxOptionsToShow: 4,
   autocomplete: 'off',
+  noResultsText: 'No results for ',
+  placeholderText: '',
+
+  // @deprecated for placeholderText
+  placeholder: null,
 
   onSelected() {},
 
@@ -35,17 +41,37 @@ export default Component.extend(ClickOutside, {
 
       let options = this.get('options').map((option) => {
         let options = this.get('searchTextValues')(option).map((x) => x.toLowerCase());
-        let matchedValues = options.filter((el) => el.startsWith(this.get('valueLowerCase')));
+        let matchedValues = A(options.filter((el) => el.startsWith(this.get('valueLowerCase'))));
 
         return { option, matchedValues };
       });
 
-      return options.filter(({ matchedValues }) => isPresent(matchedValues)).slice(0, this.get('maxOptionsToShow'));
+      return A(options.filter(({ matchedValues }) => isPresent(matchedValues)).slice(0, this.get('maxOptionsToShow')));
     },
 
     set(_, value) {
       return value;
     }
+  }),
+
+  autocompleteOption: computed('optionsFiltered', 'highlighted', function() {
+    let options = this.get('optionsFiltered');
+
+    return isEmpty(options) ? null : options.objectAt(this.get('highlighted'));
+  }),
+
+  autocompleteText: computed('autocompleteOption', 'value', function() {
+    let option = this.get('autocompleteOption');
+
+    if (isEmpty(option)) {
+      return '';
+    }
+
+    let value = this.get('value');
+    let optionText = option.matchedValues.get('firstObject');
+    let matchingLetters = optionText.slice(0, value.length);
+
+    return optionText.replace(matchingLetters, value);
   }),
 
   actions: {
@@ -68,7 +94,7 @@ export default Component.extend(ClickOutside, {
   },
 
   selectOption(option) {
-    this.set('value', option.matchedValues.get('firstObject').capitalize());
+    this.set('value', capitalize(option.matchedValues.get('firstObject')));
 
     this.get('onSelected')(option);
     this.set('showOptions', false);
@@ -79,11 +105,15 @@ export default Component.extend(ClickOutside, {
   },
 
   onOutsideClick() {
-    if (this.isComponentDestroyed()) {
+    if (this.isComponentDestroyed() || !this.get('showOptions')) {
       return;
     }
 
-    this.set('showOptions', false);
+    let option = this.get('autocompleteOption');
+
+    return isEmpty(option)
+      ? this.set('showOptions', false)
+      : this.selectOption(option);
   },
 
   _handleKeyPress(ev) {

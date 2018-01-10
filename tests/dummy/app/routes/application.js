@@ -137,6 +137,16 @@ export default Route.extend({
         'rating',
         'information-box',
         'footer'
+      ],
+      countryCode: 'PT',
+      autocompleteOptions: [
+        { key: 'USD', value: 'Dollar estudinense' },
+        { key: 'AUD', value: 'Dollar australiano' },
+        { key: 'CAD', value: 'Dollar canadense' },
+        { key: 'KYD', value: 'Dollar caimanês' },
+        { key: 'JMD', value: 'Dollar jamaicano' },
+        { key: 'EUR', value: 'Euro' },
+        { key: 'BRL', value: 'Real brasileiro' }
       ]
     };
   },

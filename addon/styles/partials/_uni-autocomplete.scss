@@ -5,6 +5,15 @@
 
   input {
     @include column(12);
+    background: transparent;
+  }
+
+  &__placeholder {
+    @include input();
+    padding-left: 22px;
+    position: absolute;
+    line-height: 56px;
+    color: color("input", "placeholder");
   }
 }
 

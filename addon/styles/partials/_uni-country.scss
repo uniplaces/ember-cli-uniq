@@ -1,0 +1,42 @@
+.uni-autocomplete {
+  width: 100%;
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    background: color("background");
+    border: solid 2px color("dropdown", "border");
+    border-radius: 4px;
+    margin-top: 4px;
+    overflow-y: auto;
+}
+
+.option {
+    display: block;
+    @include font("IntervalNextBook");
+    font-size: em(20px);
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: color("dropdown");
+
+    &--highlighted,
+    &:hover {
+        background: color("dropdown", "item-hover");
+    }
+
+    &:not(:last-child) {
+        border-bottom: 1px solid color("borders", "light");
+    }
+
+    svg {
+        width: 22px;
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+}
