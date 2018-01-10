@@ -1,13 +1,11 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
-import { inject as service } from '@ember/service';
 import layout from '../templates/components/uni-country';
 import Countries from 'ember-cli-countries/enums/countries';
 
 export default Component.extend({
   layout,
-  i18n: service(),
 
   classNames: ['uni-country'],
   classNameBindings: ['hasError:uni-country--error'],
@@ -16,9 +14,9 @@ export default Component.extend({
   countries: [],
   noResultsText: 'No results for ',
   placeholderText: 'Type your country ',
-  pathToTranslateCountry: null,
 
   onChange() {},
+  getTranslatedCountryName(key, value) { return value },
 
   selectedCountry: computed('countries', 'countryCode', function() {
     if (isBlank(this.get('countryCode'))) {
@@ -50,11 +48,7 @@ export default Component.extend({
   initializeCountries() {
     let countries = [];
     Countries.toKeyValueJson().forEach(({ key, value }) => {
-      let name = this.get('pathToTranslateCountry')
-        ? this.get('i18n').t(`${this.get('pathToTranslateCountry')}${key.toLowerCase()}`).toString().trim()
-        : value;
-
-      countries.push({ code: key.toLowerCase(), name });
+      countries.push({ code: key.toLowerCase(), name: this.get('getTranslatedCountryName')(key, value) });
     });
 
     return countries;
