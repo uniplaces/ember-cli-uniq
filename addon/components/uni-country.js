@@ -11,12 +11,18 @@ export default Component.extend({
   classNameBindings: ['hasError:uni-country--error'],
 
   countryCode: null,
-  countries: [],
   noResultsText: 'No results for ',
   placeholderText: 'Type your country ',
+  locale: null,
 
-  onChange() {},
-  getTranslatedCountryName(key, value) { return value },
+  countries: computed('locale', function() {
+    let countries = [];
+    Countries.toKeyValueJson().forEach(({ key, value }) => {
+      countries.push({ code: key.toLowerCase(), name: this.get('getTranslatedCountryName')(key, value) });
+    });
+
+    return countries;
+  }),
 
   selectedCountry: computed('countries', 'countryCode', function() {
     if (isBlank(this.get('countryCode'))) {
@@ -28,10 +34,9 @@ export default Component.extend({
     return country ? country.name : '';
   }),
 
-  init() {
-    this._super(...arguments);
-
-    this.set('countries', this.initializeCountries());
+  onChange() {},
+  getTranslatedCountryName(key, value) {
+    return value;
   },
 
   actions: {
@@ -43,14 +48,5 @@ export default Component.extend({
     countryNames(option) {
       return [option.name];
     }
-  },
-
-  initializeCountries() {
-    let countries = [];
-    Countries.toKeyValueJson().forEach(({ key, value }) => {
-      countries.push({ code: key.toLowerCase(), name: this.get('getTranslatedCountryName')(key, value) });
-    });
-
-    return countries;
   }
 });

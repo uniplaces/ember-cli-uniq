@@ -21,7 +21,7 @@ export default Component.extend(ClickOutside, {
   noResultsText: 'No results for ',
   placeholderText: '',
 
-  //@deprecated
+  // @deprecated for placeholderText
   placeholder: null,
 
   onSelected() {},
