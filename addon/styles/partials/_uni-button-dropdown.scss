@@ -18,28 +18,7 @@
     }
 
     &__button {
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        font-family: "IntervalNextReg", sans-serif;
-        min-width: 130px;
-        height: 44px;
-        padding: 0 22px;
-        max-width: 180px;
-        background-color: transparent;
-        border-radius: 2px;
-        border: none;
-        outline: none;
-        will-change: background-color;
-        font-size: 1rem;
-        text-align: center;
-        color: #00adef;
-        min-width: initial;
-        height: 38px;
-        font-family: "IntervalNextReg", sans-serif;
-        font-size: 0.9375rem;
-        color: #545d69;
+        @include button();
 
         &:before,
         &:after {
@@ -70,14 +49,14 @@
         right: 8px;
         will-change: display;
         backface-visibility: hidden;
-        background-color: #fff;
+        background-color: color("background");
         box-shadow: 0 16px 18px 0 rgba(31, 36, 50, 0.32);
         border: solid 1px #ccd2d4;
         border-radius: 2px;
 
         &:before,
         &:after {
-            content: " ";
+            content: "";
             position: absolute;
             display: block;
             width: 0;
@@ -85,7 +64,7 @@
             top: -7px;
             right: 16px;
             z-index: 2;
-            border-bottom: 8px solid #fff;
+            border-bottom: 8px solid color("dropdown", "background");
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
         }
@@ -97,13 +76,13 @@
         }
 
         &__item {
+            @include font("IntervalNextReg");
             position: relative;
             display: block;
             width: 100%;
             height: 32px;
             line-height: 32px;
             padding: 0 27px;
-            @include font("IntervalNextReg");
             font-size: em(16px);
             color: #545d69;
 
