@@ -8,5 +8,9 @@
   searchTextValues=(action "countryNames")
   onSelected=(action "changeCountryCode") as |optionSearchable|}}
   {{inline-svg (i "flags/${code}" code=optionSearchable.option.code)}}
-  {{titleize optionSearchable.matchedValues.firstObject}}
+  {{#if hasBlock}}
+    {{yield optionSearchable.option}}
+  {{else}}
+    {{titleize optionSearchable.matchedValues.firstObject}}
+  {{/if}}
 {{/uni-autocomplete}}
