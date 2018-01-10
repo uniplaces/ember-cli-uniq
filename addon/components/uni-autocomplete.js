@@ -5,8 +5,7 @@ import layout from '../templates/components/uni-autocomplete';
 import ClickOutside from '../mixins/click-outside';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
 import { A } from '@ember/array';
-import { isArray } from '@ember/array';
-import { capitalize } from "@ember/string"
+import { capitalize } from '@ember/string';
 
 export default Component.extend(ClickOutside, {
   classNames: ['uni-autocomplete'],

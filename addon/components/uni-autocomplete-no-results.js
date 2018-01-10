@@ -5,5 +5,5 @@ export default Component.extend({
   layout,
 
   value: null,
-  translatedText: "No results for "
+  translatedText: 'No results for '
 });
