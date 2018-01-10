@@ -14,13 +14,13 @@ export default Component.extend(ClickOutside, {
   noResultsComponent: 'uni-autocomplete-no-results',
   options: [],
   value: '',
-  placeholder: '',
   showOptions: false,
   hasError: false,
   highlighted: 0,
   maxOptionsToShow: 4,
   autocomplete: 'off',
-  noResultsText: "No results for ",
+  noResultsText: 'No results for ',
+  placeholderText: '',
 
   onSelected() {},
 

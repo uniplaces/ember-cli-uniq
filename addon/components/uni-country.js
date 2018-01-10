@@ -45,7 +45,7 @@ export default Component.extend({
     },
 
     countryNames(option) {
-      return A([option.name]).uniq();
+      return [option.name];
     }
   },
 

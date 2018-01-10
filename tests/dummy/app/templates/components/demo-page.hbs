@@ -538,6 +538,50 @@
     <div id="special-inputs" class="components__section">
       {{uni-title title="Special inputs" class="uni-title--spaced"}}
       <div class="component">
+        {{uni-title title="uni-autocomplete"}}
+        <p class="links">
+          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-autocomplete.js">Javascript</a> |
+          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-autocomplete.hbs">Handlebars</a> |
+          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-autocomplete.scss">SASS</a>
+        </p>
+        <p class="description">
+          This is a component used for selecting an item for a list.
+          <br>
+          Parameters:
+          <br>
+          - <b>options</b>: can be a model or a simple key value object
+          <br>
+          - <b>searchTextValues</b>: a function used in the search process (it should receive an "option" and return an array with the corresponding value eg: [option.value] )
+          <br>
+          - <b>onSelected</b>: a function used to deal/save the selected option (it should receive an "option")
+          <br>
+          - <b>placeholderText</b>: an already translated string for the placeholder
+          <br>
+          - <b>noResultsText</b>: an already translated string for when there aren't matches.
+          <br>
+          - <b>noResultsComponent</b>: optional, as long as you pass noResultsText everything is ok!
+        </p>
+
+        <p class="code-snippet">
+          \{{#uni-autocomplete <br>
+            <span class="tab">options=model.autocompleteOptions</span><br>
+            <span class="tab">placeholderText="Type your coin"</span><br>
+            <span class="tab">searchTextValues=(action "onAutocompleteSearch")</span><br>
+            <span class="tab">onSelected=(action "onAutocompleteSelect") as |optionSearchable|}}</span><br><br>
+            <span class="tab">\{{optionSearchable.matchedValues.firstObject}}</span><br><br>
+          \{{/uni-autocomplete}}
+        </p>
+
+        {{#uni-autocomplete
+          options=model.autocompleteOptions
+          placeholderText="Type your coin"
+          searchTextValues=(action "onAutocompleteSearch")
+          onSelected=(action "onAutocompleteSelect") as |optionSearchable|}}
+          {{titleize optionSearchable.matchedValues.firstObject}}
+        {{/uni-autocomplete}}
+      </div>
+
+      <div class="component">
         {{uni-title title="uni-country"}}
         <p class="links">
           <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-country.js">Javascript</a> |
@@ -551,26 +595,26 @@
           <br>
           Parameters:
           <br>
-          - countryCode
+          - <b>countryCode</b>
           <br>
-          - hasError: should be v-get validation
+          - <b>hasError</b>: should be v-get validation
           <br>
-          - placeholderText: an already translated string for the placeholder
+          - <b>placeholderText</b>: an already translated string for the placeholder
           <br>
-          - noResultsText: an already translated string for when there aren't matches.
+          - <b>noResultsText</b>: an already translated string for when there aren't matches.
           <br>
-          - pathToTranslateCountry: a string to translate the countries's names eg. 'general.country.'
+          - <b>pathToTranslateCountry</b>: a string to translate the countries's names eg. 'general.country.'
         </p>
 
-        {{uni-country}}
         <p class="code-snippet">
           \{{uni-country}}
         </p>
+        {{uni-country}}
 
-        {{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
         <p class="code-snippet">
           \{{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
         </p>
+        {{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
       </div>
 
       <div class="component">
