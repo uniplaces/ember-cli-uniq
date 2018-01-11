@@ -36,6 +36,7 @@ export default Component.extend({
   }),
 
   onBtnClick() {},
+  onChangeTab() {},
 
   actions: {
     onBtnClick() {
@@ -44,6 +45,7 @@ export default Component.extend({
 
     setTab(index) {
       this.set('currentTab', index);
+      this.get('onChangeTab')(this.get('optionSelected'));
     }
   }
 });
