@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 import layout from '../templates/components/uni-input-range';
 
 export default Component.extend({
-  classNameBindings: ['isEditable:uni-input-range--editable'],
+  classNameBindings: ['isEditable:uni-input-range--editable', 'isSmall:uni-input-range--small'],
   classNames: ['uni-input-range'],
   layout,
 

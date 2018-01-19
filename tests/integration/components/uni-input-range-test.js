@@ -24,3 +24,11 @@ test('it renders text', function(assert) {
 
   assert.notEqual(this.$().text().trim(), '');
 });
+
+test('it renders with small modifier', function(assert) {
+  assert.expect(1);
+
+  this.render(hbs`{{uni-input-range isSmall=true}}`);
+
+  assert.ok(this.$().attr('class').includes('--small'));
+});

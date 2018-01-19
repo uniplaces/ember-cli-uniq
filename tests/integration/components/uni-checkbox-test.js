@@ -18,5 +18,5 @@ test('it and puts small class', function(assert) {
 
   this.render(hbs`{{uni-checkbox isSmall=true}}`);
 
-  assert.ok(this.$('.uni-checkbox').class.includes('--small'));
+  assert.ok(this.$('.uni-checkbox').attr('class').includes('--small'));
 });
