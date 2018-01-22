@@ -1,7 +1,7 @@
 ---
 language: node_js
 node_js:
-  - "6.9.1"
+  - "8.9.0"
 
 sudo: false
 dist: trusty
@@ -35,7 +35,8 @@ before_install:
   - bower --version
 
 install:
-  - npm install && bower install
+  - npm install --no-package-lock
+  - bower install
 
 script:
   # Usually, it's ok to finish the test scenario without reverting

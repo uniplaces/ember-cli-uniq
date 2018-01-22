@@ -1,29 +1,37 @@
 import $ from 'jquery';
 import Mixin from '@ember/object/mixin';
-import { run } from '@ember/runloop';
+import { next, cancel } from '@ember/runloop';
 import { on } from '@ember/object/evented';
+import EmberClickOutside from 'ember-click-outside/mixins/click-outside';
 
-export default Mixin.create({
+export default Mixin.create(EmberClickOutside, {
+  exceptSelector: null,
+
+  // This is the function that should be overridden to add the wanted behaviour
   onOutsideClick() {},
 
-  handleOutsideClick(event) {
-    let $element = this.$();
-    let $target = $(event.target);
+  clickOutside(e) {
+    if (this.isDestroying || this.isDestroyed) {
+      return;
+    }
 
-    if (!$target.closest($element).length) {
-      this.onOutsideClick();
+    let exceptSelector = this.get('exceptSelector');
+    if (exceptSelector && $(e.target).closest(exceptSelector).length > 0) {
+      return;
+    }
+
+    let onOutsideClick = this.get('onOutsideClick');
+    if (typeof onOutsideClick !== 'undefined') {
+      onOutsideClick(e);
     }
   },
 
-  setupOutsideClickListener: on('didInsertElement', function() {
-    let clickHandler = this.get('handleOutsideClick').bind(this);
-
-    return $(document).on('click', clickHandler);
+  _attachClickOutsideHandler: on('didInsertElement', function() {
+    this._cancelOutsideListenerSetup = next(this, this.addClickOutsideListener);
   }),
 
-  removeOutsideClickListener: on('willDestroyElement', function() {
-    let clickHandler = this.get('handleOutsideClick').bind(this);
-
-    return $(document).off('click', run.cancel(this, clickHandler));
+  _removeClickOutsideHandler: on('willDestroyElement', function() {
+    cancel(this._cancelOutsideListerSetup);
+    this.removeClickOutsideListener();
   })
 });
