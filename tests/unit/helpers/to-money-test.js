@@ -18,7 +18,7 @@ test('It works with GBP', function(assert) {
   let result = toMoney([{ amount: 10000, currency_code: 'GBP' }]);
 
   assert.ok(result);
-  assert.equal(result, '100£');
+  assert.equal(result, '£100');
 });
 
 test('It returns empty string on undefined', function(assert) {

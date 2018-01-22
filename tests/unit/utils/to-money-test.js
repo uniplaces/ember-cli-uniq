@@ -18,5 +18,5 @@ test('It works with GBP', function(assert) {
   let result = toMoney(10000, 'GBP');
 
   assert.ok(result);
-  assert.equal(result, '100£');
+  assert.equal(result, '£100');
 });
