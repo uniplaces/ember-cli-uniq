@@ -33,3 +33,11 @@ test('it renders with small modifier', function(assert) {
 
   assert.ok(find('.uni-input-range').className.includes('--small'));
 });
+
+test('it renders with small modifier', function(assert) {
+  assert.expect(1);
+
+  this.render(hbs`{{uni-input-range isSmall=true}}`);
+
+  assert.ok(this.$().attr('class').includes('--small'));
+});
