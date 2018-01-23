@@ -209,9 +209,7 @@
         </p>
 
         {{uni-datepicker}}
-        <p class="code-snippet">
-          \{{uni-datepicker}}
-        </p>
+        {{code-snippet name="uni-datepicker-1.hbs"}}
       </div>
 
       <div class="component">
@@ -226,20 +224,14 @@
           selected=model.startDate
           minDate=model.minDate
           onSelected=(action (mut model.startDate))}}
-
-        <p class="code-snippet">
-          \{{uni-datepicker-input selected=startDate minDate=minDate onSelected=(action (mut startDate))}}
-        </p>
+        {{code-snippet name="uni-datepicker-input-1.hbs"}}
 
         {{uni-datepicker-input
           placeholder=model.datepickerInputPlaceholder
           selected=model.date
           minDate=model.minDate
           onSelected=(action (mut model.date))}}
-
-        <p class="code-snippet">
-          \{{uni-datepicker-input placeholder=placeholder selected=date minDate=minDate onSelected=(action (mut date))}}
-        </p>
+        {{code-snippet name="uni-datepicker-input-2.hbs"}}
 
         {{uni-datepicker-input
           label=model.datepickerInputLabel
@@ -248,21 +240,14 @@
           minDate=model.minDate
           onSelected=(action (mut model.date))
           disabledDates=model.disabledDates}}
-
-        <p class="code-snippet">
-          \{{uni-datepicker-input label=label placeholder=placeholder disabledDates=disabledDates selected=date minDate=minDate onSelected=(action (mut date))}}
-        </p>
+        {{code-snippet name="uni-datepicker-input-3.hbs"}}
       </div>
     </div>
 
     <div id="dropdown" class="components__section">
       {{uni-title title="Dropdown" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-dropdown.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-dropdown.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-dropdown.scss">SASS</a>
-        </p>
+        {{component-links component="uni-dropdown"}}
         <p class="description">
           This is a component used for dropdown inputs. It accepts a placeholder, an array of options and a boolean to determine
           if it's positioned absolutely of relatively (this is related to the CSS property <strong>position</strong>).
@@ -276,16 +261,7 @@
           options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}
           {{option}}
         {{/uni-dropdown}}
-
-        <p class="code-snippet">
-          \{{#uni-dropdown<br><br>
-            <span class="tab">isAbsolute=true</span><br><br>
-            <span class="tab">selected=selected</span><br><br>
-            <span class="tab">onChange=(action (mut selected))</span><br><br>
-            <span class="tab">options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}</span><br><br>
-            <span class="tab">\{{option}}</span><br><br>
-          \{{/uni-dropdown}}
-        </p>
+        {{code-snippet name="uni-dropdown-1.hbs"}}
 
         <p class="description">
           This component also accepts an option to display a different alias for the selected option and an option to display svgs.
@@ -301,83 +277,46 @@
           options=model.dropdownOptions as |option|}}
           {{option.value}}
         {{/uni-dropdown}}
-
-        <p class="code-snippet">
-          \{{#uni-dropdown<br><br>
-            <span class="tab">isAbsolute=true</span><br><br>
-            <span class="tab">selected=selected</span><br><br>
-            <span class="tab">placeholder="Select one"</span><br><br>
-            <span class="tab">onChange=(action (mut selected))</span><br><br>
-            <span class="tab">selectedAlias=(i 'Alias example - ${selected}' selected=selected.value)</span><br><br>
-            <span class="tab">selectedSvgs=(if selected null (array 'icons/google' 'icons/facebook'))</span><br><br>
-            <span class="tab">options=dropdownOptions as |option|}}</span><br><br>
-            <span class="tab">\{{option}}</span><br><br>
-          \{{/uni-dropdown}}
-        </p>
+        {{code-snippet name="uni-dropdown-2.hbs"}}
       </div>
     </div>
 
     <div id="radio-button" class="components__section">
       {{uni-title title="Radio button" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-radio-button.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-radio-button.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-radio-button.scss">SASS</a>
-        </p>
+        {{component-links component="uni-radio-button"}}
         <p class="description">
           This is a component used for radio button inputs.
         </p>
 
         {{uni-radio-button checked=true label="Checked radio button"}}
-        <p class="code-snippet">
-          \{{uni-radio-button checked=true label="Checked radio button"}}
-        </p>
-
         {{uni-radio-button checked=false label="Unchecked radio button"}}
-        <p class="code-snippet">
-          \{{uni-radio-button checked=false label="Unchecked radio button"}}
-        </p>
-
         {{uni-radio-button label="Disabled radio button" isDisabled=true}}
-        <p class="code-snippet">
-          \{{uni-radio-button label="Disabled radio button" isDisabled=true}}
-        </p>
+
+        {{code-snippet name="uni-radio-button-1.hbs"}}
       </div>
     </div>
 
     <div id="multi-selector" class="components__section">
       {{uni-title title="Multi selector" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-multi-selector.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-multi-selector.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-multi-selector.scss">SASS</a>
-        </p>
+        {{component-links component="uni-multi-selector"}}
         <p class="description">
           This component is a visual alternative to the above radio buttons.
         </p>
 
         {{uni-multi-selector name="gender" options=model.genderOptions errorOptions=model.errorOptions isStatic=true}}
-        <p class="code-snippet">
-          \{{uni-multi-selector name="gender" options=options errorOptions=model.errorOptions isStatic=true}}
-        </p>
+        {{code-snippet name="uni-multi-selector-1.hbs"}}
 
         {{uni-multi-selector name="options" groupValue="option2" options=model.multiOptions}}
-        <p class="code-snippet">
-          \{{uni-multi-selector name="options" groupValue="option2" options=options}}
-        </p>
+        {{code-snippet name="uni-multi-selector-2.hbs"}}
       </div>
     </div>
 
     <div id="input" class="components__section">
       {{uni-title title="Input" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input.scss">SASS</a>
-        </p>
+        {{component-links component="uni-input"}}
         <p class="description">
           This is the default component used for inputs - it accepts the basic input options. <br>
           It has default validations for email and required empty fields - by default it shows error and does <u>not</u> show success.<br>
@@ -387,29 +326,19 @@
         </p>
 
         {{uni-input placeholder="Name" tooltipMessage="Click me!"}}
-        <p class="code-snippet">
-          \{{uni-input placeholder="Name" tooltipMessage="Click me!"}}
-        </p>
+        {{code-snippet name="uni-input-1.hbs"}}
 
         {{uni-input type="number" isRequired=true}}
-        <p class="code-snippet">
-          \{{uni-input type="number" isRequired=true}}
-        </p>
+        {{code-snippet name="uni-input-2.hbs"}}
 
         {{uni-input type="email" value=model.email}}
-        <p class="code-snippet">
-          \{{uni-input type="email" value=email}}
-        </p>
+        {{code-snippet name="uni-input-3.hbs"}}
 
         {{uni-input value=model.number showError=model.gteTen showSuccess=(not model.gteTen)}}
-        <p class="code-snippet">
-          \{{uni-input value=number showError=gteTen showSuccess=(not gteTen)}}
-        </p>
+        {{code-snippet name="uni-input-4.hbs"}}
 
         {{uni-input showSuccessDefault=true isRequired=true}}
-        <p class="code-snippet">
-          \{{uni-input showSuccessDefault=true isRequired=true}}
-        </p>
+        {{code-snippet name="uni-input-5.hbs"}}
       </div>
     </div>
 
@@ -417,11 +346,7 @@
       {{uni-title title="Special inputs" class="uni-title--spaced"}}
       <div class="component">
         {{uni-title title="uni-autocomplete"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-autocomplete.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-autocomplete.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-autocomplete.scss">SASS</a>
-        </p>
+        {{component-links component="uni-auto-complete"}}
         <p class="description">
           This is a component used for selecting an item for a list.
           <br>
@@ -440,16 +365,6 @@
           - <b>noResultsComponent</b>: optional, as long as you pass noResultsText everything is ok!
         </p>
 
-        <p class="code-snippet">
-          \{{#uni-autocomplete <br>
-            <span class="tab">options=model.autocompleteOptions</span><br>
-            <span class="tab">placeholderText="Type your coin"</span><br>
-            <span class="tab">searchTextValues=(action "onAutocompleteSearch")</span><br>
-            <span class="tab">onSelected=(action "onAutocompleteSelect") as |optionSearchable|}}</span><br><br>
-            <span class="tab">\{{optionSearchable.matchedValues.firstObject}}</span><br><br>
-          \{{/uni-autocomplete}}
-        </p>
-
         {{#uni-autocomplete
           options=model.autocompleteOptions
           placeholderText="Type your coin"
@@ -457,15 +372,12 @@
           onSelected=(action "onAutocompleteSelect") as |optionSearchable|}}
           {{titleize optionSearchable.matchedValues.firstObject}}
         {{/uni-autocomplete}}
+        {{code-snippet name="uni-autocomplete-1.hbs"}}
       </div>
 
       <div class="component">
         {{uni-title title="uni-country"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-country.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-country.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-country.scss">SASS</a>
-        </p>
+        {{component-links component="uni-country"}}
         <p class="description">
           This is a component used for selecting countries using our uni-autocomplete component.
           <br>
@@ -486,47 +398,31 @@
           - <b>getTranslatedCountryName</b>: a function that receives a key and a value and returns a string with the translated country name
         </p>
 
-        <p class="code-snippet">
-          \{{uni-country}}
-        </p>
         {{uni-country}}
+        {{code-snippet name="uni-country-1.hbs"}}
 
-        <p class="code-snippet">
-          \{{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
-        </p>
         {{uni-country countryCode=model.countryCode hasError=(eq model.countryCode "PT")}}
+        {{code-snippet name="uni-country-2.hbs"}}
       </div>
 
       <div class="component">
         {{uni-title title="uni-input-range"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input-range.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input-range.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input-range.scss">SASS</a>
-        </p>
+        {{component-links component="uni-input-range"}}
         <p class="description">
           This is a component used for number inputs. It accepts a placeholder, a value and a string with the description
           of the field (target). It can become editable by setting the isEditable flag to true.
         </p>
 
         {{uni-input-range placeholder="0" value="10" target="items"}}
-        <p class="code-snippet">
-          \{{uni-input-range placeholder="0" value="10" target="items"}}
-        </p>
+        {{code-snippet name="uni-input-range-1.hbs"}}
 
         {{uni-input-range placeholder="0" value="10" isEditable=true}}
-        <p class="code-snippet">
-          \{{uni-input-range placeholder="0" value="10" isEditable=true}}
-        </p>
+        {{code-snippet name="uni-input-range-2.hbs"}}
       </div>
 
       <div class="component">
         {{uni-title title="uni-input-price"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-input-price.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-input-price.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-input-price.scss">SASS</a>
-        </p>
+        {{component-links component="uni-input-price"}}
         <p class="description">
           This is a component used for price inputs, namely rent prices. It accepts the several properties, such as the currency
           (currency) and the basis (per). One improvement is to support left side currencies. Currently all currencies are
@@ -534,23 +430,15 @@
         </p>
 
         {{uni-input-price currency="€" per="month"}}
-        <p class="code-snippet">
-          \{{uni-input-price currency="€" per="month"}}
-        </p>
+        {{code-snippet name="uni-input-price-1.hbs"}}
 
         {{uni-input-price currency="€" per="month" isDisabled=true}}
-        <p class="code-snippet">
-          \{{uni-input-price currency="€" per="month" isDisabled=true}}
-        </p>
+        {{code-snippet name="uni-input-price-2.hbs"}}
       </div>
 
       <div class="component">
         {{uni-title title="uni-mobile-number"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-mobile-number.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-mobile-number.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-mobile-number.scss">SASS</a>
-        </p>
+        {{component-links component="uni-mobile-number"}}
         <p class="description">
           This is a component used for mobile number inputs, it accepts the several properties, such as an array of options
           (options) which by default is a list of all countries, and an optional array of preferred countries (preferredCountries).
@@ -559,62 +447,41 @@
         </p>
 
         {{uni-mobile-number}}
-        <p class="code-snippet">
-          \{{uni-mobile-number}}
-        </p>
+        {{code-snippet name="uni-mobile-number-1.hbs"}}
 
         {{uni-mobile-number preferredCountries=(array 'PT' 'DE' 'GB') tooltipMessage="There are preferred countries!"}}
-        <p class="code-snippet">
-          \{{uni-mobile-number preferredCountries=(array 'PT' 'DE' 'GB') tooltipMessage="There are preferred countries!"}}
-        </p>
+        {{code-snippet name="uni-mobile-number-2.hbs"}}
 
         {{uni-mobile-number selectPlaceholder='Select one' placeholder='Mobile number' preferredCountries=(array 'PT' 'DE' 'GB')}}
-        <p class="code-snippet">
-          \{{uni-mobile-number selectPlaceholder='Select one' placeholder='Mobile number' preferredCountries=(array 'PT' 'DE' 'GB')}}
-        </p>
+        {{code-snippet name="uni-mobile-number-3.hbs"}}
       </div>
 
       <div class="component">
         {{uni-title title="uni-file-upload"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-file-upload.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-file-upload.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-file-upload.scss">SASS</a>
-        </p>
+        {{component-links component="uni-file-upload"}}
         <p class="description">
           This is a component used to upload a single file.
         </p>
 
         {{uni-file-upload}}
-        <p class="code-snippet">
-          \{{uni-file-upload}}
-        </p>
+        {{code-snippet name="uni-file-upload-1.hbs"}}
       </div>
     </div>
 
     <div id="select" class="components__section">
       {{uni-title title="Select" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-select.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-select.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-select.scss">SASS</a>
-        </p>
+        {{component-links component="uni-select"}}
         <p class="description">
-          This is a select input component. Check the <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">application.js</a> for the uniSelectOptions array.
-          <br>
+          This is a select input component. Check the <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">application.js</a> for the uniSelectOptions array.<br>
           You can set useAlias to true in order to display on the select a different value from the one on the option. For an example check uniSelectAliasOptions.
         </p>
 
         {{uni-select options=model.uniSelectOptions}}
-        <p class="code-snippet">
-          \{{uni-select options=options}}
-        </p>
+        {{code-snippet name="uni-select-1.hbs"}}
 
         {{uni-select placeholder="Choose an option" useAlias=true options=model.uniSelectAliasOptions}}
-        <p class="code-snippet">
-          \{{uni-select placeholder="Choose an option" useAlias=true options=aliasOptions}}
-        </p>
+        {{code-snippet name="uni-select-2.hbs"}}
       </div>
     </div>
 
@@ -622,29 +489,19 @@
 
       {{uni-title title="Textarea" class="uni-title--spaced"}}
       <div class="component">
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-textarea.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-textarea.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-textarea.scss">SASS</a>
-        </p>
+        {{component-links component="uni-textarea"}}
         <p class="description">
           This is a textarea input component. It's allowed to define the number of rows and you can yield the characters count
           or some other component/text.
         </p>
 
         {{uni-textarea placeholder="This is a placeholder" tooltipMessage="I can have a tooltip!"}}
-        <p class="code-snippet">
-          \{{uni-textarea placeholder="This is a placeholder" tooltipMessage="I can have a tooltip!"}}
-        </p>
+        {{code-snippet name="uni-textarea-1.hbs"}}
 
         {{#uni-textarea placeholder="You can also count characters" as |count|}}
-          {{count}} characters
+          {{concat count " characters"}}
         {{/uni-textarea}}
-        <p class="code-snippet">
-          \{{#uni-textarea placeholder="You can also count characters" as |count|}}<br>
-          <span class="tab">\{{count}} characters</span><br>
-          \{{/uni-textarea}}
-        </p>
+        {{code-snippet name="uni-textarea-2.hbs"}}
       </div>
     </div>
 
@@ -676,11 +533,7 @@
 
       <div class="component">
         {{uni-title title="uni-main-photo-picker"}}
-        <p class="links">
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/components/uni-main-photo-picker.js">Javascript</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/templates/components/uni-main-photo-picker.hbs">Handlebars</a> |
-          <a target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/addon/styles/partials/_uni-main-photo-picker.scss">SASS</a>
-        </p>
+        {{component-links component="uni-main-photo-picker"}}
         <p class="description">
           Unified main photo picker component. Should not differ much from platform to platform and has custom
           action hooks for the main photo selection (from a pool of provided photos)
@@ -697,10 +550,7 @@
         </div>
       {{/uni-main-photo-picker}}
 
-      <p class="code-snippet">
-        \{{#uni-main-photo-picker title="Lorem ipsum dolor" photos=model.photos mainPhotoUrl=model.mainPhotoUrl as |photo|}}
-        \{{/uni-main-photo-picker}}
-      </p>
+      {{code-snippet name="uni-main-photo-picker-1.hbs"}}
     </div>
 
     <div id="rating" class="components__section">
@@ -713,19 +563,13 @@
         </p>
 
         {{uni-stars grade=2}}
-        <p class="code-snippet">
-          \{{uni-stars grade=2}}
-        </p>
+        {{code-snippet name="uni-stars-1.hbs"}}
 
         {{uni-stars grade=2.5}}
-        <p class="code-snippet">
-          \{{uni-stars grade=2.6}}
-        </p>
+        {{code-snippet name="uni-stars-2.hbs"}}
 
         {{uni-stars grade=2.5 maxStars=10}}
-        <p class="code-snippet">
-          \{{uni-stars grade=2.6 maxStars=10}}
-        </p>
+        {{code-snippet name="uni-stars-3.hbs"}}
       </div>
     </div>
 
