@@ -35,5 +35,11 @@
     position: relative;
     height: 100%;
     font-size: em(14px);
+    -webkit-appearance: none;
+
+    &:focus {
+      border: 2px solid #66d5ff;
+      outline: none;
+    }
   }
 }

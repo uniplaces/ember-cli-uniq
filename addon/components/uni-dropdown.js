@@ -25,7 +25,6 @@ export default Component.extend(ClickOutsideMixin, {
   buttonErrorClass: 'uni-dropdown__button--error',
   options: [],
   btnClass: '',
-  isNativeOnMobile: false,
 
   errorClass: computed('hasError', function() {
     return this.get('hasError') ? this.get('buttonErrorClass') : '';
