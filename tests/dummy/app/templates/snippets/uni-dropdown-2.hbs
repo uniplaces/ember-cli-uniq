@@ -1,0 +1,10 @@
+{{#uni-dropdown
+  isAbsolute=true
+  selected=selected
+  placeholder="Select one"
+  onChange=(action (mut selected))
+  selectedAlias=(i 'Alias example - ${selected}' selected=selected.value)
+  selectedSvgs=(if selected null (array 'icons/google' 'icons/facebook'))
+  options=dropdownOptions as |option|}}
+  {{option}}
+{{/uni-dropdown}}

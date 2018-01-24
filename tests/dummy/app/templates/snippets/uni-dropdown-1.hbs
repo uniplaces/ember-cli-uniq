@@ -1,0 +1,8 @@
+{{#uni-dropdown
+  isAbsolute=true
+  selected=dropdown.selected
+  placeholder="Select one"
+  onChange=(action (mut dropdown.selected))
+  options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}
+  {{option}}
+{{/uni-dropdown}}
