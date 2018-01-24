@@ -26,8 +26,6 @@ export default Component.extend(ClickOutsideMixin, {
   options: [],
   btnClass: '',
 
-  isNativeOnMobile: computed.alias('media.isMobile'),
-
   errorClass: computed('hasError', function() {
     return this.get('hasError') ? this.get('buttonErrorClass') : '';
   }),

@@ -1,4 +1,4 @@
-{{#if isNativeOnMobile}}
+{{#if media.isMobile}}
   {{uni-select options=options useAlias=useAlias placeholder=placeholder}}
 {{else}}
   <div role="button" class="{{btnClass}} uni-dropdown__button {{errorClass}}" {{action "buttonClick"}}>
