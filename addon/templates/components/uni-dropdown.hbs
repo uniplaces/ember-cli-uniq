@@ -1,27 +1,31 @@
-<div role="button" class="{{btnClass}} uni-dropdown__button {{errorClass}}" {{action "buttonClick"}}>
-  {{#if selected}}
-    {{#if selectedAlias}}
-      {{selectedAlias}}
+{{#if media.isMobile}}
+  {{uni-select options=options useAlias=useAlias placeholder=placeholder}}
+{{else}}
+  <div role="button" class="{{btnClass}} uni-dropdown__button {{errorClass}}" {{action "buttonClick"}}>
+    {{#if selected}}
+      {{#if selectedAlias}}
+        {{selectedAlias}}
+      {{else}}
+        {{selected}}
+      {{/if}}
     {{else}}
-      {{selected}}
+      {{placeholder}}
     {{/if}}
-  {{else}}
-    {{placeholder}}
-  {{/if}}
 
-  {{#if selectedSvgs}}
-    <div class="uni-dropdown__svg-group">
-      {{#each selectedSvgs as |svg|}}
-        {{inline-svg svg}}
+    {{#if selectedSvgs}}
+      <div class="uni-dropdown__svg-group">
+        {{#each selectedSvgs as |svg|}}
+          {{inline-svg svg}}
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
+
+  {{#if isOpen}}
+    <ul class="uni-dropdown__wrapper">
+      {{#each options as |option|}}
+        <li class="uni-dropdown__item" {{action "optionClick" option}}>{{yield option}}</li>
       {{/each}}
-    </div>
+    </ul>
   {{/if}}
-</div>
-
-{{#if isOpen}}
-  <ul class="uni-dropdown__wrapper">
-    {{#each options as |option|}}
-      <li class="uni-dropdown__item" {{action "optionClick" option}}>{{yield option}}</li>
-    {{/each}}
-  </ul>
 {{/if}}

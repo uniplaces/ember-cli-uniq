@@ -1,9 +1,12 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 import layout from '../templates/components/uni-dropdown';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
 export default Component.extend(ClickOutsideMixin, {
+  media: service(),
+
   classNames: ['uni-dropdown'],
   classNameBindings: [
     'isOpen:uni-dropdown--active',
@@ -12,6 +15,7 @@ export default Component.extend(ClickOutsideMixin, {
   ],
   layout,
 
+  useAlias: false,
   selectedAlias: null,
   selectedSvgs: null,
   isOpen: false,
