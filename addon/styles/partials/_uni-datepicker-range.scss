@@ -1,0 +1,150 @@
+$box-size: 36px;
+$animation-time: 200ms;
+$datepicker-width: 238px;
+$tablet-datepicker-width: 264px;
+$desktop-datepicker-width: 276px;
+
+.uni-datepicker-range {
+    .ember-power-calendar {
+        @include font("IntervalNextReg");
+
+        &-weekdays {
+            @include font("IntervalNextMed");
+            font-size: 11px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #8ca6b2;
+            margin-bottom: 8px;
+            margin-top: 18px;
+        }
+
+        &-day {
+            @include font("IntervalNextReg");
+            width: $box-size;
+            height: $box-size;
+            cursor: pointer;
+            border: 1px solid #fff;
+            font-size: em(14px);
+            color: #224251;
+            will-change: font;
+
+            &--disabled {
+                opacity: 1;
+                color: #bcc6ca; // #224251 with opacity 0.3
+                cursor: default;
+            }
+
+            &--other-month {
+                visibility: hidden;
+            }
+
+            &--selected {
+                color: color('primary');
+                font-weight: normal;
+
+                &:not(.ember-power-calendar-day--disabled):hover {
+                    font-weight: normal;
+                }
+
+                &[disabled] {
+                    opacity: 1;
+                }
+            }
+
+            &--minimum-stay {
+                color: color('primary');
+                border-color: #fff;
+                background-color: color('background');
+            }
+
+            &--highlighted {
+                @include font("IntervalNextMed");
+                color: color('primary');
+            }
+
+            &--range-start,
+            &--range-end,
+            &--first-highlighted,
+            &--last-highlighted {
+              background-size: 27px;
+              background-repeat: no-repeat;
+              color: color("primary", "highlight");
+            }
+
+            &--range-start,
+            &--first-highlighted {
+                background-image: url(assetsRootURL() + "assets/images/filters/first-highlighted.svg");
+                background-position: 5px 6px;
+            }
+
+            &--range-end,
+            &--last-highlighted {
+                background-image: url(assetsRootURL() + "assets/images/filters/last-highlighted.svg");
+                background-position: 2px 6px;
+            }
+        }
+
+        &-nav {
+            @include flex();
+            @include align-items-center();
+
+            &-title {
+                @include font("IntervalNextReg");
+                font-size: 16px;
+                text-align: center;
+                text-transform: uppercase;
+                color: #8ca6b2;
+                user-select: none;
+            }
+        }
+    }
+
+    .calendar__nav {
+        @include flex();
+        @include align-items-start();
+        width: 100%;
+        left: 34px;
+        margin-top: 10px;
+
+        &__control {
+            animation: fadeIn $animation-time $cubic-bezier forwards;
+
+            &:first-child {
+                margin-right: auto;
+            }
+
+            &:last-child {
+                margin-left: auto;
+            }
+
+            &--hidden {
+                animation: fadeOut $animation-time $cubic-bezier forwards;
+                pointer-events: none;
+            }
+        }
+
+        &__month-name {
+            width: 100%;
+        }
+    }
+
+    svg {
+        height: 14px;
+    }
+
+    .left-arrow {
+        transform: scaleX(-1);
+        filter: FlipH;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1.0; }
+        100% { opacity: 0.0; }
+    }
+
+}

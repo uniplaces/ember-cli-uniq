@@ -1,0 +1,32 @@
+{{#power-calendar-range
+  center=center
+  selected=selected
+  minRange=minRange
+  maxRange=maxRange
+  daysComponent="uni-datepicker-range-day"
+  onCenter=(action onCenter value="moment")
+  onSelect=(action onSelect value="moment") as |calendar|}}
+  <div class="calendar__nav">
+    <div role="button" class="calendar__nav__control {{isFirstMonth}}" {{action "previousMonth"}}>
+      {{inline-svg "icons/calendar-arrow" class="left-arrow"}}
+    </div>
+    <div role="button" class="calendar__nav__month-name">
+      {{moment-format center titleFormat}}
+    </div>
+    <div role="button" class="calendar__nav__control {{isLastMonth}}" {{action "nextMonth"}}>
+      {{inline-svg "icons/calendar-arrow"}}
+    </div>
+  </div>
+
+  {{calendar.days
+    minDate=minDate
+    maxDate=maxDate
+    minimumStay=minimumStay
+    selectedRange=selectedRange
+    showDaysAround=showDaysAround
+    highlightedDates=highlightedDates
+    disabledDates=disabledDates
+    onMouseOver=(action onMouseOver value="moment")
+    onMouseOut=(action onMouseOut value="moment")
+    onDisabledClick=(action onDisabledClick)}}
+{{/power-calendar-range}}
