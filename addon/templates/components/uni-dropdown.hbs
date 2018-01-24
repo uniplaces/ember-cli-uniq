@@ -1,9 +1,5 @@
 {{#if isNativeOnMobile}}
-  <select class="{{btnClass}} uni-dropdown__button uni-dropdown__button--native-mobile {{errorClass}}" onchange={{action "optionClick" option=target.value}}>
-    {{#each options as |option|}}
-      <option value="{{if option.value option.value option}}">{{yield option}}</option>
-    {{/each}}
-  </select>
+  {{uni-select options=options useAlias=useAlias placeholder=placeholder}}
 {{else}}
   <div role="button" class="{{btnClass}} uni-dropdown__button {{errorClass}}" {{action "buttonClick"}}>
     {{#if selected}}
