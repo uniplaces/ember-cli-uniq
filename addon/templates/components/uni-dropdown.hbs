@@ -1,5 +1,5 @@
 {{#if media.isMobile}}
-  <select class="{{btnClass}} uni-dropdown__button uni-dropdown__button--native-mobile {{errorClass}}" onchange={{action "optionClick" option=target.value}}>
+  <select class="{{btnClass}} uni-dropdown__button uni-dropdown__button--native-mobile {{errorClass}}" onchange={{action "optionClick" option=target}}>
     {{#each options as |option|}}
       <option value="{{if option.value option.value option}}" selected={{eq selected (if option.value option.value option)}}>{{yield option}}</option>
     {{/each}}
