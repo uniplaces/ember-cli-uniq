@@ -5,6 +5,7 @@ import RangeDaysComponent from 'ember-power-calendar/components/power-calendar-r
 
 export default RangeDaysComponent.extend({
   layout,
+  classNames: ['uni-datepicker-range-day'],
   minimumStay: null,
   highlightedDates: [],
 
@@ -67,7 +68,6 @@ export default RangeDaysComponent.extend({
     onMouseOut(ev, day) {
       this.get('onMouseOut')(ev, day);
     },
-
     onDisabledClick() {
       this.get('onDisabledClick')();
     }

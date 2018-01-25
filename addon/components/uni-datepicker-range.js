@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export default Component.extend({
   layout,
-  classNames: ['uni-datepicker-range'],
+  classNames: ['uni-datepicker-range'],
 
   center: moment(),
   minDate: moment(),

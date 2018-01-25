@@ -73,13 +73,13 @@ $desktop-datepicker-width: 276px;
 
             &--range-start,
             &--first-highlighted {
-                background-image: url(assetsRootURL() + "assets/images/filters/first-highlighted.svg");
+                background-image: url(assetsRootURL() + "assets/images/ember-cli-uniq/first-highlighted.svg");
                 background-position: 5px 6px;
             }
 
             &--range-end,
             &--last-highlighted {
-                background-image: url(assetsRootURL() + "assets/images/filters/last-highlighted.svg");
+                background-image: url(assetsRootURL() + "assets/images/ember-cli-uniq/last-highlighted.svg");
                 background-position: 2px 6px;
             }
         }
