@@ -85,8 +85,8 @@ $desktop-datepicker-width: 276px;
         }
 
         &-nav {
-            @include flex();
-            @include align-items-center();
+            display: flex;
+            align-items: center;
 
             &-title {
                 @include font("IntervalNextReg");
@@ -100,8 +100,8 @@ $desktop-datepicker-width: 276px;
     }
 
     .calendar__nav {
-        @include flex();
-        @include align-items-start();
+        display: flex;
+        align-items: flex-start;
         width: 100%;
         left: 34px;
         margin-top: 10px;
