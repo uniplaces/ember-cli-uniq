@@ -62,34 +62,3 @@ test('it renders native select on mobile devices', function(assert) {
 
   assert.ok(find('select'));
 });
-
-test('it renders native select on mobile devices with key-value options object', function(assert) {
-  assert.expect(1);
-
-  setBreakpointForIntegrationTest(this, 'mobile');
-
-  this.set('options', [
-    { key: 'facebook', value: 'Facebook' },
-    { key: 'google', value: 'Google' }
-  ]);
-  this.set('selected', 'facebook');
-  this.set('selectedAlias', 'example');
-
-  this.render(hbs`{{uni-dropdown options=options selected=selected selectedAlias=selectedAlias media=media}}`);
-
-  assert.equal(this.$('select option')[0].value, this.get('options')[0].value);
-});
-
-test('it renders native select on mobile devices with an array of strings as options', function(assert) {
-  assert.expect(1);
-
-  setBreakpointForIntegrationTest(this, 'mobile');
-
-  this.set('options', ['facebook', 'google']);
-  this.set('selected', 'facebook');
-  this.set('selectedAlias', 'example');
-
-  this.render(hbs`{{uni-dropdown options=options selected=selected selectedAlias=selectedAlias media=media}}`);
-
-  assert.equal(this.$('select option')[0].value, this.get('options')[0]);
-});
