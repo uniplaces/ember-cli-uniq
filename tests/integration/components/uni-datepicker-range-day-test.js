@@ -4,14 +4,13 @@ import getOwner from 'ember-owner/get';
 import { findAll, find } from 'ember-native-dom-helpers';
 import moment from 'moment';
 
-let calendarService, momentService, calendar;
+let calendarService, calendar;
 
 moduleForComponent('uni-datepicker-range-day', 'Integration | Component | uni datepicker range day', {
   integration: true,
   beforeEach() {
     calendarService = getOwner(this).lookup('service:power-calendar');
     calendarService.set('date', new Date(2016, 7, 18));
-    momentService = getOwner(this).lookup('service:moment');
     calendar = {
       center: moment(calendarService.getDate()),
       locale: 'pt',
