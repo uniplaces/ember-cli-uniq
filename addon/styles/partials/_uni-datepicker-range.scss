@@ -1,10 +1,10 @@
 $box-size: 36px;
 $animation-time: 200ms;
-$datepicker-width: 238px;
-$tablet-datepicker-width: 264px;
-$desktop-datepicker-width: 276px;
+$desktop-datepicker-width: 260px;
 
 .uni-datepicker-range {
+    max-width: $desktop-datepicker-width;
+
     .ember-power-calendar {
         @include font("IntervalNextReg");
 
@@ -125,6 +125,7 @@ $desktop-datepicker-width: 276px;
 
         &__month-name {
             width: 100%;
+            text-align: center;
         }
     }
 

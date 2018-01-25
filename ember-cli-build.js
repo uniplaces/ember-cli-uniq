@@ -1,7 +1,7 @@
 /* eslint-env node */
 'use strict';
-
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const sass = require('node-sass');
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
@@ -9,7 +9,10 @@ module.exports = function(defaults) {
       'tests/dummy/app/templates/snippets'
     ],
     sassOptions: {
-      extension: 'scss'
+      extension: 'scss',
+      functions: {
+        assetsRootURL: () => new sass.types.String('/')
+      }
     },
     svg: {
       paths: [

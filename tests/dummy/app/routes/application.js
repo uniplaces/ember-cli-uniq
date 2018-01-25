@@ -147,7 +147,14 @@ export default Route.extend({
         { key: 'JMD', value: 'Dollar jamaicano' },
         { key: 'EUR', value: 'Euro' },
         { key: 'BRL', value: 'Real brasileiro' }
-      ]
+      ],
+      datepickerRange: {
+        center: moment(),
+        selected: {
+          start: moment(),
+          end: moment().add(29, 'day')
+        }
+      }
     };
   },
 
