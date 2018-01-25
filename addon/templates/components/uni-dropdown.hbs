@@ -1,35 +1,27 @@
-{{#if media.isMobile}}
-  <select class="{{btnClass}} uni-dropdown__button uni-dropdown__button--native-mobile {{errorClass}}" onchange={{action "optionClick" option=target}}>
-    {{#each options as |option|}}
-      <option value="{{if option.value option.value option}}" selected={{eq selected (if option.value option.value option)}}>{{yield option}}</option>
-    {{/each}}
-  </select>
-{{else}}
-  <div role="button" class="{{btnClass}} uni-dropdown__button {{errorClass}}" {{action "buttonClick"}}>
-    {{#if selected}}
-      {{#if selectedAlias}}
-        {{selectedAlias}}
-      {{else}}
-        {{selected}}
-      {{/if}}
+<div role="button" class="{{btnClass}} uni-dropdown__button {{errorClass}}" {{action "buttonClick"}}>
+  {{#if selected}}
+    {{#if selectedAlias}}
+      {{selectedAlias}}
     {{else}}
-      {{placeholder}}
+      {{selected}}
     {{/if}}
-
-    {{#if selectedSvgs}}
-      <div class="uni-dropdown__svg-group">
-        {{#each selectedSvgs as |svg|}}
-          {{inline-svg svg}}
-        {{/each}}
-      </div>
-    {{/if}}
-  </div>
-
-  {{#if isOpen}}
-    <ul class="uni-dropdown__wrapper">
-      {{#each options as |option|}}
-        <li class="uni-dropdown__item" {{action "optionClick" option}}>{{yield option}}</li>
-      {{/each}}
-    </ul>
+  {{else}}
+    {{placeholder}}
   {{/if}}
+
+  {{#if selectedSvgs}}
+    <div class="uni-dropdown__svg-group">
+      {{#each selectedSvgs as |svg|}}
+        {{inline-svg svg}}
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+{{#if isOpen}}
+  <ul class="uni-dropdown__wrapper">
+    {{#each options as |option|}}
+      <li class="uni-dropdown__item" {{action "optionClick" option}}>{{yield option}}</li>
+    {{/each}}
+  </ul>
 {{/if}}

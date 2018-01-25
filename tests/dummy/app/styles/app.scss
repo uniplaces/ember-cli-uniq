@@ -101,6 +101,10 @@ body {
     background-color: #fafafa;
     padding-top: 16px;
 
+    @include breakpoint("medium") {
+      display: none;
+    }
+
     li {
       a {
         display: block;
