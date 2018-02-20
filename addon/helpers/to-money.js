@@ -1,7 +1,7 @@
-import Helper from '@ember/component/helper';
 import { isEmpty } from '@ember/utils';
-import toMoneyUtil from 'ember-cli-uniq/utils/to-money';
+import Helper from '@ember/component/helper';
 import { inject as service } from '@ember/service';
+import toMoney from 'ember-cli-uniq/utils/to-money';
 
 const DEFAULT_LOCALE = 'pt-pt';
 
@@ -18,6 +18,6 @@ export default Helper.extend({
     let locale = i18n.get('locale') || DEFAULT_LOCALE;
     let { amount, currency_code } = params;
 
-    return toMoneyUtil(amount, currency_code, locale);
+    return toMoney(amount, currency_code, locale);
   }
 });
