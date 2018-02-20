@@ -1,9 +1,15 @@
-import CurrencyTypeSymbol from 'ember-cli-uniq/enums/currency-symbol-type';
-
-const LEFT_DISPLAYED_CURRENCIES = ['GBP'];
-
-export default function toMoney(amount, currencyCode) {
-  return LEFT_DISPLAYED_CURRENCIES.includes(currencyCode)
-    ? `${CurrencyTypeSymbol[currencyCode]}${amount / 100}`
-    : `${amount / 100}${CurrencyTypeSymbol[currencyCode]}`;
+/* eslint new-cap: ["off"] */
+export default function toMoney(amount, currencyCode = 'EUR', locale = 'pt-pt') {
+  return Intl.NumberFormat(
+    locale,
+    {
+      style: 'currency',
+      currency: currencyCode,
+      maximumFractionDigits: 0,
+      minimumFractionDigits: 0,
+      useGrouping: false
+    }
+  )
+    .format(amount / 100)
+    .replace(/\s/g, '');
 }
