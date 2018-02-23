@@ -3,7 +3,7 @@ import Helper from '@ember/component/helper';
 import { inject as service } from '@ember/service';
 import toMoney from 'ember-cli-uniq/utils/to-money';
 
-const DEFAULT_LOCALE = 'pt-pt';
+const DEFAULT_LOCALE = 'en-gb';
 
 export default Helper.extend({
   i18n: service('i18n'),
