@@ -15,6 +15,7 @@ export default Component.extend(ClickOutside, {
   value: '',
   showOptions: false,
   hasError: false,
+  disableFiltering: false,
   highlighted: 0,
   maxOptionsToShow: 4,
   autocomplete: 'off',
@@ -33,10 +34,14 @@ export default Component.extend(ClickOutside, {
     return this.get('value').toLowerCase();
   }),
 
-  optionsFiltered: computed('value', {
+  optionsFiltered: computed('value', 'options', {
     get() {
       if (isBlank(this.get('value'))) {
         return [];
+      }
+
+      if (this.get('disableFiltering')) {
+        return A(this.get('options').map((opt) => ({ option: opt, matchedValues: A(this.get('options')) })));
       }
 
       let options = this.get('options').map((option) => {
