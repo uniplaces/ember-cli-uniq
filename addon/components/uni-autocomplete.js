@@ -45,8 +45,7 @@ export default Component.extend(ClickOutside, {
       }
 
       let options = this.get('options').map((option) => {
-        let options = this.get('searchTextValues')(option).map((x) => x.toLowerCase());
-        let matchedValues = A(options.filter((el) => el.startsWith(this.get('valueLowerCase'))));
+        let matchedValues = this.filterFunction(this.get('searchTextValues'), option);
 
         return { option, matchedValues };
       });
@@ -119,6 +118,13 @@ export default Component.extend(ClickOutside, {
     return isEmpty(option)
       ? this.set('showOptions', false)
       : this.selectOption(option);
+  },
+
+  filterFunction(getSearchTextValues, option) {
+    let options = getSearchTextValues(option).map((x) => x.toLowerCase());
+    let matchedValues = A(options.filter((el) => el.startsWith(this.get('valueLowerCase'))));
+
+    return matchedValues;
   },
 
   _handleKeyPress(ev) {
