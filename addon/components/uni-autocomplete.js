@@ -15,7 +15,6 @@ export default Component.extend(ClickOutside, {
   value: '',
   showOptions: false,
   hasError: false,
-  disableFiltering: false,
   highlighted: 0,
   maxOptionsToShow: 4,
   autocomplete: 'off',
@@ -40,12 +39,8 @@ export default Component.extend(ClickOutside, {
         return [];
       }
 
-      if (this.get('disableFiltering')) {
-        return A(this.get('options').map((opt) => ({ option: opt, matchedValues: A(this.get('options')) })));
-      }
-
       let options = this.get('options').map((option) => {
-        let matchedValues = this.filterFunction(this.get('searchTextValues'), option);
+        let matchedValues = this.get('filterFunction')(this.get('searchTextValues'), option);
 
         return { option, matchedValues };
       });
