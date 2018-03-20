@@ -40,7 +40,7 @@ export default Component.extend(ClickOutside, {
       }
 
       let options = this.get('options').map((option) => {
-        let matchedValues = this.get('filterFunction')(this.get('searchTextValues'), option);
+        let matchedValues = this.filterFunction(this.get('searchTextValues'), option);
 
         return { option, matchedValues };
       });
