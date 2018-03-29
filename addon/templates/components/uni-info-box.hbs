@@ -1,13 +1,13 @@
 {{#uni-modal
   isOpen=showInfoModal
-  title=(i '${infoSvg} ${title}' infoSvg=(inline-svg "icons/info.svg") title=title)
+  title=(i '${infoSvg} ${title}' infoSvg=(inline-svg "essential/icons/info.svg") title=title)
   onCloseModal=(action (toggle 'showInfoModal' this))}}
   {{yield}}
 {{/uni-modal}}
 
 <div class="uni-info-box">
   <div class="uni-info-box__wrapper">
-    {{inline-svg "icons/info.svg"}}
+    {{inline-svg "essential/icons/info.svg"}}
 
     <div class="uni-info-box__title">
       {{{title}}}
@@ -17,5 +17,5 @@
 </div>
 
 <div class="uni-info-box-mobile-button" {{action (toggle "showInfoModal" this)}}>
-  {{inline-svg "icons/info.svg"}}
+  {{inline-svg "essential/icons/info.svg"}}
 </div>
