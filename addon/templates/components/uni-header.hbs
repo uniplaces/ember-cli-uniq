@@ -1,14 +1,14 @@
 <div class="uni-header__wrapper">
   {{#if logoUrl}}
     <a href="{{logoUrl}}">
-      {{inline-svg (if isTransparent "essential/uniplaces_logo_white.svg" "essential/uniplaces_logo.svg")}}
+      {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
     </a>
   {{else if logoRoute}}
     {{#link-to logoRoute}}
-      {{inline-svg (if isTransparent "essential/uniplaces_logo_white.svg" "essential/uniplaces_logo.svg")}}
+      {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
     {{/link-to}}
   {{else}}
-    {{inline-svg (if isTransparent "essential/uniplaces_logo_white.svg" "essential/uniplaces_logo.svg")}}
+    {{inline-svg (if isTransparent "uniplaces_logo_white.svg" "uniplaces_logo.svg")}}
   {{/if}}
 
   {{yield}}
