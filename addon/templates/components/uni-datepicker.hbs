@@ -5,13 +5,13 @@
   onSelect=(action onSelect value="moment") as |calendar|}}
   <nav class="ember-power-calendar-nav">
     <div role="button" class="ember-power-calendar-nav-control {{isFirstMonth}}" {{action "prevMonth"}}>
-      {{inline-svg "essential/icons/arrow-left-calendar"}}
+      {{inline-svg "icons/arrow-left-calendar"}}
     </div>
     <div class="ember-power-calendar-nav-title">
       {{moment-format calendar.center dateFormat}}
     </div>
     <div role="button" class="ember-power-calendar-nav-control {{isLastMonth}}" {{action "nextMonth"}}>
-      {{inline-svg "essential/icons/arrow-right-calendar"}}
+      {{inline-svg "icons/arrow-right-calendar"}}
     </div>
   </nav>
 
