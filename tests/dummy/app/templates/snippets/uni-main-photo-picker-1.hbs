@@ -3,7 +3,7 @@
   photos=photos
   mainPhotoUrl=mainPhotoUrl as |photo|}}
   <div class="uni-image-gallery__wrapper__item__main {{if (eq mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
-    {{inline-svg (i "icons/main-photo-${type}.svg" type=(if (eq mainPhotoUrl photo.url) 'on' 'off'))}}
+    {{inline-svg (i "essential/icons/main-photo-${type}" type=(if (eq mainPhotoUrl photo.url) 'on' 'off'))}}
     Cover Photo
   </div>
 {{/uni-main-photo-picker}}

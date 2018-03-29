@@ -1,5 +1,5 @@
 <div class="demo-app__banner">
-  {{uni-title title="ember-cli-uniq" subtitle=(concat "made with ♥ at " (inline-svg "uniplaces_logo_white"))}}
+  {{uni-title title="ember-cli-uniq" subtitle=(concat "made with ♥ at " (inline-svg "essential/uniplaces_logo_white"))}}
   <div class="demo-app__banner__current-version">Current version: <span>{{app-version}}</span></div>
 </div>
 
@@ -216,7 +216,7 @@
         {{uni-title title="uni-datepicker-range"}}
         {{component-links component="uni-datepicker-range"}}
         <p class="description">
-          This component shows a datepicker that is ready to select a range of dates.  
+          This component shows a datepicker that is ready to select a range of dates.
         </p>
         {{uni-datepicker-range center=model.datepickerRange.center selected=model.datepickerRange.selected}}
         {{code-snippet name="uni-datepicker-range.hbs"}}
@@ -283,7 +283,7 @@
           placeholder="Select one"
           onChange=(action (mut model.secondDropdown))
           selectedAlias=(i 'Alias example - ${selected}' selected=model.secondDropdown.value)
-          selectedSvgs=(if model.secondDropdown null (array 'icons/google' 'icons/facebook'))
+          selectedSvgs=(if model.secondDropdown null (array 'essential/icons/google' 'essential/icons/facebook'))
           options=model.dropdownOptions as |option|}}
           {{option.value}}
         {{/uni-dropdown}}
@@ -555,7 +555,7 @@
         photos=model.photos
         mainPhotoUrl=model.mainPhotoUrl as |photo|}}
         <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
-          {{inline-svg (i "icons/main-photo-${type}.svg" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
+          {{inline-svg (i "essential/icons/main-photo-${type}" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
           Cover Photo
         </div>
       {{/uni-main-photo-picker}}

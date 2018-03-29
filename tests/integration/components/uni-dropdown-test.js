@@ -36,7 +36,7 @@ test('it renders given svg', function(assert) {
     { key: 'google', value: 'Google' }
   ]);
   this.set('selected', 'google');
-  this.set('selectedSvgs', ['icons/google']);
+  this.set('selectedSvgs', ['essential/icons/google']);
 
   this.render(hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`);
 

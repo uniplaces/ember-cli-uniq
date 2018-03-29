@@ -4,7 +4,7 @@
   placeholder="Select one"
   onChange=(action (mut selected))
   selectedAlias=(i 'Alias example - ${selected}' selected=selected.value)
-  selectedSvgs=(if selected null (array 'icons/google' 'icons/facebook'))
+  selectedSvgs=(if selected null (array 'essential/icons/google' 'essential/icons/facebook'))
   options=dropdownOptions as |option|}}
   {{option}}
 {{/uni-dropdown}}
