@@ -8,13 +8,13 @@
   onSelect=(action onSelect value="moment") as |calendar|}}
   <div class="calendar__nav">
     <div role="button" class="calendar__nav__control {{isFirstMonth}}" {{action "previousMonth"}}>
-      {{inline-svg "icons/calendar-arrow" class="left-arrow"}}
+      {{inline-svg "essential/icons/calendar-arrow" class="left-arrow"}}
     </div>
     <div role="button" class="calendar__nav__month-name">
       {{moment-format center titleFormat}}
     </div>
     <div role="button" class="calendar__nav__control {{isLastMonth}}" {{action "nextMonth"}}>
-      {{inline-svg "icons/calendar-arrow"}}
+      {{inline-svg "essential/icons/calendar-arrow"}}
     </div>
   </div>
 

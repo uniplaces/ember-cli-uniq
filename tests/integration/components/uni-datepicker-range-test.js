@@ -16,14 +16,17 @@ test('it renders', function(assert) {
 });
 
 test('it changes months and calls onSelect', async function(assert) {
-  let day = moment().add(5, 'day');
+  let center = moment('2020-04-01', 'YYYY-MM-DD');
+  let day = center.clone().add(5, 'day');
+
+  this.set('center', center);
 
   this.set('onSelect', ({ start, end }) => {
     assert.ok(start.format('ddd'), day.format('ddd'), 'calls onSelect with right date');
     assert.notOk(end, 'end is null on first click');
   });
 
-  this.render(hbs`{{uni-datepicker-range onSelect=onSelect}}`);
+  this.render(hbs`{{uni-datepicker-range center=center onSelect=onSelect}}`);
 
   await click(`[data-date="${day.format('YYYY-MM-DD')}"]`);
 });
