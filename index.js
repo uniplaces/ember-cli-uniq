@@ -12,15 +12,17 @@ module.exports = {
     let addonOptions = (this.parent && this.parent.options) || (this.app && this.app.options) || {};
     let config = addonOptions[this.name] || {};
 
-    this.excludeFlags = config.excludeFlags;
+    this.excludeAssets = config.excludeAssets;
   },
 
   treeForPublic() {
     let tree = this._super.treeForPublic.apply(this, arguments);
 
-    if (this.excludeFlags) {
+    if (this.excludeAssets) {
       return new Funnel(tree, {
-        exclude: ['public/assets/images/flags']
+        exclude: this.excludeAssets.map((assetPath) => {
+          return `public/assets/${assetPath}`;
+        })
       });
     }
 
