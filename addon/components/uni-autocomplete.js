@@ -72,6 +72,8 @@ export default Component.extend({
     return optionText.replace(matchingLetters, value);
   }),
 
+  onFocusOut() {},
+
   actions: {
     onSelected(option) {
       this.selectOption(option);
@@ -90,11 +92,15 @@ export default Component.extend({
       this.set('showOptions', true);
     },
 
-    onFocusOut() {
+    selectHighlightedOption() {
       let highlightedOption = this.get('autocompleteOption');
       if (isPresent(highlightedOption)) {
         this.selectOption(highlightedOption);
       }
+    },
+
+    onFocusOut() {
+      this.get('onFocusOut')();
     }
   },
 
