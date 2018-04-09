@@ -6,7 +6,7 @@
   }
 
   &:not(.uni-tooltip--alternative) {
-    @media (max-width: 767px) {
+    @include breakpoint("x-medium") {
       min-width: 60%;
       max-width: 80%;
       width: auto;
@@ -33,7 +33,7 @@
     }
 
     .uni-tooltip__text {
-      @media (min-width: 767px) {
+      @include breakpoint("x-medium") {
         position: relative;
         left: 0;
       }
