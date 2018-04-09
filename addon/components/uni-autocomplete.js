@@ -2,12 +2,11 @@ import { computed } from '@ember/object';
 import { isPresent, isBlank, isEmpty } from '@ember/utils';
 import Component from '@ember/component';
 import layout from '../templates/components/uni-autocomplete';
-import ClickOutside from '../mixins/click-outside';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
 import { A } from '@ember/array';
 import { capitalize } from '@ember/string';
 
-export default Component.extend(ClickOutside, {
+export default Component.extend({
   classNames: ['uni-autocomplete'],
   layout,
   noResultsComponent: 'uni-autocomplete-no-results',
@@ -73,6 +72,8 @@ export default Component.extend(ClickOutside, {
     return optionText.replace(matchingLetters, value);
   }),
 
+  onFocusOut() {},
+
   actions: {
     onSelected(option) {
       this.selectOption(option);
@@ -89,6 +90,17 @@ export default Component.extend(ClickOutside, {
     showOptions() {
       this.set('highlighted', 0);
       this.set('showOptions', true);
+    },
+
+    selectHighlightedOption() {
+      let highlightedOption = this.get('autocompleteOption');
+      if (isPresent(highlightedOption)) {
+        this.selectOption(highlightedOption);
+      }
+    },
+
+    onFocusOut() {
+      this.get('onFocusOut')();
     }
   },
 
@@ -97,22 +109,6 @@ export default Component.extend(ClickOutside, {
 
     this.get('onSelected')(option);
     this.set('showOptions', false);
-  },
-
-  isComponentDestroyed() {
-    return this.get('isDestroyed') || this.get('isDestroying');
-  },
-
-  onOutsideClick() {
-    if (this.isComponentDestroyed() || !this.get('showOptions')) {
-      return;
-    }
-
-    let option = this.get('autocompleteOption');
-
-    return isEmpty(option)
-      ? this.set('showOptions', false)
-      : this.selectOption(option);
   },
 
   filterFunction(getSearchTextValues, option) {

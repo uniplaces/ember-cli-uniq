@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { fillIn, keyEvent } from 'ember-native-dom-helpers';
+import { fillIn, keyEvent, triggerEvent, find } from 'ember-native-dom-helpers';
 import { A } from '@ember/array';
 
 moduleForComponent('uni-autocomplete', 'Integration | Component | uni autocomplete', {
@@ -70,4 +70,17 @@ test('it works with a custom filter function', async function(assert) {
 
   await fillIn('.uni-input', 'A');
   await keyEvent('.uni-input', 'keydown', letterAKeyCode);
+});
+
+test('It selects a highlighted option when focusing out', async function(assert) {
+  assert.expect(1);
+
+  this.setProperties({ searchTextValues: (option) => [option], options: ['ABC', 'A', 'B', 'C'] });
+
+  this.render(hbs`{{uni-autocomplete options=options searchTextValues=searchTextValues}}`);
+
+  await fillIn('input', 'ab');
+  await triggerEvent('input', 'blur');
+
+  assert.equal(find('input').value, 'Abc');
 });
