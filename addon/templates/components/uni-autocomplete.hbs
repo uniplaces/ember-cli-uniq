@@ -5,6 +5,7 @@
   placeholder=(if placeholder placeholder placeholderText)
   autocomplete=autocomplete
   focus-in=(action "showOptions")
+  focus-out=(action "onFocusOut")
   class=(i 'uni-input uni-input--bordered ${errorClass}' errorClass=(if hasError 'uni-input--error'))
   key-down=(action "keyPress")}}
 
