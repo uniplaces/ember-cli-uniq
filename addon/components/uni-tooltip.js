@@ -19,8 +19,8 @@ export default Component.extend(ClickOutsideMixin, {
   isAlternative: false,
   yieldContent: false,
   expandAbove: false,
-
   wrapperSelector: window,
+
   onClick() {},
 
   onOutsideClick() {
