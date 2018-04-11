@@ -20,6 +20,7 @@ export default Component.extend(ClickOutsideMixin, {
   isActive: false,
   isAlternative: false,
   yieldContent: false,
+  expandAbove: false,
 
   onClick() {},
 
@@ -61,7 +62,10 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   _setTopPositionMobile() {
-    let topPosition = this.$().offset().top - $(window).scrollTop() + this.$().height() + MARGIN_TOP;
+    let topPosition = this.get('expandAbove')
+      ? this.$().offset().top - $(window).scrollTop() - this.$('.uni-tooltip__text').height() - this.$().height() - MARGIN_TOP
+      : this.$().offset().top - $(window).scrollTop() + this.$().height() + MARGIN_TOP;
+
     this.$('.uni-tooltip__text').css('top', `${topPosition}px`);
   },
 
