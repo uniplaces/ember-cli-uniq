@@ -62,9 +62,11 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   _setTopPositionMobile() {
+    let alignWithTooltipIconOffset = this.$().offset().top - $(window).scrollTop();
+
     let topPosition = this.get('expandAbove')
-      ? this.$().offset().top - $(window).scrollTop() - this.$('.uni-tooltip__text').height() - this.$().height() - MARGIN_TOP
-      : this.$().offset().top - $(window).scrollTop() + this.$().height() + MARGIN_TOP;
+      ? alignWithTooltipIconOffset - this.$('.uni-tooltip__text').outerHeight()
+      : alignWithTooltipIconOffset + this.$().outerHeight();
 
     this.$('.uni-tooltip__text').css('top', `${topPosition}px`);
   },
