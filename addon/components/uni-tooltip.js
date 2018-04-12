@@ -5,8 +5,6 @@ import { run } from '@ember/runloop';
 import layout from '../templates/components/uni-tooltip';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
-const MARGIN_TOP = 8;
-
 export default Component.extend(ClickOutsideMixin, {
   tagName: 'span',
   classNames: ['uni-tooltip'],
