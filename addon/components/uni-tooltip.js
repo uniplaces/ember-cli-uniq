@@ -5,8 +5,6 @@ import { run } from '@ember/runloop';
 import layout from '../templates/components/uni-tooltip';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
-const MARGIN_TOP = 8;
-
 export default Component.extend(ClickOutsideMixin, {
   tagName: 'span',
   classNames: ['uni-tooltip'],
@@ -20,6 +18,7 @@ export default Component.extend(ClickOutsideMixin, {
   isActive: false,
   isAlternative: false,
   yieldContent: false,
+  expandAbove: false,
 
   onClick() {},
 
@@ -61,7 +60,12 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   _setTopPositionMobile() {
-    let topPosition = this.$().offset().top - $(window).scrollTop() + this.$().height() + MARGIN_TOP;
+    let alignWithTooltipIconOffset = this.$().offset().top - $(window).scrollTop();
+
+    let topPosition = this.get('expandAbove')
+      ? alignWithTooltipIconOffset - this.$('.uni-tooltip__text').outerHeight()
+      : alignWithTooltipIconOffset + this.$().outerHeight();
+
     this.$('.uni-tooltip__text').css('top', `${topPosition}px`);
   },
 
