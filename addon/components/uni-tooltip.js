@@ -19,6 +19,7 @@ export default Component.extend(ClickOutsideMixin, {
   isAlternative: false,
   yieldContent: false,
   expandAbove: false,
+  wrapperSelector: window,
 
   onClick() {},
 
@@ -30,7 +31,9 @@ export default Component.extend(ClickOutsideMixin, {
     this._hideTooltip();
   },
 
-  click() {
+  click(ev) {
+    ev.stopPropagation();
+
     this.get('onClick')();
 
     if (this.get('isAlternative')) {
@@ -51,12 +54,12 @@ export default Component.extend(ClickOutsideMixin, {
 
   _showTooltip() {
     this.set('isActive', true);
-    $(window).bind('scroll.uni-tooltip', () => this._hideTooltip());
+    $(this.get('wrapperSelector')).bind('scroll.uni-tooltip', () => this._hideTooltip());
   },
 
   _hideTooltip() {
     this.set('isActive', false);
-    $(window).unbind('scroll.uni-tooltip');
+    $(this.get('wrapperSelector')).unbind('scroll.uni-tooltip');
   },
 
   _setTopPositionMobile() {
