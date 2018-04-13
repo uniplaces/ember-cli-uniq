@@ -74,5 +74,5 @@ export default Component.extend(ClickOutsideMixin, {
 
   isComponentDestroyed() {
     return this.get('isDestroyed') || this.get('isDestroying');
-  },
+  }
 });
