@@ -38,15 +38,15 @@ export default Component.extend(ClickOutsideMixin, {
       if (this.get('isAlternative')) {
         return;
       }
-  
+
       if (this.get('isActive')) {
         this._hideTooltip();
-  
+
         return;
       }
-  
+
       this._showTooltip();
-      if (this.get('media.isMobile')) {
+      if (this.get('media.isMobile')) { 
         run.later(this, () => this._setTopPositionMobile(), 0);
       }
     }
