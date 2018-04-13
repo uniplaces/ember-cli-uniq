@@ -46,7 +46,7 @@ export default Component.extend(ClickOutsideMixin, {
       }
 
       this._showTooltip();
-      if (this.get('media.isMobile')) { 
+      if (this.get('media.isMobile')) {
         run.later(this, () => this._setTopPositionMobile(), 0);
       }
     }
