@@ -31,24 +31,24 @@ export default Component.extend(ClickOutsideMixin, {
     this._hideTooltip();
   },
 
-  click(ev) {
-    ev.stopPropagation();
+  actions: {
+    onTapOrClick() {
+      this.get('onClick')();
 
-    this.get('onClick')();
+      if (this.get('isAlternative')) {
+        return;
+      }
 
-    if (this.get('isAlternative')) {
-      return;
-    }
+      if (this.get('isActive')) {
+        this._hideTooltip();
 
-    if (this.get('isActive')) {
-      this._hideTooltip();
+        return;
+      }
 
-      return;
-    }
-
-    this._showTooltip();
-    if (this.get('media.isMobile')) {
-      run.later(this, () => this._setTopPositionMobile(), 0);
+      this._showTooltip();
+      if (this.get('media.isMobile')) {
+        run.later(this, () => this._setTopPositionMobile(), 0);
+      }
     }
   },
 
