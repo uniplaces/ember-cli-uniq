@@ -21,14 +21,14 @@ export default Component.extend({
   action() {},
 
   click() {
-    this.set('isLoading', true);
+    this.trySetLoading(true);
 
     let result = this.get('action')();
     if (result && result.then) {
       return result.then(() => this.trySetLoading(false), () => this.trySetLoading(false));
     }
 
-    this.set('isLoading', false);
+    this.trySetLoading(false);
   },
 
   isComponentDestroyed() {
@@ -36,6 +36,6 @@ export default Component.extend({
   },
 
   trySetLoading(value) {
-    return this.isComponentDestroyed() ||  this.set('isLoading', value);
+    return this.isComponentDestroyed() || this.set('isLoading', value);
   }
 });
