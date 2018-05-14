@@ -8,21 +8,28 @@ export default Component.extend({
   layout,
   baseCssClass: 'uni-modal',
   modifierCssClass: '',
-
-  title: null,
   customCssComponentClass: '',
+  bodyOverflowClass: 'overflow-hidden',
+  title: null,
   hasSeparator: true,
   hasCloseButton: true,
   renderInPlace: false,
   isOpen: null,
+
   onCloseModal() {},
 
   // This observer is used to bypass the scroll on mobile when a modal is open
   onOpenChangeObserver: observer('isOpen', function() {
-    let overflowClass = 'overflow-hidden';
-
-    this.get('isOpen') ? $('body').addClass(overflowClass) : $('body').removeClass(overflowClass);
+    this.get('isOpen')
+      ? $('body').addClass(this.get('bodyOverflowClass'))
+      : $('body').removeClass(this.get('bodyOverflowClass'));
   }),
+
+  didDestroyElement() {
+    this._super(...arguments);
+
+    $('body').removeClass(this.get('bodyOverflowClass'));
+  },
 
   actions: {
     onCloseModal() {
