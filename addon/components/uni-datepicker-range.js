@@ -15,6 +15,7 @@ export default Component.extend({
   disabledDates: [],
   highlightedDates: [],
   minimumStay: null,
+  proximitySelection: false,
 
   onSelect() {},
   onCenter() {},
