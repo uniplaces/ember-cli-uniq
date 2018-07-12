@@ -28,3 +28,21 @@ test('it renders and renders items', function(assert) {
   assert.notEqual(this.$().text().trim(), '');
   assert.equal(this.$('.uni-tabs__wrapper__item a').text().trim(), DEFAULT_LABEL);
 });
+
+test('it renders yielded content', function(assert) {
+  assert.expect(2);
+
+  this.set('tabs', [{
+    label: '',
+    url: '',
+    text: DEFAULT_LABEL
+  }]);
+
+  this.render(hbs`
+    {{#uni-tabs tabs=tabs as |tab|}}
+      {{tab.text}}
+    {{/uni-tabs}}`);
+
+  assert.notEqual(this.$().text().trim(), '');
+  assert.equal(this.$('.uni-tabs__wrapper__item a').text().trim(), DEFAULT_LABEL);
+});
