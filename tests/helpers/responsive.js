@@ -1,20 +1,18 @@
 import Ember from 'ember';
 import MediaService from 'ember-responsive/media';
+import { getOwner } from '@ember/application';
+import { computed } from '@ember/object';
+import EmberArray from '@ember/array';
+import { classify } from '@ember/string';
 
-const {
-  getOwner,
-  computed,
-  A,
-  Test,
-  String: { classify }
-} = Ember;
+const { Test } = Ember;
 
 MediaService.reopen({
   // Change this if you want a different default breakpoint in tests.
   _defaultBreakpoint: 'desktop',
 
   _breakpointArr: computed('breakpoints', function() {
-    return Object.keys(this.get('breakpoints')) || A([]);
+    return Object.keys(this.get('breakpoints')) || new EmberArray([]);
   }),
 
   _forceSetBreakpoint(breakpoint) {

@@ -1,5 +1,5 @@
-import Helper from 'ember-helper';
-import { isEmpty } from 'ember-utils';
+import Helper from '@ember/component/helper';
+import { isEmpty } from '@ember/utils';
 import toMoneyUtil from 'ember-cli-uniq/utils/to-money';
 
 export function toMoney([params]) {

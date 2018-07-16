@@ -29,12 +29,14 @@ export default Component.extend(EKMixin, {
     this.set('componentWidth', $('.uni-carrousel__container').width());
   },
 
+  // eslint-disable-next-line ember/no-on-calls-in-components
   keyLeft: on(keyUp('ArrowLeft'), function() {
     if (this.get('showPrev')) {
       this.decrementProperty('page');
     }
   }),
 
+  // eslint-disable-next-line ember/no-on-calls-in-components
   keyRight: on(keyUp('ArrowRight'), function() {
     if (this.get('showNext')) {
       this.incrementProperty('page');

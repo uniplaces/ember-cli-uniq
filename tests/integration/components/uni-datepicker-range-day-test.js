@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import getOwner from 'ember-owner/get';
+import { getOwner } from '@ember/application';
 import { findAll, find } from 'ember-native-dom-helpers';
 import moment from 'moment';
 

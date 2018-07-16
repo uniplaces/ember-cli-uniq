@@ -5,14 +5,17 @@ const DEVILS_NUMBER = 666 / 2; // Give this a proper name  (╯°□°）╯︵ 
 const ANIMATION_DURATION = 300;
 
 export default Component.extend({
+  init() {
+    this._super(...arguments);
 
-  options: {
-    anchorSelector: 'a[href^="#"]',
-    componentsSelector: '.components',
-    topBannerSelector: '.demo-app__banner',
-    containerSelector: '.container',
-    topBannerSmallerClass: 'demo-app__banner--smaller',
-    containerBiggerClass: 'container--bigger'
+    this.options = {
+      anchorSelector: 'a[href^="#"]',
+      componentsSelector: '.components',
+      topBannerSelector: '.demo-app__banner',
+      containerSelector: '.container',
+      topBannerSmallerClass: 'demo-app__banner--smaller',
+      containerBiggerClass: 'container--bigger'
+    };
   },
 
   didRender() {
