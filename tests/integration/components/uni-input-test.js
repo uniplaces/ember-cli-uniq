@@ -50,6 +50,18 @@ test('it renders error on invalid email', function(assert) {
   assert.dom('.uni-input--error').exists();
 });
 
+test('it does not render error on invalid email when flag showError is false', function(assert) {
+  assert.expect(2);
+
+  this.set('value', 'invalid-email@');
+  this.set('type', 'email');
+
+  this.render(hbs`{{uni-input value=value type=type showError=false}}`);
+
+  assert.dom('.uni-input').exists();
+  assert.dom('.uni-input--error').doesNotExist();
+});
+
 test('it renders error with default validations on empty required field', function(assert) {
   assert.expect(1);
 
@@ -144,22 +156,22 @@ test('it calls onKeyDown callback with value and isValid', async function(assert
   await keyEvent('input', 'keydown', KeyCodesType.DOWN_ARROW);
 });
 
-test('it triggers the email validation after the user inputs an invalid value', function(assert) {
+test('it triggers the email validation after the user inputs an invalid value', async function(assert) {
   assert.expect(3);
 
-  this.set('value', null);
+  this.set('value', 'this-is-an-invalid-email@');
   this.set('type', 'email');
   this.set('showError', false);
   this.set('onKeyUp', (value, isValid) => {
-    assert.notOk(isValid);
-    this.set('showError', isValid);
-  })
+    this.set('showError', !isValid);
+
+    assert.notOk(isValid, 'The current value is not valid');
+  });
 
   this.render(hbs`{{uni-input value=value type=type showError=showError onKeyUp=onKeyUp}}`);
 
   assert.dom('.uni-input--error').doesNotExist();
 
-  await fillIn('input', 'this-is-an-invalid-email@');
   await keyEvent('input', 'keyup', KeyCodesType.DOWN_ARROW);
 
   assert.dom('.uni-input--error').exists({ count: 1 });
