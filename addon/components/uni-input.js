@@ -31,10 +31,10 @@ export default Component.extend({
   showSuccess: null,
   showError: null,
   showWarning: null,
-  onKeyUp: null,
-  onKeyDown: null,
 
   onChange() {},
+  onKeyUp() {},
+  onKeyDown() {},
 
   isValid: computed('value', function() {
     switch (this.get('type')) {
@@ -114,6 +114,15 @@ export default Component.extend({
   actions: {
     onChange() {
       this.get('onChange')(this.get('value'), this.get('isValid'));
+    },
+
+    onKeyUp(event) {
+      console.log(event);
+      this.get('onKeyUp')(this.get('value'), this.get('isValid'));
+    },
+
+    onKeyDown() {
+      this.get('onKeyDown')(this.get('value'), this.get('isValid'));
     }
   },
 
