@@ -116,8 +116,7 @@ export default Component.extend({
       this.get('onChange')(this.get('value'), this.get('isValid'));
     },
 
-    onKeyUp(event) {
-      console.log(event);
+    onKeyUp() {
       this.get('onKeyUp')(this.get('value'), this.get('isValid'));
     },
 
