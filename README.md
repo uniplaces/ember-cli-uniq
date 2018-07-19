@@ -17,6 +17,23 @@ Install the ember-cli addon in your ember-cli project:
 $ ember install ember-cli-uniq
 ```
 
+## Upgrading
+
+To upgrade from `ember-cli-uniq@0.2` to `ember-cli-uniq@0.3` perform the following:
+
+* In `ember-cli-build.js` add this if you need access to the flags:
+```javascript
+let app = new EmberApp(defaults, {
+    // [...]
+    svg: {
+      // [...]
+      paths: [
+        // [...]
+        'node_modules/ember-cli-uniq/public/assets/flags/'
+      ]
+    }
+```
+
 ## Contributing
 
 Any contribution is welcome. Please read our [guidelines](CONTRIBUTING.md).
