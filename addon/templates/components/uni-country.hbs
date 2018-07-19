@@ -7,7 +7,7 @@
   noResultsText=noResultsText
   searchTextValues=(action "countryNames")
   onSelected=(action "changeCountryCode") as |optionSearchable|}}
-  {{inline-svg (i "flags/${code}" code=optionSearchable.option.code)}}
+  {{inline-svg (i "${code}" code=optionSearchable.option.code)}}
   {{#if hasBlock}}
     {{yield optionSearchable.option}}
   {{else}}
