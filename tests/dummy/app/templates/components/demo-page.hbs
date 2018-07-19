@@ -283,7 +283,7 @@
           placeholder="Select one"
           onChange=(action (mut model.secondDropdown))
           selectedAlias=(i 'Alias example - ${selected}' selected=model.secondDropdown.value)
-          selectedSvgs=(if model.secondDropdown null (array 'icons/google' 'icons/facebook'))
+          selectedSvgs=(if model.secondDropdown null (array 'images/icons/google' 'images/icons/facebook'))
           options=model.dropdownOptions as |option|}}
           {{option.value}}
         {{/uni-dropdown}}
@@ -558,7 +558,7 @@
         photos=model.photos
         mainPhotoUrl=model.mainPhotoUrl as |photo|}}
         <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
-          {{inline-svg (i "icons/main-photo-${type}.svg" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
+          {{inline-svg (i "images/icons/main-photo-${type}.svg" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
           Cover Photo
         </div>
       {{/uni-main-photo-picker}}

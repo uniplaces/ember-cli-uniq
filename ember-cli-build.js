@@ -16,7 +16,7 @@ module.exports = function(defaults) {
     },
     svg: {
       paths: [
-        'public/assets/images/'
+        'public/assets/'
       ]
     }
   });
