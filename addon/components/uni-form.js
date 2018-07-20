@@ -3,7 +3,9 @@ import layout from '../templates/components/uni-form';
 
 export default Component.extend({
   classNames: ['uni-form'],
+  classNameBindings: ['isValid:uni-form--valid:uni-form--invalid'],
   layout,
+
   isLoading: false,
   isValid: true,
 
