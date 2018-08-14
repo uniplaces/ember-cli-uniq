@@ -2,8 +2,9 @@ import Component from '@ember/component';
 import layout from '../templates/components/uni-form';
 
 export default Component.extend({
-  classNames: ['uni-form'],
   layout,
+  classNames: ['uni-form'],
+  classNameBindings: ['isValid:uni-form--valid:uni-form--invalid'],
 
   isLoading: false,
   isValid: true,
@@ -13,9 +14,11 @@ export default Component.extend({
   onSubmit() {},
 
   setIsLoading(value) {
-    if (!this._isComponentDestroyed()) {
-      this.set('isLoading', value);
+    if (this._isComponentDestroyed()) {
+      return;
     }
+
+    this.set('isLoading', value);
   },
 
   _isComponentDestroyed() {
@@ -28,7 +31,7 @@ export default Component.extend({
         return;
       }
 
-      this.set('isLoading', true);
+      this.setIsLoading(true);
 
       let promise = this.get('onSubmit')();
       if (promise && typeof promise.then === 'function') {
