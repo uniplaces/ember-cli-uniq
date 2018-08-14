@@ -4,19 +4,22 @@ import layout from '../templates/components/uni-form';
 export default Component.extend({
   classNames: ['uni-form'],
   layout,
+
   isLoading: false,
   isValid: true,
 
+  autocomplete: 'on',
+
   onSubmit() {},
 
-  isFormDestroyed() {
-    return this.get('isDestroyed') || this.get('isDestroying');
-  },
-
   setIsLoading(value) {
-    if (!this.isFormDestroyed()) {
+    if (!this._isComponentDestroyed()) {
       this.set('isLoading', value);
     }
+  },
+
+  _isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   },
 
   actions: {

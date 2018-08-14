@@ -1,8 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import getOwner from 'ember-owner/get';
 import { findAll, find } from 'ember-native-dom-helpers';
 import moment from 'moment';
+import { getOwner } from '@ember/application';
 
 let calendarService, calendar;
 
@@ -25,8 +25,12 @@ moduleForComponent('uni-datepicker-range-day', 'Integration | Component | uni da
 });
 
 test('it renders', function(assert) {
+  assert.expect(2);
+
   this.render(hbs`{{uni-datepicker-range-day calendar=calendar}}`);
 
-  assert.ok(find('.ember-power-calendar-row'));
-  assert.equal(findAll('.ember-power-calendar-day--current-month').length, 31, 'It rendered all days in center\'s month');
+  assert.dom('.ember-power-calendar-row').exists();
+  assert
+    .dom('.ember-power-calendar-day--current-month')
+    .exists({ count: 31 }, 'It rendered all days in center\'s month');
 });
