@@ -2,21 +2,27 @@ import Component from '@ember/component';
 import layout from '../templates/components/uni-form';
 
 export default Component.extend({
-  classNames: ['uni-form'],
   layout,
+  classNames: ['uni-form'],
+  classNameBindings: ['isValid:uni-form--valid:uni-form--invalid'],
+
   isLoading: false,
   isValid: true,
 
+  autocomplete: 'on',
+
   onSubmit() {},
 
-  isFormDestroyed() {
-    return this.get('isDestroyed') || this.get('isDestroying');
+  setIsLoading(value) {
+    if (this._isComponentDestroyed()) {
+      return;
+    }
+
+    this.set('isLoading', value);
   },
 
-  setIsLoading(value) {
-    if (!this.isFormDestroyed()) {
-      this.set('isLoading', value);
-    }
+  _isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
   },
 
   actions: {
@@ -25,7 +31,7 @@ export default Component.extend({
         return;
       }
 
-      this.set('isLoading', true);
+      this.setIsLoading(true);
 
       let promise = this.get('onSubmit')();
       if (promise && typeof promise.then === 'function') {

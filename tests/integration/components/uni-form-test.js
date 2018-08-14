@@ -1,26 +1,30 @@
 import RSVP from 'rsvp';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { find, click } from 'ember-native-dom-helpers';
+import { click } from 'ember-native-dom-helpers';
 
 moduleForComponent('uni-form', 'Integration | Component | uni form', {
   integration: true
 });
 
-test('it renders the yielded content', function(assert) {
-  assert.expect(2);
+test('it renders', function(assert) {
+  assert.expect(4);
+
+  this.set('label', 'This is a button label');
 
   this.render(hbs`
-    {{#uni-form}}
+    {{#uni-form label=label}}
       This is a form content
     {{/uni-form}}
   `);
 
-  assert.ok(find('.uni-form'));
-  assert.equal(find('.uni-form').textContent.trim(), 'This is a form content');
+  assert.dom('.uni-form').exists();
+  assert.dom('.uni-form').containsText('This is a form content');
+  assert.dom('.uni-button--primary').exists();
+  assert.dom('.uni-button--primary').hasText('This is a button label');
 });
 
-test('it renders the button label', function(assert) {
+test('it sets the autocomplete as "on" by default', function(assert) {
   assert.expect(2);
 
   this.set('label', 'This is a button label');
@@ -31,8 +35,24 @@ test('it renders the button label', function(assert) {
     {{/uni-form}}
   `);
 
-  assert.ok(find('.uni-button--primary'));
-  assert.equal(find('.uni-button--primary').textContent.trim(), 'This is a button label');
+  assert.dom('form').exists();
+  assert.dom('form').hasAttribute('autocomplete', 'on');
+});
+
+test('it sets the autocomplete to custom value', function(assert) {
+  assert.expect(2);
+
+  this.set('label', 'This is a button label');
+  this.set('autocomplete', 'off');
+
+  this.render(hbs`
+    {{#uni-form label=label autocomplete=autocomplete}}
+      This is a form content
+    {{/uni-form}}
+  `);
+
+  assert.dom('form').exists();
+  assert.dom('form').hasAttribute('autocomplete', 'off');
 });
 
 test('it calls onSubmit and stops the loading after promise', async function(assert) {
@@ -47,7 +67,7 @@ test('it calls onSubmit and stops the loading after promise', async function(ass
 
   this.render(hbs`{{uni-form isLoading=isLoading onSubmit=submit}}`);
 
-  click('.uni-button');
+  await click('.uni-button');
 
   assert.equal(this.get('isLoading'), false, 'it ends the loading');
 });
@@ -60,7 +80,7 @@ test('it calls onSubmit and works without it returning a promise', async functio
 
   this.render(hbs`{{uni-form isLoading=isLoading onSubmit=submit}}`);
 
-  click('.uni-button');
+  await click('.uni-button');
 
   assert.equal(this.get('isLoading'), false, 'it ends the loading');
 });

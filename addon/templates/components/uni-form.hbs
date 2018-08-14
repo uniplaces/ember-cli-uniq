@@ -1,6 +1,12 @@
-<form {{action "submit" on="submit"}}>
+<form {{action "submit" on="submit"}} autocomplete="{{autocomplete}}">
   {{yield}}
 
-  {{uni-button isPrimary=true isLoading=isLoading isDisabled=(not isValid) click=(action "submit") label=label}}
+  {{uni-button
+    isPrimary=true
+    isLoading=isLoading
+    isDisabled=(not isValid)
+    click=(action "submit")
+    label=label}}
+
   {{input type="submit"}}
 </form>
