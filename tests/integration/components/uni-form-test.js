@@ -1,7 +1,7 @@
 import RSVP from 'rsvp';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { find, click } from 'ember-native-dom-helpers';
+import { click } from 'ember-native-dom-helpers';
 
 moduleForComponent('uni-form', 'Integration | Component | uni form', {
   integration: true
