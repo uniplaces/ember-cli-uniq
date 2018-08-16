@@ -45,8 +45,11 @@ export default Component.extend({
   },
 
   _changeAliasValue(key) {
-    let { alias } = A(this.get('options')).findBy('key', key);
-    this.set('aliasValue', alias);
+    let option = A(this.get('options')).findBy('key', key);
+
+    if (isPresent(option)) {
+      this.set('aliasValue', option.alias);
+    }
   },
 
   _getFirstAvailableValue() {
