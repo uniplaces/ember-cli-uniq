@@ -4,15 +4,31 @@
       {{placeholder}}
     </option>
   {{/if}}
-  {{#each options as |option|}}
-    <option disabled={{option.disabled}} selected={{if (eq option.key selected) "selected"}} value={{option.key}} class="uni-select__option">
-      {{#if hasBlock}}
-        {{yield option}}
-      {{else}}
-        {{option.value}}
-      {{/if}}
-    </option>
-  {{/each}}
+  {{#if groups}}
+      {{#each groups as |group|}}
+        <optgroup label={{group.label}} key={{group.key}}>
+          {{#each group.options as |option|}}
+            <option disabled={{option.disabled}} selected={{if (eq option.key selected) "selected"}} value={{option.key}} class="uni-select__option">
+              {{#if hasBlock}}
+                {{yield option}}
+              {{else}}
+                {{option.value}}
+              {{/if}}
+            </option>
+          {{/each}}
+        </optgroup>
+      {{/each}}
+  {{else}}
+    {{#each options as |option|}}
+      <option disabled={{option.disabled}} selected={{if (eq option.key selected) "selected"}} value={{option.key}} class="uni-select__option">
+        {{#if hasBlock}}
+          {{yield option}}
+        {{else}}
+          {{option.value}}
+        {{/if}}
+      </option>
+    {{/each}}
+  {{/if}}
 </select>
 
 {{#if useAlias}}
