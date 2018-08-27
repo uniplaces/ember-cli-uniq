@@ -16,6 +16,7 @@
     "url": "https://github.com/uniplaces/ember-cli-uniq"
   },
   "scripts": {
+    "preinstall": "npm i -g ember-cli@^2.3.1",
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each",
