@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import Mixin from '@ember/object/mixin';
-import { run } from '@ember/runloop';
 import { on } from '@ember/object/evented';
 
 export default Mixin.create({
@@ -18,12 +17,12 @@ export default Mixin.create({
   setupOutsideClickListener: on('didInsertElement', function() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    return $(document).on('click', clickHandler);
+    ['click', 'touchend'].forEach((e) => document.addEventListener(e, clickHandler));
   }),
 
   removeOutsideClickListener: on('willDestroyElement', function() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    return $(document).off('click', run.cancel(this, clickHandler));
+    ['click', 'touchend'].forEach((e) => document.removeEventListener(e, clickHandler));
   })
 });
