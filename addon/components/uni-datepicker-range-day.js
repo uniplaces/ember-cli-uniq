@@ -1,7 +1,7 @@
 import { isPresent, isEmpty } from '@ember/utils';
-import layout from '../templates/components/uni-datepicker-range-day';
-import { getProperties } from 'ember-metal/get';
+import { getProperties } from '@ember/object';
 import RangeDaysComponent from 'ember-power-calendar/components/power-calendar-range/days';
+import layout from '../templates/components/uni-datepicker-range-day';
 
 export default RangeDaysComponent.extend({
   layout,
