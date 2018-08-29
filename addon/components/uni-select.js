@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { A } from '@ember/array';
 import { isNone, isPresent } from '@ember/utils';
 import layout from '../templates/components/uni-select';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   layout,
@@ -10,9 +11,13 @@ export default Component.extend({
 
   options: [],
   selected: null,
+  selectedGroup: null,
   placeholder: null,
   useAlias: false,
   aliasValue: null,
+  groups: [],
+
+  hasGroups: computed.gt('groups.length', 0),
 
   onChange() {},
 
@@ -24,28 +29,31 @@ export default Component.extend({
     }
 
     if (this.get('selected')) {
-      this._changeAliasValue(this.get('selected'));
+      this._changeAliasValue(this.get('selected'), this.get('selectedGroup'));
 
       return;
     }
 
     if (isNone(this.get('placeholder'))) {
-      this._changeAliasValue(this._getFirstAvailableValue());
+      let group = this.get('hasGroups') ? this.get('groups')[0].key : null;
+      this._changeAliasValue(this._getFirstAvailableValue(), group);
     }
   },
 
   actions: {
     changeSelected({ target }) {
       if (this.get('useAlias')) {
-        this._changeAliasValue(target.value);
+        let group = this.get('hasGroups') ? target.options[target.selectedIndex].parentNode.getAttribute('key') : null;
+        this._changeAliasValue(target.value, group);
       }
 
       this.get('onChange')(target.value);
     }
   },
 
-  _changeAliasValue(key) {
-    let option = A(this.get('options')).findBy('key', key);
+  _changeAliasValue(key, group = null) {
+    let options = group ? A(this.get('groups')).findBy('key', group).options : this.get('options');
+    let option = A(options).findBy('key', key);
 
     if (isPresent(option)) {
       this.set('aliasValue', option.alias);
@@ -53,7 +61,8 @@ export default Component.extend({
   },
 
   _getFirstAvailableValue() {
-    let option = A(this.get('options')).find(({ disabled }) => isNone(disabled));
+    let options = this.get('hasGroups') ? this.get('groups')[0].options : this.get('options');
+    let option = A(options).find(({ disabled }) => isNone(disabled));
 
     return isPresent(option) ? option.key : null;
   }
