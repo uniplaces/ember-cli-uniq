@@ -17,7 +17,8 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
+    "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
+    "start": "ember serve",
     "test": "ember try:each",
     "deploy-to-gh-pages": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push -u origin gh-pages"
   },
@@ -32,7 +33,7 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^3.0.0",
-    "ember-cli": "~2.16.2",
+    "ember-cli": "~2.18.2",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-dependency-checker": "^3.0.0",
     "ember-cli-eslint": "^4.2.3",
@@ -57,13 +58,16 @@
     "ember-modal-dialog": "^2.4.4",
     "ember-moment": "~7.7.0",
     "ember-native-dom-helpers": "~0.6.2",
-    "ember-resolver": "^4.1.0",
-    "ember-responsive": "~2.0.8",
-    "ember-source": "~2.16.0",
-    "ember-truth-helpers": "^2.0.0",
+    "ember-resolver": "^4.5.6",
+    "ember-responsive": "^2.0.8",
+    "ember-source": "~2.18.2",
+    "ember-truth-helpers": "^2.1.0",
     "ember-uuid": "^1.0.1",
+    "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-ember-suave": "1.0.0",
+    "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
+    "node-sass": "^4.9.3",
     "qunit-dom": "0.7.1"
   },
   "engines": {
