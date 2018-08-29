@@ -17,9 +17,7 @@ export default Component.extend({
   aliasValue: null,
   groups: [],
 
-  hasGroups: computed('groups', function() {
-    return this.get('groups').length > 0;
-  }),
+  hasGroups: computed.gt('groups.length', 0),
 
   onChange() {},
 
@@ -54,12 +52,7 @@ export default Component.extend({
   },
 
   _changeAliasValue(key, group = null) {
-    let options = this.get('options');
-
-    if (group) {
-      options = A(this.get('groups')).findBy('key', group).options;
-    }
-
+    let options = group ? A(this.get('groups')).findBy('key', group).options : this.get('options');
     let option = A(options).findBy('key', key);
 
     if (isPresent(option)) {
@@ -68,12 +61,7 @@ export default Component.extend({
   },
 
   _getFirstAvailableValue() {
-    let options = this.get('options');
-
-    if (this.get('groups').length > 0) {
-      options = this.get('groups')[0].options;
-    }
-
+    let options = this.get('hasGroups') ? this.get('groups')[0].options : this.get('options');
     let option = A(options).find(({ disabled }) => isNone(disabled));
 
     return isPresent(option) ? option.key : null;
