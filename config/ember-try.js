@@ -1,3 +1,6 @@
+/* eslint-env node */
+'use strict';
+
 module.exports = {
   scenarios: [
     {
@@ -26,17 +29,9 @@ module.exports = {
     },
     {
       name: 'ember-release',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#release'
-        },
-        resolutions: {
-          'ember': 'release'
-        }
-      },
       npm: {
         devDependencies: {
-          'ember-source': null
+          'ember-source': '~3.3.0'
         }
       }
     },

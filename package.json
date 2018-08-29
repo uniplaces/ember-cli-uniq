@@ -27,7 +27,8 @@
     "ember-cli-countries": "~0.1.2",
     "ember-cli-htmlbars": "^3.0.0",
     "ember-cli-sass": "^6.2.0",
-    "ember-power-calendar": "~0.7.3"
+    "ember-power-calendar": "~0.7.3",
+    "uniplaces-uniq": "^2.5.2"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^3.0.0",
