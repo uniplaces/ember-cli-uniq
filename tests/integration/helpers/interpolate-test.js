@@ -1,0 +1,18 @@
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
+
+moduleForComponent('interpolate', 'helper:interpolate', {
+  integration: true
+});
+
+test('interpolates values from string', function(assert) {
+  this.set('toBeInterpolated', '${b}');
+
+  this.render(hbs`{{i toBeInterpolated b='cat' d='fish'}}`);
+
+  assert.equal(this.$().text().trim(), 'cat');
+
+  this.set('toBeInterpolated', '${b}${d}');
+
+  assert.equal(this.$().text().trim(), 'catfish');
+});
