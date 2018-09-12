@@ -1,6 +1,6 @@
-import EmberObject from '@ember/object';
+import Enumerable from './enumerable';
 
-export default EmberObject.create({
+export default Enumerable.create({
   TEXT: 'text',
   NUMBER: 'number',
   EMAIL: 'email'

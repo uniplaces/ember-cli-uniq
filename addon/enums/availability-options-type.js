@@ -1,6 +1,6 @@
-import EmberObject from '@ember/object';
+import Enumerable from './enumerable';
 
-export default EmberObject.create({
+export default Enumerable.create({
   NONE: 'none',
   LOW: 'low',
   MEDIUM: 'medium',
