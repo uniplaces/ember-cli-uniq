@@ -50,7 +50,6 @@
     "ember-disable-prototype-extensions": "^1.1.3",
     "ember-export-application-global": "^2.0.0",
     "ember-inline-svg": "^0.2.1",
-    "ember-interpolate-helper": "^1.0.0",
     "ember-keyboard": "^4.0.0",
     "ember-load-initializers": "^1.1.0",
     "ember-modal-dialog": "^2.4.4",
