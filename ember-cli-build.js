@@ -12,10 +12,11 @@ module.exports = function(defaults) {
       extension: 'scss',
       functions: {
         assetsRootURL: () => new sass.types.String('/')
-      }
+      },
+      implementation: sass
     },
-    svg: {
-      paths: [
+    svgJar: {
+      sourceDirs: [
         'public/assets/images',
         'public/assets/flags'
       ]

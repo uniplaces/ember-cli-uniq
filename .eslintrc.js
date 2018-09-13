@@ -14,7 +14,7 @@ module.exports = {
   rules: {
     'camelcase': [0, { 'properties': 'never' }],
     'ember-suave/no-const-outside-module-scope': 'off'
-  }
+  },
   env: {
     browser: true
   },
