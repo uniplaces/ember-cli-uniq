@@ -12,8 +12,9 @@ module.exports = {
     'plugin:ember-suave/recommended'
   ],
   rules: {
-    camelcase: [0, { properties: 'never' }]
-  },
+    'camelcase': [0, { 'properties': 'never' }],
+    'ember-suave/no-const-outside-module-scope': 'off'
+  }
   env: {
     browser: true
   },
