@@ -1,5 +1,5 @@
-import EmberObject from '@ember/object';
+import Enumerable from './enumerable';
 
-export default EmberObject.create({
+export default Enumerable.create({
   PT: /^(?:[92]\d{2}(?:\s?\d{3}){2})$/
 });

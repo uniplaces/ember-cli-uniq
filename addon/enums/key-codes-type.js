@@ -1,6 +1,6 @@
-import EmberObject from '@ember/object';
+import Enumerable from './enumerable';
 
-export default EmberObject.create({
+export default Enumerable.create({
   BACKSPACE: 8,
   TAB: 9,
   ENTER: 13,
