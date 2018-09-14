@@ -46,8 +46,11 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.locationType = 'hash';
     ENV.rootURL = '/ember-cli-uniq/';
-
   }
+
+  ENV.i18n = {
+    defaultLocale: 'en-gb'
+  };
 
   return ENV;
 };

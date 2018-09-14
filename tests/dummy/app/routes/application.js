@@ -136,7 +136,8 @@ export default Route.extend({
         'photos',
         'rating',
         'information-box',
-        'footer'
+        'footer',
+        'handlebars-helpers'
       ],
       countryCode: 'PT',
       autocompleteOptions: [
@@ -154,6 +155,10 @@ export default Route.extend({
           start: moment(),
           end: moment().add(29, 'day')
         }
+      },
+      moneyExample: {
+        amount: 100000,
+        currency_code: 'EUR'
       }
     };
   },
