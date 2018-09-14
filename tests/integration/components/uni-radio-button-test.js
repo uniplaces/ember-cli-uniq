@@ -1,40 +1,66 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-
-const DEFAULT_LABEL = 'Radio option';
+import { click } from 'ember-native-dom-helpers';
 
 moduleForComponent('uni-radio-button', 'Integration | Component | uni radio button', {
-  integration: true
+  integration: true,
+  beforeEach() {
+    this.set('label', 'This is a default label');
+  }
 });
 
-test('it renders', function(assert) {
+test('It renders', function(assert) {
+  assert.expect(4);
+
+  this.render(hbs`{{uni-radio-button label=label}}`);
+
+  assert.dom('.uni-radio-button').exists();
+  assert.dom('.uni-radio-button input').isNotDisabled();
+  assert.dom('label').exists();
+  assert.dom('label').hasText('This is a default label');
+});
+
+test('It renders as disabled', function(assert) {
+  assert.expect(2);
+
+  this.set('isDisabled', true);
+
+  this.render(hbs`{{uni-radio-button label=label isDisabled=isDisabled}}`);
+
+  assert.dom('.uni-radio-button--disabled').exists();
+  assert.dom('.uni-radio-button input').isDisabled();
+});
+
+test('It renders as checked when the groupValue is the same as the value', function(assert) {
   assert.expect(1);
 
-  this.render(hbs`{{uni-radio-button}}`);
+  this.set('groupValue', 'javascript');
+  this.set('value', 'javascript');
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
+
+  assert.dom('.uni-radio-button input').isChecked();
 });
 
-test('it renders checked', function(assert) {
-  assert.expect(2);
+test('It renders as unchecked when the groupValue is different than the value', function(assert) {
+  assert.expect(1);
 
-  this.set('label', DEFAULT_LABEL);
-  this.set('checked', true);
+  this.set('groupValue', 'javascript');
+  this.set('value', 'php');
 
-  this.render(hbs`{{uni-radio-button label=label checked=checked}}`);
+  this.render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('label').text().trim(), DEFAULT_LABEL);
+  assert.dom('.uni-radio-button input').isNotChecked();
 });
 
-test('it renders unchecked', function(assert) {
-  assert.expect(2);
+test('It triggers the onClick action with correct arguments', async function(assert) {
+  assert.expect(1);
 
-  this.set('label', DEFAULT_LABEL);
-  this.set('checked', false);
+  this.set('groupValue', 'javascript');
+  this.set('value', 'php');
+  this.set('hasChanged', (value) => assert.equal(value, 'php'));
 
-  this.render(hbs`{{uni-radio-button label=label checked=checked}}`);
+  this.render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue hasChanged=hasChanged}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('label').text().trim(), DEFAULT_LABEL);
+  await click('input');
 });

@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { isPresent } from '@ember/utils';
+import { isPresent, isEqual } from '@ember/utils';
 import layout from '../templates/components/uni-radio-button';
 
 export default Component.extend({
@@ -16,9 +16,9 @@ export default Component.extend({
 
   hasChanged() {},
 
-  checked: computed('value', 'groupValue', function() {
-    return this.get('value') === this.get('groupValue');
-  }),
+  checked: computed('groupValue', 'value', function() {
+    return isEqual(this.get('groupValue'), this.get('value'));
+  }).readOnly(),
 
   change() {
     this.get('hasChanged')(this.get('value'));

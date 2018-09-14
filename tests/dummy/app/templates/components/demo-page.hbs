@@ -299,11 +299,12 @@
           This is a component used for radio button inputs.
         </p>
 
-        {{uni-radio-button checked=true label="Checked radio button"}}
-        {{uni-radio-button checked=false label="Unchecked radio button"}}
-        {{uni-radio-button label="Disabled radio button" isDisabled=true}}
-
+        {{uni-radio-button value="yes" groupValue="yes" label="Checked radio button"}}
+        {{uni-radio-button value="no" groupValue="yes" label="Unchecked radio button"}}
         {{code-snippet name="uni-radio-button-1.hbs"}}
+
+        {{uni-radio-button label="Disabled radio button" isDisabled=true}}
+        {{code-snippet name="uni-radio-button-2.hbs"}}
       </div>
     </div>
 
