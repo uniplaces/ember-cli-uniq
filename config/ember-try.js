@@ -17,6 +17,14 @@ module.exports = {
       }
     },
     {
+      name: 'ember-lts-2.16',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.16.0'
+        }
+      }
+    },
+    {
       name: 'ember-lts-2.18',
       npm: {
         devDependencies: {
@@ -26,17 +34,9 @@ module.exports = {
     },
     {
       name: 'ember-release',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#release'
-        },
-        resolutions: {
-          'ember': 'release'
-        }
-      },
       npm: {
         devDependencies: {
-          'ember-source': null
+          'ember-source': '~2.18.2'
         }
       }
     },

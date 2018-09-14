@@ -1,6 +1,0 @@
-{
-  "name": "ember-cli-uniq",
-  "dependencies": {
-    "uniq": "2.5.2"
-  }
-}
