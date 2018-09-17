@@ -43,6 +43,24 @@ export default Route.extend({
         { key: '2', value: 'This is a two', alias: 'Two' },
         { key: '3', value: 'This is a three', alias: 'Three' }
       ],
+      uniSelectAliasGroups: [
+        {
+          key: 'g1',
+          value: 'This is a group',
+          options: [
+            { key: '1', value: 'long explanation for one', alias: 'one' },
+            { key: '2', value: 'long explanation for two', alias: 'two' }
+          ]
+        },
+        {
+          key: 'g2',
+          value: 'This is another group',
+          options: [
+            { key: '3', value: 'long explanation for three', alias: 'three' },
+            { key: '4', value: 'long explanation for four', alias: 'four' }
+          ]
+        }
+      ],
       secondDropdown: null,
       dropdownOptions: [
         { key: 'facebook', value: 'Facebook' },
