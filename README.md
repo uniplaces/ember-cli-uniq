@@ -19,10 +19,12 @@ $ ember install ember-cli-uniq
 
 ## Upgrading
 
-To upgrade from `ember-cli-uniq@0.2` to `ember-cli-uniq@0.3` perform the following:
+From `ember-cli-uniq@0.2.x` to `ember-cli-uniq@0.3.x`:
 
 * In `ember-cli-build.js` add this if you need access to the flags:
 ```javascript
+// ember-cli-build.js
+
 let app = new EmberApp(defaults, {
     // [...]
     svg: {
@@ -33,6 +35,35 @@ let app = new EmberApp(defaults, {
       ]
     }
 ```
+
+From `ember-cli-uniq@0.3.x` to `ember-cli-uniq@0.4.x`:
+
+* Replace bower import of `uniq` with npm import of `uniplaces-uniq`
+* Replace `inline-svg` with `svg-jar` and:
+```javascript
+// ember-cli-build.js
+
+let app = new EmberApp(defaults, {
+    // [...]
+    svg: {
+      paths: [
+        // [...]
+      ]
+    }
+```
+with
+```javascript
+// ember-cli-build.js
+
+let app = new EmberApp(defaults, {
+    // [...]
+    svgJar: {
+      sourceDirs: [
+        // [...]
+      ]
+    }
+```
+and replace every invocation of the `{{inline-svg}}` helper with `{{svg-jar}}`.
 
 ## Contributing
 
