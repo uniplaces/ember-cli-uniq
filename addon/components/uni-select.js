@@ -34,7 +34,7 @@ export default Component.extend({
     if (this.get('selected')) {
       let group = this.get('hasGroups')
         ? this.get('groups').find(({ options }) => {
-          return options.some((option) => option.key === this.get('selected'));
+          return options.some(({ key }) => key === this.get('selected'));
         })
         : null;
 
