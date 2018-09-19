@@ -17,12 +17,12 @@ export default Mixin.create({
   setupOutsideClickListener: on('didInsertElement', function() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    ['click', 'touchstart'].forEach((e) => document.addEventListener(e, clickHandler));
+    ['click', 'touchend'].forEach((e) => document.addEventListener(e, clickHandler));
   }),
 
   removeOutsideClickListener: on('willDestroyElement', function() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    ['click', 'touchstart'].forEach((e) => document.removeEventListener(e, clickHandler));
+    ['click', 'touchend'].forEach((e) => document.removeEventListener(e, clickHandler));
   })
 });
