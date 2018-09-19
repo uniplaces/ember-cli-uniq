@@ -31,6 +31,21 @@ export default Component.extend(ClickOutsideMixin, {
     this._hideTooltip();
   },
 
+  didInsertElement() {
+    let clickHandler = this.get('handleOutsideClick').bind(this);
+
+    document.addEventListener('scroll', clickHandler, {
+      capture: true,
+      passive: true
+    });
+  },
+
+  willDestroyElement() {
+    let clickHandler = this.get('handleOutsideClick').bind(this);
+
+    document.removeEventListener('scroll', clickHandler);
+  },
+
   actions: {
     onTapOrClick() {
       this.get('onClick')();
