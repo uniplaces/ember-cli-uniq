@@ -34,16 +34,13 @@ export default Component.extend(ClickOutsideMixin, {
   didInsertElement() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    document.addEventListener('scroll', clickHandler, {
-      capture: true,
-      passive: true
-    });
+    ['touchstart', 'scroll'].forEach((e) => document.addEventListener(e, clickHandler, { capture: true, passive: true }));
   },
 
   willDestroyElement() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    document.removeEventListener('scroll', clickHandler);
+    ['touchstart', 'scroll'].forEach((e) => document.removeEventListener(e, clickHandler));
   },
 
   actions: {
@@ -73,6 +70,7 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   _hideTooltip() {
+    console.log('KKKK');
     this.set('isActive', false);
     $(this.get('wrapperSelector')).unbind('scroll.uni-tooltip');
   },
