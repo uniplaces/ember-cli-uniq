@@ -6,7 +6,7 @@
   {{/if}}
   {{#if groups}}
       {{#each groups as |group|}}
-        <optgroup label={{group.label}} key={{group.key}}>
+        <optgroup label={{group.value}} key={{group.key}}>
           {{#each group.options as |opt|}}
             <option disabled={{opt.disabled}} selected={{if (eq opt.key selected) "selected"}} value={{opt.key}} class="uni-select__option">
               {{#if hasBlock}}

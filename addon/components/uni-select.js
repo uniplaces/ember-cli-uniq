@@ -3,6 +3,7 @@ import { A } from '@ember/array';
 import { isNone, isPresent } from '@ember/utils';
 import layout from '../templates/components/uni-select';
 import { computed } from '@ember/object';
+import { filter } from '@ember/object/computed';
 
 export default Component.extend({
   layout,
@@ -11,11 +12,13 @@ export default Component.extend({
 
   options: [],
   selected: null,
-  selectedGroup: null,
   placeholder: null,
   useAlias: false,
   aliasValue: null,
-  groups: [],
+
+  groups: filter('options', (option) => {
+    return option.hasOwnProperty('options');
+  }),
 
   hasGroups: computed.gt('groups.length', 0),
 
@@ -29,7 +32,13 @@ export default Component.extend({
     }
 
     if (this.get('selected')) {
-      this._changeAliasValue(this.get('selected'), this.get('selectedGroup'));
+      let group = this.get('hasGroups')
+        ? this.get('groups').find(({ options }) => {
+          return options.some(({ key }) => key === this.get('selected'));
+        })
+        : null;
+
+      this._changeAliasValue(this.get('selected'), group ? group.key : null);
 
       return;
     }

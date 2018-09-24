@@ -496,6 +496,14 @@
 
         {{uni-select placeholder="Choose an option" useAlias=true options=model.uniSelectAliasOptions}}
         {{code-snippet name="uni-select-2.hbs"}}
+
+        <p class="description">
+          The select supports groups as well. Check the uniSelectAliasGroups array. Currently you should only use the component with options or options-groups.
+          If both are sent the options which don't have a group in the array will be ignored.
+        </p>
+
+        {{code-snippet name="uni-select-3.hbs"}}
+        {{uni-select options=model.uniSelectAliasGroups useAlias=true placeholder="Choose an option"}}
       </div>
     </div>
 
