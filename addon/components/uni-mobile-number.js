@@ -102,16 +102,14 @@ export default Component.extend({
       this.$().find('input')[0].focus();
     },
 
-    onKeyDown(_, event) {
-      let { keyCode } = event;
-
-      if (!this._isNumericValue(keyCode) && !this._isAllowedKey(keyCode)) {
-        event.preventDefault();
+    onKeyDown(_, ev) {
+      if (ev && !this._isNumericValue(ev.keyCode) && !this._isAllowedKey(ev.keyCode)) {
+        ev.preventDefault();
       }
     },
 
     onKeyUp() {
-      this.get('onChangeInput')();
+      this.get('onChangeInput')(...arguments);
     },
 
     onInputFocusIn() {
