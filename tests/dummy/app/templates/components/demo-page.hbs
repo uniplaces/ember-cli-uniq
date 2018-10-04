@@ -661,11 +661,16 @@
       <div class="component">
         {{uni-title title="to-money"}}
         <p class="description">
-          This helper is used to convert money-value objects into strings to display to the user.
+          This helper is used to convert money-pattern objects into strings to display to the user.<br/>
+          It has an option <b>transform</b>, true by default. If false, it'll not transform the money-pattern
+          amount into displayable amount, as it's already transformed.
         </p>
 
         {{to-money model.moneyExample}}
         {{code-snippet name="to-money-1.hbs"}}
+
+        {{to-money model.moneyTransformedExample}}
+        {{code-snippet name="to-money-2.hbs"}}
       </div>
     </div>
   </div>
