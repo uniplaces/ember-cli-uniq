@@ -22,3 +22,19 @@ test('It renders', function(assert) {
 
   assert.ok(this.$().text().trim().includes('100'));
 });
+
+test('It renders transformed', function(assert) {
+  this.set('money', { amount: 10000, currency_code: 'EUR' });
+
+  this.render(hbs`{{to-money money transform=true}}`);
+
+  assert.ok(this.$().text().trim().includes('100'));
+});
+
+test('It renders non-transformed', function(assert) {
+  this.set('money', { amount: 100, currency_code: 'EUR' });
+
+  this.render(hbs`{{to-money money transform=false}}`);
+
+  assert.ok(this.$().text().trim().includes('100'));
+});

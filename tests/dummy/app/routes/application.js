@@ -177,6 +177,10 @@ export default Route.extend({
       moneyExample: {
         amount: 100000,
         currency_code: 'EUR'
+      },
+      moneyTransformedExample: {
+        amount: 2500,
+        currency_code: 'EUR'
       }
     };
   },
