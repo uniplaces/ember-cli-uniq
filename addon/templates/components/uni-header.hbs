@@ -1,14 +1,18 @@
 <div class="uni-header__wrapper">
-  {{#if logoUrl}}
-    <a href="{{logoUrl}}">
+  {{#if (not logoSrc)}}
+    {{#if logoUrl}}
+      <a href="{{logoUrl}}">
+        {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+      </a>
+    {{else if logoRoute}}
+      {{#link-to logoRoute}}
+        {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+      {{/link-to}}
+    {{else}}
       {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
-    </a>
-  {{else if logoRoute}}
-    {{#link-to logoRoute}}
-      {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
-    {{/link-to}}
+    {{/if}}
   {{else}}
-    {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+    <img src="{{logoSrc}}" width="{{logoWidth}}" height="{{logoHeight}}">
   {{/if}}
 
   {{yield}}
