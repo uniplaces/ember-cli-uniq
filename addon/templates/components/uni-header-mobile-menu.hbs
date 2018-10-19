@@ -1,5 +1,6 @@
 <div class="uni-header__mobile-cover"></div>
 
-<ul class="uni-header__mobile-nav {{if isOpen 'uni-header__mobile-nav--active'}}">
-  {{yield (hash button=(component buttonComponent) dropdown=(component dropdownComponent) separator=(component separatorComponent))}}
+<ul class="uni-header__mobile-nav {{if isOpen "uni-header__mobile-nav--active"}}">
+  {{yield
+    (hash button=(component buttonComponent) dropdown=(component dropdownComponent) separator=(component separatorComponent))}}
 </ul>

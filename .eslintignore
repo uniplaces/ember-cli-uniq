@@ -8,6 +8,8 @@
 
 # misc
 /coverage/
+!.*
 
 # ember-try
 /.node_modules.ember-try/
+/package.json.ember-try

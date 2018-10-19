@@ -6,7 +6,8 @@
   proximitySelection=proximitySelection
   daysComponent="uni-datepicker-range-day"
   onCenter=(action onCenter value="moment")
-  onSelect=(action onSelect value="moment") as |calendar|}}
+  onSelect=(action onSelect value="moment")
+as |calendar|}}
   <div class="calendar__nav">
     <div role="button" class="calendar__nav__control {{isFirstMonth}}" {{action "previousMonth"}}>
       {{svg-jar "calendar-arrow" class="left-arrow"}}

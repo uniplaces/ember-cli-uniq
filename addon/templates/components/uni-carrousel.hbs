@@ -1,22 +1,22 @@
 <div class="uni-carrousel__container">
   {{#if showPrev}}
-  <div role="button" class="uni-carrousel__button uni-carrousel__button--prev" {{action "prev"}}>
-    {{svg-jar "prev-icon"}}
-  </div>
+    <div role="button" class="uni-carrousel__button uni-carrousel__button--prev" {{action "prev"}}>
+      {{svg-jar "prev-icon"}}
+    </div>
   {{/if}}
 
-  <div class="uni-carrousel__container__wrapper" style="{{wrapperStyle}}">
+  <div class="uni-carrousel__container__wrapper" style={{wrapperStyle}}>
     {{yield}}
   </div>
   <div class="uni-carrousel__container__markers">
     {{#each (range 0 itemCount) as |index|}}
-    <div role="button" class="uni-carrousel__container__markers__item {{if (eq page index) "uni-carrousel__container__markers__item--active"}}" {{action "navTo" index}}></div>
+      <div role="button" class="uni-carrousel__container__markers__item {{if (eq page index) "uni-carrousel__container__markers__item--active"}}" {{action "navTo" index}}></div>
     {{/each}}
   </div>
 
   {{#if showNext}}
-  <div role="button" class="uni-carrousel__button uni-carrousel__button--next" {{action "next"}}>
-    {{svg-jar "next-icon"}}
-  </div>
+    <div role="button" class="uni-carrousel__button uni-carrousel__button--next" {{action "next"}}>
+      {{svg-jar "next-icon"}}
+    </div>
   {{/if}}
 </div>
