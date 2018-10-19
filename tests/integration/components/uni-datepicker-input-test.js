@@ -1,14 +1,16 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-datepicker-input', 'Integration | Component | uni datepicker input', {
-  integration: true
-});
+module('Integration | Component | uni datepicker input', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-datepicker-input}}`);
+    await render(hbs`{{uni-datepicker-input}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom('.uni-datepicker-input').exists();
+  });
 });

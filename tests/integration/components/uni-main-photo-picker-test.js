@@ -1,12 +1,14 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-main-photo-picker', 'Integration | Component | uni main photo picker', {
-  integration: true
-});
+module('Integration | Component | uni main photo picker', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{uni-main-photo-picker}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`{{uni-main-photo-picker}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.equal(find('*').textContent.trim(), '');
+  });
 });

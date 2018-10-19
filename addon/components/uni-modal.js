@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { observer } from '@ember/object';
-import $ from 'jquery';
 import layout from '../templates/components/uni-modal';
 
 export default Component.extend({
@@ -20,15 +19,18 @@ export default Component.extend({
 
   // This observer is used to bypass the scroll on mobile when a modal is open
   onOpenChangeObserver: observer('isOpen', function() {
+    let body = document.querySelector('body');
+
     this.get('isOpen')
-      ? $('body').addClass(this.get('bodyOverflowClass'))
-      : $('body').removeClass(this.get('bodyOverflowClass'));
+      ? body.classList.add(this.get('bodyOverflowClass'))
+      : body.classList.remove(this.get('bodyOverflowClass'));
   }),
 
   didDestroyElement() {
     this._super(...arguments);
 
-    $('body').removeClass(this.get('bodyOverflowClass'));
+    let body = document.querySelector('body');
+    body.classList.remove(this.get('bodyOverflowClass'));
   },
 
   actions: {

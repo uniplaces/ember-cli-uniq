@@ -3,6 +3,7 @@ import layout from '../templates/components/uni-header-dropdown';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
 export default Component.extend(ClickOutsideMixin, {
+  classNames: ['uni-header-dropdown'],
   tagName: 'span',
   layout,
   isOpen: false,

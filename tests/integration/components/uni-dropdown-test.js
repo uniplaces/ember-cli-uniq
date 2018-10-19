@@ -1,45 +1,47 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-dropdown', 'Integration | Component | uni dropdown', {
-  integration: true
-});
+module('Integration | Component | uni dropdown', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-dropdown}}`);
+    await render(hbs`{{uni-dropdown}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-dropdown').exists();
+  });
 
-test('it renders an alias for selected', function(assert) {
-  assert.expect(1);
+  test('it renders an alias for selected', async function(assert) {
+    assert.expect(1);
 
-  this.set('options', [
-    { key: 'facebook', value: 'Facebook' },
-    { key: 'google', value: 'Google' }
-  ]);
-  this.set('selected', 'facebook');
-  this.set('selectedAlias', 'example');
+    this.set('options', [
+      { key: 'facebook', value: 'Facebook' },
+      { key: 'google', value: 'Google' }
+    ]);
+    this.set('selected', 'facebook');
+    this.set('selectedAlias', 'example');
 
-  this.render(hbs`{{uni-dropdown options=options selected=selected selectedAlias=selectedAlias}}`);
+    await render(hbs`{{uni-dropdown options=options selected=selected selectedAlias=selectedAlias}}`);
 
-  assert.equal(this.$('.uni-dropdown__button').text().trim(), 'example');
-});
+    assert.dom('.uni-dropdown__button').hasText('example');
+  });
 
-test('it renders given svg', function(assert) {
-  assert.expect(2);
+  test('it renders given svg', async function(assert) {
+    assert.expect(2);
 
-  this.set('options', [
-    { key: 'facebook', value: 'Facebook' },
-    { key: 'google', value: 'Google' }
-  ]);
-  this.set('selected', 'google');
-  this.set('selectedSvgs', ['google']);
+    this.set('options', [
+      { key: 'facebook', value: 'Facebook' },
+      { key: 'google', value: 'Google' }
+    ]);
+    this.set('selected', 'google');
+    this.set('selectedSvgs', ['google']);
 
-  this.render(hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`);
+    await render(hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`);
 
-  assert.equal(this.$('.uni-dropdown__button').text().trim(), 'google');
-  assert.equal(this.$('.uni-dropdown__button .uni-dropdown__svg-group svg').length, 1);
+    assert.dom('.uni-dropdown__button').hasText('google');
+    assert.dom('.uni-dropdown__button .uni-dropdown__svg-group svg').exists();
+  });
 });

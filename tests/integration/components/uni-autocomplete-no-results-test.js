@@ -1,25 +1,26 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-autocomplete-no-results', 'Integration | Component | uni autocomplete no results', {
-  integration: true
-});
+module('Integration | Component | uni autocomplete no results', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders nothing', function(assert) {
-  assert.expect(1);
+  test('it renders nothing', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-autocomplete-no-results}}`);
+    await render(hbs`{{uni-autocomplete-no-results}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-autocomplete-no-results').exists();
+  });
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('value', 'Lisbon');
+    this.set('value', 'Lisbon');
 
-  this.render(hbs`{{uni-autocomplete-no-results value=value}}`);
+    await render(hbs`{{uni-autocomplete-no-results value=value}}`);
 
-  assert.notEqual(this.$(), '');
-  assert.equal(this.$().text().trim(), 'No results for Lisbon.');
+    assert.dom('.uni-autocomplete-no-results').hasText('No results for Lisbon.');
+  });
 });

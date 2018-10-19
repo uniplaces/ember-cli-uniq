@@ -1,43 +1,44 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { find, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { find } from 'ember-native-dom-helpers';
 
-moduleForComponent('uni-input-range', 'Integration | Component | uni input range', {
-  integration: true
-});
+module('Integration | Component | uni input range', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  this.render(hbs`{{uni-input-range}}`);
+    await render(hbs`{{uni-input-range}}`);
 
-  assert.notEqual(find('.uni-input-range').textContent.trim(), '');
-  assert.equal(find('.uni-input-range').textContent.trim(), '-\n+');
-});
+    assert.notEqual(find('.uni-input-range').textContent.trim(), '');
+    assert.equal(find('.uni-input-range').textContent.trim(), '-\n+');
+  });
 
-test('it renders text', function(assert) {
-  assert.expect(1);
+  test('it renders text', async function(assert) {
+    assert.expect(1);
 
-  this.set('value', 10);
-  this.set('target', 'beds');
+    this.set('value', 10);
+    this.set('target', 'beds');
 
-  this.render(hbs`{{uni-input-range value=value target=target}}`);
+    await render(hbs`{{uni-input-range value=value target=target}}`);
 
-  assert.notEqual(find('.uni-input-range').textContent.trim(), '');
-});
+    assert.notEqual(find('.uni-input-range').textContent.trim(), '');
+  });
 
-test('it renders with small modifier', function(assert) {
-  assert.expect(1);
+  test('it renders with small modifier', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-input-range isSmall=true}}`);
+    await render(hbs`{{uni-input-range isSmall=true}}`);
 
-  assert.ok(find('.uni-input-range').className.includes('--small'));
-});
+    assert.ok(find('.uni-input-range').className.includes('--small'));
+  });
 
-test('it renders with editable modifier', function(assert) {
-  assert.expect(1);
+  test('it renders with editable modifier', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-input-range isEditable=true}}`);
+    await render(hbs`{{uni-input-range isEditable=true}}`);
 
-  assert.ok(find('.uni-input-range').className.includes('--editable'));
+    assert.ok(find('.uni-input-range').className.includes('--editable'));
+  });
 });

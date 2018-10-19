@@ -1,38 +1,38 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { fillIn, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { find } from 'ember-native-dom-helpers';
 
-moduleForComponent('uni-country', 'Integration | Component | uni country', {
-  integration: true
-});
+module('Integration | Component | uni country', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-country}}`);
+    await render(hbs`{{uni-country}}`);
 
-  assert.ok(find('.uni-autocomplete'));
-});
+    assert.dom('.uni-country').exists();
+  });
 
-test('it renders given country code', function(assert) {
-  assert.expect(1);
+  test('it renders given country code', async function(assert) {
+    assert.expect(1);
 
-  this.set('countryCode', 'pt');
+    this.set('countryCode', 'pt');
 
-  this.render(hbs`{{uni-country countryCode=countryCode}}`);
+    await render(hbs`{{uni-country countryCode=countryCode}}`);
 
-  assert.equal(find('input').value, 'Portugal');
-});
+    assert.dom('input').hasValue('Portugal');
+  });
 
-test('it renders highlighted option', function(assert) {
-  assert.expect(3);
+  test('it renders highlighted option', async function(assert) {
+    assert.expect(3);
 
-  this.render(hbs`{{uni-country}}`);
+    await render(hbs`{{uni-country}}`);
 
-  // simulate input given
-  this.$('input').val('p').change().focusin();
+    await fillIn('input', 'p');
 
-  assert.ok(find('.option--highlighted'));
-  assert.equal(find('.option--highlighted').textContent.includes('Panama'), true);
-  assert.equal(find('.option--highlighted').textContent.includes('Portugal'), false);
+    assert.dom('.option--highlighted').exists();
+    assert.dom('.option--highlighted').includesText('Panama');
+    assert.dom('.option--highlighted').doesNotIncludeText('Portugal');
+  });
 });

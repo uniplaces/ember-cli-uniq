@@ -1,29 +1,31 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_TITLE = 'Default title';
 const DEFAULT_CONTENT = 'Lorem ipsum dolor';
 
-moduleForComponent('uni-carrousel-item', 'Integration | Component | uni carrousel item', {
-  integration: true
-});
+module('Integration | Component | uni carrousel item', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-carrousel-item}}`);
+    await render(hbs`{{uni-carrousel-item}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-carrousel__container__item').exists();
+  });
 
-test('it renders title', function(assert) {
-  assert.expect(2);
+  test('it renders title', async function(assert) {
+    assert.expect(2);
 
-  this.set('title', DEFAULT_TITLE);
-  this.set('content', DEFAULT_CONTENT);
+    this.set('title', DEFAULT_TITLE);
+    this.set('content', DEFAULT_CONTENT);
 
-  this.render(hbs`{{uni-carrousel-item title=title content=content}}`);
+    await render(hbs`{{uni-carrousel-item title=title content=content}}`);
 
-  assert.equal(this.$('.uni-carrousel__container__item__title').text().trim(), DEFAULT_TITLE);
-  assert.equal(this.$('.uni-carrousel__container__item__content').text().trim(), DEFAULT_CONTENT);
+    assert.dom('.uni-carrousel__container__item__title').hasText(DEFAULT_TITLE);
+    assert.dom('.uni-carrousel__container__item__content').hasText(DEFAULT_CONTENT);
+  });
 });

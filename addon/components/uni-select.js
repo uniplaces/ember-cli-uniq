@@ -2,8 +2,7 @@ import Component from '@ember/component';
 import { A } from '@ember/array';
 import { isNone, isPresent } from '@ember/utils';
 import layout from '../templates/components/uni-select';
-import { computed } from '@ember/object';
-import { filter } from '@ember/object/computed';
+import { filter, gt } from '@ember/object/computed';
 
 export default Component.extend({
   layout,
@@ -20,7 +19,7 @@ export default Component.extend({
     return option.hasOwnProperty('options');
   }),
 
-  hasGroups: computed.gt('groups.length', 0),
+  hasGroups: gt('groups.length', 0),
 
   onChange() {},
 

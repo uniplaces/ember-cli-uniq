@@ -1,24 +1,26 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-header-dropdown', 'Integration | Component | uni header dropdown', {
-  integration: true
-});
+module('Integration | Component | uni header dropdown', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders nothing', function(assert) {
-  assert.expect(1);
+  test('it renders nothing', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-header-dropdown}}`);
+    await render(hbs`{{uni-header-dropdown}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-header-dropdown').exists();
+  });
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('selected', 'SELECTED');
+    this.set('selected', 'SELECTED');
 
-  this.render(hbs`{{uni-header-dropdown selected=selected}}`);
+    await render(hbs`{{uni-header-dropdown selected=selected}}`);
 
-  assert.equal(this.$().text().trim(), 'SELECTED');
+    assert.dom('.uni-header-dropdown').hasText('SELECTED');
+  });
 });

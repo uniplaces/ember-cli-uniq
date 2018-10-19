@@ -1,22 +1,22 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { click, find } from 'ember-native-dom-helpers';
-import { setBreakpointForIntegrationTest } from '../../helpers/responsive';
+import { setBreakpoint } from 'ember-responsive/test-support';
 
-moduleForComponent('uni-tooltip', 'Integration | Component | uni tooltip', {
-  integration: true
-});
+module('Integration | Component | uni tooltip', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(3);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  setBreakpointForIntegrationTest(this, 'mobile');
-  this.render(hbs`{{uni-tooltip media=media}}`);
+    setBreakpoint('mobile');
+    await render(hbs`{{uni-tooltip media=media}}`);
 
-  assert.equal(this.$().text().trim(), '');
-  assert.notOk(find('.uni-tooltip__text'));
+    assert.dom('.uni-tooltip__text').doesNotExist();
 
-  click('.uni-tooltip__icon');
+    await click('.uni-tooltip__icon');
 
-  assert.ok(find('.uni-tooltip__text'));
+    assert.dom('.uni-tooltip__text').exists();
+  });
 });
