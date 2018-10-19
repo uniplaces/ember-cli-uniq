@@ -1,19 +1,20 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-header-breadcrumbs', 'Integration | Component | uni header breadcrumbs', {
-  integration: true
-});
+module('Integration | Component | uni header breadcrumbs', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(3);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  this.set('step', 'First');
-  this.set('description', 'This is a description');
+    this.set('step', 'First');
+    this.set('description', 'This is a description');
 
-  this.render(hbs`{{uni-header-breadcrumbs step=step description=description}}`);
+    await render(hbs`{{uni-header-breadcrumbs step=step description=description}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-header__breadcrumb__step').text().trim(), 'First');
-  assert.equal(this.$('.uni-header__breadcrumb__description').text().trim(), 'This is a description');
+    assert.dom('.uni-header__breadcrumb__step').hasText('First');
+    assert.dom('.uni-header__breadcrumb__description').hasText('This is a description');
+  });
 });

@@ -1,30 +1,32 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-header', 'Integration | Component | uni header', {
-  integration: true
-});
+module('Integration | Component | uni header', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-header}}`);
+    await render(hbs`{{uni-header}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
-
-test('it renders with a custom logo', function(assert) {
-  assert.expect(1);
-
-  this.setProperties({
-    logoSrc: 'https://www.ulisboa.pt/sites/ulisboa.pt/files/styles/logos_80px_vert/public/uo/logos/logo_ist.jpg',
-    logoHeight: 60,
-    logoWidth: 'auto'
+    assert.dom('.uni-header').exists();
   });
 
-  this.render(hbs`{{uni-header logoSrc=logoSrc logoHeight=logoHeight logoWidth=logoWidth}}`);
+  test('it renders with a custom logo', async function(assert) {
+    assert.expect(1);
 
-  let img = `img[src="${this.get('logoSrc')}"]`;
+    this.setProperties({
+      logoSrc: 'https://www.ulisboa.pt/sites/ulisboa.pt/files/styles/logos_80px_vert/public/uo/logos/logo_ist.jpg',
+      logoHeight: 60,
+      logoWidth: 'auto'
+    });
 
-  assert.dom(img).exists();
+    await render(hbs`{{uni-header logoSrc=logoSrc logoHeight=logoHeight logoWidth=logoWidth}}`);
+
+    let img = `img[src="${this.get('logoSrc')}"]`;
+
+    assert.dom(img).exists();
+  });
 });

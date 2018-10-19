@@ -1,17 +1,19 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-banner', 'Integration | Component | uni banner', {
-  integration: true
-});
+module('Integration | Component | uni banner', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`
-    {{#uni-banner}}
-      Example
-    {{/uni-banner}}`);
+    await render(hbs`
+      {{#uni-banner}}
+        Example
+      {{/uni-banner}}`);
 
-  assert.equal(this.$().text().trim(), 'Example');
+    assert.dom('.uni-banner').hasText('Example');
+  });
 });

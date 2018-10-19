@@ -1,86 +1,87 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, fillIn, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { fillIn, keyEvent, triggerEvent, find } from 'ember-native-dom-helpers';
 import { A } from '@ember/array';
 
-moduleForComponent('uni-autocomplete', 'Integration | Component | uni autocomplete', {
-  integration: true
-});
+module('Integration | Component | uni autocomplete', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-autocomplete}}`);
+    await render(hbs`{{uni-autocomplete}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
-
-test('it works with the default filter function', async function(assert) {
-  assert.expect(1);
-
-  this.setProperties({
-    searchTextValues: (option) => [option],
-    options: ['A', 'B', 'C', 'D'],
-    onSelected: () => {
-      assert.ok(true);
-    }
+    assert.dom('.uni-autocomplete').exists();
   });
 
-  this.render(hbs`
-    {{#uni-autocomplete
-      options=options
-      searchTextValues=searchTextValues
-      onSelected=onSelected as |optionSearchable|}}
-      {{optionSearchable.option}}
-    {{/uni-autocomplete}}
-  `);
+  test('it works with the default filter function', async function(assert) {
+    assert.expect(1);
 
-  let letterAKeyCode = 65;
+    this.setProperties({
+      searchTextValues: (option) => [option],
+      options: ['A', 'B', 'C', 'D'],
+      onSelected: () => {
+        assert.ok(true);
+      }
+    });
 
-  await fillIn('.uni-input', 'A');
-  await keyEvent('.uni-input', 'keydown', letterAKeyCode);
-});
+    await render(hbs`
+      {{#uni-autocomplete
+        options=options
+        searchTextValues=searchTextValues
+        onSelected=onSelected as |optionSearchable|}}
+        {{optionSearchable.option}}
+      {{/uni-autocomplete}}
+    `);
 
-test('it works with a custom filter function', async function(assert) {
-  assert.expect(8);
+    let letterAKeyCode = 65;
 
-  this.setProperties({
-    searchTextValues: (option) => [option],
-    options: ['A', 'B', 'C', 'D'],
-    filterFunction: (getSearchTextValues, option) => {
-      assert.equal(typeof getSearchTextValues, 'function');
-      assert.ok(this.get('options').includes(option));
-
-      return A(['yo']);
-    },
-    onSelected: () => {}
+    await fillIn('.uni-input', 'A');
+    await triggerKeyEvent('.uni-input', 'keydown', letterAKeyCode);
   });
 
-  this.render(hbs`
-    {{#uni-autocomplete
-      options=options
-      searchTextValues=searchTextValues
-      filterFunction=filterFunction
-      onSelected=onSelected as |optionSearchable|}}
-      {{optionSearchable.option}}
-    {{/uni-autocomplete}}
-  `);
+  test('it works with a custom filter function', async function(assert) {
+    assert.expect(8);
 
-  let letterAKeyCode = 65;
+    this.setProperties({
+      searchTextValues: (option) => [option],
+      options: ['A', 'B', 'C', 'D'],
+      filterFunction: (getSearchTextValues, option) => {
+        assert.equal(typeof getSearchTextValues, 'function');
+        assert.ok(this.get('options').includes(option));
 
-  await fillIn('.uni-input', 'A');
-  await keyEvent('.uni-input', 'keydown', letterAKeyCode);
-});
+        return A(['yo']);
+      },
+      onSelected: () => {}
+    });
 
-test('It selects a highlighted option when focusing out', async function(assert) {
-  assert.expect(1);
+    await render(hbs`
+      {{#uni-autocomplete
+        options=options
+        searchTextValues=searchTextValues
+        filterFunction=filterFunction
+        onSelected=onSelected as |optionSearchable|}}
+        {{optionSearchable.option}}
+      {{/uni-autocomplete}}
+    `);
 
-  this.setProperties({ searchTextValues: (option) => [option], options: ['ABC', 'A', 'B', 'C'] });
+    let letterAKeyCode = 65;
 
-  this.render(hbs`{{uni-autocomplete options=options searchTextValues=searchTextValues}}`);
+    await fillIn('.uni-input', 'A');
+    await triggerKeyEvent('.uni-input', 'keydown', letterAKeyCode);
+  });
 
-  await fillIn('input', 'ab');
-  await triggerEvent('input', 'blur');
+  test('It selects a highlighted option when focusing out', async function(assert) {
+    assert.expect(1);
 
-  assert.equal(find('input').value, 'Abc');
+    this.setProperties({ searchTextValues: (option) => [option], options: ['ABC', 'A', 'B', 'C'] });
+
+    await render(hbs`{{uni-autocomplete options=options searchTextValues=searchTextValues}}`);
+
+    await fillIn('input', 'ab');
+    await triggerEvent('input', 'blur');
+
+    assert.dom('input').hasValue('Abc');
+  });
 });

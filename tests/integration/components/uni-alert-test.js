@@ -1,27 +1,29 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-alert', 'Integration | Component | uni alert', {
-  integration: true
-});
+module('Integration | Component | uni alert', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  this.render(hbs`{{uni-alert}}`);
+    await render(hbs`{{uni-alert}}`);
 
-  assert.equal(this.$().text().trim(), '');
-  assert.notEqual(this.$(), '');
-});
+    assert.dom('.uni-alert').exists();
+    assert.dom('.uni-alert').hasText('');
+  });
 
-test('it renders content', function(assert) {
-  assert.expect(1);
+  test('it renders content', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`
-    {{#uni-alert}}
-      This is some content
-    {{/uni-alert}}
-  `);
+    await render(hbs`
+      {{#uni-alert}}
+        This is some content
+      {{/uni-alert}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'This is some content');
+    assert.dom('.uni-alert').hasText('This is some content');
+  });
 });

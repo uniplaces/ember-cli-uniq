@@ -1,39 +1,40 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { click } from 'ember-native-dom-helpers';
 
-moduleForComponent('uni-button-dropdown-item', 'Integration | Component | uni button dropdown item', {
-  integration: true
-});
+module('Integration | Component | uni button dropdown item', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  let expectedValue = 'Portugal';
-  let expectedDescription = 'Nice country';
-  this.set('option', { key: 'pt', value: expectedValue, description: expectedDescription });
-  this.set('onClick', (key) => {
-    return key;
+    let expectedValue = 'Portugal';
+    let expectedDescription = 'Nice country';
+    this.set('option', { key: 'pt', value: expectedValue, description: expectedDescription });
+    this.set('onClick', (key) => {
+      return key;
+    });
+
+    await render(hbs`{{uni-button-dropdown-item onClick=onClick option=option}}`);
+
+    assert.dom('.uni-button-dropdown__list__item--value').hasText(expectedValue);
+    assert.dom('.uni-button-dropdown__list__item--description').hasText(expectedDescription);
   });
 
-  this.render(hbs`{{uni-button-dropdown-item onClick=onClick option=option}}`);
+  test('it executes action when clicked', async function(assert) {
+    assert.expect(1);
 
-  assert.equal(this.$('.uni-button-dropdown__list__item--value').text().trim(), expectedValue);
-  assert.equal(this.$('.uni-button-dropdown__list__item--description').text().trim(), expectedDescription);
-});
+    let expectedKey = 'pt';
 
-test('it executes action when clicked', async function(assert) {
-  assert.expect(1);
+    this.set('clickAction', (key) => {
+      assert.equal(key, expectedKey);
+    });
 
-  let expectedKey = 'pt';
+    this.set('option', { key: expectedKey, value: 'Portugal', description: 'Nice country' });
 
-  this.set('clickAction', (key) => {
-    assert.equal(key, expectedKey);
+    await render(hbs`{{uni-button-dropdown-item option=option onClick=clickAction}}`);
+
+    await click('.uni-button-dropdown__list__item');
   });
-
-  this.set('option', { key: expectedKey, value: 'Portugal', description: 'Nice country' });
-
-  this.render(hbs`{{uni-button-dropdown-item option=option onClick=clickAction}}`);
-
-  await click('.uni-button-dropdown__list__item');
 });

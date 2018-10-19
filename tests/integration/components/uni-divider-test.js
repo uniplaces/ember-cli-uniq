@@ -1,14 +1,16 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-divider', 'Integration | Component | uni divider', {
-  integration: true
-});
+module('Integration | Component | uni divider', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-divider}}`);
+    await render(hbs`{{uni-divider}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom('.uni-signin__divider').exists();
+  });
 });

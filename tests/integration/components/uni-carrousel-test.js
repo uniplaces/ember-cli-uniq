@@ -1,14 +1,16 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-carrousel', 'Integration | Component | uni carrousel', {
-  integration: true
-});
+module('Integration | Component | uni carrousel', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-carrousel}}`);
+    await render(hbs`{{uni-carrousel}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom('.uni-carrousel').exists();
+  });
 });

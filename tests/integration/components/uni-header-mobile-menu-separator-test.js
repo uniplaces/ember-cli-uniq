@@ -1,24 +1,24 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-header-mobile-menu-separator', 'Integration | Component | uni header mobile menu separator', {
-  integration: true
-});
+module('Integration | Component | uni header mobile menu separator', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    await render(hbs`{{uni-header-mobile-menu-separator}}`);
 
-  this.render(hbs`{{uni-header-mobile-menu-separator}}`);
+    assert.dom('.uni-header__mobile-nav__separator').exists();
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  test('it renders content', async function(assert) {
+    await render(hbs`
+      {{#uni-header-mobile-menu-separator}}
+        template block text
+      {{/uni-header-mobile-menu-separator}}
+    `);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#uni-header-mobile-menu-separator}}
-      template block text
-    {{/uni-header-mobile-menu-separator}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.dom('.uni-header__mobile-nav__separator').hasText('template block text');
+  });
 });

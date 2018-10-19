@@ -1,5 +1,7 @@
 
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
@@ -7,34 +9,35 @@ let StubI18nService = Service.extend({
   locale: 'en-gb'
 });
 
-moduleForComponent('to-money', 'Integration | Helper | to money', {
-  integration: true,
-  beforeEach() {
-    this.register('service:i18n', StubI18nService);
-    this.inject.service('i18n', { as: 'i18n' });
-  }
-});
+module('Integration | Helper | to money', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('It renders', function(assert) {
-  this.set('money', { amount: 10000, currency_code: 'EUR' });
+  hooks.beforeEach(function() {
+    this.owner.register('service:i18n', StubI18nService);
+    this.i18n = this.owner.lookup('service:i18n');
+  });
 
-  this.render(hbs`{{to-money money}}`);
+  test('It renders', async function(assert) {
+    this.set('money', { amount: 10000, currency_code: 'EUR' });
 
-  assert.ok(this.$().text().trim().includes('100'));
-});
+    await render(hbs`{{to-money money}}`);
 
-test('It renders transformed', function(assert) {
-  this.set('money', { amount: 10000, currency_code: 'EUR' });
+    assert.dom(this.element).includesText('100');
+  });
 
-  this.render(hbs`{{to-money money transform=true}}`);
+  test('It renders transformed', async function(assert) {
+    this.set('money', { amount: 10000, currency_code: 'EUR' });
 
-  assert.ok(this.$().text().trim().includes('100'));
-});
+    await render(hbs`{{to-money money transform=true}}`);
 
-test('It renders non-transformed', function(assert) {
-  this.set('money', { amount: 100, currency_code: 'EUR' });
+    assert.dom(this.element).includesText('100');
+  });
 
-  this.render(hbs`{{to-money money transform=false}}`);
+  test('It renders non-transformed', async function(assert) {
+    this.set('money', { amount: 100, currency_code: 'EUR' });
 
-  assert.ok(this.$().text().trim().includes('100'));
+    await render(hbs`{{to-money money transform=false}}`);
+
+    assert.dom(this.element).includesText('100');
+  });
 });

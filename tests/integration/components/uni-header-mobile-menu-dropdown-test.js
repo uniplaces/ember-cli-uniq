@@ -1,12 +1,14 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-header-mobile-menu-dropdown', 'Integration | Component | uni header mobile menu dropdown', {
-  integration: true
-});
+module('Integration | Component | uni header mobile menu dropdown', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{uni-header-mobile-menu-dropdown}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`{{uni-header-mobile-menu-dropdown}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.equal(find('*').textContent.trim(), '');
+  });
 });

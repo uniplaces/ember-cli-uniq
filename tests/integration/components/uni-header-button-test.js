@@ -1,40 +1,42 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_LABEL = 'Button';
 const HTML_LABEL = '<i>Button</i>';
 
-moduleForComponent('uni-header-button', 'Integration | Component | uni header button', {
-  integration: true
-});
+module('Integration | Component | uni header button', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders nothing', function(assert) {
-  assert.expect(1);
+  test('it renders nothing', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-header-button}}`);
+    await render(hbs`{{uni-header-button}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-header__nav__button').exists();
+  });
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('label', DEFAULT_LABEL);
-  this.set('action', () => {});
+    this.set('label', DEFAULT_LABEL);
+    this.set('action', () => {});
 
-  this.render(hbs`{{uni-header-button label=label}}`);
+    await render(hbs`{{uni-header-button label=label}}`);
 
-  assert.equal(this.$().text().trim(), DEFAULT_LABEL);
-});
+    assert.dom('.uni-header__nav__button').hasText(DEFAULT_LABEL);
+  });
 
-test('it renders html', function(assert) {
-  assert.expect(2);
+  test('it renders html', async function(assert) {
+    assert.expect(2);
 
-  this.set('label', HTML_LABEL);
-  this.set('action', () => {});
+    this.set('label', HTML_LABEL);
+    this.set('action', () => {});
 
-  this.render(hbs`{{uni-header-button label=label}}`);
+    await render(hbs`{{uni-header-button label=label}}`);
 
-  assert.notEqual(this.$().text().trim(), HTML_LABEL);
-  assert.equal(this.$().text().trim(), DEFAULT_LABEL);
+    assert.dom('.uni-header__nav__button').doesNotIncludeText(HTML_LABEL);
+    assert.dom('.uni-header__nav__button').hasText(DEFAULT_LABEL);
+  });
 });

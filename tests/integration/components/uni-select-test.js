@@ -1,10 +1,12 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { findAll, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { find, findAll } from 'ember-native-dom-helpers';
 
-moduleForComponent('uni-select', 'Integration | Component | uni select', {
-  integration: true,
-  beforeEach() {
+module('Integration | Component | uni select', function(hooks) {
+  setupRenderingTest(hooks);
+
+  hooks.beforeEach(function() {
     this.set('options', [
       { key: 'pt', value: 'Portugal' },
       { key: 'it', value: 'Italy' },
@@ -68,178 +70,178 @@ moduleForComponent('uni-select', 'Integration | Component | uni select', {
         ]
       }
     ]);
-  }
-});
-
-test('It renders', function(assert) {
-  assert.expect(2);
-
-  this.render(hbs`{{uni-select options=options}}`);
-
-  assert.ok(find('.uni-select'), 'It renders the select');
-  assert.equal(findAll('.uni-select__option').length, 4, 'It renders the four options');
-});
-
-test('It renders groups', function(assert) {
-  assert.expect(3);
-
-  this.render(hbs`{{uni-select options=groups}}`);
-
-  assert.ok(find('.uni-select'), 'It renders the select');
-  assert.equal(findAll('.uni-select__option').length, 4, 'It renders the options');
-  assert.equal(findAll('optgroup').length, 2, 'It renders the groups');
-});
-
-test('It renders with placeholder', function(assert) {
-  assert.expect(2);
-
-  this.render(hbs`{{uni-select options=options placeholder=placeholder}}`);
-
-  assert.ok(find('.uni-select'), 'It renders the select');
-  assert.equal(findAll('option').length, 5, 'It renders the four options and the placeholder');
-});
-
-test('It renders groups with placeholder', function(assert) {
-  assert.expect(3);
-
-  this.render(hbs`{{uni-select options=groups placeholder=placeholder}}`);
-
-  assert.ok(find('.uni-select'), 'It renders the select');
-  assert.equal(findAll('option').length, 5, 'It renders the four options and the placeholder');
-  assert.equal(findAll('optgroup').length, 2, 'It renders the groups');
-});
-
-test('It ignores the placeholder when there is a selected option', function(assert) {
-  assert.expect(1);
-
-  this.set('selected', this.get('options.firstObject.key'));
-  this.render(hbs`{{uni-select options=options selected=selected placeholder=placeholder}}`);
-
-  assert.equal(findAll('.uni-select__option').length, 4, 'It renders the four options and ignores the placeholder');
-});
-
-test('It ignores the placeholder when there is a selected option - groups', function(assert) {
-  assert.expect(2);
-
-  this.set('selected', this.get('groups[0].options.firstObject.key'));
-  this.render(hbs`{{uni-select options=groups selected=selected placeholder=placeholder}}`);
-
-  assert.equal(findAll('.uni-select__option').length, 4, 'It renders the four options and ignores the placeholder');
-  assert.equal(findAll('optgroup').length, 2, 'It renders the groups');
-});
-
-test('It renders disabled options', function(assert) {
-  assert.expect(1);
-
-  this.render(hbs`{{uni-select options=disabledOptions placeholder=placeholder}}`);
-
-  assert.equal(findAll('.uni-select__option:disabled').length, 2, 'It renders the two disabled options');
-});
-
-test('It renders disabled options - groups', function(assert) {
-  assert.expect(1);
-
-  this.render(hbs`{{uni-select options=disabledOptionsGroups placeholder=placeholder}}`);
-
-  assert.equal(findAll('.uni-select__option:disabled').length, 2, 'It renders the two disabled options');
-});
-
-test('It renders the yielded content', function(assert) {
-  assert.expect(this.get('options.length'));
-
-  this.render(hbs`
-    {{#uni-select options=options as |option|}}
-      {{option.key}}
-    {{/uni-select}}
-  `);
-
-  let options = findAll('.uni-select__option');
-
-  this.get('options').forEach(({ key }, index) => {
-    assert.equal(options[index].textContent.trim(), key, 'It renders the option key as the yielded content');
   });
-});
 
-test('It renders the yielded content - groups', function(assert) {
-  assert.expect(this.get('options.length'));
+  test('It renders', async function(assert) {
+    assert.expect(2);
 
-  this.render(hbs`
-    {{#uni-select options=groups as |option|}}
-      {{option.key}}
-    {{/uni-select}}
-  `);
+    await render(hbs`{{uni-select options=options}}`);
 
-  let options = findAll('.uni-select__option');
-
-  this.get('options').forEach(({ key }, index) => {
-    assert.equal(options[index].textContent.trim(), key, 'It renders the option key as the yielded content');
+    assert.dom('.uni-select').exists();
+    assert.dom('.uni-select__option').exists({ count: 4 });
   });
-});
 
-test('It renders placeholder using the useAlias flag', function(assert) {
-  assert.expect(2);
+  test('It renders groups', async function(assert) {
+    assert.expect(3);
 
-  this.set('useAlias', true);
+    await render(hbs`{{uni-select options=groups}}`);
 
-  this.render(hbs`{{uni-select options=aliasOptions useAlias=useAlias placeholder=placeholder}}`);
+    assert.dom('.uni-select').exists();
+    assert.dom('.uni-select__option').exists({ count: 4 });
+    assert.dom('optgroup').exists({ count: 2 });
+  });
 
-  assert.equal(this.$('select.uni-select').val(), null);
-  assert.equal(find('div.uni-select').textContent.trim(), 'Pick me!');
-});
+  test('It renders with placeholder', async function(assert) {
+    assert.expect(2);
 
-test('It renders placeholder using the useAlias flag - groups', function(assert) {
-  assert.expect(2);
+    await render(hbs`{{uni-select options=options placeholder=placeholder}}`);
 
-  this.set('useAlias', true);
+    assert.dom('.uni-select').exists();
+    assert.dom('option').exists({ count: 5 });
+  });
 
-  this.render(hbs`{{uni-select options=aliasGroups useAlias=useAlias placeholder=placeholder}}`);
+  test('It renders groups with placeholder', async function(assert) {
+    assert.expect(3);
 
-  assert.equal(this.$('select.uni-select').val(), null);
-  assert.equal(find('div.uni-select').textContent.trim(), 'Pick me!');
-});
+    await render(hbs`{{uni-select options=groups placeholder=placeholder}}`);
 
-test('It renders the first available value when a placeholder is not provided and the useAlias flag is set to true', function(assert) {
-  assert.expect(2);
+    assert.dom('.uni-select').exists();
+    assert.dom('option').exists({ count: 5 });
+    assert.dom('optgroup').exists({ count: 2 });
+  });
 
-  this.set('useAlias', true);
+  test('It ignores the placeholder when there is a selected option', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-select options=aliasOptions useAlias=useAlias}}`);
+    this.set('selected', this.get('options.firstObject.key'));
+    await render(hbs`{{uni-select options=options selected=selected placeholder=placeholder}}`);
 
-  assert.equal(this.$('select.uni-select').val(), 1);
-  assert.equal(find('div.uni-select').textContent.trim(), 'one');
-});
+    assert.dom('.uni-select__option').exists({ count: 4 });
+  });
 
-test('It renders the first available value when a placeholder is not provided and the useAlias flag is set to true - groups', function(assert) {
-  assert.expect(2);
+  test('It ignores the placeholder when there is a selected option - groups', async function(assert) {
+    assert.expect(2);
 
-  this.set('useAlias', true);
+    this.set('selected', this.get('groups[0].options.firstObject.key'));
+    await render(hbs`{{uni-select options=groups selected=selected placeholder=placeholder}}`);
 
-  this.render(hbs`{{uni-select options=aliasGroups useAlias=useAlias}}`);
+    assert.dom('.uni-select__option').exists({ count: 4 });
+    assert.dom('optgroup').exists({ count: 2 });
+  });
 
-  assert.equal(this.$('select.uni-select').val(), 1);
-  assert.equal(find('div.uni-select').textContent.trim(), 'one');
-});
+  test('It renders disabled options', async function(assert) {
+    assert.expect(1);
 
-test('It renders the alias of the selected option', function(assert) {
-  assert.expect(2);
+    await render(hbs`{{uni-select options=disabledOptions placeholder=placeholder}}`);
 
-  this.set('useAlias', true);
-  this.set('selected', 2);
+    assert.dom('.uni-select__option:disabled').exists({ count: 2 });
+  });
 
-  this.render(hbs`{{uni-select options=aliasOptions useAlias=useAlias selected=selected placeholder=placeholder}}`);
+  test('It renders disabled options - groups', async function(assert) {
+    assert.expect(1);
 
-  assert.equal(this.$('select.uni-select').val(), 2);
-  assert.equal(find('div.uni-select').textContent.trim(), 'two');
-});
+    await render(hbs`{{uni-select options=disabledOptionsGroups placeholder=placeholder}}`);
 
-test('It renders the alias of the selected option - groups', function(assert) {
-  assert.expect(2);
+    assert.dom('.uni-select__option:disabled').exists({ count: 2 });
+  });
 
-  this.set('useAlias', true);
-  this.set('selected', 2);
+  test('It renders the yielded content', async function(assert) {
+    assert.expect(this.get('options.length'));
 
-  this.render(hbs`{{uni-select options=aliasGroups useAlias=useAlias selected=selected placeholder=placeholder}}`);
+    await render(hbs`
+      {{#uni-select options=options as |option|}}
+        {{option.key}}
+      {{/uni-select}}
+    `);
 
-  assert.equal(this.$('select.uni-select').val(), 2);
-  assert.equal(find('div.uni-select').textContent.trim(), 'two');
+    let options = findAll('.uni-select__option');
+
+    this.get('options').forEach(({ key }, index) => {
+      assert.dom(options[index]).hasText(key);
+    });
+  });
+
+  test('It renders the yielded content - groups', async function(assert) {
+    assert.expect(this.get('options.length'));
+
+    await render(hbs`
+      {{#uni-select options=groups as |option|}}
+        {{option.key}}
+      {{/uni-select}}
+    `);
+
+    let options = findAll('.uni-select__option');
+
+    this.get('options').forEach(({ key }, index) => {
+      assert.dom(options[index]).hasText(key);
+    });
+  });
+
+  test('It renders placeholder using the useAlias flag', async function(assert) {
+    assert.expect(2);
+
+    this.set('useAlias', true);
+
+    await render(hbs`{{uni-select options=aliasOptions useAlias=useAlias placeholder=placeholder}}`);
+
+    assert.dom('select.uni-select').hasNoValue();
+    assert.dom('div.uni-select').hasText('Pick me!');
+  });
+
+  test('It renders placeholder using the useAlias flag - groups', async function(assert) {
+    assert.expect(2);
+
+    this.set('useAlias', true);
+
+    await render(hbs`{{uni-select options=aliasGroups useAlias=useAlias placeholder=placeholder}}`);
+
+    assert.dom('select.uni-select').hasNoValue();
+    assert.dom('div.uni-select').hasText('Pick me!');
+  });
+
+  test('It renders the first available value when a placeholder is not provided and the useAlias flag is set to true', async function(assert) {
+    assert.expect(2);
+
+    this.set('useAlias', true);
+
+    await render(hbs`{{uni-select options=aliasOptions useAlias=useAlias}}`);
+
+    assert.dom('select.uni-select').hasValue('1');
+    assert.dom('div.uni-select').hasText('one');
+  });
+
+  test('It renders the first available value when a placeholder is not provided and the useAlias flag is set to true - groups', async function(assert) {
+    assert.expect(2);
+
+    this.set('useAlias', true);
+
+    await render(hbs`{{uni-select options=aliasGroups useAlias=useAlias}}`);
+
+    assert.dom('select.uni-select').hasValue('1');
+    assert.dom('div.uni-select').hasText('one');
+  });
+
+  test('It renders the alias of the selected option', async function(assert) {
+    assert.expect(2);
+
+    this.set('useAlias', true);
+    this.set('selected', 2);
+
+    await render(hbs`{{uni-select options=aliasOptions useAlias=useAlias selected=selected placeholder=placeholder}}`);
+
+    assert.dom('select.uni-select').hasValue('2');
+    assert.dom('div.uni-select').hasText('two');
+  });
+
+  test('It renders the alias of the selected option - groups', async function(assert) {
+    assert.expect(2);
+
+    this.set('useAlias', true);
+    this.set('selected', 2);
+
+    await render(hbs`{{uni-select options=aliasGroups useAlias=useAlias selected=selected placeholder=placeholder}}`);
+
+    assert.dom('select.uni-select').hasValue('2');
+    assert.dom('div.uni-select').hasText('two');
+  });
 });

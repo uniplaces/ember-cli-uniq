@@ -1,7 +1,11 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isPresent } from '@ember/utils';
-import { getAllCountryNames, getCountryName, getCountryCallingCode } from 'ember-cli-countries/utils/countries';
+import {
+  getAllCountryNames,
+  getCountryName,
+  getCountryCallingCode
+} from 'ember-cli-countries/utils/countries';
 import isValidPhoneNumber from 'ember-cli-uniq/utils/is-valid-phone-number';
 import layout from '../templates/components/uni-mobile-number';
 import KeyCodes from 'ember-cli-uniq/enums/key-codes-type';
