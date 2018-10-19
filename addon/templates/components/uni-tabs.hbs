@@ -1,7 +1,7 @@
 <ul class="uni-tabs__wrapper">
-    {{#each tabs as |tab|}}
-        <li class="uni-tabs__wrapper__item">
-            {{#link-to tab.url}}{{tab.label}} {{yield tab}} {{/link-to}}
-        </li>
-    {{/each}}
+  {{#each tabs as |tab|}}
+    <li class="uni-tabs__wrapper__item">
+      {{#link-to tab.url}}{{tab.label}} {{yield tab}} {{/link-to}}
+    </li>
+  {{/each}}
 </ul>

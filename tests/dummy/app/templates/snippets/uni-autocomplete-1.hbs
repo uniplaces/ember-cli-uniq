@@ -2,6 +2,7 @@
   options=options
   placeholderText="Type your coin"
   searchTextValues=(action "onAutocompleteSearch")
-  onSelected=(action "onAutocompleteSelect") as |optionSearchable|}}
+  onSelected=(action "onAutocompleteSelect")
+as |optionSearchable|}}
   {{optionSearchable.matchedValues.firstObject}}
 {{/uni-autocomplete}}

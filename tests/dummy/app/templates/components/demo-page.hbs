@@ -1,3 +1,6 @@
+{{! Remove the line above after the related issue (https://github.com/ember-template-lint/ember-template-lint/issues/509) is fixed}}
+{{! template-lint-disable attribute-indentation }}
+
 <div class="demo-app__banner">
   {{uni-title title="ember-cli-uniq" subtitle=(concat "made with ♥ at " (svg-jar "uniplaces_logo_white"))}}
   <div class="demo-app__banner__current-version">Current version: <span>{{app-version}}</span></div>
@@ -50,12 +53,17 @@
           This component allows to have horizontal tabs that switch the content on click.
         </p>
 
-        {{#uni-horizontal-tabs options=model.options as |option|}}
+        {{#uni-horizontal-tabs
+          options=model.options
+        as |option|}}
           {{option}}
         {{/uni-horizontal-tabs}}
         {{code-snippet name="uni-horizontal-tabs-1.hbs"}}
 
-        {{#uni-horizontal-tabs options=model.options btnLabel=model.uniHorizontalTabsBtnLabel as |option|}}
+        {{#uni-horizontal-tabs
+          options=model.options
+          btnLabel=model.uniHorizontalTabsBtnLabel
+        as |option|}}
           {{option}}
         {{/uni-horizontal-tabs}}
         {{code-snippet name="uni-horizontal-tabs-2.hbs"}}
@@ -67,7 +75,7 @@
         <p class="description">
           This is a component used for header tabs. It receives an array of tabs consisting of objects containing a
           <strong>label</strong> and an <strong>url</strong>.<br><br>
-          You can check an example of tabs <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">here</a>.<br>
+          You can check an example of tabs <a class="uni-anchor" target="_blank" rel="noopener" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">here</a>.<br>
           <strong>WARNING: </strong>Currently it's only possible to use urls that are a route of the own application.
         </p>
 
@@ -82,8 +90,7 @@
         {{component-links component="uni-alert"}}
         <p class="description">
           This is a component used to generate alerts. There are four types of alerts: default (information),
-          success, warning and error. The <code>type</code> of the alert can be passed by string - <code>success,
-          warning or error</code> - or by setting custom variables - <code>isSuccess, isWarning or isError</code>.
+          success, warning and error. The <code>type</code> of the alert can be passed by string - <code>success, warning or error</code> - or by setting custom variables - <code>isSuccess, isWarning or isError</code>.
         </p>
 
         {{uni-alert
@@ -151,10 +158,10 @@
         {{component-links component="uni-anchor"}}
         <p class="description">
           This is an anchor. This is implemented using <code>a</code> elements. For EmberJS transitions, use a
-          <code>linkTo</code> component with the class 'uni-anchor'.
+          <code>linkTo</code> component with the class "uni-anchor".
         </p>
 
-        {{uni-anchor label="This is an anchor" href="//www.uniplaces.com" target="_blank"}}
+        {{uni-anchor label="This is an anchor" href="//www.uniplaces.com" target="_blank" rel="noopener"}}
         {{code-snippet name="uni-anchor-1.hbs"}}
       </div>
     </div>
@@ -268,7 +275,8 @@
           selected=model.dropdown.selected
           placeholder="Select one"
           onChange=(action (mut model.dropdown.selected))
-          options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3") as |option|}}
+          options=(array "Dropdown option 1" "Dropdown option 2" "Dropdown option 3")
+        as |option|}}
           {{option}}
         {{/uni-dropdown}}
         {{code-snippet name="uni-dropdown-1.hbs"}}
@@ -282,9 +290,10 @@
           selected=model.secondDropdown
           placeholder="Select one"
           onChange=(action (mut model.secondDropdown))
-          selectedAlias=(i 'Alias example - ${selected}' selected=model.secondDropdown.value)
-          selectedSvgs=(if model.secondDropdown null (array 'google' 'facebook'))
-          options=model.dropdownOptions as |option|}}
+          selectedAlias=(i "Alias example - ${selected}" selected=model.secondDropdown.value)
+          selectedSvgs=(if model.secondDropdown null (array "google" "facebook"))
+          options=model.dropdownOptions
+        as |option|}}
           {{option.value}}
         {{/uni-dropdown}}
         {{code-snippet name="uni-dropdown-2.hbs"}}
@@ -374,7 +383,7 @@
           <br>
           - <b>placeholderText</b>: an already translated string for the placeholder
           <br>
-          - <b>noResultsText</b>: an already translated string for when there aren't matches.
+          - <b>noResultsText</b>: an already translated string for when there aren"t matches.
           <br>
           - <b>noResultsComponent</b>: optional, as long as you pass noResultsText everything is ok!
         </p>
@@ -383,7 +392,8 @@
           options=model.autocompleteOptions
           placeholderText="Type your coin"
           searchTextValues=(action "onAutocompleteSearch")
-          onSelected=(action "onAutocompleteSelect") as |optionSearchable|}}
+          onSelected=(action "onAutocompleteSelect")
+        as |optionSearchable|}}
           {{titleize optionSearchable.matchedValues.firstObject}}
         {{/uni-autocomplete}}
         {{code-snippet name="uni-autocomplete-1.hbs"}}
@@ -407,7 +417,7 @@
           <br>
           - <b>placeholderText</b>: an already translated string for the placeholder
           <br>
-          - <b>noResultsText</b>: an already translated string for when there aren't matches.
+          - <b>noResultsText</b>: an already translated string for when there aren"t matches.
           <br>
           - <b>getTranslatedCountryName</b>: a function that receives a key and a value and returns a string with the translated country name
         </p>
@@ -456,17 +466,20 @@
         <p class="description">
           This is a component used for mobile number inputs, it accepts the several properties, such as an array of options
           (options) which by default is a list of all countries, and an optional array of preferred countries (preferredCountries).
-          <br/><br/>
-          For more info on countries, check <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-countries">ember-cli-countries</a>.
+          <br><br>
+          For more info on countries, check <a class="uni-anchor" target="_blank" rel="noopener" href="https://github.com/uniplaces/ember-cli-countries">ember-cli-countries</a>.
         </p>
 
         {{uni-mobile-number}}
         {{code-snippet name="uni-mobile-number-1.hbs"}}
 
-        {{uni-mobile-number preferredCountries=(array 'PT' 'DE' 'GB') tooltipMessage="There are preferred countries!"}}
+        {{uni-mobile-number preferredCountries=(array "PT" "DE" "GB") tooltipMessage="There are preferred countries!"}}
         {{code-snippet name="uni-mobile-number-2.hbs"}}
 
-        {{uni-mobile-number selectPlaceholder='Select one' placeholder='Mobile number' preferredCountries=(array 'PT' 'DE' 'GB')}}
+        {{uni-mobile-number
+          selectPlaceholder="Select one"
+          placeholder="Mobile number"
+          preferredCountries=(array "PT" "DE" "GB")}}
         {{code-snippet name="uni-mobile-number-3.hbs"}}
       </div>
 
@@ -487,7 +500,7 @@
       <div class="component">
         {{component-links component="uni-select"}}
         <p class="description">
-          This is a select input component. Check the <a class="uni-anchor" target="_blank" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">application.js</a> for the uniSelectOptions array.<br>
+          This is a select input component. Check the <a class="uni-anchor" target="_blank" rel="noopener" href="https://github.com/uniplaces/ember-cli-uniq/blob/master/tests/dummy/app/routes/application.js">application.js</a> for the uniSelectOptions array.<br>
           You can set useAlias to true in order to display on the select a different value from the one on the option. For an example check uniSelectAliasOptions.
         </p>
 
@@ -499,7 +512,7 @@
 
         <p class="description">
           The select supports groups as well. Check the uniSelectAliasGroups array. Currently you should only use the component with options or options-groups.
-          If both are sent the options which don't have a group in the array will be ignored.
+          If both are sent the options which don"t have a group in the array will be ignored.
         </p>
 
         {{code-snippet name="uni-select-3.hbs"}}
@@ -565,9 +578,10 @@
       {{#uni-main-photo-picker
         title="Lorem ipsum dolor"
         photos=model.photos
-        mainPhotoUrl=model.mainPhotoUrl as |photo|}}
-        <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) 'uni-image-gallery__wrapper__item__main--selected'}}" {{action "setAsMainPhoto" photo}}>
-          {{svg-jar (i "main-photo-${type}" type=(if (eq model.mainPhotoUrl photo.url) 'on' 'off'))}}
+        mainPhotoUrl=model.mainPhotoUrl
+      as |photo|}}
+        <div class="uni-image-gallery__wrapper__item__main {{if (eq model.mainPhotoUrl photo.url) "uni-image-gallery__wrapper__item__main--selected"}}" {{action "setAsMainPhoto" photo}}>
+          {{svg-jar (i "main-photo-${type}" type=(if (eq model.mainPhotoUrl photo.url) "on" "off"))}}
           Cover Photo
         </div>
       {{/uni-main-photo-picker}}
@@ -661,8 +675,8 @@
       <div class="component">
         {{uni-title title="to-money"}}
         <p class="description">
-          This helper is used to convert money-pattern objects into strings to display to the user.<br/>
-          It has an option <b>transform</b>, true by default. If false, it'll not transform the money-pattern
+          This helper is used to convert money-pattern objects into strings to display to the user.<br>
+          It has an option <b>transform</b>, true by default. If false, it"ll not transform the money-pattern
           amount into displayable amount, as it's already transformed.
         </p>
 

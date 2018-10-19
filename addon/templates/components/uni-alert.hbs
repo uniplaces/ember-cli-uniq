@@ -1,18 +1,18 @@
 {{svg-jar (i "${iconName}" iconName=iconName)}}
 
 <div class="uni-alert__wrapper">
-    {{#if title}}
-        <div class="uni-alert__title">{{{title}}}</div>
-    {{/if}}
-    {{#if subtitle}}
-        <div class="uni-alert__content">{{{subtitle}}}</div>
-    {{/if}}
+  {{#if title}}
+    <div class="uni-alert__title">{{{title}}}</div>
+  {{/if}}
+  {{#if subtitle}}
+    <div class="uni-alert__content">{{{subtitle}}}</div>
+  {{/if}}
 
-    <div class="uni-alert__content">
-        {{yield}}
-    </div>
+  <div class="uni-alert__content">
+    {{yield}}
+  </div>
 
-    {{#if hasClose}}
-        <div class="uni-alert__close" {{action 'close'}}>{{svg-jar "cross"}}</div>
-    {{/if}}
+  {{#if hasClose}}
+    <div class="uni-alert__close" {{action "close"}}>{{svg-jar "cross"}}</div>
+  {{/if}}
 </div>

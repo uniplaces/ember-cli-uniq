@@ -1,22 +1,22 @@
 <span class="uni-tooltip__icon" {{action "onTapOrClick"}}>
-    {{#if isInformation}}
-        {{svg-jar "information-icon"}}
-    {{else if isQuestion}}
-        {{svg-jar "question-icon"}}
-    {{else if (not yieldContent)}}
-        {{yield}}
-    {{/if}}
+  {{#if isInformation}}
+    {{svg-jar "information-icon"}}
+  {{else if isQuestion}}
+    {{svg-jar "question-icon"}}
+  {{else if (not yieldContent)}}
+    {{yield}}
+  {{/if}}
 </span>
-{{#if (or (not (media 'isMobile')) isActive)}}
+{{#if (or (not (media "isMobile")) isActive)}}
   <div class="uni-tooltip__text">
-      {{#if title}}
-          <div class="uni-tooltip__text__title">{{{title}}}</div>
-      {{/if}}
+    {{#if title}}
+      <div class="uni-tooltip__text__title">{{{title}}}</div>
+    {{/if}}
 
-      {{{content}}}
+    {{{content}}}
 
-      {{#if yieldContent}}
-        {{yield}}
-      {{/if}}
+    {{#if yieldContent}}
+      {{yield}}
+    {{/if}}
   </div>
 {{/if}}

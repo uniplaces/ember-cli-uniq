@@ -1,6 +1,6 @@
-<li class="uni-header__mobile-nav__button uni-header__mobile-nav__button--dropdown {{if isOpen 'uni-header__mobile-nav__button--dropdown--active'}}" {{action toggleDropdown}}>{{selected}}</li>
+<li class="uni-header__mobile-nav__button uni-header__mobile-nav__button--dropdown {{if isOpen "uni-header__mobile-nav__button--dropdown--active"}}" {{action toggleDropdown}}>{{selected}}</li>
 
-<li class="uni-header__mobile-nav__dropdown {{if isOpen 'uni-header__mobile-nav__dropdown--active'}}">
+<li class="uni-header__mobile-nav__dropdown {{if isOpen "uni-header__mobile-nav__dropdown--active"}}">
   {{#each options as |option|}}
     {{yield option}}
   {{/each}}
