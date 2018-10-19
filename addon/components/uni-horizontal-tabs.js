@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { isEmpty } from '@ember/utils';
-import { observer, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import layout from '../templates/components/uni-horizontal-tabs';
 
 export default Component.extend({
@@ -10,17 +10,7 @@ export default Component.extend({
   options: [],
   currentTab: 0,
 
-  /**
-   * @public
-   * @param {Option} option The option data provided to the component
-   *
-   * This method can be redefined if you need to create a custom title
-   */
-  toTitle(option) {
-    return option;
-  },
-
-  onOptionsChanged: observer('options.[]', function() {
+  onOptionsChanged: computed('options.[]', function() {
     this.set('currentTab', Math.min(this.get('currentTab'), this.get('options.length') - 1));
   }),
 
@@ -31,9 +21,13 @@ export default Component.extend({
 
     return this.get('options')[this.get('currentTab')];
   }),
-  titles: computed('options.@each.title', function() {
+  titles: computed('options', function() {
     return this.get('options').map(this.get('toTitle'));
   }),
+
+  toTitle(option) {
+    return option;
+  },
 
   onBtnClick() {},
   onChangeTab() {},
