@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import $ from 'jquery';
 import { isEmpty } from '@ember/utils';
 import layout from '../templates/components/uni-input-price';
 
@@ -54,11 +53,11 @@ export default Component.extend({
     },
 
     onFocusIn() {
-      $('input').focus(function() {
-        $(this).parent('.uni-input-price').addClass('uni-input-price--focused');
-      }).blur(function() {
-        $(this).parent('.uni-input-price').removeClass('uni-input-price--focused');
-      });
+      document.getElementById(this.get('elementId')).classList.add('uni-input-price--focused');
+    },
+
+    onFocusOut() {
+      document.getElementById(this.get('elementId')).classList.remove('uni-input-price--focused');
     }
   }
 });

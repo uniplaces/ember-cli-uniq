@@ -94,12 +94,15 @@ export default Component.extend({
   hasError: computed('number', 'language', function() {
     return !isValidPhoneNumber(this.get('language'), this.get('number'));
   }),
+  inputId: computed('elementId', function() {
+    return `${this.get('elementId')}-subscriber`;
+  }),
 
   actions: {
     onChangeSelect(option) {
       this.get('onChangeSelect')(option);
       this.set('isInputDisabled', false);
-      this.$().find('input')[0].focus();
+      document.getElementById(this.get('inputId')).focus();
     },
 
     onKeyDown(_, ev) {
