@@ -4,6 +4,7 @@ import { isEmpty } from '@ember/utils';
 import layout from '../templates/components/uni-input-price';
 
 const INPUT_TYPE_NUMBER = 'number';
+const FOCUSED_CLASS = 'uni-input-price--focused';
 
 export default Component.extend({
   classNames: ['uni-input-price'],
@@ -42,6 +43,8 @@ export default Component.extend({
 
   onInvalidInput() {},
   onChange() {},
+  onFocusIn() {},
+  onFocusOut() {},
 
   actions: {
     onChange() {
@@ -53,11 +56,15 @@ export default Component.extend({
     },
 
     onFocusIn() {
-      document.getElementById(this.get('elementId')).classList.add('uni-input-price--focused');
+      document.getElementById(this.get('elementId')).classList.add(FOCUSED_CLASS);
+
+      return this.get('onFocusIn')(...arguments);
     },
 
     onFocusOut() {
-      document.getElementById(this.get('elementId')).classList.remove('uni-input-price--focused');
+      document.getElementById(this.get('elementId')).classList.remove(FOCUSED_CLASS);
+
+      return this.get('onFocusOut')(...arguments);
     }
   }
 });
