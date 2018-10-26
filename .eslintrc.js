@@ -16,12 +16,14 @@ module.exports = {
     'ember-suave/no-const-outside-module-scope': 'off'
   },
   env: {
-    browser: true
+    browser: true,
+    es6: true
   },
   overrides: [
     // node files
     {
       files: [
+        '.eslintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'index.js',
