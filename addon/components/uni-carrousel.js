@@ -1,7 +1,6 @@
 import { gt } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import $ from 'jquery';
 import { on } from '@ember/object/evented';
 import layout from '../templates/components/uni-carrousel';
 import { EKMixin, keyUp } from 'ember-keyboard';
@@ -22,11 +21,11 @@ export default Component.extend(EKMixin, {
     return this.get('page') * this.get('componentWidth') * -1;
   }),
   wrapperStyle: computed('deltaX', function() {
-    return htmlSafe(`transform: translate3d(${this.get('deltaX')}px, 0px, 0)`);
+    return htmlSafe(`transform: translate3d(${parseFloat(this.deltaX)}px, 0px, 0)`);
   }),
 
   didRender() {
-    this.set('componentWidth', $('.uni-carrousel__container').width());
+    this.set('componentWidth', getComputedStyle(document.querySelector('.uni-carrousel__container')).width);
   },
 
   keyLeft: on(keyUp('ArrowLeft'), function() {

@@ -18,13 +18,13 @@ export default Component.extend({
     return 100 / this.get('totalStepsCount');
   }),
   inlineStyle: computed('percentage', function() {
-    return htmlSafe(`width: ${this.get('percentage')}%`);
+    return htmlSafe(`width: ${parseFloat(this.percentage)}%`);
   }),
   inlineStepStyles: computed('eachStepPercentage', function() {
     let stepStyles = [];
 
     this.get('totalStepsCountAsArray').forEach((step) => {
-      stepStyles.push(htmlSafe(`left: calc(${this.get('eachStepPercentage')}% * ${step});`));
+      stepStyles.push(htmlSafe(`left: calc(${parseFloat(this.eachStepPercentage)}% * ${parseInt(step)});`));
     });
 
     return stepStyles;

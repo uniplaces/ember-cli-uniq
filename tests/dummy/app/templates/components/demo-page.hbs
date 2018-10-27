@@ -2,7 +2,7 @@
 {{! template-lint-disable attribute-indentation }}
 
 <div class="demo-app__banner">
-  {{uni-title title="ember-cli-uniq" subtitle=(concat "made with ♥ at " (svg-jar "uniplaces_logo_white"))}}
+  {{uni-title title="ember-cli-uniq" subtitle="made with ♥ at Uniplaces"}}
   <div class="demo-app__banner__current-version">Current version: <span>{{app-version}}</span></div>
 </div>
 
@@ -37,7 +37,7 @@
         {{/uni-header}}
         {{code-snippet name="uni-header-2.hbs"}}
 
-        <div style="background-color: #333">
+        <div class="header__transparent">
           {{uni-header isTransparent=true}}
         </div>
         {{code-snippet name="uni-header-3.hbs"}}
