@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | uni photo thumbnail', function(hooks) {
@@ -9,6 +9,6 @@ module('Integration | Component | uni photo thumbnail', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`{{uni-photo-thumbnail}}`);
 
-    assert.equal(find('*').textContent.trim(), '');
+    assert.dom('.uni-photo-thumbnail').exists();
   });
 });
