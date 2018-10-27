@@ -150,12 +150,12 @@ export default Component.extend({
   _handleKeyEnter() {
     this.selectOption(this.get('optionsFiltered').objectAt(this.get('highlighted')));
 
-    document.querySelectorAll('input').blur();
+    this.element.querySelector('input').blur();
   },
 
   _handleKeyESC() {
     this.set('showOptions', false);
 
-    document.querySelectorAll('input').blur();
+    this.element.querySelector('input').blur();
   }
 });
