@@ -1,8 +1,8 @@
-import { computed } from '@ember/object';
-import { isEmpty } from '@ember/utils';
+import Ember from 'ember';
+import { empty } from '@ember/object/computed';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { find, fillIn, triggerKeyEvent, render } from '@ember/test-helpers';
+import { fillIn, triggerKeyEvent, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import KeyCodesType from 'ember-cli-uniq/enums/key-codes-type';
 
@@ -14,15 +14,14 @@ module('Integration | Component | uni input', function(hooks) {
 
     await render(hbs`{{uni-input}}`);
 
-    assert.equal(find('*').textContent.trim(), '');
+    assert.dom('.uni-input').exists();
   });
 
   test('it renders error with given error validation', async function(assert) {
     assert.expect(1);
 
-    this.set('showError', computed('value', function() {
-      return isEmpty(this.get('value'));
-    }));
+    // eslint-disable-next-line ember-suave/no-direct-property-access
+    Ember.defineProperty(this, 'showError', empty('value'));
 
     await render(hbs`{{uni-input showError=showError}}`);
 
