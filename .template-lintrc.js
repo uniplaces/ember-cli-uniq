@@ -10,7 +10,6 @@ module.exports = {
     },
     // @TODO: Remove the below rules
     'no-invalid-interactive': false,
-    'no-triple-curlies': false,
     'no-inline-styles': false
   }
 };
