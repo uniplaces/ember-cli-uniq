@@ -10,10 +10,10 @@
 {{#if (or (not (media "isMobile")) isActive)}}
   <div class="uni-tooltip__text">
     {{#if title}}
-      <div class="uni-tooltip__text__title">{{{title}}}</div>
+      <div class="uni-tooltip__text__title">{{title}}</div>
     {{/if}}
 
-    {{{content}}}
+    {{content}}
 
     {{#if yieldContent}}
       {{yield}}
