@@ -19,6 +19,13 @@ export default Component.extend({
 
   onCloseModal() {},
 
+  setBodyOverflowClass(state) {
+    let body = document.querySelector('body');
+    state
+      ? body.classList.add(this.get('bodyOverflowClass'))
+      : body.classList.remove(this.get('bodyOverflowClass'));
+  },
+
   // This observer is used to bypass the scroll on mobile when a modal is open
   onOpenChangeObserver: on('init', observer('isOpen', function() {
     if (this.get('firstLoad')) {
@@ -29,10 +36,7 @@ export default Component.extend({
       }
     }
 
-    let body = document.querySelector('body');
-    this.get('isOpen')
-      ? body.classList.add(this.get('bodyOverflowClass'))
-      : body.classList.remove(this.get('bodyOverflowClass'));
+    this.setBodyOverflowClass(this.get('isOpen'));
   })),
 
   willDestroyElement() {
@@ -40,8 +44,7 @@ export default Component.extend({
 
     // This assumes only one modal is open at all times
     if (this.get('isOpen')) {
-      let body = document.querySelector('body');
-      body.classList.remove(this.get('bodyOverflowClass'));
+      this.setBodyOverflowClass(false);
     }
   },
 

@@ -61,3 +61,56 @@ test('it calls the onclose callback', async function(assert) {
   await click('.test__close-button');
 });
 
+test('it calls the setBodyOverflowClass with true on open true', async function(assert) {
+  assert.expect(2);
+
+  // Open, Destroy Component
+  let expectedStates = [true, false];
+  let currentState = 0;
+
+  this.setProperties({
+    isOpen: true,
+    setBodyOverflowClass: (state) => {
+      assert.equal(expectedStates[currentState], state);
+      currentState++;
+    }
+  });
+
+  this.render(hbs`
+    {{uni-modal
+      baseCssClass="test"
+      bodyOverflowClass=bodyOverflowClass
+      isOpen=isOpen
+      setBodyOverflowClass=setBodyOverflowClass
+      onCloseModal=onCloseModal}}
+  `);
+});
+
+test('it calls the setBodyOverflowClass with false on open false except on first load and component destroy', async function(assert) {
+  assert.expect(2);
+
+  // None, Open, Close, None
+  let expectedStates = [true, false];
+  let currentState = 0;
+
+  this.setProperties({
+    isOpen: false,
+    setBodyOverflowClass: (state) => {
+      assert.equal(expectedStates[currentState], state);
+      currentState++;
+    }
+  });
+
+  this.render(hbs`
+    {{uni-modal
+      baseCssClass="test"
+      bodyOverflowClass=bodyOverflowClass
+      isOpen=isOpen
+      setBodyOverflowClass=setBodyOverflowClass
+      onCloseModal=onCloseModal}}
+  `);
+
+  this.set('isOpen', true);
+
+  this.set('isOpen', false);
+});
