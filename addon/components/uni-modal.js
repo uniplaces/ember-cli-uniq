@@ -15,7 +15,7 @@ export default Component.extend({
   hasCloseButton: true,
   renderInPlace: false,
   isOpen: null,
-  firstLoad: true,
+  isFirstLoad: true,
 
   onCloseModal() {},
 
@@ -28,12 +28,11 @@ export default Component.extend({
 
   // This observer is used to bypass the scroll on mobile when a modal is open
   onOpenChangeObserver: on('init', observer('isOpen', function() {
-    if (this.get('firstLoad')) {
-      this.set('firstLoad', false);
+    let isFirstLoad = this.get('isFirstLoad');
+    this.set('isFirstLoad', false);
 
-      if (!this.get('isOpen')) {
-        return;
-      }
+    if (isFirstLoad && !this.get('isOpen')) {
+      return;
     }
 
     this.setBodyOverflowClass(this.get('isOpen'));
