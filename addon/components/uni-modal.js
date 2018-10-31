@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { observer } from '@ember/object';
-import $ from 'jquery';
+import { on } from '@ember/object/evented';
 import layout from '../templates/components/uni-modal';
 
 export default Component.extend({
@@ -15,20 +15,32 @@ export default Component.extend({
   hasCloseButton: true,
   renderInPlace: false,
   isOpen: null,
+  firstLoad: true,
 
   onCloseModal() {},
 
   // This observer is used to bypass the scroll on mobile when a modal is open
-  onOpenChangeObserver: observer('isOpen', function() {
-    this.get('isOpen')
-      ? $('body').addClass(this.get('bodyOverflowClass'))
-      : $('body').removeClass(this.get('bodyOverflowClass'));
-  }),
+  onOpenChangeObserver: on('init', observer('isOpen', function() {
+    if (this.get('firstLoad') && !this.get('isOpen')) {
+      this.set('firstLoad', false);
 
-  didDestroyElement() {
+      return;
+    }
+
+    let body = document.querySelector('body');
+    this.get('isOpen')
+      ? body.classList.add(this.get('bodyOverflowClass'))
+      : body.classList.remove(this.get('bodyOverflowClass'));
+  })),
+
+  willDestroyElement() {
     this._super(...arguments);
 
-    $('body').removeClass(this.get('bodyOverflowClass'));
+    // This assumes only one modal is open at all times
+    if (this.get('isOpen')) {
+      let body = document.querySelector('body');
+      body.classList.remove(this.get('bodyOverflowClass'));
+    }
   },
 
   actions: {
