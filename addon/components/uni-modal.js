@@ -21,10 +21,12 @@ export default Component.extend({
 
   // This observer is used to bypass the scroll on mobile when a modal is open
   onOpenChangeObserver: on('init', observer('isOpen', function() {
-    if (this.get('firstLoad') && !this.get('isOpen')) {
+    if (this.get('firstLoad')) {
       this.set('firstLoad', false);
 
-      return;
+      if (!this.get('isOpen')) {
+        return;
+      }
     }
 
     let body = document.querySelector('body');
