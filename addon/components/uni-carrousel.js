@@ -21,7 +21,7 @@ export default Component.extend(EKMixin, {
     return this.get('page') * this.get('componentWidth') * -1;
   }),
   wrapperStyle: computed('deltaX', function() {
-    return htmlSafe(`transform: translate3d(${parseFloat(this.deltaX)}px, 0px, 0)`);
+    return htmlSafe(`transform: translate3d(${parseFloat(this.get('deltaX'))}px, 0px, 0)`);
   }),
 
   didRender() {
