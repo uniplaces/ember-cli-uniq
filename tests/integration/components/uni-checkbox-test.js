@@ -1,22 +1,24 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-checkbox', 'Integration | Component | uni checkbox', {
-  integration: true
-});
+module('Integration | Component | uni checkbox', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-checkbox}}`);
+    await render(hbs`{{uni-checkbox}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-checkbox').exists();
+  });
 
-test('it and puts small class', function(assert) {
-  assert.expect(1);
+  test('it and puts small class', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-checkbox isSmall=true}}`);
+    await render(hbs`{{uni-checkbox isSmall=true}}`);
 
-  assert.ok(this.$('.uni-checkbox').attr('class').includes('--small'));
+    assert.ok(find('.uni-checkbox').getAttribute('class').includes('--small'));
+  });
 });

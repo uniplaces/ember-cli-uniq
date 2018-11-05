@@ -1,58 +1,57 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_LABEL = 'Option';
 const DEFAULT_VALUE = 'option';
 
-moduleForComponent('uni-selector-button', 'Integration | Component | uni selector button', {
-  integration: true
-});
+module('Integration | Component | uni selector button', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-selector-button}}`);
+    await render(hbs`{{uni-selector-button}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-multi-selector__button').exists();
+  });
 
-test('it renders checked', function(assert) {
-  assert.expect(3);
+  test('it renders checked', async function(assert) {
+    assert.expect(2);
 
-  this.set('label', DEFAULT_LABEL);
-  this.set('checked', true);
+    this.set('label', DEFAULT_LABEL);
+    this.set('checked', true);
 
-  this.render(hbs`{{uni-selector-button label=label checked=checked}}`);
+    await render(hbs`{{uni-selector-button label=label checked=checked}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('label').text().trim(), DEFAULT_LABEL);
-  assert.equal(this.$('svg').length, 1);
-});
+    assert.dom('label').hasText(DEFAULT_LABEL);
+    assert.dom('svg').exists();
+  });
 
-test('it renders unchecked', function(assert) {
-  assert.expect(3);
+  test('it renders unchecked', async function(assert) {
+    assert.expect(2);
 
-  this.set('label', DEFAULT_LABEL);
-  this.set('checked', false);
+    this.set('label', DEFAULT_LABEL);
+    this.set('checked', false);
 
-  this.render(hbs`{{uni-selector-button label=label checked=checked}}`);
+    await render(hbs`{{uni-selector-button label=label checked=checked}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('label').text().trim(), DEFAULT_LABEL);
-  assert.equal(this.$('svg').length, 0);
-});
+    assert.dom('label').hasText(DEFAULT_LABEL);
+    assert.dom('svg').doesNotExist();
+  });
 
-test('it renders error', function(assert) {
-  assert.expect(3);
+  test('it renders error', async function(assert) {
+    assert.expect(2);
 
-  this.set('label', DEFAULT_LABEL);
-  this.set('error', true);
-  this.set('groupValue', DEFAULT_VALUE);
-  this.set('value', DEFAULT_VALUE);
+    this.set('label', DEFAULT_LABEL);
+    this.set('error', true);
+    this.set('groupValue', DEFAULT_VALUE);
+    this.set('value', DEFAULT_VALUE);
 
-  this.render(hbs`{{uni-selector-button label=label error=error value=value groupValue=groupValue}}`);
+    await render(hbs`{{uni-selector-button label=label error=error value=value groupValue=groupValue}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('label').text().trim(), DEFAULT_LABEL);
-  assert.equal(this.$('.uni-multi-selector__button--error').length, 1);
+    assert.dom('label').hasText(DEFAULT_LABEL);
+    assert.dom('.uni-multi-selector__button--error').exists();
+  });
 });

@@ -1,37 +1,39 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-horizontal-tabs', 'Integration | Component | uni horizontal tabs', {
-  integration: true
-});
+module('Integration | Component | uni horizontal tabs', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{uni-horizontal-tabs}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`{{uni-horizontal-tabs}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-horizontal-tabs').exists();
+  });
 
-test('it renders default option', function(assert) {
-  this.set('options', ['a', 'b', 'c']);
+  test('it renders default option', async function(assert) {
+    this.set('options', ['a', 'b', 'c']);
 
-  this.render(hbs`
-    {{#uni-horizontal-tabs options=options as |option|}}
-      {{option}}
-    {{/uni-horizontal-tabs}}
-  `);
+    await render(hbs`
+      {{#uni-horizontal-tabs options=options as |option|}}
+        {{option}}
+      {{/uni-horizontal-tabs}}
+    `);
 
-  assert.equal(this.$().text().trim().replace(/\s/g, ''), 'abca');
-});
+    assert.dom('.uni-horizontal-tabs').hasText('a b c a');
+  });
 
-test('it renders option', function(assert) {
-  this.set('currentTab', 1);
-  this.set('options', ['a', 'b', 'c']);
+  test('it renders option', async function(assert) {
+    this.set('currentTab', 1);
+    this.set('options', ['a', 'b', 'c']);
 
-  this.render(hbs`
-    {{#uni-horizontal-tabs currentTab=currentTab options=options as |option|}}
-      {{option}}
-    {{/uni-horizontal-tabs}}
-  `);
+    await render(hbs`
+      {{#uni-horizontal-tabs currentTab=currentTab options=options as |option|}}
+        {{option}}
+      {{/uni-horizontal-tabs}}
+    `);
 
-  assert.equal(this.$().text().trim().replace(/\s/g, ''), 'abcb');
+    assert.dom('.uni-horizontal-tabs').hasText('a b c b');
+  });
 });

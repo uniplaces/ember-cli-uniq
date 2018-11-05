@@ -1,26 +1,28 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_TITLE = 'Sign Up';
 
-moduleForComponent('uni-signup', 'Integration | Component | uni signup', {
-  integration: true
-});
+module('Integration | Component | uni signup', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders nothing', function(assert) {
-  assert.expect(1);
+  test('it renders nothing', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-signup}}`);
+    await render(hbs`{{uni-signup}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-signup').exists();
+  });
 
-test('it renders title', function(assert) {
-  assert.expect(1);
+  test('it renders title', async function(assert) {
+    assert.expect(1);
 
-  this.set('title', DEFAULT_TITLE);
+    this.set('title', DEFAULT_TITLE);
 
-  this.render(hbs`{{uni-signup title=title}}`);
+    await render(hbs`{{uni-signup title=title}}`);
 
-  assert.equal(this.$().text().trim(), DEFAULT_TITLE);
+    assert.dom('.uni-signup').hasText(DEFAULT_TITLE);
+  });
 });

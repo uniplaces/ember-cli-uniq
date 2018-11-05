@@ -1,32 +1,33 @@
-import $ from 'jquery';
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('uni-auth-modal', 'Integration | Component | uni auth modal', {
-  integration: true
-});
+module('Integration | Component | uni auth modal', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  this.set('isOpen', true);
+    this.set('isOpen', true);
 
-  this.render(hbs`{{uni-auth-modal isOpen=isOpen}}`);
+    await render(hbs`{{uni-auth-modal isOpen=isOpen}}`);
 
-  assert.equal(this.$().text().trim(), '');
-  assert.notEqual(this.$(), '');
-});
+    assert.dom('.uni-auth-modal').exists();
+    assert.dom('.uni-auth-modal').hasText('');
+  });
 
-test('it renders yielded content', function(assert) {
-  assert.expect(1);
+  test('it renders yielded content', async function(assert) {
+    assert.expect(1);
 
-  this.set('isOpen', true);
+    this.set('isOpen', true);
 
-  this.render(hbs`
-    {{#uni-auth-modal isOpen=isOpen}}
-      This is the content
-    {{/uni-auth-modal}}
-  `);
+    await render(hbs`
+      {{#uni-auth-modal isOpen=isOpen}}
+        This is the content
+      {{/uni-auth-modal}}
+    `);
 
-  assert.equal($('.uni-auth-modal').text().trim(), 'This is the content');
+    assert.dom('.uni-auth-modal').hasText('This is the content');
+  });
 });

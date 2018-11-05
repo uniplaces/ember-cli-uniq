@@ -79,7 +79,7 @@ export default Component.extend({
       this.selectOption(option);
     },
 
-    keyPress(_, ev) {
+    keyPress(ev) {
       this._handleKeyPress(ev);
     },
 
@@ -150,12 +150,12 @@ export default Component.extend({
   _handleKeyEnter() {
     this.selectOption(this.get('optionsFiltered').objectAt(this.get('highlighted')));
 
-    this.$('input').blur();
+    this.element.querySelector('input').blur();
   },
 
   _handleKeyESC() {
     this.set('showOptions', false);
 
-    this.$('input').blur();
+    this.element.querySelector('input').blur();
   }
 });

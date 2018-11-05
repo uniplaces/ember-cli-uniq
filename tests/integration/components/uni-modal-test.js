@@ -1,116 +1,114 @@
-import $ from 'jquery';
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { click, render, waitFor } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { click } from 'ember-native-dom-helpers';
 
 const DEFAULT_TITLE = 'Uni modal title';
 
-moduleForComponent('uni-modal', 'Integration | Component | uni modal', {
-  integration: true
-});
+module('Integration | Component | uni modal', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it does not render', function(assert) {
-  assert.expect(1);
+  test('it does not render', async function(assert) {
+    assert.expect(1);
 
-  this.set('isOpen', false);
+    this.set('isOpen', false);
 
-  this.render(hbs`{{uni-modal isOpen=isOpen}}`);
+    await render(hbs`{{uni-modal isOpen=isOpen}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
-
-test('it renders and renders title', function(assert) {
-  assert.expect(2);
-
-  this.set('isOpen', true);
-  this.set('title', DEFAULT_TITLE);
-
-  this.render(hbs`{{uni-modal isOpen=isOpen title=title}}`);
-
-  assert.equal(this.$().text().trim(), '');
-  assert.equal($('.uni-modal .uni-title').text().trim(), DEFAULT_TITLE);
-});
-
-test('it renders content', function(assert) {
-  assert.expect(2);
-
-  this.set('isOpen', true);
-
-  this.render(hbs`
-    {{#uni-modal isOpen=isOpen}}
-      This is content
-    {{/uni-modal}}
-  `);
-
-  assert.equal(this.$().text().trim(), '');
-  assert.equal($('.uni-modal').text().trim(), 'This is content');
-});
-
-test('it calls the onclose callback', async function(assert) {
-  assert.expect(1);
-
-  this.setProperties({
-    isOpen: true,
-    onCloseModal: () => assert.ok(true)
+    assert.dom('.uni-modal').doesNotExist();
   });
 
-  this.render(hbs`
-    {{uni-modal baseCssClass="test" isOpen=isOpen onCloseModal=onCloseModal}}
-  `);
+  test('it renders and renders title', async function(assert) {
+    assert.expect(1);
 
-  await click('.test__close-button');
-});
+    this.set('isOpen', true);
+    this.set('title', DEFAULT_TITLE);
 
-test('it calls the setBodyOverflowClass with true on open true', async function(assert) {
-  assert.expect(2);
+    await render(hbs`{{uni-modal isOpen=isOpen title=title}}`);
 
-  // Open, Destroy Component
-  let expectedStates = [true, false];
-  let currentState = 0;
-
-  this.setProperties({
-    isOpen: true,
-    setBodyOverflowClass: (state) => {
-      assert.equal(expectedStates[currentState], state);
-      currentState++;
-    }
+    assert.dom('.uni-modal .uni-title').hasText(DEFAULT_TITLE);
   });
 
-  this.render(hbs`
-    {{uni-modal
-      baseCssClass="test"
-      bodyOverflowClass=bodyOverflowClass
-      isOpen=isOpen
-      setBodyOverflowClass=setBodyOverflowClass
-      onCloseModal=onCloseModal}}
-  `);
-});
+  test('it renders content', async function(assert) {
+    assert.expect(1);
 
-test('it calls the setBodyOverflowClass with false on open false except on first load and component destroy', async function(assert) {
-  assert.expect(2);
+    this.set('isOpen', true);
 
-  // None, Open, Close, None
-  let expectedStates = [true, false];
-  let currentState = 0;
+    await render(hbs`
+      {{#uni-modal isOpen=isOpen}}
+        This is content
+      {{/uni-modal}}
+    `);
 
-  this.setProperties({
-    isOpen: false,
-    setBodyOverflowClass: (state) => {
-      assert.equal(expectedStates[currentState], state);
-      currentState++;
-    }
+    assert.dom('.uni-modal').hasText('This is content');
   });
 
-  this.render(hbs`
-    {{uni-modal
-      baseCssClass="test"
-      bodyOverflowClass=bodyOverflowClass
-      isOpen=isOpen
-      setBodyOverflowClass=setBodyOverflowClass
-      onCloseModal=onCloseModal}}
-  `);
+  test('it calls the onclose callback', async function(assert) {
+    assert.expect(1);
 
-  this.set('isOpen', true);
+    this.setProperties({
+      isOpen: true,
+      onCloseModal: () => assert.ok(true)
+    });
 
-  this.set('isOpen', false);
+    await render(hbs`
+      {{uni-modal baseCssClass="test" isOpen=isOpen onCloseModal=onCloseModal}}
+    `);
+
+    await click('.test__close-button');
+  });
+
+  test('it calls the setBodyOverflowClass with true on open true', async function(assert) {
+    assert.expect(2);
+
+    // Open, Destroy Component
+    let expectedStates = [true, false];
+    let currentState = 0;
+
+    this.setProperties({
+      isOpen: true,
+      setBodyOverflowClass: (state) => {
+        assert.equal(expectedStates[currentState], state);
+        currentState++;
+      }
+    });
+
+    this.render(hbs`
+      {{uni-modal
+        baseCssClass="test"
+        bodyOverflowClass=bodyOverflowClass
+        isOpen=isOpen
+        setBodyOverflowClass=setBodyOverflowClass
+        onCloseModal=onCloseModal}}
+    `);
+  });
+
+  test('it calls the setBodyOverflowClass with false on open false except on first load and component destroy', async function(assert) {
+    assert.expect(2);
+
+    // None, Open, Close, None
+    let expectedStates = [true, false];
+    let currentState = 0;
+
+    this.setProperties({
+      isOpen: false,
+      setBodyOverflowClass: (state) => {
+        assert.equal(expectedStates[currentState], state);
+        currentState++;
+      }
+    });
+
+    this.render(hbs`
+      {{uni-modal
+        baseCssClass="test"
+        bodyOverflowClass=bodyOverflowClass
+        isOpen=isOpen
+        setBodyOverflowClass=setBodyOverflowClass
+        onCloseModal=onCloseModal}}
+    `);
+
+    this.set('isOpen', true);
+    await waitFor('.test');
+    this.set('isOpen', false);
+  });
 });

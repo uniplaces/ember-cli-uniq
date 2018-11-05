@@ -6,7 +6,8 @@
   noResultsComponent="uni-autocomplete-no-results"
   noResultsText=noResultsText
   searchTextValues=(action "countryNames")
-  onSelected=(action "changeCountryCode") as |optionSearchable|}}
+  onSelected=(action "changeCountryCode")
+as |optionSearchable|}}
   {{svg-jar (i "${code}" code=optionSearchable.option.code)}}
   {{#if hasBlock}}
     {{yield optionSearchable.option}}

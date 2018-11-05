@@ -6,7 +6,7 @@
   autocomplete=autocomplete
   focus-in=(action "showOptions")
   focus-out=(queue (action "selectHighlightedOption") (action "onFocusOut"))
-  class=(i 'uni-input uni-input--bordered ${errorClass}' errorClass=(if hasError 'uni-input--error'))
+  class=(i "uni-input uni-input--bordered ${errorClass}" errorClass=(if hasError "uni-input--error"))
   key-down=(action "keyPress")}}
 
 {{#if optionsFiltered}}
@@ -14,7 +14,7 @@
     <ul class="options">
       {{#each optionsFiltered as |option index|}}
         <li {{action "onSelected" option}}>
-          <span class="option {{if (eq index highlighted) 'option--highlighted'}}" {{action "setHighlighted" index on="mouseEnter"}}>
+          <span class="option {{if (eq index highlighted) "option--highlighted"}}" {{action "setHighlighted" index on="mouseEnter"}}>
             {{yield option}}
           </span>
         </li>

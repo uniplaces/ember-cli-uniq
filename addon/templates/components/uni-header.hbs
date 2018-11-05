@@ -1,7 +1,7 @@
 <div class="uni-header__wrapper">
   {{#if (not logoSrc)}}
     {{#if logoUrl}}
-      <a href="{{logoUrl}}">
+      <a href={{logoUrl}}>
         {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
       </a>
     {{else if logoRoute}}
@@ -12,7 +12,7 @@
       {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
     {{/if}}
   {{else}}
-    <img src="{{logoSrc}}" width="{{logoWidth}}" height="{{logoHeight}}">
+    <img src={{logoSrc}} width={{logoWidth}} height={{logoHeight}} alt="Logo">
   {{/if}}
 
   {{yield}}

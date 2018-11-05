@@ -3,23 +3,23 @@
 {{/if}}
 
 <div class="uni-datepicker-input__wrapper">
-{{input
-  class="uni-input uni-input--bordered"
-  value=formattedDate
-  placeholder=placeholder
-  click=(action "toggleDatepicker")
-  readonly=isReadOnly}}
+  {{input
+    class="uni-input uni-input--bordered"
+    value=formattedDate
+    placeholder=placeholder
+    click=(action "toggleDatepicker")
+    readonly=isReadOnly}}
   <div class="uni-datepicker-input__wrapper__icon">
-    {{svg-jar 'calendar'}}
+    {{svg-jar "calendar"}}
   </div>
 </div>
 {{#if showDatepicker}}
   {{uni-datepicker
-  	selected=selected
-  	onSelect=(action "onSelect")
-  	center=center
-  	onCenter=(action (mut center))
-  	minDate=minDate
-  	maxDate=maxDate
+  	 selected=selected
+  	 onSelect=(action "onSelect")
+  	 center=center
+  	 onCenter=(action (mut center))
+  	 minDate=minDate
+  	 maxDate=maxDate
     disabledDates=disabledDates}}
 {{/if}}

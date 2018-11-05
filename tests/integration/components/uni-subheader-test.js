@@ -1,40 +1,40 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_TITLE = 'Default title';
 const DEFAULT_SUBTITLE = 'Default subtitle';
 
-moduleForComponent('uni-subheader', 'Integration | Component | uni subheader', {
-  integration: true
-});
+module('Integration | Component | uni subheader', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders nothing', function(assert) {
-  assert.expect(1);
+  test('it renders nothing', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-subheader}}`);
+    await render(hbs`{{uni-subheader}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-subheader').exists();
+  });
 
-test('it renders title', function(assert) {
-  assert.expect(2);
+  test('it renders title', async function(assert) {
+    assert.expect(1);
 
-  this.set('title', DEFAULT_TITLE);
+    this.set('title', DEFAULT_TITLE);
 
-  this.render(hbs`{{uni-subheader title=title}}`);
+    await render(hbs`{{uni-subheader title=title}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$().text().trim(), DEFAULT_TITLE);
-});
+    assert.dom('.uni-subheader').hasText(DEFAULT_TITLE);
+  });
 
-test('it renders subtitle', function(assert) {
-  assert.expect(2);
+  test('it renders subtitle', async function(assert) {
+    assert.expect(1);
 
-  this.set('title', DEFAULT_TITLE);
-  this.set('subtitle', DEFAULT_SUBTITLE);
+    this.set('title', DEFAULT_TITLE);
+    this.set('subtitle', DEFAULT_SUBTITLE);
 
-  this.render(hbs`{{uni-subheader title=title subtitle=subtitle}}`);
+    await render(hbs`{{uni-subheader title=title subtitle=subtitle}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-subheader__caption').text().trim(), DEFAULT_SUBTITLE);
+    assert.dom('.uni-subheader__caption').hasText(DEFAULT_SUBTITLE);
+  });
 });

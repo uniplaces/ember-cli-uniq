@@ -12,6 +12,7 @@ const progressOptions = {
 };
 
 export default Component.extend({
+  classNames: ['uni-photo-thumbnail'],
   progressOptions,
   layout,
 
@@ -20,7 +21,7 @@ export default Component.extend({
   }),
 
   imageStyle: computed('photo.url', function() {
-    return htmlSafe(!this.get('photo.url') ? '' : `background-image: url(${this.get('photo.url')})`);
+    return htmlSafe(this.get('photo.url') ? `background-image: url(${encodeURI(this.get('photo.url'))})` : '');
   }),
 
   onImageClick() {}

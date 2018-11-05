@@ -1,14 +1,14 @@
 {{#uni-input-container isChecked=checked}}
-  <div class="uni-radio-button {{if isDisabled 'uni-radio-button--disabled' ''}}">
+  <div class="uni-radio-button {{if isDisabled "uni-radio-button--disabled" ""}}">
     <input
       type="radio"
       value={{value}}
       checked={{checked}}
       name={{name}}
       onclick={{action "onClick"}}
-      id={{i '${id}-radio' id=elementId}}
-      disabled={{if isDisabled 'disabled' ''}}>
+      id={{i "${id}-radio" id=elementId}}
+      disabled={{if isDisabled "disabled" ""}}>
 
-    <label for={{i '${id}-radio' id=elementId}}>{{label}}</label>
+    <label for={{i "${id}-radio" id=elementId}}>{{label}}</label>
   </div>
 {{/uni-input-container}}

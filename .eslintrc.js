@@ -16,21 +16,26 @@ module.exports = {
     'ember-suave/no-const-outside-module-scope': 'off'
   },
   env: {
-    browser: true
+    browser: true,
+    es6: true
   },
   overrides: [
     // node files
     {
       files: [
+        '.eslintrc.js',
+        '.template-lintrc.js',
+        'ember-cli-build.js',
         'index.js',
         'testem.js',
-        'ember-cli-build.js',
+        'blueprints/*/index.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [
-        'app/**',
         'addon/**',
+        'addon-test-support/**',
+        'app/**',
         'tests/dummy/app/**'
       ],
       parserOptions: {
@@ -48,7 +53,7 @@ module.exports = {
     // test files
     {
       files: ['tests/**/*.js'],
-      excludedFiles: ['tests/dumm y/**/*.js'],
+      excludedFiles: ['tests/dummy/**/*.js'],
       env: {
         embertest: true
       }

@@ -13,7 +13,7 @@ export default Component.extend({
 
   actions: {
     triggerInputFile() {
-      this.$('input').click();
+      this.element.querySelector('input').click();
     },
 
     handleFile(event) {

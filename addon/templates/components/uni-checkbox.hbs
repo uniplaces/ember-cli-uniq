@@ -4,15 +4,16 @@
     value={{isSelected}}
     checked={{isSelected}}
     name={{name}}
-    id={{i '${id}-checkbox' id=elementId}}
-    disabled={{if isDisabled 'disabled' ''}}
-    class={{i "uni-checkbox ${disabledClass} ${errorClass} ${smallClass}"
-      disabledClass=(if isDisabled "uni-checkbox--disabled" '')
+    id={{i "${id}-checkbox" id=elementId}}
+    disabled={{if isDisabled "disabled" ""}}
+    class={{i
+      "uni-checkbox ${disabledClass} ${errorClass} ${smallClass}"
+      disabledClass=(if isDisabled "uni-checkbox--disabled" "")
       smallClass=(if isSmall "uni-checkbox--small")
-      errorClass=(if hasError "uni-checkbox--error" '')}}>
+      errorClass=(if hasError "uni-checkbox--error" "")}}>
 
-  <label for={{i '${id}-checkbox' id=elementId}}>
-    {{{label}}}
+  <label for={{i "${id}-checkbox" id=elementId}}>
+    {{label}}
     {{svg-jar "checkbox-icon"}}
   </label>
 {{/uni-input-container}}

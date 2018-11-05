@@ -9,7 +9,8 @@ This is an addon that contains the most used front-end components in the several
 
 A demo of the components can be found on [uniplaces.github.io/ember-cli-uniq](https://uniplaces.github.io/ember-cli-uniq/).
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 Install the ember-cli addon in your ember-cli project:
 

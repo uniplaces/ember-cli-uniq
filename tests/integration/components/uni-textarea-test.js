@@ -1,24 +1,25 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_PLACEHOLDER = 'placeholder';
 const DEFAULT_VALUE = 'default value';
 
-moduleForComponent('uni-textarea', 'Integration | Component | uni textarea', {
-  integration: true
-});
+module('Integration | Component | uni textarea', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('placeholder', DEFAULT_PLACEHOLDER);
-  this.set('value', DEFAULT_VALUE);
+    this.set('placeholder', DEFAULT_PLACEHOLDER);
+    this.set('value', DEFAULT_VALUE);
 
-  this.render(hbs`
-    {{#uni-textarea placeholder=placeholder value=value}}
-      component
-    {{/uni-textarea}}`
-  );
+    await render(hbs`
+      {{#uni-textarea placeholder=placeholder value=value}}
+        component
+      {{/uni-textarea}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
+    assert.dom('.uni-textarea').exists();
+  });
 });

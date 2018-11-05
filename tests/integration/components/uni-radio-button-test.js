@@ -1,66 +1,68 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { click } from 'ember-native-dom-helpers';
 
-moduleForComponent('uni-radio-button', 'Integration | Component | uni radio button', {
-  integration: true,
-  beforeEach() {
+module('Integration | Component | uni radio button', function(hooks) {
+  setupRenderingTest(hooks);
+
+  hooks.beforeEach(function() {
     this.set('label', 'This is a default label');
-  }
-});
+  });
 
-test('It renders', function(assert) {
-  assert.expect(4);
+  test('It renders', async function(assert) {
+    assert.expect(4);
 
-  this.render(hbs`{{uni-radio-button label=label}}`);
+    await render(hbs`{{uni-radio-button label=label}}`);
 
-  assert.dom('.uni-radio-button').exists();
-  assert.dom('.uni-radio-button input').isNotDisabled();
-  assert.dom('label').exists();
-  assert.dom('label').hasText('This is a default label');
-});
+    assert.dom('.uni-radio-button').exists();
+    assert.dom('.uni-radio-button input').isNotDisabled();
+    assert.dom('label').exists();
+    assert.dom('label').hasText('This is a default label');
+  });
 
-test('It renders as disabled', function(assert) {
-  assert.expect(2);
+  test('It renders as disabled', async function(assert) {
+    assert.expect(2);
 
-  this.set('isDisabled', true);
+    this.set('isDisabled', true);
 
-  this.render(hbs`{{uni-radio-button label=label isDisabled=isDisabled}}`);
+    await render(hbs`{{uni-radio-button label=label isDisabled=isDisabled}}`);
 
-  assert.dom('.uni-radio-button--disabled').exists();
-  assert.dom('.uni-radio-button input').isDisabled();
-});
+    assert.dom('.uni-radio-button--disabled').exists();
+    assert.dom('.uni-radio-button input').isDisabled();
+  });
 
-test('It renders as checked when the groupValue is the same as the value', function(assert) {
-  assert.expect(1);
+  test('It renders as checked when the groupValue is the same as the value', async function(assert) {
+    assert.expect(1);
 
-  this.set('groupValue', 'javascript');
-  this.set('value', 'javascript');
+    this.set('groupValue', 'javascript');
+    this.set('value', 'javascript');
 
-  this.render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
+    await render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
 
-  assert.dom('.uni-radio-button input').isChecked();
-});
+    assert.dom('.uni-radio-button input').isChecked();
+  });
 
-test('It renders as unchecked when the groupValue is different than the value', function(assert) {
-  assert.expect(1);
+  test('It renders as unchecked when the groupValue is different than the value', async function(assert) {
+    assert.expect(1);
 
-  this.set('groupValue', 'javascript');
-  this.set('value', 'php');
+    this.set('groupValue', 'javascript');
+    this.set('value', 'php');
 
-  this.render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
+    await render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
 
-  assert.dom('.uni-radio-button input').isNotChecked();
-});
+    assert.dom('.uni-radio-button input').isNotChecked();
+  });
 
-test('It triggers the onClick action with correct arguments', async function(assert) {
-  assert.expect(1);
+  test('It triggers the onClick action with correct arguments', async function(assert) {
+    assert.expect(1);
 
-  this.set('groupValue', 'javascript');
-  this.set('value', 'php');
-  this.set('hasChanged', (value) => assert.equal(value, 'php'));
+    this.set('groupValue', 'javascript');
+    this.set('value', 'php');
+    this.set('hasChanged', (value) => assert.equal(value, 'php'));
 
-  this.render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue hasChanged=hasChanged}}`);
+    await render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue hasChanged=hasChanged}}`);
 
-  await click('input');
+    await click('input');
+  });
 });

@@ -1,19 +1,21 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { find } from 'ember-native-dom-helpers';
 
 const DEFAULT_LABEL = 'This is a label';
 
-moduleForComponent('uni-anchor', 'Integration | Component | uni anchor', {
-  integration: true
-});
+module('Integration | Component | uni anchor', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(2);
 
-  this.set('label', DEFAULT_LABEL);
+    this.set('label', DEFAULT_LABEL);
 
-  this.render(hbs`{{uni-anchor label=label}}`);
+    await render(hbs`{{uni-anchor label=label}}`);
 
-  assert.equal(find('.uni-anchor').textContent.trim(), DEFAULT_LABEL);
+    assert.dom('.uni-anchor').exists();
+    assert.dom('.uni-anchor').hasText(DEFAULT_LABEL);
+  });
 });

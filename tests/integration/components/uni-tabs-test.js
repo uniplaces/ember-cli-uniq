@@ -1,48 +1,41 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const DEFAULT_LABEL = 'uni tab label';
 
-moduleForComponent('uni-tabs', 'Integration | Component | uni tabs', {
-  integration: true
-});
+module('Integration | Component | uni tabs', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{uni-tabs}}`);
+    await render(hbs`{{uni-tabs}}`);
 
-  assert.equal(this.$().text().trim(), '');
-});
+    assert.dom('.uni-tabs').exists();
+  });
 
-test('it renders and renders items', function(assert) {
-  assert.expect(2);
+  test('it renders and renders items', async function(assert) {
+    assert.expect(1);
 
-  this.set('tabs', [{
-    label: DEFAULT_LABEL,
-    url: ''
-  }]);
+    this.set('tabs', [{ label: DEFAULT_LABEL, url: '' }]);
 
-  this.render(hbs`{{uni-tabs tabs=tabs}}`);
+    await render(hbs`{{uni-tabs tabs=tabs}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-tabs__wrapper__item a').text().trim(), DEFAULT_LABEL);
-});
+    assert.dom('.uni-tabs__wrapper__item a').hasText(DEFAULT_LABEL);
+  });
 
-test('it renders yielded content', function(assert) {
-  assert.expect(2);
+  test('it renders yielded content', async function(assert) {
+    assert.expect(1);
 
-  this.set('tabs', [{
-    label: '',
-    url: '',
-    text: DEFAULT_LABEL
-  }]);
+    this.set('tabs', [{ label: '', url: '', text: DEFAULT_LABEL }]);
 
-  this.render(hbs`
-    {{#uni-tabs tabs=tabs as |tab|}}
-      {{tab.text}}
-    {{/uni-tabs}}`);
+    await render(hbs`
+      {{#uni-tabs tabs=tabs as |tab|}}
+        {{tab.text}}
+      {{/uni-tabs}}`);
 
-  assert.notEqual(this.$().text().trim(), '');
-  assert.equal(this.$('.uni-tabs__wrapper__item a').text().trim(), DEFAULT_LABEL);
+    assert.dom('.uni-tabs__wrapper__item a').hasText(DEFAULT_LABEL);
+  });
 });
