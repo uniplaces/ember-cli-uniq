@@ -71,7 +71,8 @@
     "eslint-plugin-node": "^8.0.0",
     "loader.js": "^4.7.0",
     "node-sass": "^4.10.0",
-    "qunit-dom": "~0.8.0"
+    "qunit-dom": "~0.8.0",
+    "ember-gestures": "0.4.8"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

@@ -1,0 +1,11 @@
+{{#if (gt paginationArray.length 1)}}
+  {{#if hasMore}} <li class="indicators__item indicators__item--hidden"> </li>{{/if}}
+  {{#each paginationArray as |pageNumber index|}}
+      <li  class="indicators__item
+      {{if (eq page pageNumber) 'indicators__item--selected'}}
+      {{if (and (eq index 0) hasPrevious) 'indicators__item--has_more'}}
+      {{if (and (eq (inc index) paginationArray.length) hasNext) 'indicators__item--has_more'}}">
+      </li>
+  {{/each}}
+  {{#if hasMore}} <li class="indicators__item indicators__item--hidden"> </li>{{/if}}
+{{/if}}

@@ -1,0 +1,281 @@
+$card-margin: 8px;
+$carousel-overlayer-z-index: -1;
+$carousel-buttons-z-index: 1;
+
+$card-photo-width-ratio: 16;
+$card-photo-height-ratio: 9;
+$card-photo-aspect-ratio: calc(100% * #{$card-photo-height-ratio} / #{$card-photo-width-ratio});
+
+.aspect-ratio{
+    &__wrapper {
+      	position: relative;
+      	width: 100%;
+    }
+
+    &__content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &__photo {
+        padding-bottom: $card-photo-aspect-ratio
+    }
+}
+
+$cards-breakpoints-one: (
+    "min": 1024px,
+    "max": 1199px
+);
+
+.uni-tooltip {
+    padding: 0 8px;
+
+    &:not(.uni-tooltip--alternative) {
+        @media (max-width: 1100px) {
+            min-width: unset;
+            max-width: unset;
+
+            .uni-tooltip__text {
+              // Bugfix: Position fixed does not work with transforms Readmore: https://stackoverflow.com/a/15256339
+              position: absolute;
+              bottom: 0;
+              top: 29px !important;
+              transform: none;
+              width: 250px;
+              left: 0;
+              height: fit-content;
+            }
+        }
+    }
+
+    &__text {
+        z-index: 1;
+        white-space: normal;
+        top: 29px;
+        width: 250px;
+        left: 0;
+    }
+}
+
+& {
+    margin: 0 8px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    cursor: pointer;
+    width: calc(50% - 16px);
+
+    &:nth-child(odd) {
+        margin-left: 0;
+    }
+
+    &:nth-child(even) {
+        margin-right: 0;
+    }
+
+    @media (min-width:map-get($cards-breakpoints-one, "min")) and (max-width: map-get($cards-breakpoints-one, "max")) {
+      width: 95%;
+
+      &:nth-child(odd),
+      &:nth-child(even) {
+          margin: 0 8px;
+      }
+    }
+
+    &:hover {
+        .photo__video {
+            opacity: 0.5;
+        }
+    }
+
+    &.search-offer--loading {
+        pointer-events: none;
+
+        .photo,
+        .carousel__photo,
+        .info__extra__left {
+            @include loading();
+
+            svg {
+                display: none;
+            }
+        }
+
+        .indicators,
+        .uni-tooltip,
+        .photo > div:not(:first-child) {
+            display: none;
+        }
+
+    }
+}
+
+.photo {
+    border-radius: 4px;
+
+    .uni-tooltip,
+    > div:not(:first-child) {
+      z-index: $carousel-buttons-z-index;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__instant-booking {
+      top: 16px;
+      left: 16px;
+      padding: 0;
+
+      .uni-tooltip__icon {
+        @include font("IntervalNextReg");
+        color: color("text", "highlight");
+        font-size: em(13px);
+        background: none;
+        height: 26px;
+        line-height: 26px;
+        background: color("primary");
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 8px;
+
+        svg {
+          position: relative;
+          fill: white;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &__discount{
+        @include font("IntervalNextMed");
+        font-size: em(13px);
+        background-color: #ff6b6b;
+        height: 20px;
+        border-radius: 2px;
+        color: white;
+        right: 16px;
+        bottom: -4px;
+        padding: 0 8px;
+
+        span {
+            @include font("IntervalNextBook");
+            margin-left: 8px;
+            text-decoration: line-through;
+        }
+    }
+
+    &__favorite {
+      top: 0;
+      right: 0;
+      padding: 16px;
+
+        svg {
+            position: relative;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__video {
+        height: 32px;
+        width: 32px;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        background: #000;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity $animation-duration $cubic-bezier;
+
+        svg {
+            position: initial;
+        }
+    }
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px 2px;
+
+    &__title{
+      @include font("IntervalNextLi");
+      width: 100%;
+      font-size: em(13px);
+      color: color("text", "subheader");
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    &__extra {
+        @include font("IntervalNextReg");
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: em(13px);
+        color: color("text", "subheader");
+        margin-bottom: 6px;
+
+        &__breaker {
+          margin: 0 8px;
+          width: 3px;
+          height: 3px;
+          background: color("borders");
+        }
+
+        &:first-child {
+          align-items: baseline;
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+    }
+
+    &__price {
+        @include font("IntervalNextMed");
+        margin-right: $card-margin;
+        font-size: em(20px);
+    }
+
+    &__buttons {
+        display: flex;
+        position: absolute;
+        transform: translate3d(200%, 0, 0);
+        transition: transform $animation-duration $cubic-bezier;
+    }
+
+    &__verification {
+        @include font("IntervalNextReg");
+        font-size: em(13px);
+        margin-left: auto;
+        padding: 2px 8px;
+        border-radius: 2px;
+        line-height: initial;
+
+        &--visited {
+            color: #12c6dc;
+            background-color: #ccf3f7;
+        }
+
+        &--exclusive {
+            color: color("primary");
+            background-color: #dbf5ff;
+        }
+    }
+}

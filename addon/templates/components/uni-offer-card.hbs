@@ -1,0 +1,54 @@
+<div class="aspect-ratio__wrapper">
+  <div class="aspect-ratio__photo"></div>
+  <div class="photo aspect-ratio__content">
+    {{#if (not isLoading)}}
+      {{#if hasPhotos}}
+        {{search-offer/carousel preloadNextPhoto=preloadNextPhoto photos=photosWithoutPlaceholders}}
+      {{else}}
+        {{search-offer/no-photos-placeholder}}
+      {{/if}}
+    {{/if}}
+
+    {{#if badge}}
+      {{#uni-tooltip class=(concat "photo__" badge) content=(t (concat "results.offer.description_" (underscore badge))) wrapperSelector=".offers-wrapper"}}
+        {{svg-jar badge}} {{t (concat "results.offer." (underscore badge))}}
+      {{/uni-tooltip}}
+    {{/if}}
+    {{#if (gt discount 0)}}
+      <div class="photo__discount">{{t "results.offer.discount" discount=discount}} <span>{{to-money oldPrice}}</span></div>
+    {{/if}}
+    {{search-offer/wishlist-button
+      offerId=offerId
+      citySlug=citySlug
+      isExclusive=isExclusive
+      onChange=(action onFavoriteStateChanged offerId)}}
+  </div>
+</div>
+
+<div class="info">
+  <div class="info__extra">
+    <div class="info__price">{{concat (if hasVariablePricing (t "global.labels.from")) " " (to-money price)}}</div>
+    <meta itemProp="price" content="{{price.amount}}"/>
+    <meta itemprop="priceCurrency" content="{{price.currency_code}}" />
+    {{#if allBillsIncluded}}
+      <div class="info__bills">{{t "results.offer.with_bills"}}</div>
+    {{/if}}
+    {{#if isExclusive}}
+      <div class="info__verification info__verification--exclusive">{{t "global.labels.exclusive"}}</div>
+    {{else if isPropertyVerified}}
+      <div class="info__verification info__verification--visited">{{t "global.labels.visited"}}</div>
+    {{/if}}
+  </div>
+  <div class="info__extra">
+    <div class="info__rentby">
+      {{t (concat "results.offer.rent_by." rentBy)}}
+    </div>
+    <div class="info__extra__breaker"></div>
+    <div class="info__availability">
+      {{t "results.offer.available_from"}} <span itemprop="availabilityStarts" class="info__availability__date">{{moment-format formattedAvailableFrom dateFormat}}</span>
+    </div>
+  </div>
+  <div class="info__extra">
+    <div itemprop="name" class="info__title">{{title}}</div>
+  </div>
+</div>

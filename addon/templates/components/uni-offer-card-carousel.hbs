@@ -1,0 +1,21 @@
+<div class="carousel" {{action "showPreviousPhoto" on="swipeRight"}} {{action "showNextPhoto" on="swipeLeft"}}>
+  {{#if showArrows}}
+    <div class="carousel__left-arrow" {{action "showPreviousPhoto" bubbles=false}}>
+      {{svg-jar "prev-icon"}}
+    </div>
+  {{/if}}
+
+  <div class="carousel__wrapper {{if isTransitioningLeft 'carousel__wrapper--transitioning-left'}} {{if isTransitioningRight 'carousel__wrapper--transitioning-right'}}">
+    {{#each photosToShow as |photo index|}}
+      {{search-offer/carousel/photo preloadNextPhoto=preloadNextPhoto index=index photo=photo}}
+    {{/each}}
+  </div>
+
+  {{#if showArrows}}
+    <div class="carousel__right-arrow" {{action "showNextPhoto" bubbles=false}}>
+      {{svg-jar "next-icon"}}
+    </div>
+  {{/if}}
+
+  {{search-offer/carousel/indicators isTransitioningLeft=isTransitioningLeft isTransitioningRight=isTransitioningRight page=(inc selectedPhotoIndex) total=photos.length}}
+</div>
