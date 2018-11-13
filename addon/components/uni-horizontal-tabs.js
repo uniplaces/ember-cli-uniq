@@ -10,10 +10,6 @@ export default Component.extend({
   options: [],
   currentTab: 0,
 
-  onOptionsChanged: computed('options.[]', function() {
-    this.set('currentTab', Math.min(this.get('currentTab'), this.get('options.length') - 1));
-  }),
-
   optionSelected: computed('options.[]', 'currentTab', function() {
     if (isEmpty(this.get('options'))) {
       return;

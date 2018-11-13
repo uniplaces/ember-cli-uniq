@@ -1,4 +1,3 @@
-/* eslint new-cap: ["off"] */
 export default function toMoney(amount, currencyCode = 'EUR', locale = 'en-gb') {
   return Intl.NumberFormat(
     locale,

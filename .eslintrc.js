@@ -9,15 +9,13 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
-    'plugin:ember-suave/recommended'
+    'plugin:ember/recommended'
   ],
   rules: {
-    'camelcase': [0, { 'properties': 'never' }],
-    'ember-suave/no-const-outside-module-scope': 'off'
+    'ember/avoid-leaking-state-in-ember-objects': 'off'
   },
   env: {
-    browser: true,
-    es6: true
+    browser: true
   },
   overrides: [
     // node files

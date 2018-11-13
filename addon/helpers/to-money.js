@@ -13,9 +13,9 @@ export default Helper.extend({
       return '';
     }
 
-    const locale = this.get('i18n.locale') || DEFAULT_LOCALE;
-    const { amount, currency_code } = params;
-    const transformedAmount = isPresent(namedArgs.transform) && !namedArgs.transform ? amount * 100 : amount;
+    let locale = this.get('i18n.locale') || DEFAULT_LOCALE;
+    let { amount, currency_code } = params;
+    let transformedAmount = isPresent(namedArgs.transform) && !namedArgs.transform ? amount * 100 : amount;
 
     return toMoney(transformedAmount, currency_code, locale);
   }
