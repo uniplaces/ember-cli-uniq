@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, findAll } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | uni stars', function(hooks) {
@@ -10,6 +10,6 @@ module('Integration | Component | uni stars', function(hooks) {
     this.set('maxStars', 5);
     await render(hbs`{{uni-stars maxStars=maxStars}}`);
 
-    assert.equal(findAll('svg').length, 5);
+    assert.dom('svg').exists({ count: 5 });
   });
 });

@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | uni header mobile menu dropdown', function(hooks) {
@@ -9,6 +9,6 @@ module('Integration | Component | uni header mobile menu dropdown', function(hoo
   test('it renders', async function(assert) {
     await render(hbs`{{uni-header-mobile-menu-dropdown}}`);
 
-    assert.equal(find('*').textContent.trim(), '');
+    assert.dom('*').hasText('');
   });
 });

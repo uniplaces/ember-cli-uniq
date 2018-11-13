@@ -12,7 +12,7 @@ module('Integration | Component | uni input range', function(hooks) {
     await render(hbs`{{uni-input-range}}`);
 
     assert.notEqual(find('.uni-input-range').textContent.trim(), '');
-    assert.equal(find('.uni-input-range').textContent.trim(), '-\n+');
+    assert.dom('.uni-input-range').hasText('- +');
   });
 
   test('it renders text', async function(assert) {

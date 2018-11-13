@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { defineProperty } from '@ember/object';
 import { empty } from '@ember/object/computed';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
@@ -20,8 +20,7 @@ module('Integration | Component | uni input', function(hooks) {
   test('it renders error with given error validation', async function(assert) {
     assert.expect(1);
 
-    // eslint-disable-next-line ember-suave/no-direct-property-access
-    Ember.defineProperty(this, 'showError', empty('value'));
+    defineProperty(this, 'showError', empty('value'));
 
     await render(hbs`{{uni-input showError=showError}}`);
 
