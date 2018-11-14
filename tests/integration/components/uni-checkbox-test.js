@@ -19,6 +19,10 @@ module('Integration | Component | uni checkbox', function(hooks) {
 
     await render(hbs`{{uni-checkbox isSmall=true}}`);
 
-    assert.ok(find('.uni-checkbox').getAttribute('class').includes('--small'));
+    assert.ok(
+      find('.uni-checkbox')
+        .getAttribute('class')
+        .includes('--small')
+    );
   });
 });

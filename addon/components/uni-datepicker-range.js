@@ -25,12 +25,22 @@ export default Component.extend({
 
   actions: {
     nextMonth() {
-      this.set('center', this.get('center').clone().add(1, 'months'));
+      this.set(
+        'center',
+        this.get('center')
+          .clone()
+          .add(1, 'months')
+      );
       this.get('onCenter')(this.get('center'));
     },
 
     previousMonth() {
-      this.set('center', this.get('center').clone().subtract(1, 'months'));
+      this.set(
+        'center',
+        this.get('center')
+          .clone()
+          .subtract(1, 'months')
+      );
       this.get('onCenter')(this.get('center'));
     }
   }

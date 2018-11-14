@@ -43,7 +43,10 @@ export default Component.extend({
       case InputTypes.NUMBER:
         return this.get('isRequired') ? !isNaN(this.get('value')) : true;
       default:
-        return !this.get('isRequired') || (this.get('isRequired') && !isEmpty(this.get('value')));
+        return (
+          !this.get('isRequired') ||
+          (this.get('isRequired') && !isEmpty(this.get('value')))
+        );
     }
   }),
 

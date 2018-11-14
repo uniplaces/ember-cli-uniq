@@ -21,7 +21,11 @@ export default Component.extend({
   }),
 
   imageStyle: computed('photo.url', function() {
-    return htmlSafe(this.get('photo.url') ? `background-image: url(${encodeURI(this.get('photo.url'))})` : '');
+    return htmlSafe(
+      this.get('photo.url')
+        ? `background-image: url(${encodeURI(this.get('photo.url'))})`
+        : ''
+    );
   }),
 
   onImageClick() {}

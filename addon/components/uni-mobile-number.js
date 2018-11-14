@@ -43,15 +43,24 @@ export default Component.extend({
     let preferredCountries = this.get('preferredCountries');
 
     if (preferredCountries.length > 0) {
-      countries.push(...preferredCountries.map((key) => this._getOption(key)));
-      countries.push({ key: SEPARATOR_KEY, value: SEPARATOR_VALUE, disabled: true });
+      countries.push(...preferredCountries.map(key => this._getOption(key)));
+      countries.push({
+        key: SEPARATOR_KEY,
+        value: SEPARATOR_VALUE,
+        disabled: true
+      });
     }
 
-    countries.push(...getAllCountryNames().map(({ key }) => {
-      if (preferredCountries.indexOf(key) < 0) {
-        return this._getOption(key);
-      }
-    }).filter((country) => isPresent(country)).sort(this.sortByName));
+    countries.push(
+      ...getAllCountryNames()
+        .map(({ key }) => {
+          if (preferredCountries.indexOf(key) < 0) {
+            return this._getOption(key);
+          }
+        })
+        .filter(country => isPresent(country))
+        .sort(this.sortByName)
+    );
 
     this.set('options', countries);
   },
@@ -110,7 +119,11 @@ export default Component.extend({
     },
 
     onKeyDown(_, ev) {
-      if (ev && !this._isNumericValue(ev.keyCode) && !this._isAllowedKey(ev.keyCode)) {
+      if (
+        ev &&
+        !this._isNumericValue(ev.keyCode) &&
+        !this._isAllowedKey(ev.keyCode)
+      ) {
         ev.preventDefault();
       }
     },
@@ -149,8 +162,10 @@ export default Component.extend({
   },
 
   _isNumericValue(keyCode) {
-    return (keyCode >= KeyCodes.ZERO && keyCode <= KeyCodes.NINE)
-        || (keyCode >= KeyCodes.NUMPAD_ZERO && keyCode <= KeyCodes.NUMPAD_NINE);
+    return (
+      (keyCode >= KeyCodes.ZERO && keyCode <= KeyCodes.NINE) ||
+      (keyCode >= KeyCodes.NUMPAD_ZERO && keyCode <= KeyCodes.NUMPAD_NINE)
+    );
   },
 
   _isAllowedKey(keyCode) {

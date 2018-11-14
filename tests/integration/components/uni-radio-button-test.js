@@ -38,7 +38,9 @@ module('Integration | Component | uni radio button', function(hooks) {
     this.set('groupValue', 'javascript');
     this.set('value', 'javascript');
 
-    await render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
+    await render(
+      hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`
+    );
 
     assert.dom('.uni-radio-button input').isChecked();
   });
@@ -49,7 +51,9 @@ module('Integration | Component | uni radio button', function(hooks) {
     this.set('groupValue', 'javascript');
     this.set('value', 'php');
 
-    await render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`);
+    await render(
+      hbs`{{uni-radio-button label=label value=value groupValue=groupValue}}`
+    );
 
     assert.dom('.uni-radio-button input').isNotChecked();
   });
@@ -59,9 +63,11 @@ module('Integration | Component | uni radio button', function(hooks) {
 
     this.set('groupValue', 'javascript');
     this.set('value', 'php');
-    this.set('hasChanged', (value) => assert.equal(value, 'php'));
+    this.set('hasChanged', value => assert.equal(value, 'php'));
 
-    await render(hbs`{{uni-radio-button label=label value=value groupValue=groupValue hasChanged=hasChanged}}`);
+    await render(
+      hbs`{{uni-radio-button label=label value=value groupValue=groupValue hasChanged=hasChanged}}`
+    );
 
     await click('input');
   });

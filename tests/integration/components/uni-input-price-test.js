@@ -22,7 +22,9 @@ module('Integration | Component | uni input price', function(hooks) {
     this.set('per', 'day');
     this.set('currency', '€');
 
-    await render(hbs`{{uni-input-price currency=currency isRightSideCurrency=isRightSideCurrency per=per}}`);
+    await render(
+      hbs`{{uni-input-price currency=currency isRightSideCurrency=isRightSideCurrency per=per}}`
+    );
 
     assert.dom('.uni-input-price').hasText('€ / day');
   });

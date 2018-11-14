@@ -1,1 +1,3 @@
-export { default } from 'ember-cli-uniq/components/uni-header-mobile-menu-button';
+export {
+  default
+} from 'ember-cli-uniq/components/uni-header-mobile-menu-button';

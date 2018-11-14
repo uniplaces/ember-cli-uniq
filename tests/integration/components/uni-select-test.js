@@ -47,7 +47,7 @@ module('Integration | Component | uni select', function(hooks) {
         key: 'g-1',
         value: 'group 1',
         options: [
-          { key: 'pt', value: 'Portugal', disabled: true  },
+          { key: 'pt', value: 'Portugal', disabled: true },
           { key: 'it', value: 'Italy', disabled: true }
         ]
       },
@@ -114,7 +114,9 @@ module('Integration | Component | uni select', function(hooks) {
     assert.expect(1);
 
     this.set('selected', this.get('options.firstObject.key'));
-    await render(hbs`{{uni-select options=options selected=selected placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=options selected=selected placeholder=placeholder}}`
+    );
 
     assert.dom('.uni-select__option').exists({ count: 4 });
   });
@@ -123,7 +125,9 @@ module('Integration | Component | uni select', function(hooks) {
     assert.expect(2);
 
     this.set('selected', this.get('groups[0].options.firstObject.key'));
-    await render(hbs`{{uni-select options=groups selected=selected placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=groups selected=selected placeholder=placeholder}}`
+    );
 
     assert.dom('.uni-select__option').exists({ count: 4 });
     assert.dom('optgroup').exists({ count: 2 });
@@ -132,7 +136,9 @@ module('Integration | Component | uni select', function(hooks) {
   test('It renders disabled options', async function(assert) {
     assert.expect(1);
 
-    await render(hbs`{{uni-select options=disabledOptions placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=disabledOptions placeholder=placeholder}}`
+    );
 
     assert.dom('.uni-select__option:disabled').exists({ count: 2 });
   });
@@ -140,7 +146,9 @@ module('Integration | Component | uni select', function(hooks) {
   test('It renders disabled options - groups', async function(assert) {
     assert.expect(1);
 
-    await render(hbs`{{uni-select options=disabledOptionsGroups placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=disabledOptionsGroups placeholder=placeholder}}`
+    );
 
     assert.dom('.uni-select__option:disabled').exists({ count: 2 });
   });
@@ -182,7 +190,9 @@ module('Integration | Component | uni select', function(hooks) {
 
     this.set('useAlias', true);
 
-    await render(hbs`{{uni-select options=aliasOptions useAlias=useAlias placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=aliasOptions useAlias=useAlias placeholder=placeholder}}`
+    );
 
     assert.dom('select.uni-select').hasNoValue();
     assert.dom('div.uni-select').hasText('Pick me!');
@@ -193,7 +203,9 @@ module('Integration | Component | uni select', function(hooks) {
 
     this.set('useAlias', true);
 
-    await render(hbs`{{uni-select options=aliasGroups useAlias=useAlias placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=aliasGroups useAlias=useAlias placeholder=placeholder}}`
+    );
 
     assert.dom('select.uni-select').hasNoValue();
     assert.dom('div.uni-select').hasText('Pick me!');
@@ -227,7 +239,9 @@ module('Integration | Component | uni select', function(hooks) {
     this.set('useAlias', true);
     this.set('selected', 2);
 
-    await render(hbs`{{uni-select options=aliasOptions useAlias=useAlias selected=selected placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=aliasOptions useAlias=useAlias selected=selected placeholder=placeholder}}`
+    );
 
     assert.dom('select.uni-select').hasValue('2');
     assert.dom('div.uni-select').hasText('two');
@@ -239,7 +253,9 @@ module('Integration | Component | uni select', function(hooks) {
     this.set('useAlias', true);
     this.set('selected', 2);
 
-    await render(hbs`{{uni-select options=aliasGroups useAlias=useAlias selected=selected placeholder=placeholder}}`);
+    await render(
+      hbs`{{uni-select options=aliasGroups useAlias=useAlias selected=selected placeholder=placeholder}}`
+    );
 
     assert.dom('select.uni-select').hasValue('2');
     assert.dom('div.uni-select').hasText('two');

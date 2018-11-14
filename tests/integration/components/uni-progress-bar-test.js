@@ -21,6 +21,8 @@ module('Integration | Component | uni progress bar', function(hooks) {
 
     await render(hbs`{{uni-progress-bar totalStepsCount=steps}}`);
 
-    assert.dom('.uni-progress-bar__step').exists({ count: this.get('steps') + 1 });
+    assert
+      .dom('.uni-progress-bar__step')
+      .exists({ count: this.get('steps') + 1 });
   });
 });

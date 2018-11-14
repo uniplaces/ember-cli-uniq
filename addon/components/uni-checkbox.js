@@ -16,4 +16,3 @@ export default Component.extend({
     this.get('onChange')(this.get('isSelected'));
   }
 });
-

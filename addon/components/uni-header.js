@@ -6,5 +6,8 @@ export default Component.extend({
   layout,
   logoRoute: 'index',
   classNames: ['uni-header'],
-  classNameBindings: ['isTransparent:uni-header--transparent', 'isOpen:uni-header--active']
+  classNameBindings: [
+    'isTransparent:uni-header--transparent',
+    'isOpen:uni-header--active'
+  ]
 });

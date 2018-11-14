@@ -24,7 +24,9 @@ module('Integration | Component | uni dropdown', function(hooks) {
     this.set('selected', 'facebook');
     this.set('selectedAlias', 'example');
 
-    await render(hbs`{{uni-dropdown options=options selected=selected selectedAlias=selectedAlias}}`);
+    await render(
+      hbs`{{uni-dropdown options=options selected=selected selectedAlias=selectedAlias}}`
+    );
 
     assert.dom('.uni-dropdown__button').hasText('example');
   });
@@ -39,7 +41,9 @@ module('Integration | Component | uni dropdown', function(hooks) {
     this.set('selected', 'google');
     this.set('selectedSvgs', ['google']);
 
-    await render(hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`);
+    await render(
+      hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`
+    );
 
     assert.dom('.uni-dropdown__button').hasText('google');
     assert.dom('.uni-dropdown__button .uni-dropdown__svg-group svg').exists();

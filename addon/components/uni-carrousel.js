@@ -14,26 +14,34 @@ export default Component.extend(EKMixin, {
 
   showPrev: gt('page', 0),
   showNext: computed('page', function() {
-    return this.get('page') < (this.get('itemCount') - 1);
+    return this.get('page') < this.get('itemCount') - 1;
   }),
 
   deltaX: computed('page', function() {
     return this.get('page') * this.get('componentWidth') * -1;
   }),
   wrapperStyle: computed('deltaX', function() {
-    return htmlSafe(`transform: translate3d(${parseFloat(this.get('deltaX'))}px, 0px, 0)`);
+    return htmlSafe(
+      `transform: translate3d(${parseFloat(this.get('deltaX'))}px, 0px, 0)`
+    );
   }),
 
   didRender() {
-    this.set('componentWidth', getComputedStyle(document.querySelector('.uni-carrousel__container')).width);
+    this.set(
+      'componentWidth',
+      getComputedStyle(document.querySelector('.uni-carrousel__container'))
+        .width
+    );
   },
 
+  // eslint-disable-next-line ember/no-on-calls-in-components
   keyLeft: on(keyUp('ArrowLeft'), function() {
     if (this.get('showPrev')) {
       this.decrementProperty('page');
     }
   }),
 
+  // eslint-disable-next-line ember/no-on-calls-in-components
   keyRight: on(keyUp('ArrowRight'), function() {
     if (this.get('showNext')) {
       this.incrementProperty('page');

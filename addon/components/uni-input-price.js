@@ -48,7 +48,10 @@ export default Component.extend({
 
   actions: {
     onChange() {
-      if (!parseFloat(this.get('value')) && this.get('value') < this.get('minValue')) {
+      if (
+        !parseFloat(this.get('value')) &&
+        this.get('value') < this.get('minValue')
+      ) {
         this.get('onInvalidInput')(this.get('options'));
       }
 
@@ -56,13 +59,17 @@ export default Component.extend({
     },
 
     onFocusIn() {
-      document.getElementById(this.get('elementId')).classList.add(FOCUSED_CLASS);
+      document
+        .getElementById(this.get('elementId'))
+        .classList.add(FOCUSED_CLASS);
 
       return this.get('onFocusIn')(...arguments);
     },
 
     onFocusOut() {
-      document.getElementById(this.get('elementId')).classList.remove(FOCUSED_CLASS);
+      document
+        .getElementById(this.get('elementId'))
+        .classList.remove(FOCUSED_CLASS);
 
       return this.get('onFocusOut')(...arguments);
     }

@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import CurrencySymbolType from 'ember-cli-uniq/enums/currency-symbol-type';
 
 module('Unit | Utility | to money', function() {
-  Object.keys(CurrencySymbolType).forEach((currency) => {
+  Object.keys(CurrencySymbolType).forEach(currency => {
     test(`It works with ${currency} with default locale (pt-pt)`, function(assert) {
       assert.expect(2);
 

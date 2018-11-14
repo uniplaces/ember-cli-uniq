@@ -13,10 +13,7 @@ export default Route.extend({
       withEmail: true,
       minDate: moment().subtract(1, 'days'),
       startDate: moment(),
-      disabledDates: [
-        moment().add(2, 'days'),
-        moment().add(3, 'days')
-      ],
+      disabledDates: [moment().add(2, 'days'), moment().add(3, 'days')],
       date: null,
       dropdown: {
         selected: null
@@ -35,7 +32,7 @@ export default Route.extend({
       ],
       uniSelectOptions: [
         { key: '1', value: 'One', disabled: true },
-        { key: '2', value: 'Two' },  // options are enabled by default
+        { key: '2', value: 'Two' }, // options are enabled by default
         { key: '3', value: 'Three' }
       ],
       uniSelectAliasOptions: [
@@ -84,11 +81,37 @@ export default Route.extend({
         years: [
           {
             year: 2017,
-            monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+            monthly_availability: [
+              'none',
+              'medium',
+              'low',
+              'none',
+              'medium',
+              'low',
+              'none',
+              'medium',
+              'low',
+              'none',
+              'medium',
+              'low'
+            ]
           },
           {
             year: 2018,
-            monthly_availability: ['none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low', 'none', 'medium', 'low']
+            monthly_availability: [
+              'none',
+              'medium',
+              'low',
+              'none',
+              'medium',
+              'low',
+              'none',
+              'medium',
+              'low',
+              'none',
+              'medium',
+              'low'
+            ]
           }
         ]
       },
@@ -118,14 +141,17 @@ export default Route.extend({
           }
         ]
       },
-      mainPhotoUrl: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
+      mainPhotoUrl:
+        'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
       photos: [
         {
-          url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
+          url:
+            'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
           id: '1234567890'
         },
         {
-          url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/porto-small.jpg',
+          url:
+            'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/porto-small.jpg',
           id: '0987654321'
         }
       ],

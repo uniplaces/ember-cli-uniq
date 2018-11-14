@@ -5,9 +5,7 @@ const sass = require('node-sass');
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
-    snippetPaths: [
-      'tests/dummy/app/templates/snippets'
-    ],
+    snippetPaths: ['tests/dummy/app/templates/snippets'],
     sassOptions: {
       extension: 'scss',
       functions: {
@@ -16,10 +14,7 @@ module.exports = function(defaults) {
       implementation: sass
     },
     svgJar: {
-      sourceDirs: [
-        'public/assets/images',
-        'public/assets/flags'
-      ]
+      sourceDirs: ['public/assets/images', 'public/assets/flags']
     }
   });
 

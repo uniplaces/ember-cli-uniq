@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/uniplaces/ember-cli-uniq.svg?branch=master)](https://travis-ci.org/uniplaces/ember-cli-uniq)
 [![dependencies](https://david-dm.org/uniplaces/ember-cli-uniq.svg)](https://david-dm.org/uniplaces/ember-cli-uniq)
 [![devDependencies](https://david-dm.org/uniplaces/ember-cli-uniq/dev-status.svg)](https://david-dm.org/uniplaces/ember-cli-uniq?type=dev)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 This is an addon that contains the most used front-end components in the several Uniplaces' products.
 

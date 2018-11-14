@@ -59,11 +59,15 @@ module('Integration | Component | uni form', function(hooks) {
     assert.expect(2);
 
     this.set('isLoading', null);
-    this.set('submit', () => new RSVP.Promise((resolve) => {
-      assert.equal(this.get('isLoading'), true, 'it started the loading');
+    this.set(
+      'submit',
+      () =>
+        new RSVP.Promise(resolve => {
+          assert.equal(this.get('isLoading'), true, 'it started the loading');
 
-      resolve();
-    }));
+          resolve();
+        })
+    );
 
     await render(hbs`{{uni-form isLoading=isLoading onSubmit=submit}}`);
 
@@ -76,7 +80,9 @@ module('Integration | Component | uni form', function(hooks) {
     assert.expect(2);
 
     this.set('isLoading', null);
-    this.set('submit', () => assert.equal(this.get('isLoading'), true, 'it started the loading'));
+    this.set('submit', () =>
+      assert.equal(this.get('isLoading'), true, 'it started the loading')
+    );
 
     await render(hbs`{{uni-form isLoading=isLoading onSubmit=submit}}`);
 

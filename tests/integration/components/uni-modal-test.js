@@ -67,7 +67,7 @@ module('Integration | Component | uni modal', function(hooks) {
 
     this.setProperties({
       isOpen: true,
-      setBodyOverflowClass: (state) => {
+      setBodyOverflowClass: state => {
         assert.equal(expectedStates[currentState], state);
         currentState++;
       }
@@ -92,7 +92,7 @@ module('Integration | Component | uni modal', function(hooks) {
 
     this.setProperties({
       isOpen: false,
-      setBodyOverflowClass: (state) => {
+      setBodyOverflowClass: state => {
         assert.equal(expectedStates[currentState], state);
         currentState++;
       }

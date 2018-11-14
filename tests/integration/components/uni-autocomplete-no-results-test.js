@@ -3,7 +3,9 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | uni autocomplete no results', function(hooks) {
+module('Integration | Component | uni autocomplete no results', function(
+  hooks
+) {
   setupRenderingTest(hooks);
 
   test('it renders nothing', async function(assert) {
@@ -21,6 +23,8 @@ module('Integration | Component | uni autocomplete no results', function(hooks) 
 
     await render(hbs`{{uni-autocomplete-no-results value=value}}`);
 
-    assert.dom('.uni-autocomplete-no-results').hasText('No results for Lisbon.');
+    assert
+      .dom('.uni-autocomplete-no-results')
+      .hasText('No results for Lisbon.');
   });
 });

@@ -15,7 +15,7 @@ export default Component.extend({
   useAlias: false,
   aliasValue: null,
 
-  groups: filter('options', (option) => {
+  groups: filter('options', option => {
     return option.hasOwnProperty('options');
   }),
 
@@ -33,8 +33,8 @@ export default Component.extend({
     if (this.get('selected')) {
       let group = this.get('hasGroups')
         ? this.get('groups').find(({ options }) => {
-          return options.some(({ key }) => key === this.get('selected'));
-        })
+            return options.some(({ key }) => key === this.get('selected'));
+          })
         : null;
 
       this._changeAliasValue(this.get('selected'), group ? group.key : null);
@@ -51,7 +51,9 @@ export default Component.extend({
   actions: {
     changeSelected({ target }) {
       if (this.get('useAlias')) {
-        let group = this.get('hasGroups') ? target.options[target.selectedIndex].parentNode.getAttribute('key') : null;
+        let group = this.get('hasGroups')
+          ? target.options[target.selectedIndex].parentNode.getAttribute('key')
+          : null;
         this._changeAliasValue(target.value, group);
       }
 
@@ -60,7 +62,9 @@ export default Component.extend({
   },
 
   _changeAliasValue(key, group = null) {
-    let options = group ? A(this.get('groups')).findBy('key', group).options : this.get('options');
+    let options = group
+      ? A(this.get('groups')).findBy('key', group).options
+      : this.get('options');
     let option = A(options).findBy('key', key);
 
     if (isPresent(option)) {
@@ -69,7 +73,9 @@ export default Component.extend({
   },
 
   _getFirstAvailableValue() {
-    let options = this.get('hasGroups') ? this.get('groups')[0].options : this.get('options');
+    let options = this.get('hasGroups')
+      ? this.get('groups')[0].options
+      : this.get('options');
     let option = A(options).find(({ disabled }) => isNone(disabled));
 
     return isPresent(option) ? option.key : null;

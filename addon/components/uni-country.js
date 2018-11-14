@@ -18,7 +18,10 @@ export default Component.extend({
   countries: computed('locale', function() {
     let countries = [];
     Countries.toKeyValueJson().forEach(({ key, value }) => {
-      countries.push({ code: key.toLowerCase(), name: this.get('getTranslatedCountryName')(key, value) });
+      countries.push({
+        code: key.toLowerCase(),
+        name: this.get('getTranslatedCountryName')(key, value)
+      });
     });
 
     return countries;
@@ -29,7 +32,9 @@ export default Component.extend({
       return '';
     }
 
-    let country = this.get('countries').find(({ code }) => code === this.get('countryCode').toLowerCase());
+    let country = this.get('countries').find(
+      ({ code }) => code === this.get('countryCode').toLowerCase()
+    );
 
     return country ? country.name : '';
   }),

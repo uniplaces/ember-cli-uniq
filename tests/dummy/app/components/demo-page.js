@@ -5,7 +5,6 @@ const DEVILS_NUMBER = 666 / 2; // Give this a proper name  (╯°□°）╯︵ 
 const ANIMATION_DURATION = 300;
 
 export default Component.extend({
-
   options: {
     anchorSelector: 'a[href^="#"]',
     componentsSelector: '.components',
@@ -23,9 +22,14 @@ export default Component.extend({
       event.preventDefault();
 
       let componentsContainer = $('.components');
-      componentsContainer.animate({
-        scrollTop: componentsContainer.scrollTop() + $($.attr(this, 'href')).position().top
-      }, ANIMATION_DURATION);
+      componentsContainer.animate(
+        {
+          scrollTop:
+            componentsContainer.scrollTop() +
+            $($.attr(this, 'href')).position().top
+        },
+        ANIMATION_DURATION
+      );
     });
 
     $('.components').scroll(this.handleScroll.bind(this));
@@ -37,7 +41,10 @@ export default Component.extend({
     let topBannerSmallerClass = this.get('options.topBannerSmallerClass');
     let containerBiggerClass = this.get('options.containerBiggerClass');
 
-    let action = $(this.get('options.componentsSelector')).scrollTop() > DEVILS_NUMBER ? 'add' : 'remove';
+    let action =
+      $(this.get('options.componentsSelector')).scrollTop() > DEVILS_NUMBER
+        ? 'add'
+        : 'remove';
     demoAppBanner[`${action}Class`](topBannerSmallerClass);
     outerContainer[`${action}Class`](containerBiggerClass);
   },

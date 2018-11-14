@@ -32,6 +32,6 @@ module('Integration | Component | uni datepicker range day', function(hooks) {
     assert.dom('.ember-power-calendar-row').exists();
     assert
       .dom('.ember-power-calendar-day--current-month')
-      .exists({ count: 31 }, 'It rendered all days in center\'s month');
+      .exists({ count: 31 }, "It rendered all days in center's month");
   });
 });

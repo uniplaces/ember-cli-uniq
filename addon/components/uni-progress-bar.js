@@ -23,8 +23,14 @@ export default Component.extend({
   inlineStepStyles: computed('eachStepPercentage', function() {
     let stepStyles = [];
 
-    this.get('totalStepsCountAsArray').forEach((step) => {
-      stepStyles.push(htmlSafe(`left: calc(${parseFloat(this.eachStepPercentage)}% * ${parseInt(step)});`));
+    this.get('totalStepsCountAsArray').forEach(step => {
+      stepStyles.push(
+        htmlSafe(
+          `left: calc(${parseFloat(this.eachStepPercentage)}% * ${parseInt(
+            step
+          )});`
+        )
+      );
     });
 
     return stepStyles;

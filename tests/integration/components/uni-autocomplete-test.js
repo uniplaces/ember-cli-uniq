@@ -1,6 +1,11 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, fillIn, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
+import {
+  render,
+  fillIn,
+  triggerKeyEvent,
+  triggerEvent
+} from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { A } from '@ember/array';
 
@@ -19,7 +24,7 @@ module('Integration | Component | uni autocomplete', function(hooks) {
     assert.expect(1);
 
     this.setProperties({
-      searchTextValues: (option) => [option],
+      searchTextValues: option => [option],
       options: ['A', 'B', 'C', 'D'],
       onSelected: () => {
         assert.ok(true);
@@ -45,7 +50,7 @@ module('Integration | Component | uni autocomplete', function(hooks) {
     assert.expect(8);
 
     this.setProperties({
-      searchTextValues: (option) => [option],
+      searchTextValues: option => [option],
       options: ['A', 'B', 'C', 'D'],
       filterFunction: (getSearchTextValues, option) => {
         assert.equal(typeof getSearchTextValues, 'function');
@@ -75,9 +80,14 @@ module('Integration | Component | uni autocomplete', function(hooks) {
   test('It selects a highlighted option when focusing out', async function(assert) {
     assert.expect(1);
 
-    this.setProperties({ searchTextValues: (option) => [option], options: ['ABC', 'A', 'B', 'C'] });
+    this.setProperties({
+      searchTextValues: option => [option],
+      options: ['ABC', 'A', 'B', 'C']
+    });
 
-    await render(hbs`{{uni-autocomplete options=options searchTextValues=searchTextValues}}`);
+    await render(
+      hbs`{{uni-autocomplete options=options searchTextValues=searchTextValues}}`
+    );
 
     await fillIn('input', 'ab');
     await triggerEvent('input', 'blur');

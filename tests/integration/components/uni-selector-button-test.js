@@ -49,7 +49,9 @@ module('Integration | Component | uni selector button', function(hooks) {
     this.set('groupValue', DEFAULT_VALUE);
     this.set('value', DEFAULT_VALUE);
 
-    await render(hbs`{{uni-selector-button label=label error=error value=value groupValue=groupValue}}`);
+    await render(
+      hbs`{{uni-selector-button label=label error=error value=value groupValue=groupValue}}`
+    );
 
     assert.dom('label').hasText(DEFAULT_LABEL);
     assert.dom('.uni-multi-selector__button--error').exists();

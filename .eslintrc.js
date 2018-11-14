@@ -4,14 +4,10 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: [
-    'ember'
-  ],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
-  ],
+  plugins: ['ember', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:ember/recommended'],
   rules: {
+    'prettier/prettier': 'error',
     'ember/avoid-leaking-state-in-ember-objects': 'off'
   },
   env: {
@@ -22,6 +18,7 @@ module.exports = {
     {
       files: [
         '.eslintrc.js',
+        '.prettierrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'index.js',
@@ -45,7 +42,11 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {})
+      rules: Object.assign(
+        {},
+        require('eslint-plugin-node').configs.recommended.rules,
+        {}
+      )
     },
 
     // test files
