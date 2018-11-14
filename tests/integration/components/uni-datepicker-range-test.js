@@ -22,11 +22,7 @@ module('Integration | Component | uni datepicker range', function(hooks) {
     this.set('center', center);
 
     this.set('onSelect', ({ start, end }) => {
-      assert.ok(
-        start.format('ddd'),
-        day.format('ddd'),
-        'calls onSelect with right date'
-      );
+      assert.ok(start.format('ddd'), day.format('ddd'), 'calls onSelect with right date');
       assert.notOk(end, 'end is null on first click');
     });
 

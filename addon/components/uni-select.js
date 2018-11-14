@@ -62,9 +62,7 @@ export default Component.extend({
   },
 
   _changeAliasValue(key, group = null) {
-    let options = group
-      ? A(this.get('groups')).findBy('key', group).options
-      : this.get('options');
+    let options = group ? A(this.get('groups')).findBy('key', group).options : this.get('options');
     let option = A(options).findBy('key', key);
 
     if (isPresent(option)) {
@@ -73,9 +71,7 @@ export default Component.extend({
   },
 
   _getFirstAvailableValue() {
-    let options = this.get('hasGroups')
-      ? this.get('groups')[0].options
-      : this.get('options');
+    let options = this.get('hasGroups') ? this.get('groups')[0].options : this.get('options');
     let option = A(options).find(({ disabled }) => isNone(disabled));
 
     return isPresent(option) ? option.key : null;

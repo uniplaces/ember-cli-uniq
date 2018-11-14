@@ -28,18 +28,12 @@ module('Integration | Component | uni select', function(hooks) {
       {
         key: 'g-1',
         value: 'group 1',
-        options: [
-          { key: 'pt', value: 'Portugal' },
-          { key: 'it', value: 'Italy' }
-        ]
+        options: [{ key: 'pt', value: 'Portugal' }, { key: 'it', value: 'Italy' }]
       },
       {
         key: 'g-2',
         value: 'group 2',
-        options: [
-          { key: 'nl', value: 'Nederlands' },
-          { key: 'en', value: 'England' }
-        ]
+        options: [{ key: 'nl', value: 'Nederlands' }, { key: 'en', value: 'England' }]
       }
     ]);
     this.set('disabledOptionsGroups', [
@@ -114,9 +108,7 @@ module('Integration | Component | uni select', function(hooks) {
     assert.expect(1);
 
     this.set('selected', this.get('options.firstObject.key'));
-    await render(
-      hbs`{{uni-select options=options selected=selected placeholder=placeholder}}`
-    );
+    await render(hbs`{{uni-select options=options selected=selected placeholder=placeholder}}`);
 
     assert.dom('.uni-select__option').exists({ count: 4 });
   });
@@ -125,9 +117,7 @@ module('Integration | Component | uni select', function(hooks) {
     assert.expect(2);
 
     this.set('selected', this.get('groups[0].options.firstObject.key'));
-    await render(
-      hbs`{{uni-select options=groups selected=selected placeholder=placeholder}}`
-    );
+    await render(hbs`{{uni-select options=groups selected=selected placeholder=placeholder}}`);
 
     assert.dom('.uni-select__option').exists({ count: 4 });
     assert.dom('optgroup').exists({ count: 2 });
@@ -136,9 +126,7 @@ module('Integration | Component | uni select', function(hooks) {
   test('It renders disabled options', async function(assert) {
     assert.expect(1);
 
-    await render(
-      hbs`{{uni-select options=disabledOptions placeholder=placeholder}}`
-    );
+    await render(hbs`{{uni-select options=disabledOptions placeholder=placeholder}}`);
 
     assert.dom('.uni-select__option:disabled').exists({ count: 2 });
   });
@@ -146,9 +134,7 @@ module('Integration | Component | uni select', function(hooks) {
   test('It renders disabled options - groups', async function(assert) {
     assert.expect(1);
 
-    await render(
-      hbs`{{uni-select options=disabledOptionsGroups placeholder=placeholder}}`
-    );
+    await render(hbs`{{uni-select options=disabledOptionsGroups placeholder=placeholder}}`);
 
     assert.dom('.uni-select__option:disabled').exists({ count: 2 });
   });
@@ -203,9 +189,7 @@ module('Integration | Component | uni select', function(hooks) {
 
     this.set('useAlias', true);
 
-    await render(
-      hbs`{{uni-select options=aliasGroups useAlias=useAlias placeholder=placeholder}}`
-    );
+    await render(hbs`{{uni-select options=aliasGroups useAlias=useAlias placeholder=placeholder}}`);
 
     assert.dom('select.uni-select').hasNoValue();
     assert.dom('div.uni-select').hasText('Pick me!');

@@ -18,14 +18,10 @@ export default Component.extend({
   disabledDates: [],
 
   isFirstMonth: computed('center', function() {
-    return this.get('center').isSame(this.get('minDate'), 'month')
-      ? 'disabled'
-      : '';
+    return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';
   }),
   isLastMonth: computed('center', function() {
-    return this.get('center').isSame(this.get('maxDate'), 'month')
-      ? 'disabled'
-      : '';
+    return this.get('center').isSame(this.get('maxDate'), 'month') ? 'disabled' : '';
   }),
 
   onSelect() {},

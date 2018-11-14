@@ -25,11 +25,7 @@ export default Component.extend({
 
     this.get('totalStepsCountAsArray').forEach(step => {
       stepStyles.push(
-        htmlSafe(
-          `left: calc(${parseFloat(this.eachStepPercentage)}% * ${parseInt(
-            step
-          )});`
-        )
+        htmlSafe(`left: calc(${parseFloat(this.eachStepPercentage)}% * ${parseInt(step)});`)
       );
     });
 

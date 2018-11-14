@@ -39,10 +39,7 @@ export default Component.extend({
       }
 
       let options = this.get('options').map(option => {
-        let matchedValues = this.filterFunction(
-          this.get('searchTextValues'),
-          option
-        );
+        let matchedValues = this.filterFunction(this.get('searchTextValues'), option);
 
         return { option, matchedValues };
       });
@@ -120,9 +117,7 @@ export default Component.extend({
 
   filterFunction(getSearchTextValues, option) {
     let options = getSearchTextValues(option).map(x => x.toLowerCase());
-    let matchedValues = A(
-      options.filter(el => el.startsWith(this.get('valueLowerCase')))
-    );
+    let matchedValues = A(options.filter(el => el.startsWith(this.get('valueLowerCase'))));
 
     return matchedValues;
   },
@@ -153,16 +148,11 @@ export default Component.extend({
     let highlightedOption = this.get('highlighted') + increment;
 
     // Allows to do a circular mod with positive and negative values: ((f % n) + n) % n.
-    this.set(
-      'highlighted',
-      ((highlightedOption % maxOptions) + maxOptions) % maxOptions
-    );
+    this.set('highlighted', ((highlightedOption % maxOptions) + maxOptions) % maxOptions);
   },
 
   _handleKeyEnter() {
-    this.selectOption(
-      this.get('optionsFiltered').objectAt(this.get('highlighted'))
-    );
+    this.selectOption(this.get('optionsFiltered').objectAt(this.get('highlighted')));
 
     this.element.querySelector('input').blur();
   },

@@ -26,8 +26,6 @@ module('Integration | Component | uni carrousel item', function(hooks) {
     await render(hbs`{{uni-carrousel-item title=title content=content}}`);
 
     assert.dom('.uni-carrousel__container__item__title').hasText(DEFAULT_TITLE);
-    assert
-      .dom('.uni-carrousel__container__item__content')
-      .hasText(DEFAULT_CONTENT);
+    assert.dom('.uni-carrousel__container__item__content').hasText(DEFAULT_CONTENT);
   });
 });

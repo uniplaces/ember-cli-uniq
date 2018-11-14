@@ -24,9 +24,7 @@ export default Component.extend({
       let componentsContainer = $('.components');
       componentsContainer.animate(
         {
-          scrollTop:
-            componentsContainer.scrollTop() +
-            $($.attr(this, 'href')).position().top
+          scrollTop: componentsContainer.scrollTop() + $($.attr(this, 'href')).position().top
         },
         ANIMATION_DURATION
       );
@@ -42,9 +40,7 @@ export default Component.extend({
     let containerBiggerClass = this.get('options.containerBiggerClass');
 
     let action =
-      $(this.get('options.componentsSelector')).scrollTop() > DEVILS_NUMBER
-        ? 'add'
-        : 'remove';
+      $(this.get('options.componentsSelector')).scrollTop() > DEVILS_NUMBER ? 'add' : 'remove';
     demoAppBanner[`${action}Class`](topBannerSmallerClass);
     outerContainer[`${action}Class`](containerBiggerClass);
   },

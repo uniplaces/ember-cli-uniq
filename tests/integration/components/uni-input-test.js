@@ -87,9 +87,7 @@ module('Integration | Component | uni input', function(hooks) {
     this.set('isRequired', true);
     this.set('showSuccessDefault', true);
 
-    await render(
-      hbs`{{uni-input isRequired=isRequired showSuccessDefault=showSuccessDefault}}`
-    );
+    await render(hbs`{{uni-input isRequired=isRequired showSuccessDefault=showSuccessDefault}}`);
 
     assert.dom('.uni-input--success').doesNotExist();
   });
@@ -128,9 +126,7 @@ module('Integration | Component | uni input', function(hooks) {
       assert.ok(isValid);
     });
 
-    await render(
-      hbs`{{uni-input value=value showError=showError onKeyUp=onKeyUp}}`
-    );
+    await render(hbs`{{uni-input value=value showError=showError onKeyUp=onKeyUp}}`);
 
     assert.dom('input').exists();
     assert.dom('.uni-input--error').doesNotExist();
@@ -149,9 +145,7 @@ module('Integration | Component | uni input', function(hooks) {
       assert.ok(isValid);
     });
 
-    await render(
-      hbs`{{uni-input value=value showError=showError onKeyDown=onKeyDown}}`
-    );
+    await render(hbs`{{uni-input value=value showError=showError onKeyDown=onKeyDown}}`);
 
     assert.dom('input').exists();
     assert.dom('.uni-input--error').doesNotExist();
@@ -172,9 +166,7 @@ module('Integration | Component | uni input', function(hooks) {
       assert.notOk(isValid, 'The current value is not valid');
     });
 
-    await render(
-      hbs`{{uni-input value=value type=type showError=showError onKeyUp=onKeyUp}}`
-    );
+    await render(hbs`{{uni-input value=value type=type showError=showError onKeyUp=onKeyUp}}`);
 
     assert.dom('.uni-input--error').doesNotExist();
 

@@ -12,13 +12,9 @@ module('Integration | Component | uni header breadcrumbs', function(hooks) {
     this.set('step', 'First');
     this.set('description', 'This is a description');
 
-    await render(
-      hbs`{{uni-header-breadcrumbs step=step description=description}}`
-    );
+    await render(hbs`{{uni-header-breadcrumbs step=step description=description}}`);
 
     assert.dom('.uni-header__breadcrumb__step').hasText('First');
-    assert
-      .dom('.uni-header__breadcrumb__description')
-      .hasText('This is a description');
+    assert.dom('.uni-header__breadcrumb__description').hasText('This is a description');
   });
 });

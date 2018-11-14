@@ -25,10 +25,7 @@ export default Component.extend({
 
     let result = this.get('action')();
     if (result && result.then) {
-      return result.then(
-        () => this.trySetLoading(false),
-        () => this.trySetLoading(false)
-      );
+      return result.then(() => this.trySetLoading(false), () => this.trySetLoading(false));
     }
 
     this.trySetLoading(false);

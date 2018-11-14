@@ -41,9 +41,7 @@ module('Integration | Component | uni dropdown', function(hooks) {
     this.set('selected', 'google');
     this.set('selectedSvgs', ['google']);
 
-    await render(
-      hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`
-    );
+    await render(hbs`{{uni-dropdown options=options selected=selected selectedSvgs=selectedSvgs}}`);
 
     assert.dom('.uni-dropdown__button').hasText('google');
     assert.dom('.uni-dropdown__button .uni-dropdown__svg-group svg').exists();

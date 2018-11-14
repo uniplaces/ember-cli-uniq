@@ -3,10 +3,7 @@ import { computed } from '@ember/object';
 import layout from '../templates/components/uni-input-range';
 
 export default Component.extend({
-  classNameBindings: [
-    'isEditable:uni-input-range--editable',
-    'isSmall:uni-input-range--small'
-  ],
+  classNameBindings: ['isEditable:uni-input-range--editable', 'isSmall:uni-input-range--small'],
   classNames: ['uni-input-range'],
   layout,
 
@@ -33,15 +30,11 @@ export default Component.extend({
     },
 
     decrement() {
-      this.get('onChange')(
-        Math.max(this.get('value') - this.get('offset'), this.get('min'))
-      );
+      this.get('onChange')(Math.max(this.get('value') - this.get('offset'), this.get('min')));
     },
 
     increment() {
-      this.get('onChange')(
-        Math.min(this.get('value') + this.get('offset'), this.get('max'))
-      );
+      this.get('onChange')(Math.min(this.get('value') + this.get('offset'), this.get('max')));
     }
   }
 });

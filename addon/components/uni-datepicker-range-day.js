@@ -16,8 +16,7 @@ export default RangeDaysComponent.extend({
 
     day.isMinimumStay =
       isPresent(this.get('minimumStay')) && end !== null
-        ? dayMoment.isSame(end, 'day') &&
-          this.get('minimumStay').isSame(end, 'day')
+        ? dayMoment.isSame(end, 'day') && this.get('minimumStay').isSame(end, 'day')
         : false;
 
     day.isHighlighted = this.dayIsHighlighted(dayMoment.clone());
@@ -44,10 +43,7 @@ export default RangeDaysComponent.extend({
   },
 
   _isFirstDayHighlighted(date) {
-    if (
-      isEmpty(this.get('highlightedDates')) ||
-      this.get('highlightedDates.length') < 2
-    ) {
+    if (isEmpty(this.get('highlightedDates')) || this.get('highlightedDates.length') < 2) {
       return;
     }
 
@@ -55,10 +51,7 @@ export default RangeDaysComponent.extend({
   },
 
   _isLastDayHighlighted(date) {
-    if (
-      isEmpty(this.get('highlightedDates')) ||
-      this.get('highlightedDates.length') < 2
-    ) {
+    if (isEmpty(this.get('highlightedDates')) || this.get('highlightedDates.length') < 2) {
       return;
     }
 

@@ -20,10 +20,7 @@ export default Route.extend({
       },
       datepickerInputLabel: 'Move-in date',
       datepickerInputPlaceholder: 'Insert date',
-      genderOptions: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' }
-      ],
+      genderOptions: [{ value: 'male', label: 'Male' }, { value: 'female', label: 'Female' }],
       errorOptions: ['female'],
       multiOptions: [
         { value: 'option1', label: 'Option 1' },
@@ -59,10 +56,7 @@ export default Route.extend({
         }
       ],
       secondDropdown: null,
-      dropdownOptions: [
-        { key: 'facebook', value: 'Facebook' },
-        { key: 'google', value: 'Google' }
-      ],
+      dropdownOptions: [{ key: 'facebook', value: 'Facebook' }, { key: 'google', value: 'Google' }],
       tabs: [
         { label: 'Home', url: 'application' },
         { label: 'About us', url: 'application' },
@@ -141,17 +135,14 @@ export default Route.extend({
           }
         ]
       },
-      mainPhotoUrl:
-        'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
+      mainPhotoUrl: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
       photos: [
         {
-          url:
-            'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
+          url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/lisbon-small.jpg',
           id: '1234567890'
         },
         {
-          url:
-            'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/porto-small.jpg',
+          url: 'https://d16teuje7e44sv.cloudfront.net/spa/cities/portugal/porto-small.jpg',
           id: '0987654321'
         }
       ],

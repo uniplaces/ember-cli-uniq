@@ -119,11 +119,7 @@ export default Component.extend({
     },
 
     onKeyDown(_, ev) {
-      if (
-        ev &&
-        !this._isNumericValue(ev.keyCode) &&
-        !this._isAllowedKey(ev.keyCode)
-      ) {
+      if (ev && !this._isNumericValue(ev.keyCode) && !this._isAllowedKey(ev.keyCode)) {
         ev.preventDefault();
       }
     },

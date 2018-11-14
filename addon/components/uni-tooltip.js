@@ -8,10 +8,7 @@ import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 export default Component.extend(ClickOutsideMixin, {
   tagName: 'span',
   classNames: ['uni-tooltip'],
-  classNameBindings: [
-    'isActive:uni-tooltip--active',
-    'isAlternative:uni-tooltip--alternative'
-  ],
+  classNameBindings: ['isActive:uni-tooltip--active', 'isAlternative:uni-tooltip--alternative'],
   layout,
 
   media: service(),
@@ -48,9 +45,7 @@ export default Component.extend(ClickOutsideMixin, {
   willDestroyElement() {
     let clickHandler = this.get('handleOutsideClick').bind(this);
 
-    ['touchstart', 'scroll'].forEach(e =>
-      document.removeEventListener(e, clickHandler)
-    );
+    ['touchstart', 'scroll'].forEach(e => document.removeEventListener(e, clickHandler));
   },
 
   actions: {
@@ -76,9 +71,7 @@ export default Component.extend(ClickOutsideMixin, {
 
   _showTooltip() {
     this.set('isActive', true);
-    $(this.get('wrapperSelector')).bind('scroll.uni-tooltip', () =>
-      this._hideTooltip()
-    );
+    $(this.get('wrapperSelector')).bind('scroll.uni-tooltip', () => this._hideTooltip());
   },
 
   _hideTooltip() {
@@ -87,8 +80,7 @@ export default Component.extend(ClickOutsideMixin, {
   },
 
   _setTopPositionMobile() {
-    let alignWithTooltipIconOffset =
-      this.$().offset().top - $(window).scrollTop();
+    let alignWithTooltipIconOffset = this.$().offset().top - $(window).scrollTop();
 
     let topPosition = this.get('expandAbove')
       ? alignWithTooltipIconOffset - this.$('.uni-tooltip__text').outerHeight()

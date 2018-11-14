@@ -24,9 +24,7 @@ module('Integration | Component | uni header', function(hooks) {
       logoWidth: 'auto'
     });
 
-    await render(
-      hbs`{{uni-header logoSrc=logoSrc logoHeight=logoHeight logoWidth=logoWidth}}`
-    );
+    await render(hbs`{{uni-header logoSrc=logoSrc logoHeight=logoHeight logoWidth=logoWidth}}`);
 
     let img = `img[src="${this.get('logoSrc')}"]`;
 
