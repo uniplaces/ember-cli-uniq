@@ -12,11 +12,8 @@ export default Component.extend(ClickOutsideMixin, {
   selected: moment(),
   center: moment(),
   format: 'll',
-  minDate: moment(),
-  maxDate: moment().add(2, 'years'),
   placeholder: null,
   label: null,
-  isReadOnly: true,
   disabledDates: [],
 
   formattedDate: computed('selected', function() {
