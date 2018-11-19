@@ -2,18 +2,8 @@
   center=center
   selected=selected
   onCenterChange=(action onCenter value="moment")
-  onSelect=(action onSelect value="moment") as |calendar|}}
-  <nav class="ember-power-calendar-nav">
-    <div role="button" class="ember-power-calendar-nav-control {{isFirstMonth}}" {{action "prevMonth"}}>
-      {{svg-jar "arrow-left-calendar"}}
-    </div>
-    <div class="ember-power-calendar-nav-title">
-      {{moment-format calendar.center dateFormat}}
-    </div>
-    <div role="button" class="ember-power-calendar-nav-control {{isLastMonth}}" {{action "nextMonth"}}>
-      {{svg-jar "arrow-right-calendar"}}
-    </div>
-  </nav>
-
-  {{calendar.days minDate=minDate maxDate=maxDate showDaysAround=showDaysAround disabledDates=disabledDates}}
+  onSelect=(action onSelect value="moment")
+as |calendar|}}
+  {{calendar.nav}}
+  {{calendar.days disabledDates=disabledDates}}
 {{/power-calendar}}
