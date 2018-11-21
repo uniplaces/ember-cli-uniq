@@ -4,6 +4,18 @@
   onCenterChange=(action onCenter value="moment")
   onSelect=(action onSelect value="moment")
 as |calendar|}}
-  {{calendar.nav}}
-  {{calendar.days disabledDates=disabledDates}}
+
+  <nav class="ember-power-calendar-nav">
+    <button type="button" class="ember-power-calendar-nav-control" onclick={{action calendar.actions.moveCenter -1 'month'}}>
+      {{svg-jar "arrow-left-calendar"}}
+    </button>
+    <div class="ember-power-calendar-nav-title">
+      {{moment-format calendar.center dateFormat}}
+    </div>
+    <button class="ember-power-calendar-nav-control" onclick={{action calendar.actions.moveCenter 1 'month'}}>
+      {{svg-jar "arrow-right-calendar"}}
+    </button>
+  </nav>
+
+  {{calendar.days disabledDates=disabledDates showDaysAround=false}}
 {{/power-calendar}}
