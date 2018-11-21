@@ -1,57 +1,53 @@
-$box-size: 42px;
+$cell-size: 40px;
+$cell-border-color: #eaebec;
+$day-color: #3d4a52;
+$disabled-background-color: #f3f3f4;
 
 .uni-datepicker {
   .ember-power-calendar {
-    width: 100%;
-    max-width: 300px;
-    padding: 20px 10px 10px;
-    border: 1px solid color('calendar', 'border');
-    box-shadow: 0 16px 18px 0 color('calendar', 'shadow');
-    margin-top: 16px;
-
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 0;
-      height: 0;
-      border-left: 11px solid transparent;
-      border-right: 11px solid transparent;
-      border-bottom: 11px solid color('calendar', 'background');
-      z-index: 4;
-      top: -10px;
-      left: 56px;
-    }
-
-    &:after {
-      border-bottom: 12px solid color('calendar', 'border');
-      z-index: 3;
-      top: -12px;
-      left: 56px;
-    }
+    @include ember-power-calendar($cell-size: $cell-size, $cell-with-spacing-width: 40px);
+    max-width: 325px;
 
     .disabled:hover {
       pointer-events: none;
+    }
+
+    .ember-power-calendar-day-grid {
+      width: 280px;
     }
 
     &-nav {
       margin-bottom: 23px;
 
       &-control {
-        width: 47px;
-        height: 35px;
-        border: 1px solid color('calendar', 'border') !important;
-        border-radius: 2px;
-        color: color('calendar', 'text') !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $cell-border-color !important;
+        border-radius: 50%;
+        background-color: color("primary", "highlight") !important;
         cursor: pointer;
-        background-color: color('calendar', 'button-bg');
 
+        &:hover {
+          border: 1px solid #caced1 !important;
+        }
+
+        &:focus {
+          transform: scale(1);
+        }
+
+        svg {
+          width: 6px;
+          height: auto;
+        }
 
         &.disabled {
           opacity: 0.4;
           pointer-events: none;
         }
+
         &:not(.disabled) {
           background-color: color('calendar', 'button-bg');
 
@@ -62,15 +58,19 @@ $box-size: 42px;
       }
 
       &-title {
-        @include font("IntervalNextReg");
+        @include font("IntervalNextMed");
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-size: em(16px);
-        color: color('text', 'subheader');
+        color: #161e22;
       }
     }
 
     &-day {
-      max-width: $box-size;
-      max-height: $box-size;
+      @include font("IntervalNextReg");
+      font-size: em(13px);
+      color: $day-color;
       cursor: pointer;
 
       &--focused {
@@ -79,124 +79,106 @@ $box-size: 42px;
     }
 
     &-day--current-month {
-      background-color: color('buttons') !important;
-
-      &:hover {
-        background-color: color('calendar', 'hover-day-bg') !important;
-      }
+      background-color: transparent !important;
+      border-right: 1px solid $cell-border-color;
 
       &:disabled {
-        color: color('buttons', 'disabled-text') !important;
-      }
-    }
+        background-color: $disabled-background-color !important;
+        color: #dcdfe1 !important;
+        opacity: 1 !important;
+        cursor: default;
 
-    &-day--other-month {
-      background-color: color('buttons', 'disabled') !important;
-      color: color('calendar', 'border');
-    }
-
-    &-day--selected {
-      background-color: color('calendar', 'hover-day-bg') !important;
-    }
-
-    &-day--interactive[disabled] {
-      opacity: 1 !important;
-      text-decoration: none;
-      background-color: color('buttons', 'disabled') !important;
-      color: color('calendar', 'border');
-      pointer-events: none;
-    }
-
-    &-week {
-      border-top: 1px solid color('calendar', 'border');
-
-      &:first-child {
-        border-top: 0;
-        @include justify-content-end();
-
-        button {
-          border-top: 1px solid color('calendar', 'border');
-          max-width: $box-size;
-
-          &:first-child {
-            border-left: 0;
-            box-shadow: -1px 0 0 color('calendar', 'border');
+        &:hover {
+          &:after {
+            content: none !important;
           }
-        }
-      }
-
-      &[data-missing-days="0"]:first-child button:first-child {
-        box-shadow: 0 0 0;
-        border-left: 1px solid color('calendar', 'border');
-      }
-
-      &:last-child {
-        @include justify-content-start();
-
-        button {
-          border-bottom: 1px solid color('calendar', 'border');
-          max-width: $box-size;
-        }
-      }
-    }
-
-    &-row {
-      @include justify-content-center();
-
-      button {
-        width: $box-size;
-        height: $box-size;
-        padding: 0;
-        border-right: 1px solid color('calendar', 'border');
-        @include font("IntervalNextBook");
-        font-size: em(16px);
-        border-radius: 0;
-
-        &:first-child {
-          border-left: 1px solid color('calendar', 'border');
-        }
-
-        &:nth-child(8n) {
-          border-left: 1px solid color('calendar', 'border');
-        }
-
-        &[disabled] {
-          background-color: color('buttons', 'disabled');
         }
       }
     }
 
     &-weekday {
-      font-size: em(13px);
-      color: color('calendar', 'text');
+      @include font("IntervalNextBook");
+      font-size: em(10px);
+      color: $day-color;
     }
 
-    &-weekdays {
-      margin-bottom: 8px;
-    }
-  }
+    .ember-power-calendar-week {
+      height: 40px;
 
-  [role="button"].ember-power-calendar-nav-control {
-    @include flex();
-    @include align-items-center();
-    @include justify-content-center();
+      &:not(:first-of-type) {
+        border-top: 1px solid $cell-border-color;
+      }
 
-    svg {
-      height: 10px;
-      fill: color('background', 'negative');
-    }
+      &:first-child {
+        .ember-power-calendar-day--current-month {
+          border-top: 1px solid $cell-border-color;
+        }
 
-    &:focus {
-      transform: scale(1);
-    }
+        &[data-missing-days] {
+          justify-content: flex-end;
+          padding-left: 0;
+        }
+      }
 
-    &:active {
-      transform: scale(0.9);
-    }
+      &:last-child {
+        .ember-power-calendar-day--current-month {
+          border-bottom: 1px solid $cell-border-color;
+        }
 
-    &[disabled] {
-      border: 0;
-      opacity: 0.4;
+        &[data-missing-days] {
+          justify-content: flex-start;
+          padding-right: 0;
+        }
+      }
+
+
+      .ember-power-calendar-day--current-month {
+        &:hover {
+          position: relative;
+          background: transparent!important;
+
+          &:after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: $cell-size;
+            height: $cell-size;
+            background: #d9f3fd;
+            z-index: -1;
+          }
+        }
+
+        &:disabled {
+          &:hover {
+            background-color: $disabled-background-color !important;
+          }
+        }
+
+        &:first-child {
+          position: relative;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -1px;
+            height: $cell-size;
+            width: 1px;
+            background: $cell-border-color;
+          }
+        }
+      }
+
+      .ember-power-calendar-day--selected {
+        background: #0083e4 !important;
+        color: color("primary", "highlight") !important;
+
+        &:hover {
+          background: #0083e4 !important;
+          color: color("primary", "highlight") !important;
+        }
+      }
     }
   }
 }
