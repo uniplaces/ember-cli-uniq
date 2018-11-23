@@ -16,12 +16,24 @@ export default Component.extend({
   dateFormat: 'MMMM YYYY',
   showDaysAround: true,
   disabledDates: [],
+  messages: [],
 
   isFirstMonth: computed('center', function() {
     return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';
   }),
   isLastMonth: computed('center', function() {
     return this.get('center').isSame(this.get('maxDate'), 'month') ? 'disabled' : '';
+  }),
+  selectedMessage: computed('messages', function() {
+    let messagesArray = this.get('messages');
+
+    return messagesArray.sort(function(a, b) {
+      if (a.type === b.type) {
+        return 0;
+      }
+
+      return a.type === 'information' ? 1 : -1;
+    })[0];
   }),
 
   onSelect() {},

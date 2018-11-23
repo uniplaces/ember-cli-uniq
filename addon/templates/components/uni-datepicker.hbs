@@ -18,4 +18,11 @@ as |calendar|}}
   </nav>
 
   {{calendar.days disabledDates=disabledDates showDaysAround=false}}
+
+{{#if selectedMessage}}
+  <div class="message {{i 'message--${type}' type=selectedMessage.type}}">
+    {{svg-jar selectedMessage.type}}
+    <p>{{selectedMessage.label}}</p>
+  </div>
+{{/if}}
 {{/power-calendar}}

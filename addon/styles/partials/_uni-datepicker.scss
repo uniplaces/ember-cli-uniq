@@ -2,6 +2,7 @@ $cell-size: 40px;
 $cell-border-color: #eaebec;
 $day-color: #3d4a52;
 $disabled-background-color: #f3f3f4;
+$text-main-color: #161e22;
 
 .uni-datepicker {
   .ember-power-calendar {
@@ -63,7 +64,7 @@ $disabled-background-color: #f3f3f4;
         justify-content: center;
         align-items: center;
         font-size: em(16px);
-        color: #161e22;
+        color: $text-main-color;
       }
     }
 
@@ -144,7 +145,7 @@ $disabled-background-color: #f3f3f4;
             left: 0;
             width: $cell-size;
             height: $cell-size;
-            background: #d9f3fd;
+            background-color: #d9f3fd;
             z-index: -1;
           }
         }
@@ -171,14 +172,47 @@ $disabled-background-color: #f3f3f4;
       }
 
       .ember-power-calendar-day--selected {
-        background: #0083e4 !important;
+        background-color: #0083e4 !important;
         color: color("primary", "highlight") !important;
 
         &:hover {
-          background: #0083e4 !important;
+          background-color: #0083e4 !important;
           color: color("primary", "highlight") !important;
         }
       }
     }
+  }
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  padding: 13px 22px 13px 13px;
+  width: 100%;
+  max-width: 275px;
+  position: relative;
+  margin-top: 16px;
+
+  svg {
+    width: 14px;
+    height: auto;
+    position: absolute;
+    top: 16px;
+  }
+
+  p {
+    @include font("IntervalNextBook");
+    font-size: em(16px);
+    line-height: 1.19;
+    color: $text-main-color;
+    padding-left: 24px;
+  }
+
+  &--information {
+    background-color: #e0f5fd;
+  }
+
+  &--warning {
+    background-color: #fdf8e7;
   }
 }
