@@ -3,7 +3,16 @@
   selected=selected
   onCenterChange=(action onCenter value="moment")
   onSelect=(action onSelect value="moment")
+  classNames=(if isFullScreen 'mobile')
 as |calendar|}}
+
+  {{yield}}
+
+  {{#if media.isMobile}}
+    <div class="close-mobile-modal" {{action "closeModalMobile"}}>
+      {{svg-jar "cross"}}
+    </div>
+  {{/if}}
 
   <nav class="ember-power-calendar-nav">
     <button type="button" class="ember-power-calendar-nav-control" onclick={{action calendar.actions.moveCenter -1 'month'}}>

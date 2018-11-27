@@ -181,6 +181,35 @@ $text-main-color: #161e22;
         }
       }
     }
+
+    &.mobile {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background-color: color("primary", "highlight");
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .ember-power-calendar-nav,
+      .ember-power-calendar-days {
+        width: 280px;
+      }
+
+      .close-mobile-modal {
+        margin: 16px 16px 16px auto;
+
+        svg {
+          width: 25px;
+          height: auto;
+        }
+      }
+    }
   }
 }
 
