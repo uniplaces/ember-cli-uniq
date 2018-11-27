@@ -14,6 +14,7 @@ export default Component.extend({
   noResultsText: 'No results for ',
   placeholderText: 'Type your country ',
   locale: null,
+  autocomplete: 'off',
 
   countries: computed('locale', function() {
     let countries = [];

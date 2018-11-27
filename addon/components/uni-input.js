@@ -21,6 +21,7 @@ export default Component.extend({
   placeholder: '',
   maxLength: null,
   readonly: false,
+  autocomplete: 'on',
 
   tooltipMessage: null,
   showTooltip: false,
