@@ -182,7 +182,7 @@ $text-main-color: #161e22;
       }
     }
 
-    &.mobile {
+    &.fullscreen {
       position: fixed;
       top: 0;
       right: 0;
@@ -201,7 +201,7 @@ $text-main-color: #161e22;
         width: 280px;
       }
 
-      .close-mobile-modal {
+      .close-modal {
         margin: 16px 16px 16px auto;
 
         svg {

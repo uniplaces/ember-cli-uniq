@@ -3,13 +3,13 @@
   selected=selected
   onCenterChange=(action onCenter value="moment")
   onSelect=(action onSelect value="moment")
-  classNames=(if isFullScreen 'mobile')
+  classNames=(if isFullScreen "fullscreen")
 as |calendar|}}
 
   {{yield}}
 
-  {{#if media.isMobile}}
-    <div class="close-mobile-modal" {{action "closeModalMobile"}}>
+  {{#if isFullScreen}}
+    <div class="close-modal" {{action "onClose"}}>
       {{svg-jar "cross"}}
     </div>
   {{/if}}

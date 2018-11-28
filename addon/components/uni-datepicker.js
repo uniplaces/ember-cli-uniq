@@ -2,11 +2,13 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
-import layout from '../templates/components/uni-datepicker';
 import MessageType from 'ember-cli-uniq/enums/uni-datepicker-message-type';
 import { inject as service } from '@ember/service';
+import layout from '../templates/components/uni-datepicker';
 
 export default Component.extend({
+  media: service(),
+
   layout,
 
   classNames: ['uni-datepicker'],
@@ -20,8 +22,6 @@ export default Component.extend({
   showDaysAround: true,
   disabledDates: [],
   messages: [],
-
-  media: service(),
 
   isFirstMonth: computed('center', function() {
     return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';
@@ -58,7 +58,7 @@ export default Component.extend({
       this.get('onCenter')(this.get('center').clone().add(-1, 'month'));
     },
 
-    closeModalMobile() {
+    onClose() {
       this.get('onClose')();
     }
   }
