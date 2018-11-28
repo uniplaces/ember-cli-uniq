@@ -14,7 +14,7 @@ test('it renders', function(assert) {
   assert.dom('.uni-datepicker-input').exists();
 });
 
-test('test to see if the date picker modal toggle between clicks', async function(assert) {
+test('it toggles date picker component existence when clicking input', async function(assert) {
   assert.expect(2);
 
   this.render(hbs`{{uni-datepicker-input}}`);
