@@ -49,3 +49,10 @@ test('when there is no messages the message container does not render', function
 
   assert.dom('.message').doesNotExist();
 });
+
+test('test to see if the modal went fullscreen', function(assert) {
+
+  this.render(hbs`{{uni-datepicker isFullScreen=true}}`);
+
+  assert.dom('.fullscreen').exists();
+});

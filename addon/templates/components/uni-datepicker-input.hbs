@@ -9,7 +9,7 @@
     placeholder=placeholder
     click=(action "toggleDatepicker")}}
   <div class="uni-datepicker-input__wrapper__icon">
-    {{svg-jar 'calendar'}}
+    {{svg-jar "calendar"}}
   </div>
 </div>
 {{#if showDatepicker}}
@@ -18,7 +18,9 @@
   	onSelect=(action "onSelect")
   	center=center
   	onCenter=(action (mut center))
+    onClose=(action (mut showDatepicker))
   	minDate=minDate
   	maxDate=maxDate
-    disabledDates=disabledDates}}
+    disabledDates=disabledDates
+    isFullScreen=media.isMobile}}
 {{/if}}

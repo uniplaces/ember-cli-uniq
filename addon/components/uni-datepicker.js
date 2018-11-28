@@ -2,10 +2,13 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
-import layout from '../templates/components/uni-datepicker';
 import MessageType from 'ember-cli-uniq/enums/uni-datepicker-message-type';
+import { inject as service } from '@ember/service';
+import layout from '../templates/components/uni-datepicker';
 
 export default Component.extend({
+  media: service(),
+
   layout,
 
   classNames: ['uni-datepicker'],
@@ -44,6 +47,7 @@ export default Component.extend({
 
   onSelect() {},
   onCenter() {},
+  onClose() {},
 
   actions: {
     nextMonth() {
@@ -52,6 +56,10 @@ export default Component.extend({
 
     prevMonth() {
       this.get('onCenter')(this.get('center').clone().add(-1, 'month'));
+    },
+
+    onClose() {
+      this.get('onClose')();
     }
   }
 });

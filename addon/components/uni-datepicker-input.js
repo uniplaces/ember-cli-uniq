@@ -4,8 +4,11 @@ import { isPresent, isNone } from '@ember/utils';
 import layout from '../templates/components/uni-datepicker-input';
 import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 import moment from 'moment';
+import { inject as service } from '@ember/service';
 
 export default Component.extend(ClickOutsideMixin, {
+  media: service(),
+
   classNames: ['uni-datepicker-input'],
   layout,
   showDatepicker: false,
