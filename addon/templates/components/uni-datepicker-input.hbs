@@ -8,9 +8,10 @@
     value=formattedDate
     placeholder=placeholder
     click=(action "toggleDatepicker")}}
-  <div class="uni-datepicker-input__wrapper__icon">
-    {{svg-jar "calendar"}}
-  </div>
+
+    <div class="uni-datepicker-input__wrapper__icon">
+      {{svg-jar "calendar-stroke"}}
+    </div>
 </div>
 {{#if showDatepicker}}
   {{uni-datepicker
@@ -22,5 +23,6 @@
   	minDate=minDate
   	maxDate=maxDate
     disabledDates=disabledDates
-    isFullScreen=media.isMobile}}
+    isFullScreen=media.isMobile
+    showAbove=showAbove}}
 {{/if}}

@@ -1,5 +1,6 @@
 .uni-input {
   @include input();
+  height: 56px;
 
   & + .uni-tooltip--alternative {
     @media (max-width: 767px) {

@@ -12,6 +12,7 @@ export default Component.extend({
   layout,
 
   classNames: ['uni-datepicker'],
+  classNameBindings: ['showAbove'],
 
   center: moment(),
   selected: moment(),
@@ -22,6 +23,8 @@ export default Component.extend({
   showDaysAround: true,
   disabledDates: [],
   messages: [],
+  isFullScreen: false,
+  showAbove: false,
 
   isFirstMonth: computed('center', function() {
     return this.get('center').isSame(this.get('minDate'), 'month') ? 'disabled' : '';

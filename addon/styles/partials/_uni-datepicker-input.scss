@@ -1,4 +1,9 @@
+$input-height: 40px;
+$datepicker-safe-margin: 16px;
+
 .uni-datepicker-input {
+  position: relative;
+
   &__label {
     @include font("IntervalNextReg");
     display: inline-block;
@@ -14,16 +19,18 @@
 
     input {
       width: 100%;
+      height: $input-height;
       margin-right: 0;
+      padding-left: 32px;
+      font-size: em(16px);
     }
 
     &__icon {
       width: 22px;
       height: 100%;
       position: absolute;
-      right: 20px;
-      top: 50%;
-      margin-top: -11px;
+      top: calc(50% - 8px);
+      left: 8px;
       pointer-events: none;
 
       svg {
@@ -33,6 +40,22 @@
           fill: color("primary") !important;
         }
       }
+    }
+  }
+
+  .uni-datepicker {
+    position: absolute;
+    top: $input-height + $datepicker-safe-margin;
+    z-index: 10;
+    background: color("primary", "highlight");
+    box-shadow: 0 8px 16px 0 rgba(130, 141, 147, 0.35);
+    padding: 24px;
+
+    &.show-above {
+      position: absolute;
+      top: auto;
+      bottom: $input-height + $datepicker-safe-margin;
+      background-color: color("primary", "highlight");
     }
   }
 }
