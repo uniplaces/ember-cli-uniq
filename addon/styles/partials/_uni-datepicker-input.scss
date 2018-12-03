@@ -54,7 +54,7 @@ $datepicker-safe-margin: 16px;
     &.show-above {
       position: absolute;
       top: auto;
-      bottom: $input-height + $datepicker-safe-margin;
+      bottom: #{$input-height + $datepicker-safe-margin};
       background-color: color("primary", "highlight");
     }
   }
