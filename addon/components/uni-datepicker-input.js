@@ -18,6 +18,7 @@ export default Component.extend(ClickOutsideMixin, {
   placeholder: null,
   label: null,
   disabledDates: [],
+  showAbove: false,
 
   formattedDate: computed('selected', function() {
     let selected = this.get('selected');
