@@ -3,6 +3,15 @@
 {{/if}}
 
 <div class="uni-calendar">
-  {{uni-datepicker-input placeholder=placeholder showAbove=showAbove}}
-  {{uni-datepicker-input placeholder=placeholder showAbove=showAbove}}
+  {{uni-datepicker-input
+    placeholder=placeholder
+    showAbove=showAbove
+    selected=startDate
+    onSelected=(action "getDateAndOpenDatepicker")}}
+  {{uni-datepicker-input
+    placeholder=placeholder
+    showAbove=showAbove
+    selected=endDate
+    showDatepicker=showDatepicker
+    onSelected=(action (mut endDate))}}
 </div>
