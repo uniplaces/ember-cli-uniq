@@ -12,7 +12,7 @@ export default Component.extend({
   showDatepicker: false,
   minimumDays: 0,
 
-  dateRange: computed(function() {
+  dateRange: computed('startDate', 'endDate', function() {
     return moment.range(this.get('startDate'), this.get('endDate'));
   }),
 
