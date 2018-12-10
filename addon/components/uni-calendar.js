@@ -17,11 +17,9 @@ export default Component.extend({
   }),
 
   actions: {
-    getDateAndOpenDatepicker(date, minimumDays) {
-      let newDate = date.add('days', minimumDays);
-
+    onStartDateSelected(date, minimumDays) {
       this.set('startDate', date);
-      this.set('endDate', newDate);
+      this.set('endDate', date.add('days', minimumDays));
     }
   }
 });
