@@ -21,10 +21,7 @@ export default Component.extend({
       let newDate = date.add('days', minimumDays);
 
       this.set('startDate', date);
-      this.set('showDatepicker', true);
       this.set('endDate', newDate);
-      console.log(newDate);
-      // set end date + minimum stay
     }
   }
 });
