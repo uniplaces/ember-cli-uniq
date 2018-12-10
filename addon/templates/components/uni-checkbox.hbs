@@ -13,7 +13,10 @@
       errorClass=(if hasError "uni-checkbox--error" "")}}>
 
   <label for={{i "${id}-checkbox" id=elementId}}>
-    {{label}}
+    {{#if icon}}
+      <div class="icon">{{svg-jar icon}}</div>
+    {{/if}}
+    <div class="label">{{label}}</div>
     {{svg-jar "checkbox-icon"}}
   </label>
 {{/uni-input-container}}
