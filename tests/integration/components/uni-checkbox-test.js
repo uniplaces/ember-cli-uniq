@@ -25,7 +25,7 @@ module('Integration | Component | uni checkbox', function(hooks) {
   test('it renders icon', async function(assert) {
     assert.expect(1);
 
-    await render(hbs`{{uni-checkbox icon="cross"}}`);
+    await render(hbs`{{uni-checkbox icon="check"}}`);
 
     assert.dom('.icon').exists();
   });

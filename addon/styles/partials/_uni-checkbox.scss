@@ -22,6 +22,20 @@
       left: 8px;
     }
 
+    .icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
+
+      svg {
+        display: block;
+        left: unset;
+        top: unset;
+        width: inherit;
+        height: inherit;
+      }
+    }
+
     @include breakpoint(small) {
       width: 100%;
       min-height: 60px;
