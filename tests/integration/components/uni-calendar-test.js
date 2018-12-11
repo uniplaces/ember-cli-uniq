@@ -29,7 +29,7 @@ module('Integration | Component | uni calendar', function(hooks) {
     assert.dom('.uni-datepicker').doesNotExist();
   });
 
-  test('it renders the exact date chooosen plus the minimum days', async function(assert) {
+  test('it renders the exact date choosen plus the minimum days', async function(assert) {
     assert.expect(2);
 
     this.set('startDate', moment('2020-04-01'));
