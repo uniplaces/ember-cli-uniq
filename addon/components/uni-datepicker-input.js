@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isPresent, isNone } from '@ember/utils';
 import layout from '../templates/components/uni-datepicker-input';
-import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 import moment from 'moment';
 import { inject as service } from '@ember/service';
+import ClickOutsideMixin from 'ember-cli-uniq/mixins/click-outside';
 
 export default Component.extend(ClickOutsideMixin, {
   media: service(),
@@ -22,7 +22,6 @@ export default Component.extend(ClickOutsideMixin, {
 
   formattedDate: computed('selected', function() {
     let selected = this.get('selected');
-
     if (isNone(selected) && isPresent(this.get('placeholder'))) {
       return '';
     }
@@ -34,16 +33,16 @@ export default Component.extend(ClickOutsideMixin, {
 
   onSelected() {},
 
+  isComponentDestroyed() {
+    return this.get('isDestroyed') || this.get('isDestroying');
+  },
+
   onOutsideClick() {
     if (this.isComponentDestroyed()) {
       return;
     }
 
     this.set('showDatepicker', false);
-  },
-
-  isComponentDestroyed() {
-    return this.get('isDestroyed') || this.get('isDestroying');
   },
 
   actions: {
