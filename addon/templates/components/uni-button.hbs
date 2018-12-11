@@ -1,9 +1,11 @@
 {{#if hasBlock}}
   {{yield}}
 {{else}}
-  {{label}}
+  <div class="label">{{label}}</div>
+  {{#if icon}}
+    <div class="icon">{{svg-jar icon}}</div>
+  {{/if}}
 {{/if}}
-
 
 {{#if isLoading}}
   <div class="loader">
