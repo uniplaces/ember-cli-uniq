@@ -17,9 +17,9 @@ export default Component.extend({
   }),
 
   actions: {
-    onStartDateSelected(date, minimumDays) {
+    onStartDateSelected(date) {
       this.set('startDate', date);
-      this.set('endDate', date.add('days', minimumDays));
+      this.set('endDate', date.clone().add('days', this.get('minimumDays')));
     }
   }
 });

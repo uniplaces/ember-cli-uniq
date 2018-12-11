@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import moment from 'moment';
 
 module('Integration | Component | uni calendar', function(hooks) {
   setupRenderingTest(hooks);
@@ -26,5 +27,19 @@ module('Integration | Component | uni calendar', function(hooks) {
     await click('.ember-power-calendar-day');
 
     assert.dom('.uni-datepicker').doesNotExist();
+  });
+
+  test('it renders the exact date chooosen plus the minimum days', async function(assert) {
+    assert.expect(2);
+
+    this.set('startDate', moment('2020-04-01'));
+
+    await render(hbs`{{uni-calendar showDatepicker=true minimumDays=5 startDate=startDate}}`);
+
+    await click('.uni-input');
+    await click('.ember-power-calendar-day--selected');
+
+    assert.dom('.uni-datepicker-input:first-child input').hasValue('Apr 1, 2020');
+    assert.dom('.uni-datepicker-input:last-child input').hasValue('Apr 6, 2020');
   });
 });

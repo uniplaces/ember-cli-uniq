@@ -22,7 +22,6 @@ export default Component.extend(ClickOutsideMixin, {
 
   formattedDate: computed('selected', function() {
     let selected = this.get('selected');
-
     if (isNone(selected) && isPresent(this.get('placeholder'))) {
       return '';
     }
