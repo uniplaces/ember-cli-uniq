@@ -44,7 +44,11 @@ export default Component.extend({
         return 0;
       }
 
-      return a.type === MessageType.INFORMATION ? 1 : -1;
+      if (a.type === MessageType.INFORMATION) {
+        return 1;
+      }
+
+      return -1;
     })[0];
   }),
 
