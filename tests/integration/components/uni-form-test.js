@@ -2,6 +2,7 @@ import RSVP from 'rsvp';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
+import { htmlSafe } from '@ember/string';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | uni form', function(hooks) {
@@ -22,6 +23,24 @@ module('Integration | Component | uni form', function(hooks) {
     assert.dom('.uni-form').containsText('This is a form content');
     assert.dom('.uni-button--primary').exists();
     assert.dom('.uni-button--primary').hasText('This is a button label');
+  });
+
+  test('it renders custom html in the submit button label', async function(assert) {
+    assert.expect(5);
+
+    this.set('label', htmlSafe('<p>Test</p>'));
+
+    await render(hbs`
+      {{#uni-form label=label}}
+        This is a form content
+      {{/uni-form}}
+    `);
+
+    assert.dom('.uni-form').exists();
+    assert.dom('.uni-form').containsText('This is a form content');
+    assert.dom('.uni-button--primary').exists();
+    assert.dom('.uni-button--primary p').exists();
+    assert.dom('.uni-button--primary p').hasText('Test');
   });
 
   test('it sets the autocomplete as "on" by default', async function(assert) {
