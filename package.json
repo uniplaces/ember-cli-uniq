@@ -31,7 +31,7 @@
     "ember-cli-sass": "^8.0.1",
     "ember-responsive": "^3.0.0-beta.3",
     "ember-truth-helpers": "^2.1.0",
-    "uniplaces-uniq": "^2.5.4"
+    "uniplaces-uniq": "^2.5.5"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",

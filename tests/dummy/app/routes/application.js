@@ -137,7 +137,6 @@ export default Route.extend({
         'headers',
         'tabs',
         'alerts',
-        'progress-bar',
         'headings',
         'anchor',
         'buttons',
