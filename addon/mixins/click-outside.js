@@ -10,7 +10,7 @@ export default Mixin.create({
     let $target = $(event.target);
 
     if (!$target.closest($element).length) {
-      this.onOutsideClick();
+      this.onOutsideClick(event);
     }
   },
 
