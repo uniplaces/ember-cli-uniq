@@ -9,7 +9,7 @@
     class={{i
       "uni-checkbox ${disabledClass} ${errorClass} ${smallClass}"
       disabledClass=(if isDisabled "uni-checkbox--disabled" "")
-      smallClass=(if isSmall "uni-checkbox--small")
+      smallClass=(if isSmall "uni-checkbox--small" "")
       errorClass=(if hasError "uni-checkbox--error" "")}}>
 
   <label for={{i "${id}-checkbox" id=elementId}}>

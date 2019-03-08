@@ -12,8 +12,6 @@ export default Component.extend({
   onChange() {},
 
   change() {
-    this.toggleProperty('isSelected');
-    this.get('onChange')(this.get('isSelected'));
+    this.get('onChange')(!this.get('isSelected'));
   }
 });
-
