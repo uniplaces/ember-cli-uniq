@@ -5,6 +5,7 @@ import moment from 'moment';
 export default Route.extend({
   model() {
     return {
+      isCheckboxSelected: false,
       checked: false,
       options: ['A', 'B', 'C'],
       isOpen: true,

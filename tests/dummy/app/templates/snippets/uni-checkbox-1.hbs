@@ -2,3 +2,7 @@
 {{uni-checkbox label="Not selected" isSelected=false}}
 {{uni-checkbox label="Disabled checkbox" isDisabled=true}}
 {{uni-checkbox label="Checkbox with error" hasError=true}}
+{{uni-checkbox
+  label="Checkbox with onChange hook"
+  isSelected=isCheckboxSelected
+  onChange=(action (mut isCheckboxSelected))}}
