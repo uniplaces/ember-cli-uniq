@@ -5,16 +5,16 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
-let StubI18nService = Service.extend({
-  locale: 'en-gb'
+let StubIntlService = Service.extend({
+  primaryLocale: 'en-gb'
 });
 
 module('Integration | Helper | to money', function(hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function() {
-    this.owner.register('service:i18n', StubI18nService);
-    this.i18n = this.owner.lookup('service:i18n');
+    this.owner.register('service:intl', StubIntlService);
+    this.intl = this.owner.lookup('service:intl');
   });
 
   test('It renders', async function(assert) {
