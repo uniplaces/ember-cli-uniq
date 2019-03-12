@@ -28,22 +28,19 @@ module.exports = {
   included() {
     this._super.included.apply(this, arguments);
 
-    let app = this._findHost();
-
-    this.app = app;
-
-    this.emberCliUniqOptions = app.options[this.name] || {};
+    this.app = this._findHost();
+    this.emberCliUniqOptions = this.app.options[this.name] || {};
     this.whitelist = this.generateWhitelist(this.emberCliUniqOptions.only);
   },
 
   treeForAddon() {
-    var tree = this._super.treeForAddon.apply(this, arguments);
+    let tree = this._super.treeForAddon.apply(this, arguments);
 
     return this.filterComponents(tree);
   },
 
   treeForAddonTemplates() {
-    var tree = this._super.treeForAddonTemplates.apply(this, arguments);
+    let tree = this._super.treeForAddonTemplates.apply(this, arguments);
 
     return this.filterComponents(tree);
   },
