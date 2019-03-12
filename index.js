@@ -34,8 +34,6 @@ module.exports = {
 
     this.options = app.options[this.name] || {};
     this.whitelist = this.generateWhitelist(this.options.only);
-
-    console.log(this.whitelist);
   },
 
   treeForAddon() {
@@ -57,21 +55,14 @@ module.exports = {
       return tree;
     }
 
-    console.log('Including only the whitelisted files...');
-
     return new Funnel(tree, {
       exclude: [(name) => this.excludeComponent(name, whitelist)]
     });
   },
 
   excludeComponent(name, whitelist) {
-    console.log(`--------- ${name} ---------`);
-
-    let regex = /^(templates\/)?components\//;
+    let regex = /(templates\/)?components\//;
     let isComponent = regex.test(name);
-
-    console.log(`${name} is a component? ${isComponent ? 'yes' : 'no'}`);
-
     if (!isComponent) {
       return false;
     }
@@ -81,12 +72,10 @@ module.exports = {
 
     let isWhitelisted = whitelist.indexOf(baseName) !== -1;
 
-    console.log(`${name}'s basename: ${baseName}. Exclude? ${!isWhitelisted}`);
-    console.log(`------------------`);
-
     return !isWhitelisted;
   },
 
+  // https://github.com/kaliber5/ember-bootstrap/blob/master/index.js#L325
   generateWhitelist(whitelist) {
     let whitelisted = [];
 
