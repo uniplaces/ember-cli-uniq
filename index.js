@@ -32,8 +32,8 @@ module.exports = {
 
     this.app = app;
 
-    this.options = app.options[this.name] || {};
-    this.whitelist = this.generateWhitelist(this.options.only);
+    this.emberCliUniqOptions = app.options[this.name] || {};
+    this.whitelist = this.generateWhitelist(this.emberCliUniqOptions.only);
   },
 
   treeForAddon() {
