@@ -29,7 +29,7 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     this.app = this._findHost();
-    this.emberCliUniqOptions = this.app.options[this.name] || {};
+    this.emberCliUniqOptions = Object.assign({}, this.app.options[this.name]);
     this.whitelist = this.generateWhitelist(this.emberCliUniqOptions.only);
   },
 
