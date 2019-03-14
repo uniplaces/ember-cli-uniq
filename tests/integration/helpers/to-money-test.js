@@ -43,7 +43,7 @@ module('Integration | Helper | to money', function(hooks) {
     assert.dom(this.element).hasText('£2500');
   });
 
-  test('it superseds intl service defined', async function(assert) {
+  test('it renders with both services defined with intl supersedding i18n', async function(assert) {
     this.owner.register('service:intl', StubIntlService);
     this.owner.register('service:i18n', StubI18nService);
 
