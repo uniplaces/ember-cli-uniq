@@ -48,9 +48,5 @@ module.exports = function(environment) {
     ENV.rootURL = '/ember-cli-uniq/';
   }
 
-  ENV.i18n = {
-    defaultLocale: 'en-gb'
-  };
-
   return ENV;
 };

@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('helper:interpolate', function(hooks) {
+module('Integration | Helper | interpolate', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('interpolates values from string', async function(assert) {
+  test('it interpolates values from string', async function(assert) {
     this.set('toBeInterpolated', '${b}');
 
     await render(hbs`{{i toBeInterpolated b='cat' d='fish'}}`);
