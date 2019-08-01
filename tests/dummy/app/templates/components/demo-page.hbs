@@ -669,7 +669,7 @@
           <br>
           - <b>fractionDigits</b>:
           <br>
-          The minimum number of fraction digits to use.
+          The maximum number of fraction digits to use.
           Possible values are from 0 to 20; the default is 0.
           <br>
           - <b>transform</b>:
@@ -686,6 +686,9 @@
 
         {{to-money model.moneyWithCentsExample fractionDigits=2}}
         {{code-snippet name="to-money-3.hbs"}}
+
+        {{to-money model.moneyExample fractionDigits=2}}
+        {{code-snippet name="to-money-4.hbs"}}
       </div>
     </div>
   </div>

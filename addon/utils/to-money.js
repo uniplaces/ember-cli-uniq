@@ -5,7 +5,7 @@ export default function toMoney(amount, currencyCode = 'EUR', locale = 'en-gb', 
       style: 'currency',
       currency: currencyCode,
       maximumFractionDigits: fractionDigits,
-      minimumFractionDigits: fractionDigits,
+      minimumFractionDigits: 0,
       useGrouping: false
     }
   )
