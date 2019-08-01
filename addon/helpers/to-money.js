@@ -29,7 +29,7 @@ export default Helper.extend({
 
     let locale = this._getLocale();
     let { amount, currency_code } = params;
-    let fractionDigits = isPresent(namedArgs.fractionDigits) ? namedArgs.fractionDigits : DEFAULT_FRACTION_DIGITS;
+    let fractionDigits = namedArgs.fractionDigits || DEFAULT_FRACTION_DIGITS;
     let transformedAmount = isPresent(namedArgs.transform) && !namedArgs.transform ? amount * 100 : amount;
 
     return toMoney(transformedAmount, currency_code, locale, fractionDigits);
