@@ -21,5 +21,14 @@ module('Unit | Utility | to money', function() {
       assert.ok(result);
       assert.ok(result.includes('2000'));
     });
+
+    test(`It works with fractionDigits`, function(assert) {
+      assert.expect(2);
+
+      let result = toMoney(19999, currency, 'en-gb', 2);
+
+      assert.ok(result);
+      assert.ok(result.includes('199.99'));
+    });
   });
 });
