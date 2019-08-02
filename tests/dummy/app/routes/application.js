@@ -180,6 +180,10 @@ export default Route.extend({
       moneyTransformedExample: {
         amount: 2500,
         currency_code: 'EUR'
+      },
+      moneyWithCentsExample: {
+        amount: 19999,
+        currency_code: 'EUR'
       }
     };
   },

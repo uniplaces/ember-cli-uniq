@@ -4,6 +4,7 @@ import { isEmpty, isPresent } from '@ember/utils';
 import toMoney from 'ember-cli-uniq/utils/to-money';
 
 const DEFAULT_LOCALE = 'en-gb';
+const DEFAULT_FRACTION_DIGITS = 0;
 
 export default Helper.extend({
   _getLocale() {
@@ -28,8 +29,9 @@ export default Helper.extend({
 
     let locale = this._getLocale();
     let { amount, currency_code } = params;
+    let fractionDigits = namedArgs.fractionDigits || DEFAULT_FRACTION_DIGITS;
     let transformedAmount = isPresent(namedArgs.transform) && !namedArgs.transform ? amount * 100 : amount;
 
-    return toMoney(transformedAmount, currency_code, locale);
+    return toMoney(transformedAmount, currency_code, locale, fractionDigits);
   }
 });
