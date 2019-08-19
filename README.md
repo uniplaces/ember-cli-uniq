@@ -9,6 +9,14 @@ This is an addon that contains the most used front-end components in the several
 
 A demo of the components can be found on [uniplaces.github.io/ember-cli-uniq](https://uniplaces.github.io/ember-cli-uniq/).
 
+
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+
+
 Installation
 ------------------------------------------------------------------------------
 
