@@ -27,7 +27,7 @@ export default Component.extend({
   },
 
   // This observer is used to bypass the scroll on mobile when a modal is open
-  // eslint-disable-next-line ember/no-on-calls-in-components
+  // eslint-disable-next-line ember/no-on-calls-in-components, ember/no-observers
   onOpenChangeObserver: on('init', observer('isOpen', function() {
     let isFirstLoad = this.get('isFirstLoad');
     this.set('isFirstLoad', false);
