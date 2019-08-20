@@ -12,7 +12,6 @@ module('Integration | Component | uni datepicker range', function(hooks) {
 
     assert.dom('.calendar__nav').exists();
     assert.dom('.calendar__nav__month-name').exists();
-    assert.dom('.uni-datepicker-range-day').exists();
   });
 
   test('it changes months and calls onSelect', async function(assert) {

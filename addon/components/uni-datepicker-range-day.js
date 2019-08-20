@@ -5,13 +5,13 @@ import layout from '../templates/components/uni-datepicker-range-day';
 
 export default RangeDaysComponent.extend({
   layout,
-  classNames: ['uni-datepicker-range-day'],
   minimumStay: null,
   highlightedDates: [],
 
-  buildDay(dayMoment, today, calendar) {
+  buildDay(date, today, calendar) {
     let day = this._super(...arguments);
-
+    let { moment: dayMoment } = day;
+    
     let { end } = getProperties(calendar.selected || { end: null }, 'end');
 
     day.isMinimumStay = isPresent(this.get('minimumStay')) && end !== null

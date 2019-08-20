@@ -17,8 +17,3 @@ ember app. You can run the website locally:
 $ npm install (or yarn install)
 $ npm run start
 ```
-
-## Dependency on ember-concurrency
-Ember-concurrency is a dependency of ember-power-calendar.
-However the version 0.8 has a bug when running with most recent ember versions, so we explicitly make it a dependency.
-After updating ember-power-calendar this should not be needed anymore.
