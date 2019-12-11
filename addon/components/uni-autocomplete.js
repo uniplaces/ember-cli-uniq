@@ -38,8 +38,17 @@ export default Component.extend({
         return [];
       }
 
-      let options = this.get('options').map((option) => {
-        let matchedValues = this.filterFunction(this.get('searchTextValues'), option);
+      const options = this.options.map((option) => {
+        const matchedValues = this.filterFunction(this.searchTextValues, option);
+        const text = matchedValues.get('firstObject');
+        const { value: currentValue } = option;
+
+        if (isPresent(text) && isPresent(currentValue)) {
+            const currentInput = new RegExp(`(${this.value})`, 'gi');
+            const matchedOptionText = currentValue.replace(currentInput, '<span style="color:#00adef">$1</span>');
+
+            return { option, matchedValues, matchedOptionText };
+        }
 
         return { option, matchedValues };
       });
@@ -56,20 +65,6 @@ export default Component.extend({
     let options = this.get('optionsFiltered');
 
     return isEmpty(options) ? null : options.objectAt(this.get('highlighted'));
-  }),
-
-  autocompleteText: computed('autocompleteOption', 'value', function() {
-    let option = this.get('autocompleteOption');
-
-    if (isEmpty(option)) {
-      return '';
-    }
-
-    let value = this.get('value');
-    let optionText = option.matchedValues.get('firstObject');
-    let matchingLetters = optionText.slice(0, value.length);
-
-    return optionText.replace(matchingLetters, value);
   }),
 
   onFocusOut() {},
@@ -113,7 +108,7 @@ export default Component.extend({
 
   filterFunction(getSearchTextValues, option) {
     let options = getSearchTextValues(option).map((x) => x.toLowerCase());
-    let matchedValues = A(options.filter((el) => el.startsWith(this.get('valueLowerCase'))));
+    let matchedValues = A(options.filter((el) => el.includes(this.get('valueLowerCase'))));
 
     return matchedValues;
   },
