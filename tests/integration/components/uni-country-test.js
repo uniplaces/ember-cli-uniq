@@ -29,7 +29,7 @@ module('Integration | Component | uni country', function(hooks) {
 
     await render(hbs`{{uni-country}}`);
 
-    await fillIn('input', 'p');
+    await fillIn('input', 'pana');
 
     assert.dom('.option--highlighted').exists();
     assert.dom('.option--highlighted').includesText('Panama');

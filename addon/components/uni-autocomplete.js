@@ -40,7 +40,7 @@ export default Component.extend({
 
       const options = this.options.map((option) => {
         const matchedValues = this.filterFunction(this.searchTextValues, option);
-        const text = matchedValues.get('firstObject');
+        const { firstObject: text } = matchedValues;
         const { value: currentValue } = option;
 
         if (isPresent(text) && isPresent(currentValue)) {
