@@ -107,8 +107,8 @@ export default Component.extend({
   },
 
   filterFunction(getSearchTextValues, option) {
-    let options = getSearchTextValues(option).map((x) => x.toLowerCase());
-    let matchedValues = A(options.filter((el) => el.includes(this.get('valueLowerCase'))));
+    const options = getSearchTextValues(option).map((x) => x.toLowerCase());
+    const matchedValues = A(options.filter((el) => el.includes(this.get('valueLowerCase'))));
 
     return matchedValues;
   },
