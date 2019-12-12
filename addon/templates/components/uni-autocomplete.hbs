@@ -1,5 +1,3 @@
-<span class="uni-autocomplete__placeholder">{{autocompleteText}}</span>
-
 {{input
   value=value
   placeholder=(if placeholder placeholder placeholderText)
@@ -7,7 +5,7 @@
   focus-in=(action "showOptions")
   focus-out=(queue (action "selectHighlightedOption") (action "onFocusOut"))
   class=(i "uni-input uni-input--bordered ${errorClass}" errorClass=(if hasError "uni-input--error"))
-  key-down=(action "keyPress")}}
+  keyDown=(action "keyPress")}}
 
 {{#if optionsFiltered}}
   {{#if showOptions}}
@@ -15,7 +13,11 @@
       {{#each optionsFiltered as |option index|}}
         <li {{action "onSelected" option}}>
           <span class="option {{if (eq index highlighted) "option--highlighted"}}" {{action "setHighlighted" index on="mouseEnter"}}>
-            {{yield option}}
+            {{#if option.option.code}}
+              {{yield option}}
+            {{else}}
+              {{html-safe option.matchedOptionText}}
+            {{/if}}
           </span>
         </li>
       {{/each}}
