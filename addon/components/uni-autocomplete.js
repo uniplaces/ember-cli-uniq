@@ -143,8 +143,6 @@ export default Component.extend({
   },
 
   _handleKeyEnter() {
-    this.selectOption(this.get('optionsFiltered').objectAt(this.get('highlighted')));
-
     this.element.querySelector('input').blur();
   },
 
