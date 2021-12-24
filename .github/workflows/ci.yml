@@ -5,6 +5,7 @@ on: push
 jobs:
   linter:
     runs-on: ubuntu-latest
+    container: uniplaces/node:10.3-chromium-alpine-3
 
     steps:
       - uses: actions/checkout@v2
