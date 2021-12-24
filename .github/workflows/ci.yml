@@ -9,8 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
       - name: Cache node_nodules
         id: cached-node-modules
@@ -18,8 +16,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}-1
-          restore-keys: |
-            ${{ runner.os }}-npm-1
 
       - name: Install dependencies
         if: steps.cached-node-modules.outputs.cache-hit != 'true'
@@ -44,8 +40,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}-1
-          restore-keys: |
-            ${{ runner.os }}-npm-1
 
       - name: Install dependencies
         if: steps.cached-node-modules.outputs.cache-hit != 'true'
