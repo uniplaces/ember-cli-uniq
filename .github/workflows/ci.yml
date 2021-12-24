@@ -1,0 +1,30 @@
+name: CI
+
+on: push
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Running linter
+        run: |
+          npm ci
+          npm run lint:hbs
+          npm run lint:js
+
+  tests:
+    runs-on: ubuntu-latest
+    container: uniplaces/node:10.3-chromium-alpine-3
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+          npm ci
+          npm test
