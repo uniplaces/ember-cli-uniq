@@ -1,0 +1,59 @@
+name: CI
+
+on: push
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.3.0'
+
+      - name: Cache node_nodules
+        id: cached-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}-1
+
+      - name: Install dependencies
+        if: steps.cached-node-modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+
+      - name: Running linter
+        run: |
+          npm run lint:hbs
+          npm run lint:js
+
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.3.0'
+
+      - name: Cache node_nodules
+        id: cached-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}-1
+
+      - name: Install dependencies
+        if: steps.cached-node-modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+
+      - name: Run tests
+        run: |
+          npm test
