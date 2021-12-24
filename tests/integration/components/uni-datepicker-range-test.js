@@ -4,8 +4,18 @@ import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import moment from 'moment';
 
+const realNow = window.Date.now;
+
 module('Integration | Component | uni datepicker range', function(hooks) {
   setupRenderingTest(hooks);
+
+  hooks.beforeEach(() => {
+    window.Date.now = () => new Date('2020-04-01');
+  }),
+
+  hooks.afterEach(() => {
+    window.Date.now = realNow;
+  }),
 
   test('it renders', async function(assert) {
     await render(hbs`{{uni-datepicker-range}}`);
