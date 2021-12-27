@@ -25,7 +25,7 @@ export default Component.extend(EKMixin, {
   }),
 
   didRender() {
-    this.set('componentWidth', document.querySelector('.uni-carrousel__container').offsetwidth);
+    this.set('componentWidth', document.querySelector('.uni-carrousel__container').offsetWidth);
   },
 
   // eslint-disable-next-line ember/no-on-calls-in-components
