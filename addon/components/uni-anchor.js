@@ -6,6 +6,6 @@ export default Component.extend({
   layout,
 
   tagName: 'a',
-  attributeBindings: ['href', 'target'],
-  href: '#'
+  attributeBindings: ['href', 'target', 'rel'],
+  href: '#',
 });
