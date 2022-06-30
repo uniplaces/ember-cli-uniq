@@ -2,14 +2,26 @@
   {{#if (not logoSrc)}}
     {{#if logoUrl}}
       <a href={{logoUrl}}>
+      {{#if isResidences}}  
+        {{svg-jar (if isTransparent "uniplaces_logo_white" "uniresidences_logo")}}
+      {{else}}
         {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+      {{/if}}
       </a>
     {{else if logoRoute}}
       {{#link-to logoRoute}}
-        {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+        {{#if isResidences}}  
+          {{svg-jar (if isTransparent "uniplaces_logo_white" "uniresidences_logo")}}
+        {{else}}
+          {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+        {{/if}}
       {{/link-to}}
     {{else}}
-      {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+      {{#if isResidences}}  
+        {{svg-jar (if isTransparent "uniplaces_logo_white" "uniresidences_logo")}}
+      {{else}}
+        {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
+      {{/if}}
     {{/if}}
   {{else}}
     <img src={{logoSrc}} width={{logoWidth}} height={{logoHeight}} alt="Logo">
