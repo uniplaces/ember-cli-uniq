@@ -2,7 +2,7 @@
   {{#if (not logoSrc)}}
     {{#if logoUrl}}
       <a href={{logoUrl}}>
-      {{#if isResidences}}  
+      {{#if isResidence}}  
         {{svg-jar (if isTransparent "uniplaces_logo_white" "uniresidences_logo")}}
       {{else}}
         {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
@@ -10,14 +10,14 @@
       </a>
     {{else if logoRoute}}
       {{#link-to logoRoute}}
-        {{#if isResidences}}  
+        {{#if isResidence}}  
           {{svg-jar (if isTransparent "uniplaces_logo_white" "uniresidences_logo")}}
         {{else}}
           {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
         {{/if}}
       {{/link-to}}
     {{else}}
-      {{#if isResidences}}  
+      {{#if isResidence}}  
         {{svg-jar (if isTransparent "uniplaces_logo_white" "uniresidences_logo")}}
       {{else}}
         {{svg-jar (if isTransparent "uniplaces_logo_white" "uniplaces_logo")}}
