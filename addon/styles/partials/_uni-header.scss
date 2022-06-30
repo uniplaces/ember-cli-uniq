@@ -6,6 +6,14 @@
         height: auto;
     }
 
+    &--residence {
+      &__nav__button a {
+        &:hover {
+          color: color('residences');
+        }
+      }
+    }
+
     &__wrapper {
       @include justify-content-start();
 
