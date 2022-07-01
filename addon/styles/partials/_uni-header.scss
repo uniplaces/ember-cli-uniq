@@ -9,7 +9,7 @@
     &--residence {
       &__nav__button a {
         &:hover {
-          color: color('residences');
+          color: color('residences', 'primary');
         }
       }
     }
