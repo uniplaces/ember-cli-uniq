@@ -10,7 +10,7 @@ export default Component.extend({
 
   href: null,
   target: '_blank',
-  rel: null,
+  rel: 'noreferrer noopener',
 
   action() {},
 
