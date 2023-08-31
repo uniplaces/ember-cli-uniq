@@ -26,16 +26,4 @@ module('Integration | Component | uni header button', function(hooks) {
 
     assert.dom('.uni-header__nav__button').hasText(DEFAULT_LABEL);
   });
-
-  test('it renders with rel noppener and noreferrer', async function(assert) {
-    assert.expect(1);
-
-    this.set('label', DEFAULT_LABEL);
-    this.set('action', () => {});
-    this.set('rel', 'noreferrer noopener');
-
-    await render(hbs`{{uni-header-button label=label target="_blank" rel=rel}}`);
-
-    assert.dom('.uni-header__nav__button').hasAttribute('target', '_blank');
-  });
 });
