@@ -32,8 +32,9 @@ module('Integration | Component | uni header button', function(hooks) {
 
     this.set('label', DEFAULT_LABEL);
     this.set('action', () => {});
+    this.set('rel', "noreferrer noopener");
 
-    await render(hbs`{{uni-header-button label=label target="_blank" rel="noreferrer noopener"}}`);
+    await render(hbs`{{uni-header-button label=label target="_blank" rel=rel}}`);
 
     const linkElement = this.element.querySelector('a');
     const relAttribute = linkElement.getAttribute('rel');
