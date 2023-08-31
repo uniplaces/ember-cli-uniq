@@ -36,8 +36,6 @@ module('Integration | Component | uni header button', function(hooks) {
 
     await render(hbs`{{uni-header-button label=label target="_blank" rel=rel}}`);
 
-    const relAttribute = document.querySelector('.uni-header__nav__button').getAttribute('rel');
-
-    assert.equal(relAttribute, 'noreferrer noopener');
+    assert.dom('.uni-header__nav__button').hasAttribute('rel', 'noreferrer noopener');
   });
 });
