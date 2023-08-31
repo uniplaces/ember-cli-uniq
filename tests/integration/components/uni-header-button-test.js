@@ -26,4 +26,18 @@ module('Integration | Component | uni header button', function(hooks) {
 
     assert.dom('.uni-header__nav__button').hasText(DEFAULT_LABEL);
   });
+
+  test('it renders with rel noppener and noreferrer', async function(assert) {
+    assert.expect(1);
+
+    this.set('label', DEFAULT_LABEL);
+    this.set('action', () => {});
+
+    await render(hbs`{{uni-header-button label=label target="_blank" rel="noreferrer noopener"}}`);
+
+    const linkElement = this.element.querySelector('a');
+    const relAttribute = linkElement.getAttribute('rel');
+
+    assert.ok(relAttribute.includes('noreferrer'), 'Link has rel="noreferrer"');
+  });
 });
