@@ -38,6 +38,6 @@ module('Integration | Component | uni header button', function(hooks) {
 
     const relAttribute = document.querySelector('a').getAttribute('rel');
 
-    assert.ok(relAttribute.includes('noreferrer'), 'Link has rel="noreferrer"');
+    assert.equal(relAttribute, 'noreferrer noopener');
   });
 });
