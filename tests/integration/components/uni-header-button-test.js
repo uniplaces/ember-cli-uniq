@@ -36,8 +36,7 @@ module('Integration | Component | uni header button', function(hooks) {
 
     await render(hbs`{{uni-header-button label=label target="_blank" rel=rel}}`);
 
-    const linkElement = this.element.querySelector('a');
-    const relAttribute = linkElement.getAttribute('rel');
+    const relAttribute = document.querySelector('a').getAttribute('rel');
 
     assert.ok(relAttribute.includes('noreferrer'), 'Link has rel="noreferrer"');
   });
